@@ -1,0 +1,184 @@
+## Based on config originally from geekofweek
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret secret_latitude
+  longitude: !secret secret_longitude
+  elevation: !secret secret_elevation
+  unit_system: imperial
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+  customize: !include customize.yaml
+
+
+config:
+
+http:
+  api_password: !secret secret_api_password
+  base_url: !secret secret_base_url
+  ssl_certificate: !secret secret_ssl_certificate
+  ssl_key: !secret secret_ssl_key
+  cors_allowed_origins:
+    - https://home-assistant.io
+
+# Enables the frontend
+frontend:
+
+# Checks for available updates
+updater:
+  reporting: no
+
+# Track the sun
+sun:
+
+# Discover some devices automatically
+discovery:
+ ignore:
+   - samsung_tv
+
+
+
+# Custom Logging Setting
+#logger:
+# Enables support for tracking state changes over time.
+history:
+
+
+#################################################################
+## Components
+#################################################################
+
+hue:
+  bridges:
+  - host: 192.168.0.32
+    allow_unreachable: false
+    allow_hue_groups: false
+
+remote:
+  - platform: harmony
+    name: Media Center
+    host: 192.168.0.12
+
+
+# Wink Hub
+wink:
+
+ecobee:
+  api_key: !secret secret_ecobee_apikey
+  hold_temp: true
+
+# Ring
+ring:
+    username: !secret secret_ring_username
+    password: !secret secret_ring_password
+
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
+
+# Nest
+nest:
+  client_id: !secret secret_nest_clientid
+  client_secret: !secret secret_nest_secret
+
+device_tracker:
+  - platform: locative
+    track_new_devices: no
+    interval_seconds: 12
+    consider_home: 180
+  - platform: snmp
+    host: 192.168.0.1
+    community: public
+    baseoid: 1.3.6.1.2.1.4.22.1.2
+
+notify:
+  - name: hass_sns
+    platform: aws_sns
+    aws_access_key_id: !secret secret_aws_access_key_id
+    aws_secret_access_key: !secret secret_aws_secret_access_key
+    region_name: 'us-east-1'
+
+ios:
+
+################################################################
+## Media Players
+################################################################
+media_player:
+ - platform: plex
+
+#################################################################
+## Zones
+#################################################################
+
+zone :
+
+  name: Church
+  latitude: !secret secret_church_latitude
+  longitude: !secret secret_church_longitude
+  radius: 250
+  icon: mdi:church
+
+zone 2:
+
+  name: Dance
+  latitude: !secret secret_dance_latitude
+  longitude: !secret secret_dance_longitude
+  radius: 250
+  icon: mdi:school
+
+#################################################################
+## Alarm Panel - Envisalink-DSC
+#################################################################
+
+envisalink:
+#optional
+  port: 4025
+  evl_version: 4
+  keepalive_interval: 60
+  zonedump_interval: 30
+
+#required
+  host: !secret secret_envisalink_host
+  panel_type: DSC
+  user_name: !secret secret_alarm_user_name
+  password: !secret secret_alarm_password
+  code: !secret secret_alarm_code
+
+  zones:
+    1:
+      name: 'Garage Entry Door'
+      type: 'opening'
+
+    2:
+      name: 'Garage Back Door'
+      type: 'opening'
+
+    3:
+      name: 'Front Door'
+      type: 'opening'
+
+    4:
+      name: 'Back Door'
+      type: 'opening'
+
+
+  partitions:
+    1:
+      name: 'Home Alarm'
+
+######## INCLUDES ########
+group: !include groups.yaml
+logbook: !include logbook.yaml
+recorder: !include recorder.yaml
+automation: !include_dir_merge_list automation
+sensor: !include sensors.yaml
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+light: !include light_group.yaml
+script: !include scripts.yaml

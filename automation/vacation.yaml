@@ -1,0 +1,41 @@
+#################################################################
+## Vacation Automations
+#################################################################
+
+        ##########################################################
+        ## Vacation Mode Lights on at 6p
+        ##########################################################
+
+- alias: Vacation - Lights On 6p
+
+  trigger:
+    - platform: time
+      at: '18:04'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+
+  action:
+    - service: light.turn_on
+      entity_id: group.family_room
+       
+        ##########################################################
+        ## Vacation Mode Lights Off at 11p
+        ##########################################################
+
+- alias: Vacation - Lights Off 11p
+
+  trigger:
+    - platform: time
+      at: '23:34'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+
+  action:
+    - service: light.turn_off
+      entity_id: group.family_room

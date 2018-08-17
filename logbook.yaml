@@ -1,0 +1,21 @@
+#################################################################
+## Logbook
+#################################################################
+  include:
+    domains:
+      - automation
+      - sensor
+      - switch
+      - groups
+      - device_tracker
+      - binary_sensor
+  exclude:
+    entities:
+      - sensor.date__time
+      - sensor.cpu
+      - sensor.cpu_use
+      - sensor.ram_use
+      - sensor.ram_free
+      - sensor.since_last_boot
+      - binary_sensor.hub
+      - updater.updater

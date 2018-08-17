@@ -1,0 +1,314 @@
+#################################################################
+## Automations
+## Based on config originally from geekofweek
+#################################################################
+
+
+
+        ##########################################################
+        ## USER1 Home Turn on Lights
+        ##########################################################
+
+- alias: USER1 Home
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER1siphone
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_home_away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.USER1_away
+      state: 'on'
+
+  action:
+    service: light.turn_on
+    entity_id: group.family_room
+    data:
+     brightness: 255
+
+        ##########################################################
+        ## USER2 Home Turn on Lights
+        ##########################################################
+
+- alias: USER2 Home
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER2siphone
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_home_away
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.USER2_away
+      state: 'on'
+
+  action:
+    service: light.turn_on
+    entity_id: group.family_room
+    data:
+     brightness: 255
+
+        ##########################################################
+        ## Pantry Light On When Door Open
+        ##########################################################
+
+- alias: Pantry Light On
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pantry_door_opened
+      from: 'off'
+      to: 'on'
+
+  action:
+    service: light.turn_on
+    entity_id: group.pantry
+    data:
+     brightness: 255
+
+        ##########################################################
+        ## Pantry Light Off When Door Open
+        ##########################################################
+
+- alias: Pantry Light Off
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pantry_door_opened
+      from: 'on'
+      to: 'off'
+
+  action:
+    service: light.turn_off
+    entity_id: group.pantry
+
+        ##########################################################
+        ## Turn on Outside Lights at Sunset
+        ##########################################################
+
+- alias: Outside Lights On
+
+  trigger:
+    - platform: sun
+      event: 'sunset'
+      offset: '-00:05:00'
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.outside_lights
+
+
+        ##########################################################
+        ## Turn off Outside Lights at 11:30pm
+        ##########################################################
+
+- alias: Outside Lights Off
+
+  trigger:
+    - platform: time
+      at: '23:30'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.outside
+    - service: homeassistant.turn_off
+      entity_id: group.walkout
+
+        ##########################################################
+        ## Turn off Kids Bedroom Night Lights at 11:00pm
+        ##########################################################
+
+- alias: Kids Lights Off
+
+  trigger:
+    - platform: time
+      at: '23:00'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.USER4_bedroom
+    - service: homeassistant.turn_off
+      entity_id: group.USER3_bedroom
+
+        ##########################################################
+        ## Basement Light Off When No Motion 60 Minutes
+        ##########################################################
+
+- alias: Basement Lights Off
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.basement_motion
+      from: 'on'
+      to: 'off'
+      for:
+        hours: 1
+        minutes: 0
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.basement
+
+#################################################################
+## Work Arounds
+#################################################################
+
+        ##########################################################
+        ## Disable Alarm when Home
+        ##########################################################
+
+- alias: Disable Alarm when Home
+
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'not_home'
+      to: 'home'
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.disable_security
+
+        ##########################################################
+        ## Enable Alarm when Away
+        ##########################################################
+
+- alias: Enable Alarm when Away
+
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'home'
+      to: 'not_home'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: input_boolean.disable_security
+
+        ##########################################################
+        ## Set USER1 Away after 2 Mins
+        ##########################################################
+
+- alias: Set USER1 Away after 2 Mins
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER1siphone
+      from: 'home'
+      to: 'not_home'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.USER1_away
+
+        ##########################################################
+        ## Set USER1 Home after 10 Mins
+        ##########################################################
+
+- alias: Set USER1 Home after 10 Mins
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER1siphone
+      from: 'not_home'
+      to: 'home'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: input_boolean.USER1_away
+
+        ##########################################################
+        ## Set USER2 Away after 2 Mins
+        ##########################################################
+
+- alias: Set USER2 Away after 2 Mins
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER2siphone
+      from: 'home'
+      to: 'not_home'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.USER2_away
+
+        ##########################################################
+        ## Set USER2 Home after 10 Mins
+        ##########################################################
+
+- alias: Set USER2 Home after 10 Mins
+
+  trigger:
+    - platform: state
+      entity_id: device_tracker.USER2siphone
+      from: 'not_home'
+      to: 'home'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+  action:
+    service: homeassistant.turn_off
+    entity_id: input_boolean.USER2_away
+
+
+      #################################################################
+      ## Remote
+      #################################################################
+
+- alias: Media - Remote external update Media Center
+
+  trigger:
+    platform: state
+    entity_id: remote.media_center
+
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.remote
+        option: >
+          {{ states.remote.media_center.attributes.current_activity }}
+
+- alias: Media - Remote start activity from input select media center
+
+  trigger:
+    platform: state
+    entity_id: input_select.remote
+
+  action:
+    - service: script.turn_on
+      entity_id: script.input_select_harmony

@@ -1,0 +1,197 @@
+#################################################################
+## Customize
+#################################################################
+
+
+        ##########################################################
+        ## Thermostat
+        ##########################################################
+
+  climate.home:
+    friendly_name: Thermostat
+
+
+        ##########################################################
+        ## Device Trackers
+        ##########################################################
+
+  device_tracker.USER1siphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER1's iPhone (Router)
+  device_tracker.REDACTED:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER1's iPhone (Locative)
+  device_tracker.REDACTED:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER2's iPhone (Locative)
+  device_tracker.USER2siphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER2's iPhone (Router)
+  device_tracker.USER3siphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER3's iPhone (Router)
+  device_tracker.REDACTED:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER3's iPhone (Locative)
+  device_tracker.USER4siphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER4's iPhone (Router)
+
+        ##########################################################
+        ## Door Bell
+        ##########################################################
+
+  binary_sensor.front_door_button_pressed:
+    friendly_name: Door Bell
+    icon: mdi:bell-ring
+  binary_sensor.front_door_motion:
+    icon: mdi:bell-ring
+    friendly_name: Door Bell Motion
+  sensor.ring_front_door_battery:
+    friendly_name: Door Bell
+    icon: mdi:battery
+
+        ##########################################################
+        ## Rooms
+        ##########################################################
+
+  group.family_room:
+    icon: mdi:sofa
+  group.master_bedroom:
+    icon: mdi:hotel
+  group.USER3_bedroom:
+    icon: mdi:hotel
+  group.USER4_bedroom:
+    icon: mdi:hotel
+  group.basement:
+    icon: mdi:stairs
+  group.outside_lights:
+    icon: mdi:nature
+
+        ##########################################################
+        ## Sensors
+        ##########################################################
+
+  sensor.cpu_use:
+    friendly_name: CPU Usage
+  sensor.ram_use:
+    friendly_name: RAM Usage
+  sensor.since_last_boot:
+    friendly_name: Uptime
+  sensor.pantry_door_battery:
+    icon: mdi:battery
+  sensor.basement_door_battery:
+    icon: mdi:battery
+  sensor.basement_motion_battery:
+    icon: mdi:battery
+  binary_sensor.hub:
+    friendly_name: Wink Hub
+    icon: mdi:ethernet
+
+
+        ##########################################################
+        ## ZWave Sensors
+        ##########################################################
+
+
+
+
+
+
+
+
+        ##########################################################
+        ## Switches
+        ##########################################################
+
+
+        ##########################################################
+        ## Lights
+        ##########################################################
+
+  group.hallway:
+    friendly_name: Hallway
+    icon: mdi:ceiling-light
+
+        ##########################################################
+        ## Weather
+        ##########################################################
+
+  sensor.dark_sky_temperature:
+    friendly_name: 'Outdoor Temperature'
+  sensor.dark_sky_summary:
+    friendly_name: 'Summary'
+  sensor.dark_sky_hourly_summary:
+    friendly_name: 'Hourly Summary'
+  sensor.dark_sky_minutely_summary:
+    friendly_name: 'Minute Summary'
+  sensor.dark_sky_daily_summary:
+    friendly_name: 'Daily Summary'
+  sensor.dark_sky_apparent_temperature:
+    icon: mdi:thermometer-lines
+    friendly_name: 'Apparent Temperature'
+  sensor.dark_sky_precip:
+    icon: mdi:weather-pouring
+    friendly_name: 'Precipitation'
+  sensor.dark_sky_precip_probability:
+    icon: mdi:weather-pouring
+    friendly_name: 'Precipitation Probability'
+  sensor.dark_sky_precip_intensity:
+    icon: mdi:weather-pouring
+    friendly_name: 'Rainfall'
+  sensor.dark_sky_humidity:
+    icon: mdi:water-percent
+    friendly_name: 'Outdoor Humidity'
+  sensor.dark_sky_cloud_cover:
+    icon: mdi:weather-cloudy
+    friendly_name: 'Cloud Cover'
+  sensor.dark_sky_nearest_storm_distance:
+    icon: mdi:weather-lightning
+    friendly_name: 'Nearest Storm'
+  sensor.dark_sky_wind_speed:
+    icon: mdi:weather-windy
+    friendly_name: 'Wind Speed'
+  sensor.dark_sky_wind_bearing:
+    icon: mdi:weather-windy
+    friendly_name: 'Wind Bearing'
+  sensor.dark_sky_ozone:
+    icon: mdi:cloud
+    friendly_name: 'Ozone'
+  sensor.dark_sky_pressure:
+    icon: mdi:weight
+    friendly_name: 'Pressure'
+  sensor.dark_sky_dew_point:
+    friendly_name: 'Dew Point'
+  sensor.dark_sky_visibility:
+    friendly_name: 'Visibility'
+
+        ##########################################################
+        ## Media Players
+        ##########################################################
+
+  media_player.basement_apple_tv:
+    icon: mdi:apple
+    friendly_name: 'Basement Apple TV'
+  media_player.bedroom_apple_tv:
+    icon: mdi:apple
+    friendly_name: 'Master Bedroom Apple TV'
+  media_player.family_room:
+    icon: mdi:apple
+    friendly_name: 'Family Room Apple TV'
+
+        ##########################################################
+        ## Remote
+        ##########################################################
+
+  sensor.media_center:
+    icon: mdi:television
+
+
+        ##########################################################
+        ## NanoPool
+        ##########################################################
+
+  sensor.nanopoolhashrate:
+    icon: mdi:speedometer
+  sensor.nanopoolbalance:
+    icon: mdi:ethereum

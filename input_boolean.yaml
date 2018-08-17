@@ -1,0 +1,23 @@
+##############################################################
+## Input Boolean  ##
+##############################################################
+
+  alarm_tripped:
+    name: Alarm Tripped
+    initial: off
+    icon: mdi:shield-outline
+
+  vacation_mode:
+    name: Vacation Mode
+    initial: off
+    icon: mdi:airplane
+
+  USER1_away:
+    name: USER1 Away
+    initial: off
+    icon: mdi:walk
+
+  USER2_away:
+    name: USER2 Away
+    initial: off
+    icon: mdi:walk

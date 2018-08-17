@@ -1,0 +1,45 @@
+#################################################################
+## Recorder
+#################################################################
+
+  purge_interval: 1
+  purge_keep_days: 14
+  db_url: !secret secret_db_url
+
+  include:
+    domains:
+      - automation
+      - sensor
+      - switch
+      - groups
+      - device_tracker
+      - binary_sensor
+  exclude:
+    entities:
+      - sensor.date__time
+      - sensor.cpu
+      - sensor.cpu_use
+      - sensor.ram_use
+      - sensor.ram_free
+      - sensor.since_last_boot
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_cloud_coverage
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_dew_point
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_nearest_storm_bearing
+      - sensor.dark_sky_nearest_storm_distance
+      - sensor.dark_sky_ozone
+      - sensor.dark_sky_precip
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_pressure
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_visibility
+      - sensor.dark_sky_wind_bearing
+      - sensor.dark_sky_wind_speed
+      - binary_sensor.hub
+      - updater.updater

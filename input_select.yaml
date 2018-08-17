@@ -1,0 +1,17 @@
+#################################################################
+## Input Select
+#################################################################
+
+  remote:
+    name: Media Center Remote
+    options:
+      - PowerOff
+      - Watch TV
+      - Watch Apple TV
+      - Watch Netflix
+      - Watch a Movie
+      - Play Xbox One
+      - Play Wii U
+      - Listen to Radio
+    initial: PowerOff
+    icon: mdi:remote
