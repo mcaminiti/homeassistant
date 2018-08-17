@@ -22,8 +22,6 @@ http:
   base_url: !secret secret_base_url
   ssl_certificate: !secret secret_ssl_certificate
   ssl_key: !secret secret_ssl_key
-  cors_allowed_origins:
-    - https://home-assistant.io
 
 # Enables the frontend
 frontend:
@@ -54,14 +52,14 @@ history:
 
 hue:
   bridges:
-  - host: 192.168.0.32
+  - host: REDACTED.32
     allow_unreachable: false
     allow_hue_groups: false
 
 remote:
   - platform: harmony
     name: Media Center
-    host: 192.168.0.12
+    host: REDACTED.12
 
 
 # Wink Hub
@@ -93,7 +91,7 @@ device_tracker:
     interval_seconds: 12
     consider_home: 180
   - platform: snmp
-    host: 192.168.0.1
+    host: REDACTED.1
     community: public
     baseoid: 1.3.6.1.2.1.4.22.1.2
 

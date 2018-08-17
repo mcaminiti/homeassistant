@@ -96,10 +96,10 @@
       - ozone
   - platform: nut
     name: UPS
-    host: 192.168.0.100
+    host: REDACTED.100
     port: 3493
     alias: REDACTED
-    username: admin
+    username: REDACTED
     password: REDACTED
     resources:
       - ups.status.display
