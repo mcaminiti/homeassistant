@@ -59,12 +59,12 @@ Monitor:
       - group.system
       - group.dns
 
-#Currency:
-#    name: Currency
-#    view: yes
-#    icon: mdi:ethereum
-#    entities:
-#      - group.eth
+Currency:
+    name: Currency
+    view: yes
+    icon: mdi:ethereum
+    entities:
+      - group.eth
 
 Family:
     - device_tracker.USER1siphone
@@ -251,6 +251,6 @@ Nest:
 #  - sensor.allergy_index_yesterday
 #  - sensor.cold_flu_forecasted_average
 
-#Eth:
-#  - sensor.nanopoolhashrate
-#  - sensor.nanopoolbalance
+Eth:
+  - sensor.nanopoolhashrate
+  - sensor.nanopoolbalance
