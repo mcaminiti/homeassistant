@@ -73,6 +73,7 @@
         ##########################################################
 
   sensor.cpu_use:
+    icon: mdi:chip
     friendly_name: CPU Usage
   sensor.ram_use:
     friendly_name: RAM Usage
@@ -87,18 +88,9 @@
   binary_sensor.hub:
     friendly_name: Wink Hub
     icon: mdi:ethernet
-
-
-        ##########################################################
-        ## ZWave Sensors
-        ##########################################################
-
-
-
-
-
-
-
+  binary_sensor.basement_water_sensor_liquid_detected:
+    device_class: moisture
+    friendly_name: Basement Drain Water Sensor
 
         ##########################################################
         ## Switches
@@ -109,9 +101,16 @@
         ## Lights
         ##########################################################
 
-  group.hallway:
-    friendly_name: Hallway
-    icon: mdi:ceiling-light
+  light.USER2_bedroom_1:
+    icon: mdi:lamp
+  light.USER1_bedroom_1:
+    icon: mdi:lamp
+  light.USER3_bedroom_1:
+    icon: mdi:lamp
+  light.USER4_bedroom_1:
+    icon: mdi:lamp
+  light.family_room_1:
+    icon: mdi:floor-lamp
 
         ##########################################################
         ## Weather
@@ -179,6 +178,14 @@
     icon: mdi:apple
     friendly_name: 'Family Room Apple TV'
 
+       ##########################################################
+        ## Sonos
+        ##########################################################
+
+  media_player.office:
+    icon: mdi:speaker
+    friendly_name: Office Sonos
+
         ##########################################################
         ## Remote
         ##########################################################
@@ -186,6 +193,19 @@
   sensor.media_center:
     icon: mdi:television
 
+        ##########################################################
+        ## DNS
+        ##########################################################
+
+  sensor.myipopendnscom:
+    friendly_name: Current IP Address
+    icon: mdi:dns
+  sensor.REDACTED:
+    friendly_name: Home DNS IP Address
+    icon: mdi:dns
+  sensor.REDACTED:
+    friendly_name: Parent DNS IP Address
+    icon: mdi:dns
 
         ##########################################################
         ## NanoPool
@@ -195,3 +215,33 @@
     icon: mdi:speedometer
   sensor.nanopoolbalance:
     icon: mdi:ethereum
+
+        ##########################################################
+        ## UPS
+        ##########################################################
+
+  sensor.ups_status:
+    icon: mdi:car-battery
+  sensor.ups_battery_charge:
+    device_class: battery
+    icon: mdi:battery
+  sensor.ups_battery_runtime_mins:
+    icon: mdi:timer
+
+
+        ##########################################################
+        ## All Groups / Troubleshooting
+        ##########################################################
+
+  group.all_automations:
+    hidden: false
+  group.all_lights:
+    hidden: false
+  group.all_switches:
+    hidden: false
+  group.all_scripts:
+    hidden: false
+  group.all_devices:
+    hidden: false
+  group.all_remotes:
+    hidden: false

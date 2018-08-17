@@ -1,194 +1,208 @@
 ########### GROUPS ############
-controls:
-    view: yes
-    icon: mdi:home
-    entities:
-      - group.family
-      - group.family_room
-      - group.master_bedroom
-      - group.USER3_bedroom
-      - group.USER4_bedroom
-      - group.pantry
-      - group.inside_lights
-      - group.outside_lights
-      - group.basement
 
-Sensors:
-    name: Sensors
-    view: yes
-    icon: mdi:lock
-    entities:
-      - alarm_control_panel.home_alarm
-      - group.family
-      - group.front_doorbell
-      - group.doors
-      - group.indoor_motion
-      - group.water
-      - group.nest
-      - group.battery_levels
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.family
+    - group.family_room
+    - group.master_bedroom
+    - group.USER3_bedroom
+    - group.USER4_bedroom
+    - group.pantry
+    - group.inside_lights
+    - group.outside_lights
+    - group.basement
+
+sensors:
+  name: Sensors
+  view: yes
+  icon: mdi:lock
+  entities:
+    - alarm_control_panel.home_alarm
+    - group.family
+    - group.front_doorbell
+    - group.doors
+    - group.indoor_motion
+    - group.water
+    - group.nest
+    - group.battery_levels
 
 weatherdashboard:
-    name: Weather
-    view: yes
-    icon: mdi:weather-partlycloudy
-    entities:
-      - sensor.dark_sky_summary
-      - sensor.dark_sky_daily_summary
-      - sensor.dark_sky_hourly_summary
-      - sensor.dark_sky_minutely_summary
-      - group.thermostat
-      - group.indoor_temperature
-      - group.weather
-      - group.humidity
-      - group.weather_summary
-#      - group.allergy
+  name: Weather
+  view: yes
+  icon: mdi:weather-partlycloudy
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_minutely_summary
+    - group.thermostat
+    - group.indoor_temperature
+    - group.weather
+    - group.humidity
+    - group.weather_summary
 
-Media:
-    name: Media
-    view: yes
-    icon: mdi:play-circle-outline
-    entities:
-      - group.remote
-      - group.media_player
+media:
+  name: Media
+  view: yes
+  icon: mdi:play-circle-outline
+  entities:
+    - group.remote
+    - group.media_player
 
-Monitor:
-    name: Monitor
-    view: yes
-    icon: mdi:monitor-multiple
-    entities:
-      - group.system
-      - group.dns
+monitor:
+  name: Monitor
+  view: yes
+  icon: mdi:monitor-multiple
+  entities:
+    - group.system
+    - group.dns
 
-Currency:
-    name: Currency
-    view: yes
-    icon: mdi:ethereum
-    entities:
-      - group.eth
+currency:
+  name: Currency
+  view: yes
+  icon: mdi:ethereum
+  entities:
+    - group.eth
+
+troubleshooting:
+  name: Troubleshooting
+  view: yes
+  icon: mdi:none
+  entities:
+    - group.all_devices
+    - group.all_input_boolean
+    - group.all_lights
+    - group.all_switches
+    - group.all_remotes
+    - group.all_automations
+    - group.all_scripts
 
 Family:
-    - device_tracker.USER1siphone
-    - device_tracker.REDACTED
-    - device_tracker.USER2siphone
-    - device_tracker.REDACTED
-    - device_tracker.USER3siphone
-    - device_tracker.REDACTED
-    - device_tracker.USER4siphone
+  - device_tracker.USER1siphone
+  - device_tracker.REDACTED
+  - device_tracker.USER2siphone
+  - device_tracker.REDACTED
+  - device_tracker.USER3siphone
+  - device_tracker.REDACTED
+  - device_tracker.USER4siphone
 
 Family Room:
-    - light.family_room_1
+  - light.family_room_1
 
 Master Bedroom:
-    - light.USER2_bedroom_1
-    - light.USER1_bedroom_1
+  - light.USER2_bedroom_1
+  - light.USER1_bedroom_1
 
 USER3 Bedroom:
-    - light.USER3_bedroom_1
+  - light.USER3_bedroom_1
 
 USER4 Bedroom:
-    - light.USER4_bedroom_1
+  - light.USER4_bedroom_1
 
 Pantry:
-    - binary_sensor.pantry_door_opened
-    - light.pantry_1
-    - light.pantry_2
+  - binary_sensor.pantry_door_opened
+  - light.pantry_1
+  - light.pantry_2
 
 Basement:
-    - light.basement_1
-    - light.basement_2
+  - light.basement_1
+  - light.basement_2
 
 
 Inside lights:
-    - light.USER2_bedroom_1
-    - light.USER1_bedroom_1
-    - light.USER3_bedroom_1
-    - light.USER4_bedroom_1
-    - light.family_room_1
-    - light.pantry_1
-    - light.pantry_2
-    - light.basement_1
-    - light.basement_2
+  - light.USER2_bedroom_1
+  - light.USER1_bedroom_1
+  - light.USER3_bedroom_1
+  - light.USER4_bedroom_1
+  - light.family_room_1
+  - light.pantry_1
+  - light.pantry_2
+  - light.basement_1
+  - light.basement_2
 
 Emergency lights:
-    - light.USER2_bedroom_1
-    - light.USER1_bedroom_1
-    - light.family_room_1
+  - light.USER2_bedroom_1
+  - light.USER1_bedroom_1
+  - light.family_room_1
 
 Garage:
-    - light.garage_1
-    - light.garage_2
-    - light.garage_3
+  - light.garage_1
+  - light.garage_2
+  - light.garage_3
 
 Walkout:
-    - light.walkout_1
-    - light.walkout_2
+  - light.walkout_1
+  - light.walkout_2
 
 Outside lights:
-    - switch.outside
-    - light.front_door
-    - group.walkout
-    - group.garage
+  - switch.outside
+  - light.front_door
+  - group.walkout
+  - group.garage
 
 Alarm:
-    - binary_sensor.garage_entry_door
-    - binary_sensor.garage_back_door
-    - binary_sensor.front_door
-    - binary_sensor.back_door
-    - binary_sensor.basement_door_opened
-    - binary_sensor.basement_motion
+  - binary_sensor.garage_entry_door
+  - binary_sensor.garage_back_door
+  - binary_sensor.front_door
+  - binary_sensor.back_door
+  - binary_sensor.basement_door_opened
+  - binary_sensor.basement_motion
 
 Indoor Motion:
-    - binary_sensor.basement_motion
-    - binary_sensor.USER3_bedroom_occupancy
-    - binary_sensor.USER4_bedroom_occupancy
-    - binary_sensor.home_occupancy
-    - binary_sensor.master_bedroom_occupancy
+  - binary_sensor.basement_motion
+  - binary_sensor.USER3_bedroom_occupancy
+  - binary_sensor.USER4_bedroom_occupancy
+  - binary_sensor.home_occupancy
+  - binary_sensor.master_bedroom_occupancy
 
 Water:
-    - binary_sensor.basement_water_sensor_liquid_detected
+  - binary_sensor.basement_water_sensor_liquid_detected
 
 Doors:
-    - binary_sensor.garage_entry_door
-    - binary_sensor.garage_back_door
-    - binary_sensor.front_door
-    - binary_sensor.back_door
-    - binary_sensor.pantry_door_opened
-    - binary_sensor.basement_door_opened
+  - binary_sensor.garage_entry_door
+  - binary_sensor.garage_back_door
+  - binary_sensor.front_door
+  - binary_sensor.back_door
+  - binary_sensor.pantry_door_opened
+  - binary_sensor.basement_door_opened
 
 Media Player:
-    - media_player.basement_tv
-    - media_player.bedroom_apple_tv
-    - media_player.family_room
+  - media_player.basement_tv
+  - media_player.bedroom_apple_tv
+  - media_player.family_room
+  - media_player.office
 
 Remote:
-    - sensor.media_center
-    - input_select.remote
+  - sensor.media_center
+  - input_select.remote
 
 Front Doorbell:
-    - binary_sensor.front_door_button_pressed
-    - binary_sensor.front_door_motion
+  - binary_sensor.front_door_button_pressed
+  - binary_sensor.front_door_motion
 
 Battery Levels:
-    - sensor.ring_front_door_battery
-    - sensor.basement_door_battery
-    - sensor.basement_motion_battery
-    - sensor.pantry_door_battery
-    - sensor.basement_water_sensor_battery
+  - sensor.ring_front_door_battery
+  - sensor.basement_door_battery
+  - sensor.basement_motion_battery
+  - sensor.pantry_door_battery
+  - sensor.basement_water_sensor_battery
 
 System:
-    - sensor.cpu
-    - sensor.cpu_use
-    - sensor.ram_use
-    - sensor.ram_free
-    - sensor.since_last_boot
-    - binary_sensor.hub
-    - updater.updater
+  - sensor.cpu
+  - sensor.cpu_use
+  - sensor.ram_use
+  - sensor.ram_free
+  - sensor.since_last_boot
+  - binary_sensor.hub
+  - updater.updater
 
 DNS:
-    - sensor.myipopendnscom
-    - sensor.homecaminitiorg
-    - sensor.unificaminitiorg
-    - sensor.dcaminitiddnsnet
+  - sensor.myipopendnscom
+  - sensor.REDACTED
+  - sensor.unificaminitiorg
+  - sensor.REDACTED
 
 Thermostat:
   - climate.home
