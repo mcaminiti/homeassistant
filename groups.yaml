@@ -88,9 +88,6 @@ Family:
   - device_tracker.REDACTED
   - device_tracker.USER4siphone
 
-Family Room:
-  - light.family_room_1
-
 Master Bedroom:
   - light.USER2_bedroom_1
   - light.USER1_bedroom_1

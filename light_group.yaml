@@ -12,3 +12,14 @@
       - light.family_room_1
       - light.pantry_1
       - light.pantry_2
+      - light.garage_1
+      - light.garage_2
+      - light.garage_3
+      - light.walkout_1
+      - light.walkout_2
+      - light.front_door
+
+  - platform: group
+    name: Family Room
+    entities:
+      - light.family_room_1
