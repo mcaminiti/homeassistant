@@ -55,7 +55,7 @@
         ## Rooms
         ##########################################################
 
-  group.family_room:
+  light.family_room:
     icon: mdi:sofa
   group.master_bedroom:
     icon: mdi:hotel

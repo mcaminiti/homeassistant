@@ -19,8 +19,8 @@
 
   action:
     - service: light.turn_on
-      entity_id: group.family_room
-       
+      entity_id: light.family_room
+
         ##########################################################
         ## Vacation Mode Lights Off at 11p
         ##########################################################
@@ -38,4 +38,4 @@
 
   action:
     - service: light.turn_off
-      entity_id: group.family_room
+      entity_id: light.family_room

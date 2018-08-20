@@ -5,7 +5,7 @@ default_view:
   icon: mdi:home
   entities:
     - group.family
-    - group.family_room
+    - light.family_room
     - group.master_bedroom
     - group.USER3_bedroom
     - group.USER4_bedroom
