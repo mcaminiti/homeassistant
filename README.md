@@ -65,6 +65,21 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Ring Video Doorbell](https://amzn.to/2ByP7kL) | 1 | Wi-Fi | [Ring](https://www.home-assistant.io/components/ring/) / [Ring Binary Sensor](https://www.home-assistant.io/components/binary_sensor.ring/) | Automated around binary sensors via motion or doorbell button press |
 | [Ubiquiti UVC-G3 UniFi Video Camera](https://amzn.to/2PtY2XF) | 2 | Ethernet | [UniFi Video Camera](https://www.home-assistant.io/components/camera.uvc/) | 1080p POE Camera. NVR storage on QNAP NAS. New camera system replacing QT analog system. |
 
+## Network
+
+| Device  | Quantity | Connection | Home Assistant | Notes |
+| ------------- | :---: | ------------- | ------------- | ------------- |
+| [Ubiquiti Networks Unifi Security Gateway (USG)](https://amzn.to/2NadtTt) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Router. Presence detection for devices |
+| [Ubiquiti Networks UniFi Switch - 24 Ports (US-24-250W)](https://amzn.to/2Pv4X2M) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Switch. Presence detection devices |
+| [Ubiquiti Networks Unifi AP PRO (UAP-AC-PRO-US)](https://amzn.to/2MLV7Lw) | 3 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Wireless Access Point for interior coverage. Presence detection for devices. |
+
+## Other Hardware
+
+| Device  | Quantity | Connection | Home Assistant | Notes |
+| ------------- | :---: | ------------- | ------------- | ------------- |
+| [QNAP TS-451+](https://amzn.to/2o2bdCM) | 1 | Ethernet | [QNAP Sensor](https://www.home-assistant.io/components/sensor.qnap/)| Main storage array. Docker Containers and Plex media server run off this device. Configured with 3x [WD Red Pro 3TB NAS Hard Disk Drives](https://amzn.to/2PwQ8Ne) |
+| [CyberPower CP1350AVRLCD Intelligent LCD UPS System, 1350VA/815W](https://amzn.to/2wcuINx) | 1 | USB / Ethernet | [NUT Sensor](https://www.home-assistant.io/components/sensor.nut/)| Primary Uninterruptible Power Supply (UPS). Connected via the NUT component utlizing the QNAP NAS native UPS server component |
+
 ## Software
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
@@ -74,7 +89,6 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Docker](https://hub.docker.com/r/homeassistant/home-assistant/) | 1 | Ethernet | [Installation on Docker](https://www.home-assistant.io/docs/installation/docker/) | Home Assistant install runs as a Docker Container utilizing MySQL docker database |
 | [Pi-hole](https://pi-hole.net) | 2 | Ethernet | [Pi-Hole Sensor](https://www.home-assistant.io/components/sensor.pi_hole/) | Ad blocking. Primary instance runs within a Docker container and the secondary runs on a [Raspberry-pi 3](https://amzn.to/2wkqwu7) |
 | [Home Assistant Management Tool](https://github.com/geekofweek/homeassistant/blob/master/tools/ha-mgmt-docker.sh) | 1 | Ethernet | NA | Custom Shell script for managing Home Assistant.  Modified from geekofweek version found here. |
-
 
 
 
