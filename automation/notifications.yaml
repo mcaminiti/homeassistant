@@ -2,7 +2,19 @@
 ## Automations - Notifications
 #################################################################
 
+#################################################################
+## Home Assistant Startup Success
+#################################################################
 
+- alias: Home Assistant - Startup Log Message
+
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: system_log.write
+    data:
+      message: "Home Assistant started."
 
 #################################################################
 ## Water Sensor Automations
