@@ -14,6 +14,27 @@
       - last_ding
       - last_motion
       - volume
+  - platform: qnap
+    host: REDACTED.100
+    port: 443
+    username: !secret secret_qnap_username
+    password: !secret secret_qnap_password
+    ssl: true
+    verify_ssl: false
+    monitored_conditions:
+      - status
+      - memory_percent_used
+      - system_temp
+      - cpu_usage
+      - cpu_temp
+      - network_link_status
+      - network_tx
+      - network_rx
+      - drive_temp
+      - volume_size_free
+      - volume_size_used
+      - drive_smart_status
+      - volume_percentage_used
   - platform: dnsip
   - platform: dnsip
     hostname: !secret secret_dns_home_hostname

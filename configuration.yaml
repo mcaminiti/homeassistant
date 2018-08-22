@@ -116,19 +116,19 @@ media_player:
 
 zone :
 
-  name: Church
-  latitude: !secret secret_church_latitude
-  longitude: !secret secret_church_longitude
+  name: REDACTED
+  latitude: !secret secret_REDACTED_latitude
+  longitude: !secret secret_REDACTED_longitude
   radius: 250
-  icon: mdi:church
+  icon: mdi:REDACTED
 
 zone 2:
 
-  name: Dance
-  latitude: !secret secret_dance_latitude
-  longitude: !secret secret_dance_longitude
+  name: REDACTED
+  latitude: !secret secret_REDACTED_latitude
+  longitude: !secret secret_REDACTED_longitude
   radius: 250
-  icon: mdi:school
+  icon: mdi:REDACTED
 
 #################################################################
 ## Alarm Panel - Envisalink-DSC
