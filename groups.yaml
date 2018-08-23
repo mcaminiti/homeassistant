@@ -5,14 +5,9 @@ default_view:
   icon: mdi:home
   entities:
     - group.family
-    - light.family_room
-    - group.master_bedroom
-    - group.USER3_bedroom
-    - group.USER4_bedroom
     - group.pantry
     - group.inside_lights
     - group.outside_lights
-    - group.basement
 
 sensors:
   name: Sensors
@@ -90,56 +85,23 @@ Family:
   - device_tracker.REDACTED
   - device_tracker.USER4siphone
 
-Master Bedroom:
-  - light.USER2_bedroom_1
-  - light.USER1_bedroom_1
-
-USER3 Bedroom:
-  - light.USER3_bedroom_1
-
-USER4 Bedroom:
-  - light.USER4_bedroom_1
-
 Pantry:
   - binary_sensor.pantry_door_opened
-  - light.pantry_1
-  - light.pantry_2
-
-Basement:
-  - light.basement_1
-  - light.basement_2
-
+  - light.pantry_lights
 
 Inside lights:
-  - light.USER2_bedroom_1
-  - light.USER1_bedroom_1
-  - light.USER3_bedroom_1
-  - light.USER4_bedroom_1
-  - light.family_room_1
-  - light.pantry_1
-  - light.pantry_2
-  - light.basement_1
-  - light.basement_2
-
-Emergency lights:
-  - light.USER2_bedroom_1
-  - light.USER1_bedroom_1
-  - light.family_room_1
-
-Garage:
-  - light.garage_1
-  - light.garage_2
-  - light.garage_3
-
-Walkout:
-  - light.walkout_1
-  - light.walkout_2
+  - light.family_room
+  - light.master_bedroom
+  - light.USER3_bedroom
+  - light.USER4_bedroom
+  - light.pantry_lights
+  - light.basement
 
 Outside lights:
   - switch.outside
   - light.front_door
-  - group.walkout
-  - group.garage
+  - light.garage
+  - light.walkout
 
 Alarm:
   - binary_sensor.garage_entry_door

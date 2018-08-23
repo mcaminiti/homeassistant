@@ -23,3 +23,51 @@
     name: Family Room
     entities:
       - light.family_room_1
+
+  - platform: group
+    name: Master Bedroom
+    entities:
+      - light.USER2_bedroom_1
+      - light.USER1_bedroom_1
+
+  - platform: group
+    name: USER3 Bedroom
+    entities:
+      - light.USER3_bedroom_1
+
+  - platform: group
+    name: USER4 Bedroom
+    entities:
+      - light.USER4_bedroom_1
+
+  - platform: group
+    name: Pantry Lights
+    entities:
+      - light.pantry_1
+      - light.pantry_2
+
+  - platform: group
+    name: Basement
+    entities:
+      - light.basement_1
+      - light.basement_2
+
+  - platform: group
+    name: Garage
+    entities:
+      - light.garage_1
+      - light.garage_2
+      - light.garage_3
+
+  - platform: group
+    name: Walkout
+    entities:
+      - light.walkout_1
+      - light.walkout_2
+
+  - platform: group
+    name: Emergency Lights
+    entities:
+      - light.USER2_bedroom_1
+      - light.USER1_bedroom_1
+      - light.family_room_1      

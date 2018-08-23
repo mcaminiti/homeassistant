@@ -77,7 +77,7 @@
 
   action:
     service: light.turn_on
-    entity_id: group.pantry
+    entity_id: light.pantry
     data:
      brightness: 255
 
@@ -95,7 +95,7 @@
 
   action:
     service: light.turn_off
-    entity_id: group.pantry
+    entity_id: light.pantry
 
         ##########################################################
         ## Turn on Outside Lights at Sunset
@@ -127,7 +127,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.outside
     - service: homeassistant.turn_off
-      entity_id: group.walkout
+      entity_id: light.walkout
 
         ##########################################################
         ## Turn off Kids Bedroom Night Lights at 11:00pm
@@ -141,9 +141,9 @@
 
   action:
     - service: homeassistant.turn_off
-      entity_id: group.USER4_bedroom
+      entity_id: light.USER4_bedroom
     - service: homeassistant.turn_off
-      entity_id: group.USER3_bedroom
+      entity_id: light.USER3_bedroom
 
         ##########################################################
         ## Basement Light Off When No Motion 60 Minutes
@@ -163,7 +163,7 @@
 
   action:
     service: homeassistant.turn_off
-    entity_id: group.basement
+    entity_id: light.basement
 
 #################################################################
 ## Work Arounds
