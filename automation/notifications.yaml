@@ -6,7 +6,22 @@
 ## Home Assistant Startup Success
 #################################################################
 
-- alias: Home Assistant - Startup Log Message
+- alias: Notification Text - Home Assistant Start
+
+  trigger:
+    - platform: homeassistant
+      event: start
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Home Assistant Started"
+
+        #################################################################
+        ## Home Assistant Started Notification
+        #################################################################
+
+- alias: Notification Log - Home Assistant Start
 
   trigger:
     - platform: homeassistant
@@ -255,3 +270,74 @@
     - service: notify.ios_USER1_iphone
       data:
        message: "Aux Heat turned on"
+
+
+
+#################################################################
+## NAS Warning
+#################################################################
+
+- alias: Notification Text - NAS Warning
+
+  trigger:
+    - platform: state
+      entity_id: sensor.nas_status
+      to: 'warning'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "NAS RAID Failing"
+
+#################################################################
+## UPS Alerts
+#################################################################
+
+
+        ##########################################################
+        ## UPS Power Loss Alert
+        ##########################################################
+
+- alias: Notification Text - UPS Power Loss Alert
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ups_input_voltage
+      below: 80
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Power Outage Detected"
+
+        ##########################################################
+        ## UPS Low Battery Alert
+        ##########################################################
+
+- alias: Notification Text - UPS Low Battery Alert
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ups_battery_charge
+      below: 15
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "UPS Battery below 15%"
+
+        ##########################################################
+        ## UPS Low Runtime Alert
+        ##########################################################
+
+- alias: Notification Text - UPS Low Runtime Alert
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ups_battery_runtime_mins
+      below: 15
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "15 mins of UPS Battery Remaining!"
