@@ -12,6 +12,7 @@
       - sensor
       - switch
       - groups
+      - light
       - device_tracker
       - binary_sensor
   exclude:
@@ -41,5 +42,8 @@
       - sensor.dark_sky_visibility
       - sensor.dark_sky_wind_bearing
       - sensor.dark_sky_wind_speed
+      - sensor.myipopendnscom
+      - sensor.REDACTED
+      - sensor.REDACTED
       - binary_sensor.hub
       - updater.updater
