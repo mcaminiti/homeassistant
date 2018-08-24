@@ -308,23 +308,7 @@
   action:
     - service: notify.ios_USER1_iphone
       data:
-        message: "Power Outage Detected"
-
-        ##########################################################
-        ## UPS Low Battery Alert
-        ##########################################################
-
-- alias: Notification Text - UPS Low Battery Alert
-
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.ups_battery_charge
-      below: 15
-
-  action:
-    - service: notify.ios_USER1_iphone
-      data:
-        message: "UPS Battery below 15%"
+        message: "Power Outage - UPS runtime {{sensor.ups_battery_runtime_mins.state}}"
 
         ##########################################################
         ## UPS Low Runtime Alert
