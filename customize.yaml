@@ -9,7 +9,12 @@
 
   climate.home:
     friendly_name: Thermostat
-
+  sensor.thermostat_current_status:
+    icon: mdi:thermostat-box
+    friendly_name: Thermostat Status
+  sensor.thermostat_aux_heat:
+    icon: mdi:radiator
+    friendly_name: Aux Heat
 
         ##########################################################
         ## Device Trackers
@@ -57,16 +62,21 @@
 
   light.family_room:
     icon: mdi:sofa
-  group.master_bedroom:
+  light.master_bedroom:
     icon: mdi:hotel
-  group.USER3_bedroom:
+  light.USER3_bedroom:
     icon: mdi:hotel
-  group.USER4_bedroom:
+  light.USER4_bedroom:
     icon: mdi:hotel
-  group.basement:
+  light.basement:
     icon: mdi:stairs
   group.outside_lights:
-    icon: mdi:nature
+    icon: mdi:wall-sconce
+  light.garage:
+    icon: mdi:wall-sconce
+  light.walkout:
+    icon: mdi:wall-sconce
+
 
         ##########################################################
         ## Sensors
@@ -91,6 +101,28 @@
   binary_sensor.basement_water_sensor_liquid_detected:
     device_class: moisture
     friendly_name: Basement Drain Water Sensor
+
+        ##########################################################
+        ## Doors
+        ##########################################################
+
+  binary_sensor.pantry_door_opened:
+    icon: mdi:door
+    friendly_name: Pantry Door
+  binary_sensor.front_door:
+    icon: mdi:door
+  binary_sensor.garage_back_door:
+    icon: mdi:door
+  binary_sensor.garage_entry_door:
+    icon: mdi:door
+  binary_sensor.back_door:
+    icon: mdi:door
+  binary_sensor.basement_door_opened:
+    icon: mdi:door
+    friendly_name: Basement Door
+
+
+
 
         ##########################################################
         ## Switches
@@ -163,6 +195,44 @@
     friendly_name: 'Dew Point'
   sensor.dark_sky_visibility:
     friendly_name: 'Visibility'
+
+        ##########################################################
+        ## Smoke Alarm
+        ##########################################################
+
+  binary_sensor.hallway_nest_protect_online:
+    friendly_name: Hallway Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.hallway_nest_protect_battery_health:
+    friendly_name: Hallway Smoke Alarm Battery
+    icon: mdi:battery
+  sensor.hallway_nest_protect_color_status:
+    friendly_name: Hallway Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.hallway_nest_protect_co_status:
+    friendly_name: Hallway CO
+    icon: mdi:smoke-detector
+  sensor.hallway_nest_protect_smoke_status:
+    friendly_name: Hallway Smoke
+    icon: mdi:smoke-detector
+
+  binary_sensor.kitchen_protect_online:
+    friendly_name: Kitchen Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.kitchen_nest_protect_battery_health:
+    friendly_name: Kitchen Smoke Alarm Battery
+    icon: mdi:battery
+  sensor.kitchen_nest_protect_color_status:
+    friendly_name: Kitchen Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.kitchen_nest_protect_co_status:
+    friendly_name: Kitchen CO
+    icon: mdi:smoke-detector
+  sensor.kitchen_nest_protect_smoke_status:
+    friendly_name: Kitchen Smoke
+    icon: mdi:smoke-detector
+
+
 
         ##########################################################
         ## Media Players
