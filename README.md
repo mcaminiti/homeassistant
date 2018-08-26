@@ -8,6 +8,21 @@ I utilize Home Assistant to bridge and automate all my home automation products.
 
 My configuration started from an early version of geekofweek's configuration and much of the automation and config is pulled from examples in his configuration.  Home Assistant has many example configurations to leverage and I have published my configuration to share or reference for others.
 
+## Automation Overview
+Typical Automations in use include
+- Turn on / off outside lights at sunset
+- Turn on / off pantry light when door opens / closes
+- Turn off lights after no activity / motion
+- Grouping of lights for use with Alexa for commands
+- Perform actions based on people leaving home / arriving home
+- Update location for user based on geolocation zones (Work, School, Church, Home)
+- Enable holiday color lights on outside lights
+- Send Text notification and flash lights if water detected in basement
+- Send Text notification and flash lights if CO / Smoke detectors go off
+- Send alert if Eth miner hashrate drops
+- Send alert if power is lost at the house
+
+
 # Devices
 
 ## Hubs
