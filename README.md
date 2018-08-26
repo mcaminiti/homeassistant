@@ -21,6 +21,8 @@ Typical Automations in use include
 - Send Text notification and flash lights if CO / Smoke detectors go off
 - Send alert if Eth miner hashrate drops
 - Send alert if power is lost at the house
+- Enhance security system through extra sensors and motion reading
+- 
 
 
 # Devices
@@ -58,7 +60,8 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [GoControl Door/Window/Motion Sensor](https://amzn.to/2MJoWft) | 2 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Door sensors to detect if doors have been opened / closed. Motion sensor reports temperature and motion. |
+| [GoControl Door/Window/Motion Sensor](https://amzn.to/2MJoWft) | 3 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Door sensors to detect if doors have been opened / closed. Motion sensor reports temperature and motion. |
+| [Eyez-On Envisalink Security Interface](https://amzn.to/2LaFp7P) | 1 | Ethernet | [Envisalink](https://www.home-assistant.io/components/envisalink/) | Security Inteface to connect DSC wired alarm panel to Home Assistant. |
 
 ## Media
 
@@ -76,7 +79,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Aeon Labs Water Sensor](https://amzn.to/2PsvDkA) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
 | [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 2 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
-| [Eyez-On Envisalink Security Interface](https://amzn.to/2LaFp7P) | 1 | Ethernet | [Envisalink](https://www.home-assistant.io/components/envisalink/) | Security Inteface to connect DSC wired alarm panel to Home Assistant. |
+
 
 ## Cameras
 
