@@ -44,6 +44,7 @@ media:
   entities:
     - group.remote
     - group.media_player
+#    - group.plex
 
 monitor:
   name: Monitor
@@ -130,10 +131,15 @@ Doors:
   - binary_sensor.basement_door_opened
 
 Media Player:
-  - media_player.basement_tv
-  - media_player.bedroom_apple_tv
-  - media_player.family_room
+#  - media_player.basement_tv
+#  - media_player.bedroom_apple_tv
+#  - media_player.family_room
   - media_player.office
+
+#Plex:
+#  - media_player.plex.family_room
+#  - media_player.plex.USER4_ipad
+#  - media_player.plex.USER3_ipad
 
 Remote:
   - sensor.media_center

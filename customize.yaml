@@ -238,15 +238,15 @@
         ## Media Players
         ##########################################################
 
-  media_player.basement_apple_tv:
-    icon: mdi:apple
-    friendly_name: 'Basement Apple TV'
-  media_player.bedroom_apple_tv:
-    icon: mdi:apple
-    friendly_name: 'Master Bedroom Apple TV'
-  media_player.family_room:
-    icon: mdi:apple
-    friendly_name: 'Family Room Apple TV'
+#  media_player.basement_apple_tv:
+#    icon: mdi:apple
+#    friendly_name: 'Basement Apple TV'
+#  media_player.bedroom_apple_tv:
+#    icon: mdi:apple
+#    friendly_name: 'Master Bedroom Apple TV'
+#  media_player.family_room:
+#    icon: mdi:apple
+#    friendly_name: 'Family Room Apple TV'
 
        ##########################################################
         ## Sonos

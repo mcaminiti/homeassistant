@@ -37,6 +37,7 @@ sun:
 discovery:
  ignore:
    - samsung_tv
+   - apple_tv
 
 
 
@@ -112,9 +113,24 @@ ios:
 ################################################################
 ## Media Players
 ################################################################
-media_player:
- - platform: plex
+ media_player:
+  - platform: plex
+    entity_namespace: 'plex'
 
+#apple_tv:
+#  - name: Master Bedroom Apple TV
+#    host: REDACTED.23
+#    login_id: !secret secret_apple_tv_login_id
+#    start_off: false
+#  - name: Basement Apple TV
+#    host: REDACTED.17
+#    login_id: !secret secret_apple_tv_login_id
+#    start_off: false
+#  - name: Family Room Apple TV
+#    host: REDACTED.65
+#    login_id: !secret secret_apple_tv_login_id
+#    credentials: !secret secret_apple_tv_family_room_credentials
+#    start_off: false
 #################################################################
 ## Zones
 #################################################################
