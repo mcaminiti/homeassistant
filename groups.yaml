@@ -81,11 +81,15 @@ troubleshooting:
 Family:
   - device_tracker.USER1siphone
   - device_tracker.REDACTED
+  - device_tracker.USER1_iphone_ios
   - device_tracker.USER2siphone
   - device_tracker.REDACTED
   - device_tracker.USER3siphone
   - device_tracker.REDACTED
   - device_tracker.USER4siphone
+
+Guests:
+  - device_tracker.REDACTEDsiphone
 
 Pantry:
   - binary_sensor.pantry_door_opened

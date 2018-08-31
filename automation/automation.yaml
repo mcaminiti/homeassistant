@@ -13,7 +13,7 @@
 
   trigger:
     - platform: state
-      entity_id: device_tracker.USER1siphone
+      entity_id: device_tracker.REDACTED
       from: 'not_home'
       to: 'home'
 
@@ -42,7 +42,7 @@
 
   trigger:
     - platform: state
-      entity_id: device_tracker.USER2siphone
+      entity_id: device_tracker.REDACTED
       from: 'not_home'
       to: 'home'
 
@@ -164,127 +164,6 @@
   action:
     service: homeassistant.turn_off
     entity_id: light.basement
-
-#################################################################
-## Work Arounds
-#################################################################
-
-        ##########################################################
-        ## Disable Alarm when Home
-        ##########################################################
-
-- alias: Disable Alarm when Home
-
-  trigger:
-    - platform: state
-      entity_id: group.family
-      from: 'not_home'
-      to: 'home'
-
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.disable_security
-
-        ##########################################################
-        ## Enable Alarm when Away
-        ##########################################################
-
-- alias: Enable Alarm when Away
-
-  trigger:
-    - platform: state
-      entity_id: group.family
-      from: 'home'
-      to: 'not_home'
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
-
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.disable_security
-
-        ##########################################################
-        ## Set USER1 Away after 2 Mins
-        ##########################################################
-
-- alias: Set USER1 Away after 2 Mins
-
-  trigger:
-    - platform: state
-      entity_id: device_tracker.USER1siphone
-      from: 'home'
-      to: 'not_home'
-      for:
-        hours: 0
-        minutes: 2
-        seconds: 0
-
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.USER1_away
-
-        ##########################################################
-        ## Set USER1 Home after 10 Mins
-        ##########################################################
-
-- alias: Set USER1 Home after 10 Mins
-
-  trigger:
-    - platform: state
-      entity_id: device_tracker.USER1siphone
-      from: 'not_home'
-      to: 'home'
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
-
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.USER1_away
-
-        ##########################################################
-        ## Set USER2 Away after 2 Mins
-        ##########################################################
-
-- alias: Set USER2 Away after 2 Mins
-
-  trigger:
-    - platform: state
-      entity_id: device_tracker.USER2siphone
-      from: 'home'
-      to: 'not_home'
-      for:
-        hours: 0
-        minutes: 2
-        seconds: 0
-
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.USER2_away
-
-        ##########################################################
-        ## Set USER2 Home after 10 Mins
-        ##########################################################
-
-- alias: Set USER2 Home after 10 Mins
-
-  trigger:
-    - platform: state
-      entity_id: device_tracker.USER2siphone
-      from: 'not_home'
-      to: 'home'
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
-
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.USER2_away
-
 
       #################################################################
       ## Remote

@@ -17,12 +17,15 @@
     friendly_name: Aux Heat
 
         ##########################################################
-        ## Device Trackers
+        ## Device Trackers - Family
         ##########################################################
 
   device_tracker.USER1siphone:
     icon: mdi:cellphone-iphone
-    friendly_name: USER1's iPhone (Router)
+    friendly_name: USER1's iPhone (Unifi)
+  device_tracker.USER1_iphone_ios:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER1's iPhone (IOS)
   device_tracker.REDACTED:
     icon: mdi:cellphone-iphone
     friendly_name: USER1's iPhone (Locative)
@@ -31,16 +34,26 @@
     friendly_name: USER2's iPhone (Locative)
   device_tracker.USER2siphone:
     icon: mdi:cellphone-iphone
-    friendly_name: USER2's iPhone (Router)
+    friendly_name: USER2's iPhone (Unifi)
   device_tracker.USER3siphone:
     icon: mdi:cellphone-iphone
-    friendly_name: USER3's iPhone (Router)
+    friendly_name: USER3's iPhone (Unifi)
   device_tracker.REDACTED:
     icon: mdi:cellphone-iphone
     friendly_name: USER3's iPhone (Locative)
   device_tracker.USER4siphone:
     icon: mdi:cellphone-iphone
-    friendly_name: USER4's iPhone (Router)
+    friendly_name: USER4's iPhone (Unifi)
+
+        ##########################################################
+        ## Device Trackers - Guests
+        ##########################################################
+
+  device_tracker.REDACTEDsiphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: REDACTEDs's iPhone (Unifi)
+
+
 
         ##########################################################
         ## Door Bell
@@ -101,6 +114,12 @@
   binary_sensor.basement_water_sensor_liquid_detected:
     device_class: moisture
     friendly_name: Basement Drain Water Sensor
+  sensor.basement_water_sensor_battery:
+    device_class: battery
+    friendly_name: Basement Drain Water Sensor
+    icon: mdi:battery
+
+
 
         ##########################################################
         ## Doors
