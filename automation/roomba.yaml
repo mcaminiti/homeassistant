@@ -1,0 +1,33 @@
+#################################################################
+## Roomba - Notifications and Automations
+#################################################################
+
+        ##########################################################
+        ## Roomba is Stuck Notification
+        ##########################################################
+
+- alias: Roomba - Stuck Notification
+
+  trigger:
+    - platform: template
+      value_template: "{%if is_state_attr('vacuum.roomba', 'status', 'Stuck') %}true{%endif%}"
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: Roomba is Stuck, Please Help
+
+        ##########################################################
+        ## Roomba is Full Notification
+        ##########################################################
+
+- alias: Roomba - Full Notification
+
+  trigger:
+    - platform: template
+      value_template: "{%if is_state_attr('vacuum.roomba', 'bin_full', true) %}true{%endif%}"
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: Roomba is Full, Empty It
