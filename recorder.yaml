@@ -15,6 +15,7 @@
       - light
       - device_tracker
       - binary_sensor
+      - vacuum
   exclude:
     entities:
       - sensor.date__time

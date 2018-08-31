@@ -21,6 +21,7 @@ sensors:
     - group.indoor_motion
     - group.water
     - group.nest
+    - group.vacuum
 
 weatherdashboard:
   name: Weather
@@ -144,6 +145,11 @@ Media Player:
 Remote:
   - sensor.media_center
   - input_select.remote
+
+Vacuum:
+  - vacuum.roomba
+  - sensor.roomba_battery
+  - sensor.roomba_bin
 
 Front Doorbell:
   - binary_sensor.front_door_button_pressed

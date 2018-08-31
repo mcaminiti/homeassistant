@@ -66,6 +66,13 @@ remote:
 # Wink Hub
 wink:
 
+vacuum:
+  - platform: roomba
+    host: REDACTED.184
+    username: !secret secret_roomba_username
+    password: !secret secret_roomba_password
+    name: Roomba
+
 ecobee:
   api_key: !secret secret_ecobee_apikey
   hold_temp: true
