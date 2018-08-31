@@ -39,7 +39,7 @@ discovery:
    - samsung_tv
    - apple_tv
 
-
+map:
 
 # Custom Logging Setting
 #logger:
@@ -140,7 +140,7 @@ zone :
   name: REDACTED
   latitude: !secret secret_REDACTED_latitude
   longitude: !secret secret_REDACTED_longitude
-  radius: 250
+  radius: 350
   icon: mdi:REDACTED
 
 zone 2:
@@ -150,6 +150,31 @@ zone 2:
   longitude: !secret secret_REDACTED_longitude
   radius: 250
   icon: mdi:REDACTED
+
+zone 3:
+
+  name: REDACTED
+  latitude: !secret secret_hms_latitude
+  longitude: !secret secret_hms_longitude
+  radius: 250
+  icon: mdi:REDACTED
+
+#zone 4:
+
+#  name: REDACTED
+#  latitude: !secret secret_REDACTED_latitude
+#  longitude: !secret secret_REDACTED_longitude
+#  radius: 250
+#  icon: mdi:office-building
+
+zone 4:
+
+  name: REDACTED Home
+  latitude: !secret secret_REDACTED_home_latitude
+  longitude: !secret secret_REDACTED_home_longitude
+  radius: 250
+  icon: mdi:home
+
 
 #################################################################
 ## Alarm Panel - Envisalink-DSC
