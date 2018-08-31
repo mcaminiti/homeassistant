@@ -80,6 +80,13 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Aeon Labs Water Sensor](https://amzn.to/2PsvDkA) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
 | [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 2 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 
+## Vacuum
+
+| Device  | Quantity | Connection | Home Assistant | Notes |
+| ------------- | :---: | ------------- | ------------- | ------------- |
+| [iRobot Roomba 980](https://amzn.to/2C3XF3y) | 1 | Wi-Fi | [iRobot Roomba](https://www.home-assistant.io/components/vacuum.roomba/)| Working to automate schedule based on presence detection |
+
+All Roomba related automations can be found in [roomba.yaml]( https://github.com/mcaminiti/homeassistant/blob/master/automation/roomba.yaml)
 
 ## Cameras
 
