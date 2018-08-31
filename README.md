@@ -22,7 +22,7 @@ Typical Automations in use include
 - Send alert if Eth miner hashrate drops
 - Send alert if power is lost at the house
 - Enhance security system through extra sensors and motion reading
-- 
+- Send alert if auxillary / emergency heat is activated
 
 
 # Devices
