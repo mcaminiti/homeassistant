@@ -1,0 +1,30 @@
+#################################################################
+## Remote Automations
+#################################################################
+
+      #################################################################
+      ## Remote
+      #################################################################
+
+- alias: Media - Remote external update Media Center
+
+  trigger:
+    platform: state
+    entity_id: remote.media_center
+
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.remote
+        option: >
+          {{ states.remote.media_center.attributes.current_activity }}
+
+- alias: Media - Remote start activity from input select media center
+
+  trigger:
+    platform: state
+    entity_id: input_select.remote
+
+  action:
+    - service: script.turn_on
+      entity_id: script.input_select_harmony

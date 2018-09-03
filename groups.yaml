@@ -65,6 +65,13 @@ currency:
   entities:
     - group.eth
 
+settings:
+  name: Settings
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.automation_override
+
 troubleshooting:
   name: Troubleshooting
   view: yes
@@ -263,3 +270,6 @@ Nest:
 Eth:
   - sensor.nanopoolhashrate
   - sensor.nanopoolbalance
+
+Automation Override:
+  - input_boolean.disable_water_sensors

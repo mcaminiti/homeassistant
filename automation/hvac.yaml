@@ -1,0 +1,20 @@
+#################################################################
+## HVAC Automation and Notifications
+#################################################################
+
+  #################################################################
+  ## AUX Heat Alert
+  #################################################################
+
+- alias: Notification Text - AUX Heat
+
+  trigger:
+    - platform: state
+      entity_id: sensor.thermostat_aux_heat
+      from: 'off'
+      to: 'on'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+       message: "Aux Heat turned on"

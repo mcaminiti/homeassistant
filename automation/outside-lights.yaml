@@ -1,0 +1,51 @@
+#################################################################
+## Outside Lighting Automation
+#################################################################
+
+        ##########################################################
+        ## Turn on Outside Lights at Sunset
+        ##########################################################
+
+- alias: Outside Lights On
+
+  trigger:
+    - platform: sun
+      event: 'sunset'
+      offset: '-00:05:00'
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.outside_lights
+
+
+        ##########################################################
+        ## Turn off Outside Lights at 11:30pm
+        ##########################################################
+
+- alias: Outside Lights Off
+
+  trigger:
+    - platform: time
+      at: '23:30'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.outside
+    - service: homeassistant.turn_off
+      entity_id: light.walkout
+
+        ##########################################################
+        ## Turn off Kids Bedroom Night Lights at 11:00pm
+        ##########################################################
+
+- alias: Kids Lights Off
+
+  trigger:
+    - platform: time
+      at: '23:00'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.USER4_bedroom
+    - service: homeassistant.turn_off
+      entity_id: light.USER3_bedroom

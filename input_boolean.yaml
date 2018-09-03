@@ -21,3 +21,11 @@
     name: USER2 Away
     initial: off
     icon: mdi:walk
+
+##############################################################
+## Disable - Input Booleans  ##
+##############################################################
+
+  disable_water_sensors:
+    name: Disable Water Sensors
+    icon: mdi:water-off

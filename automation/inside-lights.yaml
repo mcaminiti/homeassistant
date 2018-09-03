@@ -1,9 +1,6 @@
 #################################################################
-## Automations
-## Based on config originally from geekofweek
+## Inside Lighting Automation
 #################################################################
-
-
 
         ##########################################################
         ## USER1 Home Turn on Lights
@@ -21,12 +18,7 @@
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
-    - condition: state
-      entity_id: input_boolean.disable_home_away
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.USER1_away
-      state: 'on'
+
 
   action:
     service: light.turn_on
@@ -50,12 +42,6 @@
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
-    - condition: state
-      entity_id: input_boolean.disable_home_away
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.USER2_away
-      state: 'on'
 
   action:
     service: light.turn_on
@@ -97,53 +83,6 @@
     service: light.turn_off
     entity_id: light.pantry_lights
 
-        ##########################################################
-        ## Turn on Outside Lights at Sunset
-        ##########################################################
-
-- alias: Outside Lights On
-
-  trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.outside_lights
-
-
-        ##########################################################
-        ## Turn off Outside Lights at 11:30pm
-        ##########################################################
-
-- alias: Outside Lights Off
-
-  trigger:
-    - platform: time
-      at: '23:30'
-
-  action:
-    - service: homeassistant.turn_off
-      entity_id: switch.outside
-    - service: homeassistant.turn_off
-      entity_id: light.walkout
-
-        ##########################################################
-        ## Turn off Kids Bedroom Night Lights at 11:00pm
-        ##########################################################
-
-- alias: Kids Lights Off
-
-  trigger:
-    - platform: time
-      at: '23:00'
-
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.USER4_bedroom
-    - service: homeassistant.turn_off
-      entity_id: light.USER3_bedroom
 
         ##########################################################
         ## Basement Light Off When No Motion 60 Minutes
@@ -163,31 +102,4 @@
 
   action:
     service: homeassistant.turn_off
-    entity_id: light.basement
-
-      #################################################################
-      ## Remote
-      #################################################################
-
-- alias: Media - Remote external update Media Center
-
-  trigger:
-    platform: state
-    entity_id: remote.media_center
-
-  action:
-    - service: input_select.select_option
-      data_template:
-        entity_id: input_select.remote
-        option: >
-          {{ states.remote.media_center.attributes.current_activity }}
-
-- alias: Media - Remote start activity from input select media center
-
-  trigger:
-    platform: state
-    entity_id: input_select.remote
-
-  action:
-    - service: script.turn_on
-      entity_id: script.input_select_harmony
+    entity_id: light.basement    
