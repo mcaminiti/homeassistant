@@ -53,7 +53,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [Ecobee 3](https://amzn.to/2wgmZgp) | 1 | Wi-Fi | [ecobee](https://www.home-assistant.io/components/ecobee/) / [Ecobee Thermostat](https://www.home-assistant.io/components/climate.ecobee/) | Used as primary thermostat |
+| [Ecobee 3](https://amzn.to/2wgmZgp) | 1 | Wi-Fi | [ecobee](https://www.home-assistant.io/components/ecobee/) / [Ecobee Thermostat](https://www.home-assistant.io/components/climate.ecobee/) | Used as primary thermostat for Waterfurnace geothermal system with Auxilary Heat System |
 | [Ecobee Room Sensor](https://amzn.to/2MNGS96) | 3 | Ecobee3 | [Ecobee Binary Sensor](https://www.home-assistant.io/components/binary_sensor.ecobee/) | Provides room temperature and room occupancy.|
 
 ## Security
