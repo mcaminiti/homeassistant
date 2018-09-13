@@ -171,6 +171,8 @@
     icon: mdi:robot-vacuum
   sensor.roomba_bin:
     icon: mdi:delete
+  sensor.roomba_status:
+    icon: mdi:robot-vacuum
         ##########################################################
         ## Weather
         ##########################################################
@@ -324,7 +326,6 @@
     icon: mdi:battery
   sensor.ups_battery_runtime_mins:
     icon: mdi:timer
-
 
         ##########################################################
         ## All Groups / Troubleshooting

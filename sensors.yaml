@@ -147,6 +147,11 @@
         device_class: battery
   - platform: template
     sensors:
+      roomba_status:
+        value_template: '{{ states.vacuum.roomba.attributes.status }}'
+        friendly_name: 'Roomba Status'    
+  - platform: template
+    sensors:
       ups_battery_runtime_mins:
         friendly_name: "UPS Battery Runtime"
         unit_of_measurement: 'minutes'

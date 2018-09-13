@@ -82,12 +82,6 @@ ring:
     username: !secret secret_ring_username
     password: !secret secret_ring_password
 
-binary_sensor:
-  - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
-
 # Nest
 nest:
   client_id: !secret secret_nest_clientid
@@ -229,6 +223,8 @@ logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 automation: !include_dir_merge_list automation
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+camera: !include camera.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 light: !include light_group.yaml

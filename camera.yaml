@@ -1,0 +1,9 @@
+#################################################################
+## Camera Feeds
+#################################################################
+
+
+  - platform: uvc
+    nvr: REDACTED.101
+    key: !secret secret_uvc_key
+    password: !secret secret_uvc_password

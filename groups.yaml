@@ -23,6 +23,13 @@ sensors:
     - group.nest
     - group.vacuum
 
+camera:
+  name: Camera
+  view: yes
+  icon: mdi:video
+  entities:
+    - group.cameras
+
 weatherdashboard:
   name: Weather
   view: yes
@@ -70,7 +77,8 @@ settings:
   view: yes
   icon: mdi:settings
   entities:
-    - group.automation_override
+    - group.automation_enable
+    - group.automation_disable
 
 troubleshooting:
   name: Troubleshooting
@@ -131,6 +139,10 @@ Indoor Motion:
   - binary_sensor.home_occupancy
   - binary_sensor.master_bedroom_occupancy
 
+Cameras:
+  - camera.north__front_door
+  - camera.west__walkout
+
 Water:
   - binary_sensor.basement_water_sensor_liquid_detected
 
@@ -159,6 +171,7 @@ Remote:
 
 Vacuum:
   - vacuum.roomba
+  - sensor.roomba_status
   - sensor.roomba_battery
   - sensor.roomba_bin
 
@@ -271,5 +284,8 @@ Eth:
   - sensor.nanopoolhashrate
   - sensor.nanopoolbalance
 
-Automation Override:
+Automation Disable:
   - input_boolean.disable_water_sensors
+
+Automation Enable:
+  - input_boolean.vacation_mode
