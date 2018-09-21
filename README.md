@@ -18,11 +18,14 @@ Typical Automations in use include
 - Update location for user based on geolocation zones (Work, School, Church, Home)
 - Enable holiday color lights on outside lights
 - Send Text notification and flash lights if water detected in basement
+- Send Text notification and flash lights if water detected by washing machine
+- Cut power to washing machine if water detected by washing machine
 - Send Text notification and flash lights if CO / Smoke detectors go off
 - Send alert if Eth miner hashrate drops
 - Send alert if power is lost at the house
 - Enhance security system through extra sensors and motion reading
 - Send alert if auxiliary / emergency heat is activated
+- Send long term data to InfluxDB for Grafana configuration
 
 
 # Devices
@@ -78,6 +81,8 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Aeon Labs Water Sensor](https://amzn.to/2PsvDkA) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
+| [Dome Leak Sensor] (https://amzn.to/2xFCrDl) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensor used to detect water in near washing machine as a preventive measure |
+| [WeMo Insight Smart Plug with Energy Monitoring] (https://amzn.to/2ps9k2E) | 1 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 2 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 
 ## Vacuum
@@ -119,6 +124,8 @@ All Roomba related automations can be found in [roomba.yaml]( https://github.com
 | [AWS SNS](https://aws.amazon.com/sns/) | 2 | NA | [AWS SNS](https://www.home-assistant.io/components/notify.aws_sns/) | Primary method of text notification for emergency alerting. SNS queues are subscribed by phones that require notification. |
 | [Docker](https://hub.docker.com/r/homeassistant/home-assistant/) | 1 | Ethernet | [Installation on Docker](https://www.home-assistant.io/docs/installation/docker/) | Home Assistant install runs as a Docker Container utilizing MySQL docker database |
 | [Pi-hole](https://pi-hole.net) | 2 | Ethernet | [Pi-Hole Sensor](https://www.home-assistant.io/components/sensor.pi_hole/) | Ad blocking. Primary instance runs within a Docker container and the secondary runs on a [Raspberry-pi 3](https://amzn.to/2wkqwu7) |
+| [InFluxDB](https://www.influxdata.com) | 1 | Ethernet | [InFluxDB Componant](https://www.home-assistant.io/components/influxdb/) | Long Term data retention for select metrics. Instance runs within a Docker container with Grafana. |
+| [Grafana](https://grafana.com) | 1 | Ethernet | [Generic Camera](https://www.home-assistant.io/components/camera.generic/) | Display of long term data from InfluxDB feeds. Instance runs within a Docker container with InfluxDB. |
 | [Home Assistant Management Tool](https://github.com/geekofweek/homeassistant/blob/master/tools/ha-mgmt-docker.sh) | 1 | Ethernet | NA | Custom Shell script for managing Home Assistant.  Modified from geekofweek version found here. |
 
 
