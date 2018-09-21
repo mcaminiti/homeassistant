@@ -46,7 +46,6 @@ map:
 # Enables support for tracking state changes over time.
 history:
 
-
 #################################################################
 ## Components
 #################################################################
@@ -62,9 +61,39 @@ remote:
     name: Media Center
     host: REDACTED.12
 
+# InfluxDB / Grafana Long Term Data Retention Test
+influxdb:
+  host: REDACTED.100
+  include:
+    entities:
+      - sensor.home_temperature
+      - sensor.master_bedroom_temperature
+      - sensor.basement_temperature
+      - sensor.USER3_bedroom_temperature
+      - sensor.USER4_bedroom_temperature
+      - sensor.home_humidity
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.thermostat_current_status
+      - sensor.thermostat_aux_heat
+      - sensor.ups_load
+      - sensor.nas_cpu_usage
+      - sensor.nas_memory_usage
+      - sensor.nas_volume_used_storage
+      - sensor.nas_volume_used_backup
+      - sensor.nas_system_temperature
+      - sensor.ring_front_door_battery
+      - sensor.basement_door_battery
+      - sensor.basement_motion_battery
+      - sensor.pantry_door_battery
+      - sensor.basement_water_sensor_battery
+      - sensor.washing_machine_current_power
 
 # Wink Hub
 wink:
+
+# WeMo
+wemo:
 
 vacuum:
   - platform: roomba

@@ -7,3 +7,13 @@
     nvr: REDACTED.101
     key: !secret secret_uvc_key
     password: !secret secret_uvc_password
+
+
+#################################################################
+## Grafana Feeds
+#################################################################
+  - platform: generic
+    name: Outside-Inside-Temperature
+    still_image_url: 'http://REDACTED.100:3003/render/dashboard-solo/db/climate?panelId=1&width=1000&height=500'
+    username: !secret secret_grafana_user
+    password: !secret secret_grafana_password

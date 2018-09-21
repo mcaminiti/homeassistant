@@ -118,8 +118,19 @@
     device_class: battery
     friendly_name: Basement Drain Water Sensor
     icon: mdi:battery
-
-
+  binary_sensor.washing_machine_water_sensor_liquid_detected:
+    device_class: moisture
+    friendly_name: Washing Machine Water Sensor
+  sensor.washing_machine_water_sensor_battery:
+    device_class: battery
+    friendly_name: Washing Machine Water Sensor
+    icon: mdi:battery
+  switch.washing_machine:
+    icon: mdi:washing-machine
+  sensor.washing_machine_current_power:
+    friendly_name: Washing Machine Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
 
         ##########################################################
         ## Doors

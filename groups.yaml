@@ -21,6 +21,7 @@ sensors:
     - group.indoor_motion
     - group.water
     - group.nest
+    - group.laundry
     - group.vacuum
 
 camera:
@@ -35,6 +36,7 @@ weatherdashboard:
   view: yes
   icon: mdi:weather-partlycloudy
   entities:
+    - camera.outsideinsidetemperature
     - sensor.dark_sky_summary
     - sensor.dark_sky_daily_summary
     - sensor.dark_sky_hourly_summary
@@ -145,6 +147,7 @@ Cameras:
 
 Water:
   - binary_sensor.basement_water_sensor_liquid_detected
+  - binary_sensor.washing_machine_water_sensor_liquid_detected
 
 Doors:
   - binary_sensor.garage_entry_door
@@ -153,6 +156,10 @@ Doors:
   - binary_sensor.back_door
   - binary_sensor.pantry_door_opened
   - binary_sensor.basement_door_opened
+
+Laundry:
+  - switch.washing_machine
+  - sensor.washing_machine_current_power
 
 Media Player:
 #  - media_player.basement_tv
@@ -185,6 +192,7 @@ Battery Levels:
   - sensor.basement_motion_battery
   - sensor.pantry_door_battery
   - sensor.basement_water_sensor_battery
+  - sensor.washing_machine_water_sensor_battery
 
 System:
   - sensor.cpu
