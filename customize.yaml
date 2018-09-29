@@ -45,6 +45,17 @@
     icon: mdi:cellphone-iphone
     friendly_name: USER4's iPhone (Unifi)
 
+  group.USER1:
+    icon: mdi:human-male
+  group.USER2:
+    icon: mdi:human-female
+  group.USER3:
+    icon: mdi:human-female
+  group.USER4:
+    icon: mdi:human-female
+  group.guests:
+    icon: mdi:human-male-female
+
         ##########################################################
         ## Device Trackers - Guests
         ##########################################################
@@ -126,6 +137,8 @@
     friendly_name: Washing Machine Water Sensor
     icon: mdi:battery
   switch.washing_machine:
+    icon: mdi:washing-machine
+  sensor.washing_machine_status:
     icon: mdi:washing-machine
   sensor.washing_machine_current_power:
     friendly_name: Washing Machine Current Power

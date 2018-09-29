@@ -14,8 +14,8 @@ sensors:
   view: yes
   icon: mdi:lock
   entities:
-    - alarm_control_panel.home_alarm
-    - group.family
+    - group.alarm
+    - group.household
     - group.front_doorbell
     - group.doors
     - group.indoor_motion
@@ -95,18 +95,35 @@ troubleshooting:
     - group.all_automations
     - group.all_scripts
 
-Family:
-  - device_tracker.USER1siphone
-  - device_tracker.REDACTED
-  - device_tracker.USER1_iphone_ios
+USER1:
+    - device_tracker.USER1siphone
+    - device_tracker.REDACTED
+
+USER2:
   - device_tracker.USER2siphone
   - device_tracker.REDACTED
+
+USER3:
   - device_tracker.USER3siphone
   - device_tracker.REDACTED
+
+USER4:
   - device_tracker.USER4siphone
+
+Family:
+  - group.USER1
+  - group.USER2
+  - group.USER3
+  - group.USER4
 
 Guests:
   - device_tracker.REDACTEDsiphone
+
+Household:
+  - group.USER1
+  - group.USER2
+  - group.USER3
+  - group.guests
 
 Pantry:
   - binary_sensor.pantry_door_opened
@@ -127,6 +144,10 @@ Outside lights:
   - light.walkout
 
 Alarm:
+  - alarm_control_panel.home_alarm
+  - sensor.home_alarm_keypad
+
+Alarm Sensors:
   - binary_sensor.garage_entry_door
   - binary_sensor.garage_back_door
   - binary_sensor.front_door
@@ -159,6 +180,7 @@ Doors:
 
 Laundry:
   - switch.washing_machine
+  - sensor.washing_machine_status
   - sensor.washing_machine_current_power
 
 Media Player:
@@ -294,6 +316,7 @@ Eth:
 
 Automation Disable:
   - input_boolean.disable_water_sensors
+  - input_boolean.disable_laundry_notification
 
 Automation Enable:
   - input_boolean.vacation_mode

@@ -102,4 +102,4 @@
 
   action:
     service: homeassistant.turn_off
-    entity_id: light.basement    
+    entity_id: light.basement

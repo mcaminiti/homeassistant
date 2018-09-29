@@ -29,3 +29,7 @@
   disable_water_sensors:
     name: Disable Water Sensors
     icon: mdi:water-off
+
+  disable_laundry_notification:
+    name: Disable Laundry Notifications
+    icon: mdi:washing-machine

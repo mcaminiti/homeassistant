@@ -16,6 +16,8 @@
       - device_tracker
       - binary_sensor
       - vacuum
+    entities:
+      - alarm_control_panel.home_alarm
   exclude:
     entities:
       - sensor.date__time
