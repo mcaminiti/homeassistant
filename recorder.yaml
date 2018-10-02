@@ -6,18 +6,6 @@
   purge_keep_days: 14
   db_url: !secret secret_db_url
 
-  include:
-    domains:
-      - automation
-      - sensor
-      - switch
-      - groups
-      - light
-      - device_tracker
-      - binary_sensor
-      - vacuum
-    entities:
-      - alarm_control_panel.home_alarm
   exclude:
     entities:
       - sensor.date__time

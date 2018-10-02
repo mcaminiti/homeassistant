@@ -40,7 +40,7 @@
 
   condition:
     - condition: state
-      entity_id: group.family
+      entity_id: group.household
       state: 'home'
     - condition: state
       entity_id: input_boolean.disable_water_sensors
@@ -82,6 +82,29 @@
         target: !secret secret_aws_hns_arn
 
         ##########################################################
+        ## Turn off Washing Machine when Water Detected
+        ##########################################################
+
+- alias: Water Sensor - Washing Machine Shut Off
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.washing_machine_water_sensor_liquid_detected
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.washing_machine
+
+
+        ##########################################################
         ## Flash Lights when Water Detected
         ##########################################################
 
@@ -98,7 +121,7 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: group.family
+      entity_id: group.household
       state: 'home'
     - condition: state
       entity_id: input_boolean.disable_water_sensors

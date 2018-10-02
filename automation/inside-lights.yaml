@@ -3,38 +3,14 @@
 #################################################################
 
         ##########################################################
-        ## USER1 Home Turn on Lights
+        ## Household Home Turn on Lights
         ##########################################################
 
-- alias: USER1 Home
+- alias: Household Home
 
   trigger:
     - platform: state
-      entity_id: device_tracker.REDACTED
-      from: 'not_home'
-      to: 'home'
-
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-
-
-  action:
-    service: light.turn_on
-    entity_id: light.family_room
-    data:
-     brightness: 255
-
-        ##########################################################
-        ## USER2 Home Turn on Lights
-        ##########################################################
-
-- alias: USER2 Home
-
-  trigger:
-    - platform: state
-      entity_id: device_tracker.REDACTED
+      entity_id: group.household
       from: 'not_home'
       to: 'home'
 

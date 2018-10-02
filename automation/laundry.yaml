@@ -1,0 +1,25 @@
+#################################################################
+## Laundry Room Automations
+#################################################################
+
+        ##########################################################
+        ## Washing Machine Done - Notification
+        ##########################################################
+
+- alias: Notification - Washing Machine Done
+
+  trigger:
+    - platform: state
+      entity_id: sensor.washing_machine_status
+      from: 'running'
+      to: 'not running'
+
+  condition:
+    - condition: state
+      entity_id: group.household
+      state: 'home'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Washing Machine - Done"
