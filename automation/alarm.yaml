@@ -1,0 +1,20 @@
+#################################################################
+## Alarm System - Notifications and Automations
+#################################################################
+
+        ##########################################################
+        ## Alarm Trouble Notification
+        ##########################################################
+
+- alias: Alarm - Trouble Notification
+
+  trigger:
+    - platform: state
+      entity_id: sensor.alarm_system_trouble
+      from: 'false'
+      to: 'true'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Alarm System Trouble Light On"

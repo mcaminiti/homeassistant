@@ -170,6 +170,11 @@
         friendly_name: 'Roomba Status'
   - platform: template
     sensors:
+      alarm_system_trouble:
+        value_template: '{{ states.sensor.home_alarm_keypad.attributes.trouble }}'
+        friendly_name: 'Alarm System Trouble'
+  - platform: template
+    sensors:
       ups_battery_runtime_mins:
         friendly_name: "UPS Battery Runtime"
         unit_of_measurement: 'minutes'
