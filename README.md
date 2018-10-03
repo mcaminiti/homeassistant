@@ -128,5 +128,10 @@ All Roomba related automations can be found in [roomba.yaml]( https://github.com
 | [Grafana](https://grafana.com) | 1 | Ethernet | [Generic Camera](https://www.home-assistant.io/components/camera.generic/) | Display of long term data from InfluxDB feeds. Instance runs within a Docker container with InfluxDB. |
 | [Home Assistant Management Tool](https://github.com/geekofweek/homeassistant/blob/master/tools/ha-mgmt-docker.sh) | 1 | Ethernet | NA | Custom Shell script for managing Home Assistant.  Modified from geekofweek version found here. |
 
-
-
+##Screenshots
+![UI](images/ha-1.png?raw=true "Home Page")
+![UI](images/ha-2.png?raw=true "Sensors")
+![UI](images/ha-3.png?raw=true "Temp and Weather Sensors")
+![UI](images/ha-4.png?raw=true "System Monitor")
+![UI](images/ha-5.png?raw=true "Ethereum Miner")
+![UI](images/ha-6.png?raw=true "Automation Disable / Enable")
