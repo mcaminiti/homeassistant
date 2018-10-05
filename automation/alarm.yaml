@@ -11,8 +11,8 @@
   trigger:
     - platform: state
       entity_id: sensor.alarm_system_trouble
-      from: 'false'
-      to: 'true'
+      from: "false"
+      to: "true"
 
   action:
     - service: notify.ios_USER1_iphone

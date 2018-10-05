@@ -83,14 +83,15 @@
 - alias: Notification Text - UPS Power Loss Alert
 
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.ups_input_voltage
-      below: 80
+    - platform: state
+      entity_id: sensor.ups_status
+      from: "Online"
+      to: "On Battery Battery Discharging"
 
   action:
     - service: notify.ios_USER1_iphone
       data:
-        message: "Power Outage - UPS runtime {{sensor.ups_battery_runtime_mins.state}}"
+        message: "Power Outage - UPS Runtime - {{states.sensor.ups_battery_runtime_mins.state}}"
 
         ##########################################################
         ## UPS Low Runtime Alert
