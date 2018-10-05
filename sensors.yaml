@@ -178,7 +178,7 @@
       ups_battery_runtime_mins:
         friendly_name: "UPS Battery Runtime"
         unit_of_measurement: 'minutes'
-        value_template: "{{ states('sensor.ups_battery_runtime')|float / 60 }}"
+        value_template: "{{ states('sensor.ups_battery_runtime')|float / 60 |round(1) }}"
   - platform: rest
     resource: !secret secret_nanopool_hashrate_url
     name: Nanopool-HashRate
