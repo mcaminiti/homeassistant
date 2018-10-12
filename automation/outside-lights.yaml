@@ -35,6 +35,20 @@
       entity_id: light.walkout
 
         ##########################################################
+        ## Turn off Outside Lights - Garage at 4:00am
+        ##########################################################
+
+- alias: Garage Lights Off
+
+  trigger:
+    - platform: time
+      at: '04:00'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.garage
+
+        ##########################################################
         ## Turn off Kids Bedroom Night Lights at 11:00pm
         ##########################################################
 

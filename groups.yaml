@@ -105,7 +105,7 @@ USER2:
 
 USER3:
   - device_tracker.USER3siphone
-  - device_tracker.REDACTED
+#  - device_tracker.REDACTED
 
 USER4:
   - device_tracker.USER4siphone

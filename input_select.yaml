@@ -9,9 +9,27 @@
       - Watch TV
       - Watch Apple TV
       - Watch Netflix
-      - Watch a Movie
       - Play Xbox One
+      - Play Nintendo Switch
       - Play Wii U
       - Listen to Radio
     initial: PowerOff
     icon: mdi:remote
+
+
+  outdoor_theme:
+    name: Outdoor Lighting Theme
+    options:
+      - Default
+      - Bug Mode
+      - Valentine's Day
+      - Easter
+      - Memorial Day
+      - Independence Day
+      - Labor Day
+      - Halloween
+      - Veterans Day
+      - Thanksgiving
+      - Christmas
+    initial: Default
+    icon: mdi:gift

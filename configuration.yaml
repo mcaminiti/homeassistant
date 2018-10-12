@@ -124,7 +124,7 @@ device_tracker:
   - platform: unifi
     username: !secret secret_unifi_username
     password: !secret secret_unifi_password
-    host: REDACTED.3
+    host: !secret secret_unifi_host
     verify_ssl: false
     consider_home: 180
     new_device_defaults:
