@@ -1,0 +1,17 @@
+##########################################################
+## American Lighting - Garage
+##########################################################
+- name: Garage - American
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: red
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: white
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: blue

@@ -11,12 +11,11 @@
   trigger:
     - platform: sun
       event: 'sunset'
-      offset: '-00:05:00'
+      offset: '-00:10:00'
 
   action:
-    service: homeassistant.turn_on
-    entity_id: group.outside_lights
-
+    - service: homeassistant.turn_on
+      entity_id: group.outside_lights
 
         ##########################################################
         ## Turn off Outside Lights at 11:30pm
@@ -47,19 +46,3 @@
   action:
     - service: homeassistant.turn_off
       entity_id: light.garage
-
-        ##########################################################
-        ## Turn off Kids Bedroom Night Lights at 11:00pm
-        ##########################################################
-
-- alias: Kids Lights Off
-
-  trigger:
-    - platform: time
-      at: '23:00'
-
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.USER4_bedroom
-    - service: homeassistant.turn_off
-      entity_id: light.USER3_bedroom

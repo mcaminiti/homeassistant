@@ -13,6 +13,10 @@
       entity_id: sensor.washing_machine_status
       from: 'running'
       to: 'not running'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
 
   condition:
     - condition: state

@@ -1,0 +1,17 @@
+##########################################################
+## Valentine's Lighting - Garage
+##########################################################
+- name: Garage - Valentine's Day
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: red
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink

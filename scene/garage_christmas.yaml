@@ -1,0 +1,17 @@
+##########################################################
+## Christmas Lighting - Garage
+##########################################################
+- name: Garage - Christmas
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: red
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: green
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: red

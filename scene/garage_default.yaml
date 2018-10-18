@@ -1,0 +1,17 @@
+##########################################################
+## Default Lighting - Garage
+##########################################################
+- name: Garage - Default
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700

@@ -23,13 +23,7 @@
       - Default
       - Bug Mode
       - Valentine's Day
-      - Easter
-      - Memorial Day
-      - Independence Day
-      - Labor Day
+      - American
       - Halloween
-      - Veterans Day
-      - Thanksgiving
       - Christmas
-    initial: Default
     icon: mdi:gift

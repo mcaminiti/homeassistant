@@ -3,193 +3,31 @@
 ##################################################################
 
         ##########################################################
-        ## Default Lighting - Soft White
+        ## Front Door Light - Set to Theme
         ##########################################################
 
-- alias: Outdoor Theme - Default
+- alias: Outdoor Theme - Front Door
 
   trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  condition:
-    - condition: state
-      entity_id: input_select.holiday
-      state: "Default"
-
-  action:
-    - service: light.turn_on
+    - platform: state
       entity_id: light.front_door
-      data:
-        brightness_pct: 100
-        kelvin: 2700
-    - service: light.turn_on
-      entity_id: light.garage_1
-      data:
-        brightness_pct: 100
-        kelvin: 2700
-    - service: light.turn_on
-      entity_id: light.garage_2
-      data:
-        brightness_pct: 100
-        kelvin: 2700
-    - service: light.turn_on
-      entity_id: light.garage_3
-      data:
-        brightness_pct: 100
-        kelvin: 2700
+      to: 'on'
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_door__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
 
         ##########################################################
-        ## Bug Mode Lighting
+        ## Garage Lights - Set to Theme
         ##########################################################
 
-- alias: Outdoor Theme - Bug Mode Lighting
+- alias: Outdoor Theme - Garage
 
   trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  condition:
-    - condition: state
-      entity_id: input_select.holiday
-      state: "Bug Mode"
-
+    - platform: state
+      entity_id: light.garage
+      to: 'on'
   action:
-    - service: light.turn_on
-      entity_id: light.front_door
-      data:
-        brightness_pct: 100
-        color_name: gold
-    - service: light.turn_on
-      entity_id: light.garage_1
-      data:
-        brightness_pct: 100
-        color_name: gold
-    - service: light.turn_on
-      entity_id: light.garage_2
-      data:
-        brightness_pct: 100
-        color_name: gold
-    - service: light.turn_on
-      entity_id: light.garage_3
-      data:
-        brightness_pct: 100
-        color_name: gold
-
-        ##########################################################
-        ## Valentine's Day Lighting
-        ##########################################################
-
-- alias: Outdoor Theme - Valentine's Day Lighting
-
-  trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  condition:
-    - condition: state
-      entity_id: input_select.holiday
-      state: "Valentine's Day"
-
-  action:
-    - service: light.turn_on
-      entity_id: light.front_door
-      data:
-        brightness_pct: 100
-        color_name: deeppink
-    - service: light.turn_on
-      entity_id: light.garage_1
-      data:
-        brightness_pct: 100
-        color_name: deeppink
-    - service: light.turn_on
-      entity_id: light.garage_2
-      data:
-        brightness_pct: 100
-        color_name: red
-    - service: light.turn_on
-      entity_id: light.garage_3
-      data:
-        brightness_pct: 100
-        color_name: deeppink
-
-
-        ##########################################################
-        ## Christmas Lighting
-        ##########################################################
-
-- alias: Outdoor Theme - Christmas Lighting
-
-  trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  condition:
-    - condition: state
-      entity_id: input_select.holiday
-      state: "Christmas"
-
-  action:
-    - service: light.turn_on
-      entity_id: light.front_door
-      data:
-        brightness_pct: 100
-        color_name: green
-    - service: light.turn_on
-      entity_id: light.garage_1
-      data:
-        brightness_pct: 100
-        color_name: green
-    - service: light.turn_on
-      entity_id: light.garage_2
-      data:
-        brightness_pct: 100
-        color_name: red
-    - service: light.turn_on
-      entity_id: light.garage_3
-      data:
-        brightness_pct: 100
-        color_name: green
-
-
-        ##########################################################
-        ## Halloween Lighting
-        ##########################################################
-
-- alias: Outdoor Theme - Halloween Lighting
-
-  trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:05:00'
-
-  condition:
-    - condition: state
-      entity_id: input_select.holiday
-      state: "Halloween"
-
-  action:
-    - service: light.turn_on
-      entity_id: light.front_door
-      data:
-        brightness_pct: 100
-        color_name: orange
-    - service: light.turn_on
-      entity_id: light.garage_1
-      data:
-        brightness_pct: 100
-        color_name: orange
-    - service: light.turn_on
-      entity_id: light.garage_2
-      data:
-        brightness_pct: 100
-        color_name: purple
-    - service: light.turn_on
-      entity_id: light.garage_3
-      data:
-        brightness_pct: 100
-        color_name: orange
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.garage__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}

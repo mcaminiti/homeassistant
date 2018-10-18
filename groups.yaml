@@ -23,6 +23,7 @@ sensors:
     - group.nest
     - group.laundry
     - group.vacuum
+    - group.door_bell
 
 camera:
   name: Camera
@@ -138,6 +139,7 @@ Inside lights:
   - light.basement
 
 Outside lights:
+  - input_select.outdoor_theme
   - switch.outside
   - light.front_door
   - light.garage
@@ -182,6 +184,10 @@ Laundry:
   - switch.washing_machine
   - sensor.washing_machine_status
   - sensor.washing_machine_current_power
+
+Door Bell:
+  - binary_sensor.ring_front_door_ding
+  - binary_sensor.ring_front_door_motion
 
 Media Player:
 #  - media_player.basement_tv

@@ -1,0 +1,17 @@
+##########################################################
+## Bug Mode Lighting - Garage
+##########################################################
+- name: Garage - Bug Mode
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 75
+      color_name: gold
+    light.garage_2:
+      state: on
+      brightness_pct: 75
+      color_name: gold
+    light.garage_3:
+      state: on
+      brightness_pct: 75
+      color_name: gold

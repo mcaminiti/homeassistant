@@ -1,0 +1,9 @@
+##########################################################
+## Valentine's Day Lighting - Front Door
+##########################################################
+- name: Front Door - Valentine's Day
+  entities:
+    light.front_door:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink

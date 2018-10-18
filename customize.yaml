@@ -64,22 +64,6 @@
     icon: mdi:cellphone-iphone
     friendly_name: REDACTEDs's iPhone (Unifi)
 
-
-
-        ##########################################################
-        ## Door Bell
-        ##########################################################
-
-  binary_sensor.front_door_button_pressed:
-    friendly_name: Door Bell
-    icon: mdi:bell-ring
-  binary_sensor.front_door_motion:
-    icon: mdi:bell-ring
-    friendly_name: Door Bell Motion
-  sensor.ring_front_door_battery:
-    friendly_name: Door Bell
-    icon: mdi:battery
-
         ##########################################################
         ## Rooms
         ##########################################################
@@ -285,7 +269,18 @@
     friendly_name: Kitchen Smoke
     icon: mdi:smoke-detector
 
+        ##########################################################
+        ## Door Bell
+        ##########################################################
 
+  binary_sensor.ring_front_door_ding:
+    icon: mdi:bell-ring
+    friendly_name: Front Door Ring
+  binary_sensor.ring_front_door_motion:
+    friendly_name: Front Door Motion
+  sensor.ring_front_door_battery:
+    friendly_name: Door Bell
+    icon: mdi:battery
 
         ##########################################################
         ## Media Players

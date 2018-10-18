@@ -63,7 +63,7 @@ remote:
 
 # InfluxDB / Grafana Long Term Data Retention Test
 influxdb:
-  host: REDACTED.100
+  host: REDACTED.196
   include:
     entities:
       - sensor.home_temperature
@@ -82,7 +82,7 @@ influxdb:
       - sensor.nas_volume_used_storage
       - sensor.nas_volume_used_backup
       - sensor.nas_system_temperature
-      - sensor.ring_front_door_battery
+      #- sensor.ring_front_door_battery
       - sensor.basement_door_battery
       - sensor.basement_motion_battery
       - sensor.pantry_door_battery
@@ -94,6 +94,8 @@ wink:
 
 # WeMo
 wemo:
+  static:
+    - REDACTED.188
 
 vacuum:
   - platform: roomba
@@ -258,3 +260,4 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 light: !include light_group.yaml
 script: !include scripts.yaml
+scene: !include_dir_merge_list scene
