@@ -1,7 +1,7 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
-Home Assistant Version: 0.79.2
+Home Assistant Version: 0.80.2
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -16,7 +16,8 @@ Typical Automations in use include
 - Grouping of lights for use with Alexa for commands
 - Perform actions based on people leaving home / arriving home
 - Update location for user based on geolocation zones (Work, School, Church, Home)
-- Enable holiday color lights on outside lights
+- Enable holiday color lights on outside lights via scenes
+- Turn on lights based on motion / ring front door and return to previous theme after
 - Send Text notification and flash lights if water detected in basement
 - Send Text notification and flash lights if water detected by washing machine
 - Cut power to washing machine if water detected by washing machine
