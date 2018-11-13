@@ -1,7 +1,7 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
-Home Assistant Version: 0.80.2
+Home Assistant Version: 0.82.0
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -83,7 +83,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Aeon Labs Water Sensor](https://amzn.to/2PsvDkA) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
 | [Dome Leak Sensor](https://amzn.to/2xFCrDl) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensor used to detect water in near washing machine as a preventive measure |
-| [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2ps9k2E) | 1 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
+| [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2ps9k2E) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 2 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 
 ## Vacuum
@@ -99,7 +99,7 @@ All Roomba related automations can be found in [roomba.yaml]( https://github.com
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Ring Video Doorbell](https://amzn.to/2ByP7kL) | 1 | Wi-Fi | [Ring](https://www.home-assistant.io/components/ring/) / [Ring Binary Sensor](https://www.home-assistant.io/components/binary_sensor.ring/) | Automated around binary sensors via motion or doorbell button press |
-| [Ubiquiti UVC-G3 UniFi Video Camera](https://amzn.to/2PtY2XF) | 2 | Ethernet | [UniFi Video Camera](https://www.home-assistant.io/components/camera.uvc/) | 1080p POE Camera. NVR storage on QNAP NAS. New camera system replacing QT analog system. |
+| [Ubiquiti UVC-G3 UniFi Video Camera](https://amzn.to/2PtY2XF) | 2 | Ethernet | [UniFi Video Camera](https://www.home-assistant.io/components/camera.ffmpeg/) | 1080p POE Camera. Unifi Protect on Cloud Key 2 Plus. New camera system replacing QT analog system. |
 
 ## Network
 
@@ -108,6 +108,7 @@ All Roomba related automations can be found in [roomba.yaml]( https://github.com
 | [Ubiquiti Networks Unifi Security Gateway (USG)](https://amzn.to/2NadtTt) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Router. Presence detection for devices |
 | [Ubiquiti Networks UniFi Switch - 24 Ports (US-24-250W)](https://amzn.to/2Pv4X2M) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Switch. Presence detection devices |
 | [Ubiquiti Networks Unifi AP PRO (UAP-AC-PRO-US)](https://amzn.to/2MLV7Lw) | 3 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Wireless Access Point for interior coverage. Presence detection for devices. |
+| [Ubiquiti Networks Unifi Cloud Key 2 Plus ()](https://amzn.to/2B3fwoq) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Unifi Controller and Unifi Protect NVR. Cameras feed via RTSP to HA https://store.ubnt.com/collections/featured/products/unifi-cloudkey-gen2-plus-1. |
 
 ## Other Hardware
 
