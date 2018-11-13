@@ -16,6 +16,9 @@
     - service: notify.ios_USER1_iphone
       data:
         message: Roomba is Stuck, Please Help
+    - service: notify.ios_USER2_iphone
+      data:
+        message: Roomba is Stuck, Please Help
 
         ##########################################################
         ## Roomba is Full Notification
@@ -29,5 +32,8 @@
 
   action:
     - service: notify.ios_USER1_iphone
+      data:
+        message: Roomba is Full, Empty It
+    - service: notify.ios_USER2_iphone
       data:
         message: Roomba is Full, Empty It

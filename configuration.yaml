@@ -1,5 +1,4 @@
 ## Based on config originally from geekofweek
-
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
@@ -88,6 +87,7 @@ influxdb:
       - sensor.pantry_door_battery
       - sensor.basement_water_sensor_battery
       - sensor.washing_machine_current_power
+      - sensor.air_cleaner_current_power
 
 # Wink Hub
 wink:
@@ -96,6 +96,27 @@ wink:
 wemo:
   static:
     - REDACTED.188
+    - REDACTED.198
+
+#tuya:
+#  username: !secret secret_tuya_username
+#  password: !secret secret_tuya_password
+#  country_code: 1
+#  platform: smart_life
+
+#switch:
+#  - platform: tuya
+#    host: REDACTED.199
+#    device_id: REDACTED
+#    local_key: REDACTED
+#    optimistic: true
+#    switches:
+#      switch1:
+#        friendly_name: switch1
+#        id: 1
+#      switch2:
+#        friendly_name: switch2
+#        id: 2
 
 vacuum:
   - platform: roomba
@@ -141,7 +162,6 @@ notify:
     region_name: 'us-east-1'
 
 ios:
-
 ################################################################
 ## Media Players
 ################################################################

@@ -5,5 +5,5 @@
   entities:
     light.front_door:
       state: on
-      brightness_pct: 75
+      brightness_pct: 50
       color_name: gold

@@ -18,10 +18,10 @@
       entity_id: group.outside_lights
 
         ##########################################################
-        ## Turn off Outside Lights at 11:30pm
+        ## Turn off Front and Walkout Lights at 11:30pm
         ##########################################################
 
-- alias: Outside Lights Off
+- alias: Front and Walkout Lights Off
 
   trigger:
     - platform: time
@@ -37,7 +37,7 @@
         ## Turn off Outside Lights - Garage at 4:00am
         ##########################################################
 
-- alias: Garage Lights Off
+- alias: Outside Lights Off
 
   trigger:
     - platform: time
@@ -45,4 +45,4 @@
 
   action:
     - service: homeassistant.turn_off
-      entity_id: light.garage
+      entity_id: group.outside_lights

@@ -3,14 +3,15 @@
 #################################################################
 
         ##########################################################
-        ## Vacation Mode Lights on at 6p
+        ## Vacation Mode Lights on at Sunset
         ##########################################################
 
-- alias: Vacation - Lights On 6p
+- alias: Vacation - Lights On Sunset
 
   trigger:
-    - platform: time
-      at: '18:04'
+    - platform: sun
+      event: 'sunset'
+      offset: '-00:10:00'
 
   condition:
     - condition: state
@@ -20,6 +21,8 @@
   action:
     - service: light.turn_on
       entity_id: light.family_room
+    - service: light.turn_on
+      entity_id: light.master_bedroom
 
         ##########################################################
         ## Vacation Mode Lights Off at 11p
@@ -39,3 +42,5 @@
   action:
     - service: light.turn_off
       entity_id: light.family_room
+    - service: light.turn_off
+      entity_id: light.master_bedroom

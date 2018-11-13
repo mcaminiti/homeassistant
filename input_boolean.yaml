@@ -33,3 +33,7 @@
   disable_laundry_notification:
     name: Disable Laundry Notifications
     icon: mdi:washing-machine
+
+  disable_doorbell:
+    name: Disable Doorbell
+    icon: mdi:bell-ring

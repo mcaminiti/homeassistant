@@ -35,6 +35,9 @@
   device_tracker.USER2siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER2's iPhone (Unifi)
+  device_tracker.USER2_iphone_ios:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER2's iPhone (IOS)
   device_tracker.USER3siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER3's iPhone (Unifi)
@@ -63,6 +66,9 @@
   device_tracker.REDACTEDsiphone:
     icon: mdi:cellphone-iphone
     friendly_name: REDACTEDs's iPhone (Unifi)
+  device_tracker.REDACTEDsiphone:
+    icon: mdi:cellphone-iphone
+    friendly_name: REDACTED's iPhone (Unifi)
 
         ##########################################################
         ## Rooms
@@ -128,7 +134,14 @@
     friendly_name: Washing Machine Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
-
+  switch.air_cleaner:
+    icon: mdi:fan
+  sensor.air_cleaner_status:
+    icon: mdi:fan
+  sensor.air_cleaner_current_power:
+    friendly_name: Air Cleaner Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
         ##########################################################
         ## Doors
         ##########################################################

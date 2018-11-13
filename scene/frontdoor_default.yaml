@@ -5,5 +5,5 @@
   entities:
     light.front_door:
       state: on
-      brightness_pct: 100
+      brightness_pct: 50
       kelvin: 2700

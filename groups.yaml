@@ -43,6 +43,7 @@ weatherdashboard:
     - sensor.dark_sky_hourly_summary
     - sensor.dark_sky_minutely_summary
     - group.thermostat
+    - group.air_cleaner
     - group.indoor_temperature
     - group.weather
     - group.humidity
@@ -68,12 +69,12 @@ monitor:
     - group.nas
     - group.ups
 
-currency:
-  name: Currency
-  view: yes
-  icon: mdi:ethereum
-  entities:
-    - group.eth
+#currency:
+#  name: Currency
+#  view: yes
+#  icon: mdi:ethereum
+#  entities:
+#    - group.eth
 
 settings:
   name: Settings
@@ -118,6 +119,7 @@ Family:
   - group.USER4
 
 Guests:
+  - device_tracker.REDACTEDsiphone
   - device_tracker.REDACTEDsiphone
 
 Household:
@@ -165,8 +167,12 @@ Indoor Motion:
   - binary_sensor.master_bedroom_occupancy
 
 Cameras:
-  - camera.north__front_door
-  - camera.west__walkout
+  #- camera.north__front_door
+  #- camera.west__walkout
+  #### Placeholder until replacement comes
+  - camera.northfrontdoor
+  - camera.westwalkout
+
 
 Water:
   - binary_sensor.basement_water_sensor_liquid_detected
@@ -261,6 +267,11 @@ Thermostat:
   - sensor.thermostat_current_status
   - sensor.thermostat_aux_heat
 
+Air Cleaner:
+  - switch.air_cleaner
+  - sensor.air_cleaner_status
+  - sensor.air_cleaner_current_power
+
 Indoor Temperature:
   - sensor.home_temperature
   - sensor.master_bedroom_temperature
@@ -316,13 +327,14 @@ Nest:
 #  - sensor.allergy_index_yesterday
 #  - sensor.cold_flu_forecasted_average
 
-Eth:
-  - sensor.nanopoolhashrate
-  - sensor.nanopoolbalance
+#Eth:
+#  - sensor.nanopoolhashrate
+#  - sensor.nanopoolbalance
 
 Automation Disable:
   - input_boolean.disable_water_sensors
   - input_boolean.disable_laundry_notification
+  - input_boolean.disable_doorbell
 
 Automation Enable:
   - input_boolean.vacation_mode

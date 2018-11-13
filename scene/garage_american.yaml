@@ -6,7 +6,7 @@
     light.garage_1:
       state: on
       brightness_pct: 100
-      color_name: red
+      color_name: blue
     light.garage_2:
       state: on
       brightness_pct: 100
@@ -14,4 +14,4 @@
     light.garage_3:
       state: on
       brightness_pct: 100
-      color_name: blue
+      color_name: red

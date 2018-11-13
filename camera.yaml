@@ -3,12 +3,17 @@
 #################################################################
 
 
-  - platform: uvc
-    nvr: REDACTED.101
-    key: !secret secret_uvc_key
-    password: !secret secret_uvc_password
-
-
+  #- platform: uvc
+  #  nvr: REDACTED.101
+  #  key: !secret secret_uvc_key
+  #  password: !secret secret_uvc_password
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
+    name: North-Front-Door
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
+    name: West-Walkout
+    
 #################################################################
 ## Grafana Feeds
 #################################################################

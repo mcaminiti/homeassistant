@@ -1,0 +1,115 @@
+        ##########################################################
+        ## Turn On Front Door when Door Bell Rings
+        ##########################################################
+
+- alias: Doorbell - Turn On Front Door when Rung
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_doorbell
+      state: 'off'
+
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_door__default
+    - service: light.turn_on
+      entity_id: light.front_door
+      data:
+        brightness_pct: 100
+
+        ##########################################################
+        ## Reset Front Door Brightness After Doorbell Rings
+        ##########################################################
+
+- alias: Doorbell - Reset Front Door After Ring
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      from: 'on'
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 30
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_doorbell
+      state: 'off'
+
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_door__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
+
+        ##########################################################
+        ## Turn On Front Door when Motion Detected
+        ##########################################################
+
+- alias: Doorbell - Turn On Front Door when Motion Detected
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_doorbell
+      state: 'off'
+
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_door__default
+    - service: light.turn_on
+      entity_id: light.front_door
+      data:
+        brightness_pct: 100
+
+        ##########################################################
+        ## Reset Front Door After Motion Detected
+        ##########################################################
+
+- alias: Doorbell - Reset Front Door After Motion Detected
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      from: 'on'
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_doorbell
+      state: 'off'
+
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_door__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}

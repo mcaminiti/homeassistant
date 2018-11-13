@@ -12,6 +12,10 @@
     - platform: state
       entity_id: light.front_door
       to: 'on'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 45
   action:
     - service: scene.turn_on
       data_template:
