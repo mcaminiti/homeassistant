@@ -203,7 +203,7 @@
     sensors:
       nws_alert_count_filtered:
         friendly_name: NWS Alert Count
-        entity_id: sensor.nws_alert_count_raw
+        entity_id: sensor.nws_alert_count_filtered
         value_template: >
           {% if is_state('sensor.nws_alert_count_raw', 'unavailable') or is_state('sensor.nws_alert_count_raw', 'unknown') %}
             {{ states.sensor.nws_alert_count_filtered.state }}
@@ -231,7 +231,7 @@
     sensors:
       nws_alert_event:
         friendly_name: NWS Alert Event
-        entity_id: sensor.nws_alert_event_raw
+        entity_id: sensor.nws_alert_event
         value_template: >
           {% if is_state('sensor.nws_alert_event_raw', 'unavailable') or is_state('sensor.nws_alert_event_raw', 'unknown') %}
             {{ states.sensor.nws_alert_event.state }}
@@ -240,7 +240,7 @@
           {% endif %}
       nws_alert_event_2:
         friendly_name: NWS Alert Event 2
-        entity_id: sensor.nws_alert_event_raw
+        entity_id: sensor.nws_alert_event_2
         value_template: >
           {% if state_attr('sensor.nws_alert_event_raw', 'features')[1] is defined %}
             {{ state_attr('sensor.nws_alert_event_raw', 'features')[1]['properties'].event }}
@@ -249,7 +249,7 @@
           {% endif %}
       nws_alert_event_3:
         friendly_name: NWS Alert Event 3
-        entity_id: sensor.nws_alert_event_raw
+        entity_id: sensor.nws_alert_event_3
         value_template: >
           {% if state_attr('sensor.nws_alert_event_raw', 'features')[2] is defined %}
             {{ state_attr('sensor.nws_alert_event_raw', 'features')[2]['properties'].event }}
