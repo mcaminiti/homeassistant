@@ -7,6 +7,7 @@ default_view:
     - group.family
     - group.pantry
     - group.inside_lights
+    - group.christmas
     - group.outside_lights
 
 sensors:
@@ -139,6 +140,7 @@ Inside lights:
   - light.USER4_bedroom
   - light.pantry_lights
   - light.basement
+  - group.christmas
 
 Outside lights:
   - input_select.outdoor_theme
@@ -318,6 +320,9 @@ Nest:
   - sensor.kitchen_nest_protect_co_status
   - sensor.kitchen_nest_protect_color_status
   - sensor.kitchen_nest_protect_smoke_status
+
+Christmas:
+  - switch.christmas_tree
 
 #Allergy:
 #  - sensor.allergy_index_forecasted_average

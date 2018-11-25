@@ -23,7 +23,7 @@
   device_tracker.USER1siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER1's iPhone (Unifi)
-  device_tracker.USER1_iphone_ios:
+  device_tracker.USER1_iphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER1's iPhone (IOS)
   device_tracker.REDACTED:
@@ -35,7 +35,7 @@
   device_tracker.USER2siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER2's iPhone (Unifi)
-  device_tracker.USER2_iphone_ios:
+  device_tracker.USER2_iphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER2's iPhone (IOS)
   device_tracker.USER3siphone:
@@ -142,6 +142,13 @@
     friendly_name: Air Cleaner Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
+
+        ##########################################################
+        ## Christmas
+        ##########################################################
+  switch.christmas_tree:
+    icon: mdi:pine-tree
+
         ##########################################################
         ## Doors
         ##########################################################

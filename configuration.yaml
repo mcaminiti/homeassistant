@@ -97,6 +97,7 @@ wemo:
   static:
     - REDACTED.188
     - REDACTED.198
+    - REDACTED.148
 
 #tuya:
 #  username: !secret secret_tuya_username
@@ -162,6 +163,7 @@ notify:
     region_name: 'us-east-1'
 
 ios:
+
 ################################################################
 ## Media Players
 ################################################################
@@ -226,7 +228,6 @@ zone 4:
   longitude: !secret secret_REDACTED_home_longitude
   radius: 250
   icon: mdi:home
-
 
 #################################################################
 ## Alarm Panel - Envisalink-DSC
