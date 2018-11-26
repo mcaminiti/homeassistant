@@ -1,7 +1,7 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
-Home Assistant Version: 0.82.0
+Home Assistant Version: 0.82.1
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -84,7 +84,8 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Aeon Labs Water Sensor](https://amzn.to/2PsvDkA) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
 | [Dome Leak Sensor](https://amzn.to/2xFCrDl) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensor used to detect water in near washing machine as a preventive measure |
 | [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2ps9k2E) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
-| [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 2 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
+| [WeMo Mini Smart Plug](https://amzn.to/2r6wdcS) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
+| [Nest Protect v2 Wired](https://amzn.to/2Pn3sDT) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 
 ## Vacuum
 
