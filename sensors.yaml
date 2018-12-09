@@ -82,7 +82,7 @@
         value_template: >-
           {% if states('sensor.air_cleaner_current_power') | int <= 10 %}
             not running
-          {% elif states('sensor.air_cleaner_current_power') | int >= 30 %}
+          {% elif states('sensor.air_cleaner_current_power') | int >= 32 %}
             running high power
           {% else %}
             running
@@ -181,103 +181,12 @@
         friendly_name: "UPS Battery Runtime"
         unit_of_measurement: 'minutes'
         value_template: "{{ states('sensor.ups_battery_runtime')|float / 60 |round(1) }}"
-
+  - platform: launch_library
+    name: Next Space Launch
 ### WEATHER SERVICE Sensors
-  - platform: rest
-    resource: https://api.weather.gov/alerts/active/count
-    name: NWS Alert Count Raw
-    value_template: >
-      {% if value_json is defined and value_json.zones.REDACTED is defined %}
-        {{ value_json.zones.REDACTED }}
-      {% elif value_json is defined and value_json.zones.REDACTED is defined %}
-        {{ value_json.zones.REDACTED }}
-      {% else %}
-        0
-      {% endif %}
-    headers:
-      User-Agent: Homeassistant
-      Accept: application/ld+json
-    scan_interval: 60
-
-  - platform: template
-    sensors:
-      nws_alert_count_filtered:
-        friendly_name: NWS Alert Count
-        entity_id: sensor.nws_alert_count_filtered
-        value_template: >
-          {% if is_state('sensor.nws_alert_count_raw', 'unavailable') or is_state('sensor.nws_alert_count_raw', 'unknown') %}
-            {{ states.sensor.nws_alert_count_filtered.state }}
-          {% else %}
-            {{ states.sensor.nws_alert_count_raw.state }}
-          {% endif %}
-
-  - platform: rest
-    resource: https://api.weather.gov/alerts/active/zone/REDACTED
-    name: NWS Alert Event Raw
-    value_template: >
-      {% if value_json.features[0] is defined %}
-        {{ value_json['features'][0]['properties'].event }}
-      {% else %}
-        None
-      {% endif %}
-    json_attributes:
-      - features
-    headers:
-      User-Agent: Homeassistant
-      Accept: application/geo+json
-    scan_interval: 60
-
-  - platform: template
-    sensors:
-      nws_alert_event:
-        friendly_name: NWS Alert Event
-        entity_id: sensor.nws_alert_event
-        value_template: >
-          {% if is_state('sensor.nws_alert_event_raw', 'unavailable') or is_state('sensor.nws_alert_event_raw', 'unknown') %}
-            {{ states.sensor.nws_alert_event.state }}
-          {% else %}
-            {{ states.sensor.nws_alert_event_raw.state }}
-          {% endif %}
-      nws_alert_event_2:
-        friendly_name: NWS Alert Event 2
-        entity_id: sensor.nws_alert_event_2
-        value_template: >
-          {% if state_attr('sensor.nws_alert_event_raw', 'features')[1] is defined %}
-            {{ state_attr('sensor.nws_alert_event_raw', 'features')[1]['properties'].event }}
-          {% else %}
-            None
-          {% endif %}
-      nws_alert_event_3:
-        friendly_name: NWS Alert Event 3
-        entity_id: sensor.nws_alert_event_3
-        value_template: >
-          {% if state_attr('sensor.nws_alert_event_raw', 'features')[2] is defined %}
-            {{ state_attr('sensor.nws_alert_event_raw', 'features')[2]['properties'].event }}
-          {% else %}
-            None
-          {% endif %}
-
-  - platform: template
-    sensors:
-      nws_alert_event_expires:
-        friendly_name: NWS Alert Event Expires
-        entity_id: sensor.nws_alert_event_expires
-        value_template: >
-          {% if state_attr('sensor.nws_alert_event_raw', 'features')[0] is defined %}
-            {{ as_timestamp(state_attr('sensor.nws_alert_event_raw', 'features')[0].properties.expires)| timestamp_custom('%-m-%-d-%Y %-I:%M %p') }}
-          {% else %}
-            None
-          {% endif %}
-      nws_alert_event_headline:
-        friendly_name: NWS Alert Event Headline
-        entity_id: sensor.nws_alert_event_headline
-        value_template: >
-          {% if state_attr('sensor.nws_alert_event_raw', 'features')[0] is defined %}
-            {{ state_attr('sensor.nws_alert_event_raw', 'features')[0]['properties'].headline }}
-          {% else %}
-            None
-          {% endif %}
-
+  - platform: nws_alerts
+#    zone_id: 'REDACTED'
+    zone_id: 'REDACTED'  #TEST ZONE
 #### Nanopool API DOWN Again ####
 #  - platform: rest
 #    resource: !secret secret_nanopool_hashrate_url

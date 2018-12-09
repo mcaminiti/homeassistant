@@ -121,7 +121,7 @@ wemo:
 
 vacuum:
   - platform: roomba
-    host: REDACTED.184
+    host: REDACTED.150
     username: !secret secret_roomba_username
     password: !secret secret_roomba_password
     name: Roomba
