@@ -45,7 +45,7 @@
       - type: memory_free
       - type: memory_use_percent
       - type: processor_use
-      - type: since_last_boot
+      - type: last_boot
   - platform: template
     sensors:
       basement_door_battery:

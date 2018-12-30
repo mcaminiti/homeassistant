@@ -47,6 +47,11 @@
   device_tracker.USER4siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER4's iPhone (Unifi)
+  device_tracker.REDACTED:
+    icon: mdi:cellphone-iphone
+    friendly_name: USER4's iPhone (Locative)
+
+
 
   group.USER1:
     icon: mdi:human-male
@@ -287,6 +292,38 @@
     icon: mdi:smoke-detector
   sensor.kitchen_nest_protect_smoke_status:
     friendly_name: Kitchen Smoke
+    icon: mdi:smoke-detector
+
+  binary_sensor.master_bedroom_nest_protect_online:
+    friendly_name: Master Bedroom Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.master_bedroom_nest_protect_battery_health:
+    friendly_name: Master Bedroom Smoke Alarm Battery
+    icon: mdi:battery
+  sensor.master_bedroom_nest_protect_color_status:
+    friendly_name: Master Bedroom Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.master_bedroom_nest_protect_co_status:
+    friendly_name: Master Bedroom CO
+    icon: mdi:smoke-detector
+  sensor.master_bedroom_nest_protect_smoke_status:
+    friendly_name: Master Bedroom Smoke
+    icon: mdi:smoke-detector
+
+  binary_sensor.basement_nest_protect_online:
+    friendly_name: Basement Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.basement_nest_protect_battery_health:
+    friendly_name: Basement Smoke Alarm Battery
+    icon: mdi:battery
+  sensor.basement_nest_protect_color_status:
+    friendly_name: Basement Smoke Alarm
+    icon: mdi:smoke-detector
+  sensor.basement_nest_protect_co_status:
+    friendly_name: Basement CO
+    icon: mdi:smoke-detector
+  sensor.basement_nest_protect_smoke_status:
+    friendly_name: Basement Smoke
     icon: mdi:smoke-detector
 
         ##########################################################

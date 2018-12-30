@@ -22,7 +22,20 @@
         hours: 0
         minutes: 0
         seconds: 3
-
+    - platform: state
+      entity_id: sensor.master_bedroom_nest_protect_smoke_status
+      to: 'Warning'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
+    - platform: state
+      entity_id: sensor.basement_nest_protect_smoke_status
+      to: 'Warning'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
   action:
     - service: light.turn_on
       entity_id: light.hue_lights
@@ -59,7 +72,20 @@
         hours: 0
         minutes: 0
         seconds: 3
-
+    - platform: state
+      entity_id: sensor.master_bedroom_nest_protect_smoke_status
+      to: 'Emergency'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
+    - platform: state
+      entity_id: sensor.basement_nest_protect_smoke_status
+      to: 'Emergency'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
   action:
     - service: light.turn_on
       entity_id: light.hue_lights
@@ -96,7 +122,20 @@
         hours: 0
         minutes: 0
         seconds: 3
-
+    - platform: state
+      entity_id: sensor.master_bedroom_nest_protect_co_status
+      to: 'Warning'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
+    - platform: state
+      entity_id: sensor.basement_nest_protect_co_status
+      to: 'Warning'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
   action:
     - service: light.turn_on
       entity_id: light.hue_lights
@@ -133,7 +172,20 @@
         hours: 0
         minutes: 0
         seconds: 3
-
+    - platform: state
+      entity_id: sensor.master_bedroom_nest_protect_co_status
+      to: 'Emergency'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
+    - platform: state
+      entity_id: sensor.basement_nest_protect_co_status
+      to: 'Emergency'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
   action:
     - service: light.turn_on
       entity_id: light.hue_lights

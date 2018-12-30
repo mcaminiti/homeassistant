@@ -38,7 +38,6 @@ weatherdashboard:
   view: yes
   icon: mdi:weather-partlycloudy
   entities:
-    - camera.outsideinsidetemperature
     - sensor.dark_sky_summary
     - sensor.dark_sky_daily_summary
     - sensor.dark_sky_hourly_summary
@@ -47,8 +46,11 @@ weatherdashboard:
     - group.air_cleaner
     - group.indoor_temperature
     - group.weather
+    - group.weather_alerts
     - group.humidity
     - group.weather_summary
+    - camera.outsideinsidetemperature
+
 
 media:
   name: Media
@@ -112,6 +114,8 @@ USER3:
 
 USER4:
   - device_tracker.USER4siphone
+#  - device_tracker.REDACTED
+
 
 Family:
   - group.USER1
@@ -309,6 +313,9 @@ Weather Summary:
   - sensor.dark_sky_hourly_summary
   - sensor.dark_sky_daily_summary
 
+Weather Alerts:
+  -  sensor.nws_alerts
+
 Nest:
   - binary_sensor.hallway_nest_protect_online
   - sensor.hallway_nest_protect_battery_health
@@ -320,6 +327,17 @@ Nest:
   - sensor.kitchen_nest_protect_co_status
   - sensor.kitchen_nest_protect_color_status
   - sensor.kitchen_nest_protect_smoke_status
+  - binary_sensor.master_bedroom_nest_protect_online
+  - sensor.master_bedroom_nest_protect_battery_health
+  - sensor.master_bedroom_nest_protect_co_status
+  - sensor.master_bedroom_nest_protect_color_status
+  - sensor.master_bedroom_nest_protect_smoke_status
+  - binary_sensor.basement_nest_protect_online
+  - sensor.basement_nest_protect_battery_health
+  - sensor.basement_nest_protect_co_status
+  - sensor.basement_nest_protect_color_status
+  - sensor.basement_nest_protect_smoke_status
+
 
 Christmas:
   - switch.christmas_tree

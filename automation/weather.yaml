@@ -3,5 +3,31 @@
 #################################################################
 
         ##########################################################
-        ## NWS Weather Alert Pop Up Control
+        ## NWS Weather Alert IOS
         ##########################################################
+  - alias: NWS Notification Weather Alert - IOS
+    trigger:
+      platform: state
+      entity_id: sensor.nws_alerts
+    condition:
+      - condition: template
+        value_template: '{{states.sensor.nws_alerts.state | int > 0}}'
+      - condition: template
+        value_template: '{{ trigger.to_state.state|float > trigger.from_state.state|float }}'
+    action:
+    - service: notify.ios_USER1_iphone
+      data_template:
+        message: >
+          {% if states.sensor.nws_alerts.attributes.title.split(' - ')[5] is defined %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[5] }}"
+          {% elif states.sensor.nws_alerts.attributes.title.split(' - ')[4] is defined %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[4] }}"
+          {% elif states.sensor.nws_alerts.attributes.title.split(' - ')[3] is defined %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[3] }}"
+          {% elif states.sensor.nws_alerts.attributes.title.split(' - ')[2] is defined %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[2] }}"
+          {% elif states.sensor.nws_alerts.attributes.title.split(' - ')[1] is defined %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[1] }}"
+          {% else %}
+            "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[0] }}"
+          {% endif %}
