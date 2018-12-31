@@ -46,3 +46,5 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.outside_lights
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.party_outside

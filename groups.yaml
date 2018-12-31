@@ -86,6 +86,7 @@ settings:
   entities:
     - group.automation_enable
     - group.automation_disable
+    - group.automation_toggles
 
 troubleshooting:
   name: Troubleshooting
@@ -361,3 +362,11 @@ Automation Disable:
 
 Automation Enable:
   - input_boolean.vacation_mode
+  - input_boolean.party_outside
+  - input_boolean.party_family_room
+  - input_boolean.party_USER4_bedroom
+  - input_boolean.blackhawks_mode
+  - input_number.goalfeed
+
+Automation Toggles:
+  - input_boolean.goaling

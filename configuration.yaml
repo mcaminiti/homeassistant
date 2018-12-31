@@ -55,6 +55,14 @@ hue:
     allow_unreachable: false
     allow_hue_groups: false
 
+emulated_hue:
+  host_ip: REDACTED.6
+  listen_port: 8300
+  off_maps_to_on_domains:
+    - script
+    - scene
+  expose_by_default: false
+
 remote:
   - platform: harmony
     name: Media Center
@@ -98,6 +106,11 @@ wemo:
     - REDACTED.188
     - REDACTED.198
     - REDACTED.148
+
+goalfeed:
+  username: !secret secret_goalfeed_username
+  password: !secret secret_goalfeed_password
+
 
 #tuya:
 #  username: !secret secret_tuya_username
@@ -268,6 +281,14 @@ envisalink:
   partitions:
     1:
       name: 'Home Alarm'
+
+input_number:
+  goalfeed:
+    name: Goalfeed Delay
+    initial: 10
+    min: 0
+    max: 180
+    step: 1
 
 ######## INCLUDES ########
 group: !include groups.yaml

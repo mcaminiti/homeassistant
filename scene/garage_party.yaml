@@ -1,0 +1,19 @@
+##########################################################
+## Party Lighting - Garage
+##########################################################
+- name: Garage - Party
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      effect: random
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      effect: random
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      effect: random
+    input_boolean.party_outside:
+      state: on

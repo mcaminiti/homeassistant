@@ -12,6 +12,31 @@
     initial: off
     icon: mdi:airplane
 
+  party_family_room:
+    name: Party Mode - Family Room
+    initial: off
+    icon: mdi:lightbulb-on
+
+  party_USER4_bedroom:
+    name: Party Mode - USER4 Bedroom
+    initial: off
+    icon: mdi:lightbulb-on
+
+  party_outside:
+    name: Party Mode - Outside
+    initial: off
+    icon: mdi:lightbulb-on
+
+  blackhawks_mode:
+    name: Blackhawks Mode
+    initial: off
+    icon: mdi:hockey-sticks
+
+  goaling:
+    name: Sports Goaling Mode
+    initial: off
+    icon: mdi:soccer-field
+
   USER1_away:
     name: USER1 Away
     initial: off

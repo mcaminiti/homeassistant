@@ -392,6 +392,28 @@
     icon: mdi:ethereum
 
         ##########################################################
+        ## Amazon Echo Integration
+        ##########################################################
+
+  input_boolean.party_family_room:
+    emulated_hue_hidden: false
+    emulated_hue_name: "Family Room Party"
+  input_boolean.party_USER4_bedroom:
+    emulated_hue_hidden: false
+    emulated_hue_name: "USER4 Bedroom Party"
+  input_boolean.blackhawks_mode:
+    emulated_hue_hidden: false
+    emulated_hue_name: "Blackhawks Mode"
+
+        ##########################################################
+        ## Input
+        ##########################################################
+
+  input_number.goalfeed:
+    friendly_name: Goalfeed Delay
+    icon: mdi:history
+
+        ##########################################################
         ## UPS
         ##########################################################
 

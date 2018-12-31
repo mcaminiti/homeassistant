@@ -1,0 +1,10 @@
+##########################################################
+## Party Lighting - Front Door
+##########################################################
+- name: Front Door - Party
+  entities:
+    light.front_door:
+      state: on
+      brightness_pct: 100
+      effect: colorloop
+      transition: 5

@@ -1,0 +1,80 @@
+##################################################################
+## Sports Mode Automations
+##################################################################
+
+        ##########################################################
+        ## Blackhawks Goal - On
+        ##########################################################
+
+- alias: Blackhawks Goal - On
+
+  trigger:
+    - platform: event
+      event_type: goal
+      event_data:
+        team_name: "Chicago Blackhawks"
+  condition:
+    - condition: state
+      entity_id: input_boolean.blackhawks_mode
+      state: 'on'
+  action:
+    - delay: "00:00:{{ states.input_number.goalfeed.state | int }}"
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.goaling
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        color_name: red
+        brightness_pct: 100
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.office
+        media_content_id: https://REDACTED/local/audio/blackhawks_goal.mp3
+        media_content_type: audio/mp3
+    - delay: "00:00:10"
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+    - delay: "00:00:10"
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+
+        ##########################################################
+        ## Sports Goal - Off
+        ##########################################################
+
+- alias: Goal - Off
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.goaling
+    to: 'on'
+    for:
+      seconds: 50
+  action:
+#  - service: media_player.stop_media
+#    data:
+#      entity_id: media_player.everywhere
+#  - service: script.turn_on
+#    entity_id: script.goal_stop
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.goaling
+  - service: light.turn_on
+    entity_id: light.family_room
+    data:
+      color_name: white
+      brightness_pct: 100
+  - service: light.turn_on
+    entity_id:
+      - light.family_room
+    data:
+      transition: 10
+      brightness_pct: 100
+      kelvin: 2700
