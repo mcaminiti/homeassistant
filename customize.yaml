@@ -151,8 +151,8 @@
         ##########################################################
         ## Christmas
         ##########################################################
-  switch.christmas_tree:
-    icon: mdi:pine-tree
+#  switch.christmas_tree:
+#    icon: mdi:pine-tree
 
         ##########################################################
         ## Doors
@@ -372,7 +372,7 @@
         ## DNS
         ##########################################################
 
-  sensor.myipopendnscom:
+  sensor.myip:
     friendly_name: Current IP Address
     icon: mdi:dns
   sensor.REDACTED:

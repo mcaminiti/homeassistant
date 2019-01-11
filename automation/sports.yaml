@@ -12,7 +12,7 @@
     - platform: event
       event_type: goal
       event_data:
-        team_name: "Chicago Blackhawks"
+        team: "CHI"
   condition:
     - condition: state
       entity_id: input_boolean.blackhawks_mode
@@ -78,3 +78,19 @@
       transition: 10
       brightness_pct: 100
       kelvin: 2700
+
+        ##########################################################
+        ## Blackhawks Mode - Off
+        ##########################################################
+
+- alias: Blackhawks Mode - Off
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.blackhawks_mode
+    to: 'on'
+    for:
+      hours: 4
+  action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.blackhawks_mode

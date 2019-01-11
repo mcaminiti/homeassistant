@@ -7,7 +7,7 @@ default_view:
     - group.family
     - group.pantry
     - group.inside_lights
-    - group.christmas
+#    - group.christmas
     - group.outside_lights
 
 sensors:
@@ -17,7 +17,6 @@ sensors:
   entities:
     - group.alarm
     - group.household
-    - group.front_doorbell
     - group.doors
     - group.indoor_motion
     - group.water
@@ -49,7 +48,7 @@ weatherdashboard:
     - group.weather_alerts
     - group.humidity
     - group.weather_summary
-    - camera.outsideinsidetemperature
+    - camera.outside_inside_temperature
 
 
 media:
@@ -145,7 +144,7 @@ Inside lights:
   - light.USER4_bedroom
   - light.pantry_lights
   - light.basement
-  - group.christmas
+  #- group.christmas
 
 Outside lights:
   - input_select.outdoor_theme
@@ -174,11 +173,8 @@ Indoor Motion:
   - binary_sensor.master_bedroom_occupancy
 
 Cameras:
-  #- camera.north__front_door
-  #- camera.west__walkout
-  #### Placeholder until replacement comes
-  - camera.northfrontdoor
-  - camera.westwalkout
+  - camera.north_front_door
+  - camera.west_walkout
 
 
 Water:
@@ -223,10 +219,6 @@ Vacuum:
   - sensor.roomba_battery
   - sensor.roomba_bin
 
-Front Doorbell:
-  - binary_sensor.front_door_button_pressed
-  - binary_sensor.front_door_motion
-
 Battery Levels:
   - sensor.ring_front_door_battery
   - sensor.basement_door_battery
@@ -238,19 +230,18 @@ Battery Levels:
 System:
   - sensor.cpu
   - sensor.cpu_use
-  - sensor.ram_use
-  - sensor.ram_free
-  - sensor.since_last_boot
+  - sensor.memory_use
+  - sensor.memory_free
+  - sensor.last_boot
   - binary_sensor.hub
-  - updater.updater
 
 NAS:
   - sensor.nas_status
   - sensor.nas_cpu_usage
   - sensor.nas_memory_usage
-  - sensor.nas_smart_status_drive_01
-  - sensor.nas_smart_status_drive_02
-  - sensor.nas_smart_status_drive_03
+  - sensor.nas_smart_status_drive_0_1
+  - sensor.nas_smart_status_drive_0_2
+  - sensor.nas_smart_status_drive_0_3
   - sensor.nas_volume_used_storage
   - sensor.nas_volume_used_backup
   - sensor.nas_system_temperature
@@ -263,7 +254,7 @@ UPS:
   - sensor.ups_input_voltage
 
 DNS:
-  - sensor.myipopendnscom
+  - sensor.myip
   - sensor.REDACTED
   - sensor.unificaminitiorg
   - sensor.REDACTED
@@ -340,8 +331,8 @@ Nest:
   - sensor.basement_nest_protect_smoke_status
 
 
-Christmas:
-  - switch.christmas_tree
+#Christmas:
+#  - switch.christmas_tree
 
 #Allergy:
 #  - sensor.allergy_index_forecasted_average
