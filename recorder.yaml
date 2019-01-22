@@ -8,7 +8,7 @@
 
   exclude:
     entities:
-      - sensor.date__time
+      - sensor.date_time
       - sensor.cpu
       - sensor.cpu_use
       - sensor.ram_use

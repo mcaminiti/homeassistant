@@ -151,6 +151,7 @@ Outside lights:
   - switch.outside
   - light.front_door
   - light.garage
+  - light.landscape
   - light.walkout
 
 Alarm:
@@ -175,7 +176,9 @@ Indoor Motion:
 Cameras:
   - camera.north_front_door
   - camera.west_walkout
-
+  - camera.east_driveway
+  - camera.south_back_door
+  - camera.garage
 
 Water:
   - binary_sensor.basement_water_sensor_liquid_detected
@@ -329,7 +332,6 @@ Nest:
   - sensor.basement_nest_protect_co_status
   - sensor.basement_nest_protect_color_status
   - sensor.basement_nest_protect_smoke_status
-
 
 #Christmas:
 #  - switch.christmas_tree

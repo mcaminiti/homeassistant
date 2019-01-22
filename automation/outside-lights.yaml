@@ -29,9 +29,9 @@
 
   action:
     - service: homeassistant.turn_off
-      entity_id: switch.outside
-    - service: homeassistant.turn_off
       entity_id: light.walkout
+    - service: homeassistant.turn_off
+      entity_id: light.front_door
 
         ##########################################################
         ## Turn off Outside Lights - Garage at 4:00am
@@ -45,6 +45,8 @@
 
   action:
     - service: homeassistant.turn_off
-      entity_id: group.outside_lights
+      entity_id: light.garage
+    - service: homeassistant.turn_off
+      entity_id: light.landscape
     - service: homeassistant.turn_off
       entity_id: input_boolean.party_outside

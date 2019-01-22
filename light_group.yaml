@@ -66,8 +66,18 @@
       - light.walkout_2
 
   - platform: group
+    name: Landscape
+    entities:
+      - light.hue_outdoor_spot_1
+      - light.hue_outdoor_spot_2
+      - light.hue_outdoor_spot_3
+      - light.hue_outdoor_spot_4
+      - light.hue_outdoor_spot_5
+      - light.hue_outdoor_spot_6
+
+  - platform: group
     name: Emergency Lights
     entities:
       - light.USER2_bedroom_1
       - light.USER1_bedroom_1
-      - light.family_room_1      
+      - light.family_room_1

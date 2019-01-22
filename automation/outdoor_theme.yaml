@@ -19,7 +19,7 @@
   action:
     - service: scene.turn_on
       data_template:
-        entity_id: scene.front_door__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
+        entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}
 
         ##########################################################
         ## Garage Lights - Set to Theme
@@ -34,4 +34,23 @@
   action:
     - service: scene.turn_on
       data_template:
-        entity_id: scene.garage__{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
+        entity_id: scene.garage_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}
+
+        ##########################################################
+        ## Front Landscape Lights - Set to Theme
+        ##########################################################
+
+- alias: Outdoor Theme - Front Landscape
+
+  trigger:
+    - platform: state
+      entity_id: light.landscape
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}

@@ -93,6 +93,8 @@
     icon: mdi:wall-sconce
   light.garage:
     icon: mdi:wall-sconce
+  light.landscape:
+    icon: mdi:home
   light.walkout:
     icon: mdi:wall-sconce
 

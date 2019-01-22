@@ -13,7 +13,17 @@
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
     name: West-Walkout
-    
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
+    name: East-Driveway
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
+    name: Garage
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED
+    name: South-Back-Door
+
+
 #################################################################
 ## Grafana Feeds
 #################################################################

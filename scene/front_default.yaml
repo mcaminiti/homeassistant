@@ -1,0 +1,33 @@
+##########################################################
+## Default Lighting - Front
+##########################################################
+- name: Front - Default
+  entities:
+    light.front_door:
+      state: on
+      brightness_pct: 50
+      kelvin: 2700
+    light.hue_outdoor_spot_1:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.hue_outdoor_spot_2:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.hue_outdoor_spot_3:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.hue_outdoor_spot_4:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.hue_outdoor_spot_5:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
+    light.hue_outdoor_spot_6:
+      state: on
+      brightness_pct: 100
+      kelvin: 2700
