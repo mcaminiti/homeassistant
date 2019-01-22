@@ -1,7 +1,7 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
-Home Assistant Version: 0.82.1
+Home Assistant Version: 0.85.0
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -48,6 +48,7 @@ Wink hub connected with developer API account.
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Philips Hue White and Color Ambiance v1/v2](https://amzn.to/2MnNQlH) | 8 | Ethernet | [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Color changing smart bulbs|
 | [Philips Hue White / Lux White](https://amzn.to/2MBBq9d) | 6 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
+| [Philips Hue White & Color Ambiance Outdoor](https://www.amazon.com/Philips-Ambiance-Outdoor-mounting-Assistant/dp/B07DBGW73T/ref=sr_1_1?ie=UTF8&qid=1548126147&sr=8-1&keywords=phillips+hue+outdoor+lily) | 6 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
 | [Lutron Caseta Wireless Dimmer](https://amzn.to/2NahiI2) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart dimmer switches that do not require a neutral wire|
 | [Leviton Decora Smart Switch](https://amzn.to/2BwRODk) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
 
@@ -91,16 +92,16 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [iRobot Roomba 980](https://amzn.to/2C3XF3y) | 1 | Wi-Fi | [iRobot Roomba](https://www.home-assistant.io/components/vacuum.roomba/)| Working to automate schedule based on presence detection |
-
-All Roomba related automations can be found in [roomba.yaml]( https://github.com/mcaminiti/homeassistant/blob/master/automation/roomba.yaml)
+| [iRobot Roomba i7](https://amzn.to/2C3XF3y) | 1 | Wi-Fi | [iRobot Roomba](https://www.home-assistant.io/components/vacuum.roomba/)| Working to automate schedule based on presence detection | All Roomba related automations can be found in [roomba.yaml]( https://github.com/mcaminiti/homeassistant/blob/master/automation/roomba.yaml)
 
 ## Cameras
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Ring Video Doorbell](https://amzn.to/2ByP7kL) | 1 | Wi-Fi | [Ring](https://www.home-assistant.io/components/ring/) / [Ring Binary Sensor](https://www.home-assistant.io/components/binary_sensor.ring/) | Automated around binary sensors via motion or doorbell button press |
-| [Ubiquiti UVC-G3 UniFi Video Camera](https://amzn.to/2PtY2XF) | 2 | Ethernet | [Camera FFMPEG](https://www.home-assistant.io/components/camera.ffmpeg/) | 1080p POE Camera. Unifi Protect on Cloud Key 2 Plus. New camera system replacing QT analog system. |
+| [Ubiquiti UVC-G3 UniFi Video Camera](https://amzn.to/2PtY2XF) | 4 | Ethernet | [Camera FFMPEG](https://www.home-assistant.io/components/camera.ffmpeg/) | 1080p POE Camera. Unifi Protect on Cloud Key 2 Plus. New camera system replacing QT analog system. |
+| [Ubiquiti UniFi Video G3 Flex Camera](https://www.amazon.com/Ubiquiti-Indoor-Outdoor-Camera-UVC-G3-FLEX/dp/B07D6MHK7S/ref=sr_1_1?ie=UTF8&qid=1548126334&sr=8-1&keywords=unifi+flex+g3) | 1 | Ethernet | [Camera FFMPEG](https://www.home-assistant.io/components/camera.ffmpeg/) | 1080p POE Camera. Unifi Protect on Cloud Key 2 Plus. |
+
 
 ## Network
 
