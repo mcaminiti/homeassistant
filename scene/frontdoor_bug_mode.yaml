@@ -1,9 +1,0 @@
-##########################################################
-## Bug Mode Lighting - Front Door
-##########################################################
-- name: Front Door - Bug Mode
-  entities:
-    light.front_door:
-      state: on
-      brightness_pct: 50
-      color_name: gold

@@ -1,9 +1,0 @@
-##########################################################
-## Halloween Lighting - Front Door
-##########################################################
-- name: Front Door - Halloween
-  entities:
-    light.front_door:
-      state: on
-      brightness_pct: 100
-      color_name: orange

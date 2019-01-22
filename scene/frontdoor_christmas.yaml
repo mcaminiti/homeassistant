@@ -1,9 +1,0 @@
-##########################################################
-## Christmas Lighting - Front Door
-##########################################################
-- name: Front Door - Christmas
-  entities:
-    light.front_door:
-      state: on
-      brightness_pct: 100
-      color_name: green

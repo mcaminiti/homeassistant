@@ -1,9 +1,0 @@
-##########################################################
-## Default Lighting - Front Door
-##########################################################
-- name: Front Door - Default
-  entities:
-    light.front_door:
-      state: on
-      brightness_pct: 50
-      kelvin: 2700
