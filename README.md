@@ -47,7 +47,7 @@ Wink hub connected with developer API account.
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Philips Hue White and Color Ambiance v1/v2](https://amzn.to/2MnNQlH) | 8 | Ethernet | [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Color changing smart bulbs|
-| [Philips Hue White / Lux White](https://amzn.to/2MBBq9d) | 6 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
+| [Philips Hue White / Lux White](https://amzn.to/2MBBq9d) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
 | [Philips Hue White & Color Ambiance Outdoor](https://www.amazon.com/Philips-Ambiance-Outdoor-mounting-Assistant/dp/B07DBGW73T/ref=sr_1_1?ie=UTF8&qid=1548126147&sr=8-1&keywords=phillips+hue+outdoor+lily) | 6 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
 | [Lutron Caseta Wireless Dimmer](https://amzn.to/2NahiI2) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart dimmer switches that do not require a neutral wire|
 | [Leviton Decora Smart Switch](https://amzn.to/2BwRODk) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
