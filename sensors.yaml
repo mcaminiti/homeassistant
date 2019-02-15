@@ -40,6 +40,9 @@
     hostname: !secret secret_dns_home_hostname
     name: REDACTED
   - platform: dnsip
+    hostname: !secret secret_dns_REDACTED_hostname
+    name: REDACTED
+  - platform: dnsip
     hostname: !secret secret_dns_parents_hostname
     name: REDACTED
   - platform: systemmonitor

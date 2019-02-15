@@ -52,7 +52,7 @@ history:
 hue:
   bridges:
   - host: REDACTED.32
-    allow_unreachable: false
+    allow_unreachable: true
     allow_hue_groups: false
 
 emulated_hue:
@@ -107,9 +107,9 @@ wemo:
     - REDACTED.198
     - REDACTED.148
 
-goalfeed:
-  username: !secret secret_goalfeed_username
-  password: !secret secret_goalfeed_password
+#goalfeed:
+#  username: !secret secret_goalfeed_username
+#  password: !secret secret_goalfeed_password
 
 
 #tuya:
@@ -154,10 +154,6 @@ nest:
   client_secret: !secret secret_nest_secret
 
 device_tracker:
-  - platform: locative
-    track_new_devices: no
-    interval_seconds: 12
-    consider_home: 180
   - platform: unifi
     username: !secret secret_unifi_username
     password: !secret secret_unifi_password
@@ -285,7 +281,7 @@ envisalink:
 input_number:
   goalfeed:
     name: Goalfeed Delay
-    initial: 10
+    initial: 1
     min: 0
     max: 180
     step: 1

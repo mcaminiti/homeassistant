@@ -26,12 +26,6 @@
   device_tracker.USER1_iphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER1's iPhone (IOS)
-  device_tracker.REDACTED:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER1's iPhone (Locative)
-  device_tracker.REDACTED:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER2's iPhone (Locative)
   device_tracker.USER2siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER2's iPhone (Unifi)
@@ -41,15 +35,9 @@
   device_tracker.USER3siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER3's iPhone (Unifi)
-  device_tracker.REDACTED:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER3's iPhone (Locative)
   device_tracker.USER4siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER4's iPhone (Unifi)
-  device_tracker.REDACTED:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER4's iPhone (Locative)
 
 
 
@@ -383,7 +371,9 @@
   sensor.REDACTED:
     friendly_name: Parent DNS IP Address
     icon: mdi:dns
-
+  sensor.REDACTED:
+    friendly_name: REDACTED DNS IP Address
+    icon: mdi:dns
         ##########################################################
         ## NanoPool
         ##########################################################

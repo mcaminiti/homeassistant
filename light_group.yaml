@@ -74,6 +74,7 @@
       - light.hue_outdoor_spot_4
       - light.hue_outdoor_spot_5
       - light.hue_outdoor_spot_6
+      - light.hue_outdoor_spot_7
 
   - platform: group
     name: Emergency Lights

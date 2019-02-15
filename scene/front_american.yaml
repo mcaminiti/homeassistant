@@ -18,16 +18,20 @@
     light.hue_outdoor_spot_3:
       state: on
       brightness_pct: 100
-      color_name: red
+      color_name: white
     light.hue_outdoor_spot_4:
       state: on
       brightness_pct: 100
-      color_name: blue
+      color_name: red
     light.hue_outdoor_spot_5:
       state: on
       brightness_pct: 100
-      color_name: white
+      color_name: blue
     light.hue_outdoor_spot_6:
+      state: on
+      brightness_pct: 100
+      color_name: white
+    light.hue_outdoor_spot_7:
       state: on
       brightness_pct: 100
       color_name: red

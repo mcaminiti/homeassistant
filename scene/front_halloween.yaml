@@ -31,3 +31,7 @@
       state: on
       brightness_pct: 100
       color_name: purple
+    light.hue_outdoor_spot_7:
+      state: on
+      brightness_pct: 100
+      color_name: orange

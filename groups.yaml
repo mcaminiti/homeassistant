@@ -102,20 +102,15 @@ troubleshooting:
 
 USER1:
     - device_tracker.USER1siphone
-    - device_tracker.REDACTED
 
 USER2:
   - device_tracker.USER2siphone
-  - device_tracker.REDACTED
 
 USER3:
   - device_tracker.USER3siphone
-#  - device_tracker.REDACTED
 
 USER4:
   - device_tracker.USER4siphone
-#  - device_tracker.REDACTED
-
 
 Family:
   - group.USER1
@@ -259,7 +254,7 @@ UPS:
 DNS:
   - sensor.myip
   - sensor.REDACTED
-  - sensor.unificaminitiorg
+  - sensor.REDACTED
   - sensor.REDACTED
 
 Thermostat:

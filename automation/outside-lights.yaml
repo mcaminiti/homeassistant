@@ -34,7 +34,7 @@
       entity_id: light.front_door
 
         ##########################################################
-        ## Turn off Outside Lights - Garage at 4:00am
+        ## Turn off Outside Lights - Outside at 4:00am
         ##########################################################
 
 - alias: Outside Lights Off
@@ -42,6 +42,24 @@
   trigger:
     - platform: time
       at: '04:00'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.garage
+    - service: homeassistant.turn_off
+      entity_id: light.landscape
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.party_outside
+
+        ##########################################################
+        ## Turn off Outside Lights - Outside at 4:05am
+        ##########################################################
+
+- alias: Outside Lights Off 2
+
+  trigger:
+    - platform: time
+      at: '04:05'
 
   action:
     - service: homeassistant.turn_off
