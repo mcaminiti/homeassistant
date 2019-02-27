@@ -1,7 +1,7 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
-Home Assistant Version: 0.87.0
+Home Assistant Version: 0.88.1
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -48,7 +48,7 @@ Wink hub connected with developer API account.
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Philips Hue White and Color Ambiance v1/v2](https://amzn.to/2MnNQlH) | 8 | Ethernet | [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Color changing smart bulbs|
 | [Philips Hue White / Lux White](https://amzn.to/2MBBq9d) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
-| [Philips Hue White & Color Ambiance Outdoor](https://www.amazon.com/Philips-Ambiance-Outdoor-mounting-Assistant/dp/B07DBGW73T/ref=sr_1_1?ie=UTF8&qid=1548126147&sr=8-1&keywords=phillips+hue+outdoor+lily) | 6 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
+| [Philips Hue White & Color Ambiance Outdoor](https://www.amazon.com/Philips-Ambiance-Outdoor-mounting-Assistant/dp/B07DBGW73T/ref=sr_1_1?ie=UTF8&qid=1548126147&sr=8-1&keywords=phillips+hue+outdoor+lily) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
 | [Lutron Caseta Wireless Dimmer](https://amzn.to/2NahiI2) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart dimmer switches that do not require a neutral wire|
 | [Leviton Decora Smart Switch](https://amzn.to/2BwRODk) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
 
