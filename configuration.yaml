@@ -89,13 +89,15 @@ influxdb:
       - sensor.nas_volume_used_storage
       - sensor.nas_volume_used_backup
       - sensor.nas_system_temperature
-      #- sensor.ring_front_door_battery
+      - sensor.ring_front_door_battery
       - sensor.basement_door_battery
       - sensor.basement_motion_battery
       - sensor.pantry_door_battery
       - sensor.basement_water_sensor_battery
       - sensor.washing_machine_current_power
       - sensor.air_cleaner_current_power
+      - sensor.nanopool_hashrate
+      - sensor.nanopool_balance
 
 # Wink Hub
 wink:
@@ -299,3 +301,4 @@ input_select: !include input_select.yaml
 light: !include light_group.yaml
 script: !include scripts.yaml
 scene: !include_dir_merge_list scene
+switch: !include switch.yaml

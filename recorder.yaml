@@ -33,8 +33,17 @@
       - sensor.dark_sky_visibility
       - sensor.dark_sky_wind_bearing
       - sensor.dark_sky_wind_speed
-      - sensor.myipopendnscom
+      - sensor.myip
+      - sensor.REDACTED
       - sensor.REDACTED
       - sensor.REDACTED
       - binary_sensor.hub
       - updater.updater
+      - switch.pihole_1_switch
+      - sensor.pihole_1_ads_blocked_today
+      - sensor.pihole_1_dns_queries_today
+      - sensor.pihole_1_ads_percentage_blocked_today
+      - switch.pihole_2_switch
+      - sensor.pihole_2_ads_blocked_today
+      - sensor.pihole_2_dns_queries_today
+      - sensor.pihole_2_ads_percentage_blocked_today

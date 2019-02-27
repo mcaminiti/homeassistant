@@ -129,6 +129,8 @@
     friendly_name: Washing Machine Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
+  switch.sound_machine:
+    icon: mdi:fan
   switch.air_cleaner:
     icon: mdi:fan
   sensor.air_cleaner_status:
@@ -378,9 +380,9 @@
         ## NanoPool
         ##########################################################
 
-  sensor.nanopoolhashrate:
+  sensor.nanopool_hashrate:
     icon: mdi:speedometer
-  sensor.nanopoolbalance:
+  sensor.nanopool_balance:
     icon: mdi:ethereum
 
         ##########################################################
