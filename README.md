@@ -1,6 +1,8 @@
 # Home Assistant
 [Home Assistant](https://home-assistant.io) configuration with home automations.
 
+Featured on Example page from https://www.home-assistant.io/cookbook/
+
 Home Assistant Version: 0.88.1
 
 # Overview
