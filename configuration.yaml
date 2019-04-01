@@ -24,6 +24,7 @@ http:
 
 # Enables the frontend
 frontend:
+  javascript_version: latest
 
 # Checks for available updates
 updater:
@@ -102,12 +103,21 @@ influxdb:
 # Wink Hub
 wink:
 
+# Stream Componant
+stream:
+
 # WeMo
 wemo:
   static:
     - REDACTED.188
     - REDACTED.198
     - REDACTED.148
+
+# Weather
+weather:
+  - platform: darksky
+    api_key: !secret secret_darksky_api_key
+    mode: daily
 
 #goalfeed:
 #  username: !secret secret_goalfeed_username

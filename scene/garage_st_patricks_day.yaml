@@ -1,0 +1,17 @@
+##########################################################
+## St Patrick's Day Lighting - Garage
+##########################################################
+- name: Garage - St Patrick's Day
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: green
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: green
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: green

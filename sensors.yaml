@@ -295,8 +295,7 @@
 
 ### WEATHER SERVICE Sensors
   - platform: nws_alerts
-#    zone_id: 'REDACTED'
-    zone_id: 'REDACTED'  #TEST ZONE
+    zone_id: 'REDACTED'
 
         ##########################################################
         ## ETH Sensor - Nanopool

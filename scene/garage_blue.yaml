@@ -1,0 +1,17 @@
+##########################################################
+## Blue Lighting - Garage
+##########################################################
+- name: Garage - Blue
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: blue
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: blue
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: blue
