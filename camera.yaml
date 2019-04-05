@@ -11,45 +11,30 @@
     name: North-Front-Door
     still_image_url: https://REDACTED.220/snap.jpeg
     stream_source: rtsp://REDACTED.3:7447/REDACTED
-    preload_stream: true
-    stream_options:
-      rtsp_transport: tcp
     verify_ssl: false
 
   - platform: generic
     name: West-Walkout
     still_image_url: https://REDACTED.247/snap.jpeg
     stream_source: rtsp://REDACTED.3:7447/REDACTED
-    preload_stream: true
-    stream_options:
-      rtsp_transport: tcp
     verify_ssl: false
 
   - platform: generic
     name: East-Driveway
     still_image_url: https://REDACTED.159/snap.jpeg
     stream_source: rtsp://REDACTED.3:7447/REDACTED
-    preload_stream: true
-    stream_options:
-      rtsp_transport: tcp
     verify_ssl: false
 
   - platform: generic
     name: Garage
     still_image_url: https://REDACTED.160/snap.jpeg
     stream_source: rtsp://REDACTED.3:7447/REDACTED
-    preload_stream: true
-    stream_options:
-      rtsp_transport: tcp
     verify_ssl: false
 
   - platform: generic
     name: South-Back-Door
     still_image_url: https://REDACTED.143/snap.jpeg
     stream_source: rtsp://REDACTED.3:7447/REDACTED
-    preload_stream: true
-    stream_options:
-      rtsp_transport: tcp
     verify_ssl: false
 
 #  - platform: ffmpeg
@@ -71,7 +56,7 @@
 #################################################################
 ## Ring Feeds
 #################################################################
-#  - platform: ring
+  - platform: ring
 
 #################################################################
 ## Grafana Feeds
