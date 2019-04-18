@@ -104,17 +104,26 @@
     icon: mdi:battery
   sensor.basement_motion_battery:
     icon: mdi:battery
+  binary_sensor.basement_motion_sensor:
+    device_class: motion
   binary_sensor.hub:
     friendly_name: Wink Hub
     icon: mdi:ethernet
-  binary_sensor.basement_water_sensor_liquid_detected:
+  binary_sensor.kitchen_sink_water_sensor:
+    device_class: moisture
+    friendly_name: Kitchen Sink Water Sensor
+  sensor.kitchen_sink_water_sensor_battery:
+    device_class: battery
+    friendly_name: Kitchen Sink Water Sensor
+    icon: mdi:battery
+  binary_sensor.basement_drain_water_sensor:
     device_class: moisture
     friendly_name: Basement Drain Water Sensor
-  sensor.basement_water_sensor_battery:
+  sensor.basement_drain_water_sensor_battery:
     device_class: battery
     friendly_name: Basement Drain Water Sensor
     icon: mdi:battery
-  binary_sensor.washing_machine_water_sensor_liquid_detected:
+  binary_sensor.washing_machine_water_sensor:
     device_class: moisture
     friendly_name: Washing Machine Water Sensor
   sensor.washing_machine_water_sensor_battery:
@@ -150,7 +159,8 @@
         ## Doors
         ##########################################################
 
-  binary_sensor.pantry_door_opened:
+  binary_sensor.pantry_door:
+    device_class: door
     icon: mdi:door
     friendly_name: Pantry Door
   binary_sensor.front_door:
@@ -161,7 +171,8 @@
     icon: mdi:door
   binary_sensor.back_door:
     icon: mdi:door
-  binary_sensor.basement_door_opened:
+  binary_sensor.basement_door:
+    device_class: door
     icon: mdi:door
     friendly_name: Basement Door
 

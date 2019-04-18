@@ -17,7 +17,7 @@ homeassistant:
 config:
 
 http:
-  api_password: !secret secret_api_password
+#  api_password: !secret secret_api_password
   base_url: !secret secret_base_url
   ssl_certificate: !secret secret_ssl_certificate
   ssl_key: !secret secret_ssl_key
@@ -99,9 +99,15 @@ influxdb:
       - sensor.air_cleaner_current_power
       - sensor.nanopool_hashrate
       - sensor.nanopool_balance
+      - binary_sensor.wan
+      - binary_sensor.gateway
 
 # Wink Hub
-wink:
+#wink:
+
+# VeraPlus controller to replace wink
+vera:
+  vera_controller_url: http://REDACTED.140:3480/
 
 # Stream Componant
 stream:
@@ -176,12 +182,16 @@ device_tracker:
       track_new_devices: False
       hide_if_away: False
 
-notify:
-  - name: hass_sns
-    platform: aws_sns
-    aws_access_key_id: !secret secret_aws_access_key_id
-    aws_secret_access_key: !secret secret_aws_secret_access_key
-    region_name: 'us-east-1'
+#aws:
+#  credentials:
+#    - name: hass
+#      aws_access_key_id: !secret secret_aws_access_key_id
+#      aws_secret_access_key: !secret secret_aws_secret_access_key
+#  notify:
+#    - service: sns
+#      aws_access_key_id: !secret secret_aws_access_key_id
+#      aws_secret_access_key: !secret secret_aws_secret_access_key
+#      region_name: us-east-1
 
 ios:
 

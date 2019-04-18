@@ -1,0 +1,17 @@
+##########################################################
+## Easter Lighting - Garage
+##########################################################
+- name: Garage - Easter
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: aqua
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: lime
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: plum

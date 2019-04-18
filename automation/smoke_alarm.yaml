@@ -46,11 +46,12 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: Smoke - Warning in House!
-        target: !secret secret_aws_hns_arn
+        message: "Smoke - Warning in House!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "Smoke - Warning in House!"
 
         ##########################################################
         ## Flash Lights for Smoke - Emergency
@@ -96,12 +97,12 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: Smoke - Emergency in House!
-        target: !secret secret_aws_hns_arn
-
+        message: "Smoke - Emergency in House!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "Smoke - Emergency in House!"
         ##########################################################
         ## Flash Lights for CO - Warning
         ##########################################################
@@ -146,12 +147,12 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: CO - Warning in House!
-        target: !secret secret_aws_hns_arn
-
+        message: "CO - Warning in House!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "CO - Warning in House!"
         ##########################################################
         ## Flash Lights for CO - Emergency
         ##########################################################
@@ -196,8 +197,9 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: CO - Emergency in House!
-        target: !secret secret_aws_hns_arn
+        message: "CO - Emergency in House!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "CO - Emergency in House!"

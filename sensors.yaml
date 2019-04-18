@@ -108,23 +108,28 @@
   - platform: template
     sensors:
       basement_door_battery:
-        value_template: '{{ states.binary_sensor.basement_door_opened.attributes.battery_level }}'
+        value_template: '{{ states.binary_sensor.basement_door.attributes.battery_level }}'
         friendly_name: 'Basement Door'
         unit_of_measurement: '%'
       pantry_door_battery:
-        value_template: '{{ states.binary_sensor.pantry_door_opened.attributes.battery_level }}'
+        value_template: '{{ states.binary_sensor.pantry_door.attributes.battery_level }}'
         friendly_name: 'Pantry Door'
         unit_of_measurement: '%'
       basement_motion_battery:
-        value_template: '{{ states.binary_sensor.basement_motion.attributes.battery_level }}'
+        value_template: '{{ states.binary_sensor.basement_motion_sensor.attributes.battery_level }}'
         friendly_name: 'Basement Motion'
         unit_of_measurement: '%'
-      basement_water_sensor_battery:
-        value_template: '{{ states.binary_sensor.basement_water_sensor_liquid_detected.attributes.battery_level }}'
-        friendly_name: 'Basement Water Sensor'
+      basement_drain_water_sensor_battery:
+        value_template: '{{ states.binary_sensor.basement_drain_water_sensor.attributes.battery_level }}'
+        friendly_name: 'Basement Drain Water Sensor'
         unit_of_measurement: '%'
+      kitchen_sink_water_sensor_battery:
+        value_template: '{{ states.binary_sensor.kitchen_sink_water_sensor.attributes.battery_level }}'
+        friendly_name: 'Kitchen Sink Water Sensor'
+        unit_of_measurement: '%'
+
       washing_machine_water_sensor_battery:
-        value_template: '{{ states.binary_sensor.washing_machine_water_sensor_liquid_detected.attributes.battery_level }}'
+        value_template: '{{ states.binary_sensor.washing_machine_water_sensor.attributes.battery_level }}'
         friendly_name: 'Washing Machine Water Sensor'
         unit_of_measurement: '%'
 

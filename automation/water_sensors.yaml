@@ -6,11 +6,11 @@
         ## Send Notification for Water Detected Basement
         ##########################################################
 
-- alias: Water Sensor - Basement Water Sensor Text Notification
+- alias: Notification - Basement Water Sensor
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.basement_water_sensor_liquid_detected
+      entity_id: binary_sensor.basement_drain_water_sensor
       from: 'off'
       to: 'on'
 
@@ -18,13 +18,13 @@
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-
   action:
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: Water Detected in Basement!
-        target: !secret secret_aws_hns_arn
+        message: "Water Detected in Basement!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "Water Detected in Basement!"
 
         ##########################################################
         ## Flash Lights when Water Detected
@@ -34,7 +34,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.basement_water_sensor_liquid_detected
+      entity_id: binary_sensor.basement_drain_water_sensor
       from: 'off'
       to: 'on'
 
@@ -61,11 +61,11 @@
         ## Send Notification for Water Detected Washing Machine
         ##########################################################
 
-- alias: Water Sensor - Washing Machine Water Sensor Text Notification
+- alias: Notification - Washing Machine Water Sensor Text Notification
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.washing_machine_water_sensor_liquid_detected
+      entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
 
@@ -75,11 +75,12 @@
       state: 'off'
 
   action:
-    - service: notify.hass_sns
+    - service: notify.ios_USER1_iphone
       data:
-        title: Home Assistant Notification
-        message: Water Detected by Washing Machine!
-        target: !secret secret_aws_hns_arn
+        message: "Water Detected by Washing Machine!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "Water Detected by Washing Machine!"
 
         ##########################################################
         ## Turn off Washing Machine when Water Detected
@@ -89,7 +90,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.washing_machine_water_sensor_liquid_detected
+      entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
 
@@ -112,11 +113,11 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.basement_water_sensor_liquid_detected
+      entity_id: binary_sensor.basement_drain_water_sensor
       from: 'off'
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.washing_machine_water_sensor_liquid_detected
+      entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
   condition:

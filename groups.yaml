@@ -56,27 +56,27 @@ Alarm Sensors:
   - binary_sensor.garage_back_door
   - binary_sensor.front_door
   - binary_sensor.back_door
-  - binary_sensor.basement_door_opened
-  - binary_sensor.basement_motion
+  - binary_sensor.basement_door
+  - binary_sensor.basement_motion_sensor
 
 Indoor Motion:
-  - binary_sensor.basement_motion
+  - binary_sensor.basement_motion_sensor
   - binary_sensor.USER3_bedroom_occupancy
   - binary_sensor.USER4_bedroom_occupancy
   - binary_sensor.home_occupancy
   - binary_sensor.master_bedroom_occupancy
 
 Water:
-  - binary_sensor.basement_water_sensor_liquid_detected
-  - binary_sensor.washing_machine_water_sensor_liquid_detected
+  - binary_sensor.basement_drain_water_sensor
+  - binary_sensor.washing_machine_water_sensor
 
 Doors:
   - binary_sensor.garage_entry_door
   - binary_sensor.garage_back_door
   - binary_sensor.front_door
   - binary_sensor.back_door
-  - binary_sensor.pantry_door_opened
-  - binary_sensor.basement_door_opened
+  - binary_sensor.pantry_door
+  - binary_sensor.basement_door
 
 
 Weather Alerts:

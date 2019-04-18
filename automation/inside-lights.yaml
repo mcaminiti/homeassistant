@@ -33,7 +33,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.pantry_door_opened
+      entity_id: binary_sensor.pantry_door
       from: 'off'
       to: 'on'
 
@@ -51,7 +51,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.pantry_door_opened
+      entity_id: binary_sensor.pantry_door
       from: 'on'
       to: 'off'
 
@@ -68,7 +68,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.basement_motion
+      entity_id: binary_sensor.basement_motion_sensor
       from: 'on'
       to: 'off'
       for:
@@ -79,7 +79,7 @@
   action:
     service: homeassistant.turn_off
     entity_id: light.basement
-    
+
         ##########################################################
         ## Turn off Kids Bedroom Night Lights at 11:00pm
         ##########################################################
