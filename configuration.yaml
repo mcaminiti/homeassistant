@@ -57,7 +57,7 @@ hue:
     allow_hue_groups: false
 
 emulated_hue:
-  host_ip: REDACTED.6
+  host_ip: REDACTED.100
   listen_port: 8300
   off_maps_to_on_domains:
     - script
