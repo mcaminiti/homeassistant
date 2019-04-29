@@ -7,6 +7,16 @@
   db_url: !secret secret_db_url
 
   exclude:
+    domains:
+      - updater
+      - weblink
+      - camera
+      - media_player
+      - scene
+      - script
+      - calendar
+      - sun
+      - weather
     entities:
       - sensor.date_time
       - sensor.cpu

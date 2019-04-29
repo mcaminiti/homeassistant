@@ -1,0 +1,46 @@
+#################################################################
+## Bedtime Automations
+#################################################################
+
+        ##########################################################
+        ## Bedtime - Master Bedroom
+        ##########################################################
+
+- alias: Bedtime
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedtime
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 5
+
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.master_bedroom
+    - service: switch.turn_on
+      entity_id:
+        - switch.sound_machine
+
+        ##########################################################
+        ## Reset Bedtime Switch
+        ##########################################################
+
+- alias: Bedtime - Reset Switch
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedtime
+      from: 'off'
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.bedtime

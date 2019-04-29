@@ -409,6 +409,9 @@
   input_boolean.blackhawks_mode:
     emulated_hue_hidden: false
     emulated_hue_name: "Blackhawks Mode"
+  input_boolean.bedtime:
+    emulated_hue_hidden: false
+    emulated_hue_name: "Bedtime"
 
         ##########################################################
         ## Input

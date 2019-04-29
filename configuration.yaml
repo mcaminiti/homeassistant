@@ -38,6 +38,7 @@ discovery:
  ignore:
    - samsung_tv
    - apple_tv
+   - wink
 
 map:
 
@@ -129,6 +130,12 @@ weather:
 #  username: !secret secret_goalfeed_username
 #  password: !secret secret_goalfeed_password
 
+## Lutron Caseta bridge
+lutron_caseta:
+    host: REDACTED.141
+    keyfile: !secret secret_lutron_keyfile
+    certfile: !secret secret_lutron_certfile
+    ca_certs: !secret secret_lutron_cacerts
 
 #tuya:
 #  username: !secret secret_tuya_username

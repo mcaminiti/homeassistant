@@ -2,6 +2,8 @@
 ## Logbook
 #################################################################
   exclude:
+    domains:
+      - updater
     entities:
       - sensor.date_time
       - sensor.cpu

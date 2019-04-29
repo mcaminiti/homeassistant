@@ -27,6 +27,11 @@
     initial: off
     icon: mdi:lightbulb-on
 
+  bedtime:
+    name: Bedtime
+    initial: off
+    icon: mdi:hotel
+
   blackhawks_mode:
     name: Blackhawks Mode
     initial: off

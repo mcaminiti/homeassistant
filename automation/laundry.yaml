@@ -15,7 +15,7 @@
       to: 'not running'
       for:
         hours: 0
-        minutes: 2
+        minutes: 1
         seconds: 0
 
   condition:

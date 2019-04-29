@@ -34,6 +34,23 @@
       entity_id: light.front_door
 
         ##########################################################
+        ## Dim Landscape Lights at 11:35pm
+        ##########################################################
+
+- alias: Landscape Lights Dim
+
+  trigger:
+    - platform: time
+      at: '23:35'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.landscape
+      data:
+        transition: 5
+        brightness_pct: 50
+
+        ##########################################################
         ## Turn off Outside Lights - Outside at 4:00am
         ##########################################################
 
@@ -52,14 +69,14 @@
       entity_id: input_boolean.party_outside
 
         ##########################################################
-        ## Turn off Outside Lights - Outside at 4:05am
+        ## Turn off Outside Lights - Outside at 4:10am
         ##########################################################
 
 - alias: Outside Lights Off 2
 
   trigger:
     - platform: time
-      at: '04:05'
+      at: '04:10'
 
   action:
     - service: homeassistant.turn_off

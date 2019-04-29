@@ -20,6 +20,16 @@
       - light.front_door
 
   - platform: group
+    name: Water Lights
+    entities:
+      - light.USER2_bedroom_1
+      - light.USER1_bedroom_1
+      #- light.USER3_bedroom_1
+      #- light.USER4_bedroom_1
+      - light.family_room_1
+
+
+  - platform: group
     name: Family Room
     entities:
       - light.family_room_1
@@ -49,8 +59,8 @@
   - platform: group
     name: Basement
     entities:
-      - light.basement_1
-      - light.basement_2
+      - light.basement_lights_1
+      - light.basement_lights_2
 
   - platform: group
     name: Garage

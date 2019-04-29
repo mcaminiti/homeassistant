@@ -27,37 +27,6 @@
         message: "Water Detected in Basement!"
 
         ##########################################################
-        ## Flash Lights when Water Detected
-        ##########################################################
-
-- alias: Water Sensor - Flash Lights when Water Detected
-
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.basement_drain_water_sensor
-      from: 'off'
-      to: 'on'
-
-  condition:
-    - condition: state
-      entity_id: group.household
-      state: 'home'
-    - condition: state
-      entity_id: input_boolean.disable_water_sensors
-      state: 'off'
-
-  action:
-    - service: light.turn_on
-      entity_id: light.hue_lights
-      data:
-        brightness_pct: 100
-        color_name: "blue"
-    - service: light.turn_on
-      entity_id: light.hue_lights
-      data:
-        flash: long
-
-        ##########################################################
         ## Send Notification for Water Detected Washing Machine
         ##########################################################
 
@@ -83,7 +52,32 @@
         message: "Water Detected by Washing Machine!"
 
         ##########################################################
-        ## Turn off Washing Machine when Water Detected
+        ## Send Notification for Water Detected Kitchen Sink
+        ##########################################################
+
+- alias: Notification - Kitchen Sink Water Sensor Text Notification
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_sink_water_sensor
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Water Detected by Kitchen Sink!"
+    - service: notify.ios_USER2_iphone
+      data:
+        message: "Water Detected by Kitchen Sink!"
+
+        ##########################################################
+        ## Turn off Washing Machine when Water Detected Washing Machine
         ##########################################################
 
 - alias: Water Sensor - Washing Machine Shut Off
@@ -120,6 +114,10 @@
       entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen_sink_water_sensor
+      from: 'off'
+      to: 'on'
   condition:
     - condition: state
       entity_id: group.household
@@ -130,11 +128,16 @@
 
   action:
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.water_lights
       data:
         brightness_pct: 100
         color_name: "blue"
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.water_lights
       data:
         flash: long
+    - service: light.turn_on
+      entity_id: light.water_lights
+      data:
+        brightness_pct: 100
+        kelvin: 2700

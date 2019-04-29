@@ -77,7 +77,7 @@
         seconds: 0
 
   action:
-    service: homeassistant.turn_off
+    service: light.turn_off
     entity_id: light.basement
 
         ##########################################################
@@ -91,7 +91,7 @@
       at: '23:00'
 
   action:
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       entity_id: light.USER4_bedroom
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       entity_id: light.USER3_bedroom

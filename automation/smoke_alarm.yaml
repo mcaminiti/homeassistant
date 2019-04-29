@@ -153,9 +153,11 @@
     - service: notify.ios_USER2_iphone
       data:
         message: "CO - Warning in House!"
+
         ##########################################################
         ## Flash Lights for CO - Emergency
         ##########################################################
+
 - alias: Smoke Sensor - Flash Lights when CO Emergency
 
   trigger:
