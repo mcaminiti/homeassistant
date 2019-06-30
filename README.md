@@ -3,7 +3,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.91.0
+Home Assistant Version: 0.92.1
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -20,10 +20,10 @@ Typical Automations in use include
 - Update location for user based on geolocation zones (Work, School, Church, Home)
 - Enable holiday color lights on outside lights via scenes
 - Turn on lights based on motion / ring front door and return to previous theme after
-- Send Text notification and flash lights if water detected in basement
-- Send Text notification and flash lights if water detected by washing machine
+- Send notification and flash lights if water detected in basement
+- Send notification and flash lights if water detected by washing machine / Kitchen Sink
 - Cut power to washing machine if water detected by washing machine
-- Send Text notification and flash lights if CO / Smoke detectors go off
+- Send notification and flash lights if CO / Smoke detectors go off
 - Send alert if Eth miner hashrate drops
 - Send alert if power is lost at the house
 - Enhance security system through extra sensors and motion reading
@@ -38,7 +38,9 @@ Typical Automations in use include
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Phillips Hue Hub v2](https://amzn.to/2HnWMDV) | 1 | Ethernet | [Philips Hue](https://www.home-assistant.io/components/hue/) | Used to control Phillips Hue Color, Lux, and White bulbs |
-| [Wink Hub v1](https://amzn.to/2VJHixP) | 1 | Wi-Fi | [Wink](https://www.home-assistant.io/components/wink/) | Used as a dumb hub to connect various Z-Wave and Lutron devices. No Wink Robots or schedules being utilized|
+| [VeraPlus](https://amzn.to/2Y0ZiFl) | 1 | Ethernet | [Vera](https://www.home-assistant.io/components/vera/) | Vera smart hub for controlling z-wave devices.|
+| [Lutron Caseta](https://amzn.to/2GRyL7p) | 1 | Ethernet | [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Lutron Smart bridge for controlling local access to Lutron dimmers and devices|
+| [Wink Hub v1](https://amzn.to/2VJHixP) | 1 | Wi-Fi | [Wink](https://www.home-assistant.io/components/wink/) | Decommissioned as a device for smart controls.  Replaced with Vera for zwave and Lutron Caseta for Lutron Switches|
 
 Relevant hub configurations can be found within [configuration.yaml](https://github.com/mcaminiti/homeassistant/blob/master/configuration.yaml)
 Phillips Hue hub connected via home-assistant integrations.
@@ -51,8 +53,8 @@ Wink hub connected with developer API account.
 | [Philips Hue White and Color Ambiance v1/v2](https://amzn.to/2ToXUyo) | 8 | Ethernet | [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Color changing smart bulbs|
 | [Philips Hue White / Lux White](https://amzn.to/2UrOE9d) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
 | [Philips Hue White & Color Ambiance Outdoor](https://amzn.to/2tZyEPU) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
-| [Lutron Caseta Wireless Dimmer](https://amzn.to/2EXtsCH) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart dimmer switches that do not require a neutral wire|
-| [Leviton Decora Smart Switch](https://amzn.to/2UtKGN0) | 1 | Wink Hub (Z-Wave)| [Wink Light](https://www.home-assistant.io/components/light.wink/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
+| [Lutron Caseta Wireless Dimmer](https://amzn.to/2EXtsCH) | 3 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Smart dimmer switches that do not require a neutral wire|
+| [Leviton Decora Smart Switch](https://amzn.to/2UtKGN0) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
 
 Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassistant/blob/master/light_group.yaml)
 
@@ -67,7 +69,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [GoControl Door/Window/Motion Sensor](https://amzn.to/2VLQrG8) | 3 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Door sensors to detect if doors have been opened / closed. Motion sensor reports temperature and motion. |
+| [GoControl Door/Window/Motion Sensor](https://amzn.to/2VLQrG8) | 3 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Door sensors to detect if doors have been opened / closed. Motion sensor reports temperature and motion. |
 | [Eyez-On Envisalink Security Interface](https://amzn.to/2tY9AZy) | 1 | Ethernet | [Envisalink](https://www.home-assistant.io/components/envisalink/) | Security Inteface to connect DSC wired alarm panel to Home Assistant. |
 
 ## Media
@@ -77,15 +79,15 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Apple TV 4](https://amzn.to/2UrM3fp) | 1 | Wi-Fi | [Apple TV](https://www.home-assistant.io/components/apple_tv/) | Used for media playback on TVs |
 | [Apple TV 3](https://amzn.to/2UrM3fp) | 1 | Wi-Fi | [Apple TV](https://www.home-assistant.io/components/apple_tv/) | Used for media playback on TVs |
 | [Sonos Play:1](https://amzn.to/2STD1pE) | 1 | Wi-Fi | [Sonos](https://www.home-assistant.io/components/media_player.sonos/) | Audio playback |
-| [Logitech Harmony Hub](https://amzn.to/2UtKNrU) | 1 | Wi-Fi | [Harmony Hub Remote](https://www.home-assistant.io/components/remote.harmony/) | Controls various AV equipment and other devices that utilize infrared remotes |
+| [Logitech Harmony Hub](https://amzn.to/2UtKNrU) | 2 | Wi-Fi | [Harmony Hub Remote](https://www.home-assistant.io/components/remote.harmony/) | Controls various AV equipment and other devices that utilize infrared remotes |
 | [Plex Media Server](https://plex.tv) | 1 | Ethernet | [Plex](https://www.home-assistant.io/components/media_player.plex) / [Plex Activity Monitor](https://www.home-assistant.io/components/sensor.plex/) |  Media Server|  
 
 ## Sensors
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [Aeon Labs Water Sensor](https://amzn.to/2NTptcR) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensors used to detect water in basement as a preventive measure |
-| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 1 | Wink Hub (Z-Wave) | [Wink Binary Sensor](https://www.home-assistant.io/components/binary_sensor.wink/) | Water sensor used to detect water in near washing machine as a preventive measure |
+| [Aeon Labs Water Sensor](https://amzn.to/2NTptcR) | 1 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensors used to detect water in basement as a preventive measure |
+| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 2 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
 | [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
@@ -112,7 +114,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Ubiquiti Networks Unifi Security Gateway (USG)](https://amzn.to/2Unk6oS) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Router. Presence detection for devices |
 | [Ubiquiti Networks UniFi Switch - 24 Ports (US-24-250W)](https://amzn.to/2To2kp7) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Primary Switch. Presence detection devices |
 | [Ubiquiti Networks Unifi AP PRO (UAP-AC-PRO-US)](https://amzn.to/2XPpiUT) | 3 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Wireless Access Point for interior coverage. Presence detection for devices. |
-| [Ubiquiti Networks Unifi Cloud Key 2 Plus ()](https://amzn.to/2NV5xXq) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Unifi Controller and Unifi Protect NVR. Cameras feed via RTSP to HA https://store.ubnt.com/collections/featured/products/unifi-cloudkey-gen2-plus-1. |
+| [Ubiquiti Networks Unifi Cloud Key 2 Plus](https://amzn.to/2VzjW1s) | 1 | Ethernet | [Ubiquiti Unifi WAP](https://www.home-assistant.io/components/device_tracker.unifi/)| Unifi Controller and Unifi Protect NVR. Cameras feed via RTSP to HA https://amzn.to/2VzjW1s. |
 
 ## Other Hardware
 
@@ -126,8 +128,6 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [iOS App](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8) | 2 | NA | [iOS](https://www.home-assistant.io/docs/ecosystem/ios/)| Used as Home Assistant interface on mobile devices, not actively using for presence detection |
-| [Locative iOS App](https://itunes.apple.com/us/app/locative/id725198453?mt=8) | 2 | NA | [Locative](https://www.home-assistant.io/components/device_tracker.locative/) | Primary method of presence detection. App is no longer under active development but has been the most reliable solution with no battery impact |
-| [AWS SNS](https://aws.amazon.com/sns/) | 2 | NA | [AWS SNS](https://www.home-assistant.io/components/notify.aws_sns/) | Primary method of text notification for emergency alerting. SNS queues are subscribed by phones that require notification. |
 | [Docker](https://hub.docker.com/r/homeassistant/home-assistant/) | 1 | Ethernet | [Installation on Docker](https://www.home-assistant.io/docs/installation/docker/) | Home Assistant install runs as a Docker Container utilizing MySQL docker database |
 | [Pi-hole](https://pi-hole.net) | 2 | Ethernet | [Pi-Hole Sensor](https://www.home-assistant.io/components/sensor.pi_hole/) | Ad blocking. Primary instance runs within a Docker container and the secondary runs on a [Raspberry-pi 3](https://amzn.to/2XLTosd) |
 | [InFluxDB](https://www.influxdata.com) | 1 | Ethernet | [InFluxDB Componant](https://www.home-assistant.io/components/influxdb/) | Long Term data retention for select metrics. Instance runs within a Docker container with Grafana. |
