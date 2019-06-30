@@ -24,14 +24,14 @@
     icon: mdi:cellphone-iphone
     friendly_name: USER1's iPhone (Unifi)
   device_tracker.USER1_iphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER1's iPhone (IOS)
+    icon: mdi:human-male
+    friendly_name: USER1
   device_tracker.USER2siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER2's iPhone (Unifi)
   device_tracker.USER2_iphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER2's iPhone (IOS)
+    icon: mdi:human-female
+    friendly_name: USER2
   device_tracker.USER3siphone:
     icon: mdi:cellphone-iphone
     friendly_name: USER3's iPhone (Unifi)
@@ -198,7 +198,8 @@
     icon: mdi:lamp
   light.family_room_1:
     icon: mdi:floor-lamp
-
+  light.family_room_2:
+    icon: mdi:floor-lamp
         ##########################################################
         ## Vacuums
         ##########################################################

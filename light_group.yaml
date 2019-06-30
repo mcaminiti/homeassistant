@@ -10,6 +10,7 @@
       - light.USER3_bedroom_1
       - light.USER4_bedroom_1
       - light.family_room_1
+      - light.family_room_2
       - light.pantry_1
       - light.pantry_2
       - light.garage_1
@@ -27,12 +28,14 @@
       #- light.USER3_bedroom_1
       #- light.USER4_bedroom_1
       - light.family_room_1
+      - light.family_room_2
 
 
   - platform: group
     name: Family Room
     entities:
       - light.family_room_1
+      - light.family_room_2
 
   - platform: group
     name: Master Bedroom
@@ -92,3 +95,4 @@
       - light.USER2_bedroom_1
       - light.USER1_bedroom_1
       - light.family_room_1
+      - light.family_room_2

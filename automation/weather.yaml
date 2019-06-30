@@ -32,7 +32,9 @@
             "NWS: {{ states.sensor.nws_alerts.attributes.title.split(' - ')[0] }}"
           {% endif %}
 
-
+        ##########################################################
+        ## Tornado Warning Announcement
+        ##########################################################
   - alias: NWS Announce Weather Alert for Tornado Warning
     initial_state: 'on'
     trigger:
@@ -44,8 +46,28 @@
         - condition: template
           value_template: "{{states.sensor.nws_alerts.state | int > 0}}"
         - condition: template
-          value_template: "{{ 'Tornado' in states.sensor.nws_alerts.attributes.title and 'Warning' in states.sensor.nws_alerts.attributes.title }}"
+          value_template: "{{ 'Tornado Warning' in states.sensor.nws_alerts.attributes.title }}"
     action:
     - service: notify.ios_USER1_iphone
       data_template:
         message: "Attention!,,,Attention!,,,The National Weather Service Has issued a Tornado Warning for our area."
+
+        ##########################################################
+        ## Tornado Watch Announcement
+        ##########################################################
+  - alias: NWS Announce Weather Alert for Tornado Watch
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.nws_alerts
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{states.sensor.nws_alerts.state | int > 0}}"
+        - condition: template
+          value_template: "{{ 'Tornado Watch' in states.sensor.nws_alerts.attributes.title }}"
+    action:
+    - service: notify.ios_USER1_iphone
+      data_template:
+        message: "Attention!,,,Attention!,,,The National Weather Service Has issued a Tornado Watch for our area."

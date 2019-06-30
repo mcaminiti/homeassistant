@@ -3,10 +3,10 @@
 #################################################################
 
 USER1:
-  - device_tracker.USER1siphone
+  - device_tracker.USER1_iphone
 
 USER2:
-  - device_tracker.USER2siphone
+  - device_tracker.USER2_iphone
 
 USER3:
   - device_tracker.USER3siphone

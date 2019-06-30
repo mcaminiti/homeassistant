@@ -11,8 +11,8 @@
   trigger:
     - platform: state
       entity_id: group.household
-      from: 'not_home'
-      to: 'home'
+      from: 'Away'
+      to: 'Home'
 
   condition:
     - condition: state

@@ -20,7 +20,7 @@ input_select_harmony:
           {% elif is_state("input_select.remote", "Watch Netflix") %}
               13965065
           {% elif is_state("input_select.remote", "Watch Apple TV") %}
-              22065502
+              28611456
           {% elif is_state("input_select.remote", "Play Xbox One") %}
               17285686
           {% elif is_state("input_select.remote", "Play Wii U") %}
@@ -28,5 +28,5 @@ input_select_harmony:
           {% elif is_state("input_select.remote", "Listen to Radio") %}
               13965311
           {% elif is_state("input_select.remote", "Play Nintendo Switch") %}
-              35830978              
+              35830978
           {% endif %}

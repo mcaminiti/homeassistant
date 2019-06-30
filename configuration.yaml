@@ -34,12 +34,20 @@ updater:
 sun:
 
 # Discover some devices automatically
-discovery:
- ignore:
-   - samsung_tv
-   - apple_tv
-   - wink
+ssdp:
+zeroconf:
 
+discovery:
+  ignore:
+    - samsung_tv
+    - apple_tv
+    - wink
+
+person:
+system_health:
+mobile_app:
+ssdp:
+zeroconf:
 map:
 
 # Custom Logging Setting
