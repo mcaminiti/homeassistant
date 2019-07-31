@@ -4,7 +4,6 @@ NWS Alerts
 ---------------------------------------------------------
 VERSION: 0.0.2
 Forum: https://community.home-assistant.io/t/severe-weather-alerts-from-the-us-national-weather-service/71853
-
 API Documentation
 ---------------------------------------------------------
 https://www.weather.gov/documentation/services-web-api
