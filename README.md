@@ -87,7 +87,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Aeon Labs Water Sensor](https://amzn.to/2NTptcR) | 1 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensors used to detect water in basement as a preventive measure |
-| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 2 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
+| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 3 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
 | [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
