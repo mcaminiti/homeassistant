@@ -116,6 +116,13 @@
     device_class: battery
     friendly_name: Kitchen Sink Water Sensor
     icon: mdi:battery
+  binary_sensor.refridgerator_water_sensor:
+    device_class: moisture
+    friendly_name: Refridgerator Water Sensor
+  sensor.refridgerator_water_sensor_battery:
+    device_class: battery
+    friendly_name: Refridgerator Water Sensor
+    icon: mdi:battery
   binary_sensor.basement_drain_water_sensor:
     device_class: moisture
     friendly_name: Basement Drain Water Sensor
