@@ -41,7 +41,6 @@ discovery:
   ignore:
     - samsung_tv
     - apple_tv
-    - wink
 
 person:
 system_health:
@@ -111,8 +110,13 @@ influxdb:
       - binary_sensor.wan
       - binary_sensor.gateway
 
-# Wink Hub
-#wink:
+# Unifi Presence Detection
+unifi:
+  controllers:
+    - host: REDACTED.3
+      site: Home
+      ssid_filter:
+        - 'REDACTED Home 2'
 
 # VeraPlus controller to replace wink
 vera:
@@ -185,17 +189,6 @@ ring:
 nest:
   client_id: !secret secret_nest_clientid
   client_secret: !secret secret_nest_secret
-
-device_tracker:
-  - platform: unifi
-    username: !secret secret_unifi_username
-    password: !secret secret_unifi_password
-    host: !secret secret_unifi_host
-    verify_ssl: false
-    consider_home: 180
-    new_device_defaults:
-      track_new_devices: False
-      hide_if_away: False
 
 #aws:
 #  credentials:

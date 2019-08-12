@@ -26,6 +26,7 @@
       data:
         message: "Water Detected in Basement!"
 
+
         ##########################################################
         ## Send Notification for Water Detected Washing Machine
         ##########################################################
@@ -95,10 +96,10 @@
   action:
     - service: notify.ios_USER1_iphone
       data:
-        message: "Water Detected in Refridgerator!"
+        message: "Water Detected by Refridgerator!"
     - service: notify.ios_USER2_iphone
       data:
-        message: "Water Detected in Refridgerator!"
+        message: "Water Detected by Refridgerator!"
 
         ##########################################################
         ## Turn off Washing Machine when Water Detected Washing Machine

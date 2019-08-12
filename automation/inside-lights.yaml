@@ -59,7 +59,63 @@
     service: light.turn_off
     entity_id: light.pantry_lights
 
+        ##########################################################
+        ## Hall Closet Lights On When Door Open
+        ##########################################################
 
+- alias: Hall Closet Light On
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_closet_door
+      from: 'off'
+      to: 'on'
+
+  action:
+    service: light.turn_on
+    entity_id: light.hall_closet_lights
+    data:
+     brightness: 255
+
+        ##########################################################
+        ## Hall Closet Lights Off When Door Open
+        ##########################################################
+
+- alias: Hall Closet Light Off
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_closet_door
+      from: 'on'
+      to: 'off'
+
+  action:
+    service: light.turn_off
+    entity_id: light.hall_closet_lights
+
+        ##########################################################
+        ## Hall Closet Lights Off When On for 10 Minutes
+        ##########################################################
+
+- alias: Hall Closet Lights Off
+
+  trigger:
+    - platform: state
+      entity_id: light.hall_closet_lights
+      from: 'off'
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+  action:
+    - service: light.turn_off
+      entity_id: light.hall_closet_lights
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Hall Closet Left Open - Turning off Lights"
+        
         ##########################################################
         ## Basement Light Off When No Motion 60 Minutes
         ##########################################################

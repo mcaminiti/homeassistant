@@ -19,6 +19,9 @@
       - light.walkout_1
       - light.walkout_2
       - light.front_door
+      - light.hall_closet_1
+      - light.hall_closet_2
+      - light.guest_bedroom_1
 
   - platform: group
     name: Water Lights
@@ -54,10 +57,22 @@
       - light.USER4_bedroom_1
 
   - platform: group
+    name: Guest Bedroom
+    entities:
+      - light.guest_bedroom_1
+
+  - platform: group
     name: Pantry Lights
     entities:
       - light.pantry_1
       - light.pantry_2
+
+  - platform: group
+    name: Hall Closet Lights
+    entities:
+      - light.hall_closet_1
+      - light.hall_closet_2
+
 
   - platform: group
     name: Basement

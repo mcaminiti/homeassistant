@@ -15,31 +15,24 @@
   sensor.thermostat_aux_heat:
     icon: mdi:radiator
     friendly_name: Aux Heat
+    
 
         ##########################################################
         ## Device Trackers - Family
         ##########################################################
 
-  device_tracker.USER1siphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER1's iPhone (Unifi)
   device_tracker.USER1_iphone:
     icon: mdi:human-male
     friendly_name: USER1
-  device_tracker.USER2siphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER2's iPhone (Unifi)
   device_tracker.USER2_iphone:
     icon: mdi:human-female
     friendly_name: USER2
-  device_tracker.USER3siphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER3's iPhone (Unifi)
-  device_tracker.USER4siphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: USER4's iPhone (Unifi)
-
-
+  device_tracker.USER3_iphone:
+    icon: mdi:human-female
+    friendly_name: USER3
+  device_tracker.USER4_iphone:
+    icon: mdi:human-female
+    friendly_name: USER4
 
   group.USER1:
     icon: mdi:human-male
@@ -56,12 +49,12 @@
         ## Device Trackers - Guests
         ##########################################################
 
-  device_tracker.REDACTEDsiphone:
+  device_tracker.REDACTED_iphone:
     icon: mdi:cellphone-iphone
-    friendly_name: REDACTEDs's iPhone (Unifi)
-  device_tracker.REDACTEDsiphone:
+    friendly_name: REDACTED
+  device_tracker.REDACTED_iphone:
     icon: mdi:cellphone-iphone
-    friendly_name: REDACTED's iPhone (Unifi)
+    friendly_name: REDACTED
 
         ##########################################################
         ## Rooms
@@ -99,6 +92,8 @@
   sensor.since_last_boot:
     friendly_name: Uptime
   sensor.pantry_door_battery:
+    icon: mdi:battery
+  sensor.hall_closet_door_battery:
     icon: mdi:battery
   sensor.basement_door_battery:
     icon: mdi:battery
@@ -170,6 +165,10 @@
     device_class: door
     icon: mdi:door
     friendly_name: Pantry Door
+  binary_sensor.hall_closet_door:
+    device_class: door
+    icon: mdi:door
+    friendly_name: Hall Closet Door
   binary_sensor.front_door:
     icon: mdi:door
   binary_sensor.garage_back_door:
@@ -202,6 +201,8 @@
   light.USER3_bedroom_1:
     icon: mdi:lamp
   light.USER4_bedroom_1:
+    icon: mdi:lamp
+  light.guest_bedroom_1:
     icon: mdi:lamp
   light.family_room_1:
     icon: mdi:floor-lamp
