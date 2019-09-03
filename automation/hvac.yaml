@@ -18,3 +18,31 @@
     - service: notify.ios_USER1_iphone
       data:
        message: "Aux Heat turned on"
+
+  ##########################################################
+  ## Air Cleaner Switch Off Notification
+  ##########################################################
+
+- alias: HVAC - Air Cleaner Switch Off Notification
+
+  trigger:
+    - platform: state
+      entity_id: switch.air_cleaner
+      from: 'on'
+      to: 'off'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: Air Cleaner Switch Turned Off!
+        data:
+          apns_headers:
+           'apns-collapse-id': 'aircleaner-switch'
+          push:
+            badge: 0
+            category: "aircleanerswitch"

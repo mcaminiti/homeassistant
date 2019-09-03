@@ -131,9 +131,9 @@
         value_template: '{{ states.binary_sensor.kitchen_sink_water_sensor.attributes.battery_level }}'
         friendly_name: 'Kitchen Sink Water Sensor'
         unit_of_measurement: '%'
-      refridgerator_water_sensor_battery:
-        value_template: '{{ states.binary_sensor.refridgerator_water_sensor.attributes.battery_level }}'
-        friendly_name: 'Refridgerator Water Sensor'
+      refrigerator_water_sensor_battery:
+        value_template: '{{ states.binary_sensor.refrigerator_water_sensor.attributes.battery_level }}'
+        friendly_name: 'Refrigerator Water Sensor'
         unit_of_measurement: '%'
       washing_machine_water_sensor_battery:
         value_template: '{{ states.binary_sensor.washing_machine_water_sensor.attributes.battery_level }}'
@@ -309,6 +309,19 @@
 ### WEATHER SERVICE Sensors
   - platform: nws_alerts
     zone_id: 'REDACTED,REDACTED'
+
+### WEATHER SERVICE Sensors
+  - platform: nws_warnings
+    zone_id: 'REDACTED'
+
+#  - platform: command_line
+#    name: NWS_Tornado_Watch
+#    json_attributes:
+#      - nws_tornado_watch
+#      - nws_tornado_watch_headline
+#      - nws_tornado_watch_description
+#    value_template: '{{ value_json.nws_tornado_watch }}'
+#    command: python /config/scripts/nws_tornado_watch.py
 
         ##########################################################
         ## ETH Sensor - Nanopool

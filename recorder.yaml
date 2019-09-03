@@ -43,12 +43,8 @@
       - sensor.dark_sky_visibility
       - sensor.dark_sky_wind_bearing
       - sensor.dark_sky_wind_speed
-      - sensor.myip
-      - sensor.REDACTED
-      - sensor.REDACTED
-      - sensor.REDACTED
       - binary_sensor.hub
-      - updater.updater
+      - binary_sensor.updater
       - switch.pihole_1_switch
       - sensor.pihole_1_ads_blocked_today
       - sensor.pihole_1_dns_queries_today

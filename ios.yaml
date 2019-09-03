@@ -1,0 +1,24 @@
+#################################################################
+## iOS App Configs
+#################################################################
+
+  push:
+    categories:
+      - name: Washing Machine
+        identifier: 'washingmachineswitch'
+        actions:
+          - identifier: 'WASHINGMACHINE_TURN_ON_SWITCH'
+            title: 'Turn Washing Machine Switch On'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+            behavior: 'default'
+      - name: Air Cleaner
+        identifier: 'aircleanerswitch'
+        actions:
+          - identifier: 'AIRCLEANER_TURN_ON_SWITCH'
+            title: 'Turn Air Cleaner Switch On'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+            behavior: 'default'

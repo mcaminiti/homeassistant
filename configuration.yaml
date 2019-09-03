@@ -1,30 +1,23 @@
-## Based on config originally from geekofweek
+#################################################################
+## Home Assistant - Core Configuration
+#################################################################
+
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
-
   # Location required to calculate the time the sun rises and sets
   latitude: !secret secret_latitude
   longitude: !secret secret_longitude
   elevation: !secret secret_elevation
   unit_system: imperial
-
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Chicago
   customize: !include customize.yaml
 
-
-config:
-
-http:
-#  api_password: !secret secret_api_password
-  base_url: !secret secret_base_url
-  ssl_certificate: !secret secret_ssl_certificate
-  ssl_key: !secret secret_ssl_key
-
 # Enables the frontend
 frontend:
-  javascript_version: latest
+  extra_html_url:
+    - /local/hass-bha-icons.html
 
 # Checks for available updates
 updater:
@@ -33,30 +26,38 @@ updater:
 # Track the sun
 sun:
 
-# Discover some devices automatically
-ssdp:
-zeroconf:
-
+# Discovery of devices automatically if supported
 discovery:
   ignore:
     - samsung_tv
     - apple_tv
 
+# Config options for system and discovery devices
+config:
 person:
 system_health:
 mobile_app:
 ssdp:
 zeroconf:
-map:
+http:
+  base_url: !secret secret_base_url
+  ssl_certificate: !secret secret_ssl_certificate
+  ssl_key: !secret secret_ssl_key
 
-# Custom Logging Setting
-#logger:
-# Enables support for tracking state changes over time.
-history:
 
 #################################################################
 ## Components
 #################################################################
+
+# Custom Logging Setting
+
+#logger:
+#  default: info
+#  logs:
+#    aiounifi: debug
+#    homeassistant.components.unifi: debug
+#    homeassistant.components.device_tracker.unifi: debug
+#    homeassistant.components.switch.unifi: debug
 
 hue:
   bridges:
@@ -76,6 +77,12 @@ remote:
   - platform: harmony
     name: Media Center
     host: REDACTED.12
+
+map:
+
+# Enables support for tracking state changes over time.
+history:
+
 
 # InfluxDB / Grafana Long Term Data Retention Test
 influxdb:
@@ -111,12 +118,12 @@ influxdb:
       - binary_sensor.gateway
 
 # Unifi Presence Detection
-unifi:
-  controllers:
-    - host: REDACTED.3
-      site: Home
-      ssid_filter:
-        - 'REDACTED Home 2'
+#unifi:
+#  controllers:
+#    - host: REDACTED.3
+#      site: Home
+#      ssid_filter:
+#        - 'REDACTED Home 2'
 
 # VeraPlus controller to replace wink
 vera:
@@ -149,26 +156,6 @@ lutron_caseta:
     certfile: !secret secret_lutron_certfile
     ca_certs: !secret secret_lutron_cacerts
 
-#tuya:
-#  username: !secret secret_tuya_username
-#  password: !secret secret_tuya_password
-#  country_code: 1
-#  platform: smart_life
-
-#switch:
-#  - platform: tuya
-#    host: REDACTED.199
-#    device_id: REDACTED
-#    local_key: REDACTED
-#    optimistic: true
-#    switches:
-#      switch1:
-#        friendly_name: switch1
-#        id: 1
-#      switch2:
-#        friendly_name: switch2
-#        id: 2
-
 vacuum:
   - platform: roomba
     host: REDACTED.150
@@ -190,23 +177,11 @@ nest:
   client_id: !secret secret_nest_clientid
   client_secret: !secret secret_nest_secret
 
-#aws:
-#  credentials:
-#    - name: hass
-#      aws_access_key_id: !secret secret_aws_access_key_id
-#      aws_secret_access_key: !secret secret_aws_secret_access_key
-#  notify:
-#    - service: sns
-#      aws_access_key_id: !secret secret_aws_access_key_id
-#      aws_secret_access_key: !secret secret_aws_secret_access_key
-#      region_name: us-east-1
-
-ios:
-
 ################################################################
 ## Media Players
 ################################################################
- media_player:
+
+media_player:
   - platform: plex
     entity_namespace: 'plex'
 
@@ -224,6 +199,7 @@ ios:
 #    login_id: !secret secret_apple_tv_login_id
 #    credentials: !secret secret_apple_tv_family_room_credentials
 #    start_off: false
+
 #################################################################
 ## Zones
 #################################################################
@@ -252,14 +228,6 @@ zone 3:
   radius: 250
   icon: mdi:REDACTED
 
-#zone 4:
-
-#  name: REDACTED
-#  latitude: !secret secret_REDACTED_latitude
-#  longitude: !secret secret_REDACTED_longitude
-#  radius: 250
-#  icon: mdi:office-building
-
 zone 4:
 
   name: REDACTED Home
@@ -278,7 +246,6 @@ envisalink:
   evl_version: 4
   keepalive_interval: 60
   zonedump_interval: 30
-
 #required
   host: !secret secret_envisalink_host
   panel_type: DSC
@@ -317,10 +284,10 @@ input_number:
     step: 1
 
 ######## INCLUDES ########
-group: !include groups.yaml
+automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
-automation: !include_dir_merge_list automation
+group: !include groups.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
 camera: !include camera.yaml
@@ -329,4 +296,5 @@ input_select: !include input_select.yaml
 light: !include light_group.yaml
 script: !include scripts.yaml
 scene: !include_dir_merge_list scene
+ios: !include ios.yaml
 switch: !include switch.yaml

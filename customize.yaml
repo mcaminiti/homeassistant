@@ -15,7 +15,7 @@
   sensor.thermostat_aux_heat:
     icon: mdi:radiator
     friendly_name: Aux Heat
-    
+
 
         ##########################################################
         ## Device Trackers - Family
@@ -111,12 +111,12 @@
     device_class: battery
     friendly_name: Kitchen Sink Water Sensor
     icon: mdi:battery
-  binary_sensor.refridgerator_water_sensor:
+  binary_sensor.refrigerator_water_sensor:
     device_class: moisture
-    friendly_name: Refridgerator Water Sensor
-  sensor.refridgerator_water_sensor_battery:
+    friendly_name: Refrigerator Water Sensor
+  sensor.refrigerator_water_sensor_battery:
     device_class: battery
-    friendly_name: Refridgerator Water Sensor
+    friendly_name: Refrigerator Water Sensor
     icon: mdi:battery
   binary_sensor.basement_drain_water_sensor:
     device_class: moisture

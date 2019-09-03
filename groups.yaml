@@ -9,10 +9,10 @@ USER2:
   - device_tracker.USER2_iphone
 
 USER3:
-  - device_tracker.USER3siphone
+  - device_tracker.USER3_iphone
 
 USER4:
-  - device_tracker.USER4siphone
+  - device_tracker.USER4_iphone
 
 Family:
   - group.USER1
@@ -21,8 +21,7 @@ Family:
   - group.USER4
 
 Guests:
-  - device_tracker.REDACTEDsiphone
-  - device_tracker.REDACTEDsiphone
+  - device_tracker.REDACTED_iphone
 
 Household:
   - group.USER1

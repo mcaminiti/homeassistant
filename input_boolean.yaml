@@ -67,3 +67,7 @@
   disable_doorbell:
     name: Disable Doorbell
     icon: mdi:bell-ring
+
+  disable_notifications:
+    name: Disable Notifications
+    icon: mdi:comment-text-outline    

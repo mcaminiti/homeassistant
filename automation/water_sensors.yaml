@@ -78,14 +78,14 @@
         message: "Water Detected by Kitchen Sink!"
 
         ##########################################################
-        ## Send Notification for Water Detected Refridgerator
+        ## Send Notification for Water Detected Refrigerator
         ##########################################################
 
-- alias: Notification - Refridgerator Water Sensor
+- alias: Notification - Refrigerator Water Sensor
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.refridgerator_water_sensor
+      entity_id: binary_sensor.Refrigerator_water_sensor
       from: 'off'
       to: 'on'
 
@@ -96,10 +96,10 @@
   action:
     - service: notify.ios_USER1_iphone
       data:
-        message: "Water Detected by Refridgerator!"
+        message: "Water Detected by Refrigerator!"
     - service: notify.ios_USER2_iphone
       data:
-        message: "Water Detected by Refridgerator!"
+        message: "Water Detected by Refrigerator!"
 
         ##########################################################
         ## Turn off Washing Machine when Water Detected Washing Machine

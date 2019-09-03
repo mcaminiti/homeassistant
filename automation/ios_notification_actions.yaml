@@ -1,0 +1,35 @@
+#################################################################
+## iOS Actionable Notifications
+#################################################################
+
+        #################################################################
+        ## Washing Machine Switch On
+        #################################################################
+
+- alias: iOS Action - Washing Machine Switch On
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: WASHINGMACHINE_TURN_ON_SWITCH
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.washing_machine
+
+        #################################################################
+        ## Air Cleaner Switch On
+        #################################################################
+
+- alias: iOS Action - Air Cleaner Switch On
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: AIRCLEANER_TURN_ON_SWITCH
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.air_cleaner
