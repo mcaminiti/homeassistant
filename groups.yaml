@@ -22,6 +22,7 @@ Family:
 
 Guests:
   - device_tracker.REDACTED_iphone
+  - device_tracker.REDACTED_iphone
 
 Household:
   - group.USER1

@@ -150,7 +150,14 @@
     friendly_name: Air Cleaner Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
-
+  switch.golf_cart:
+    icon: mdi:car
+  sensor.golf_cart_status:
+    icon: mdi:car-battery
+  sensor.golf_cart_current_power:
+    friendly_name: Golf Cart Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
         ##########################################################
         ## Christmas
         ##########################################################
@@ -429,6 +436,9 @@
   input_number.goalfeed:
     friendly_name: Goalfeed Delay
     icon: mdi:history
+  input_number.golf_cart_unplugged:
+    friendly_name: Golf Cart Delay
+    icon: mdi:history   
 
         ##########################################################
         ## UPS

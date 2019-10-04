@@ -70,4 +70,8 @@
 
   disable_notifications:
     name: Disable Notifications
-    icon: mdi:comment-text-outline    
+    icon: mdi:comment-text-outline
+
+  disable_weather_notifications:
+    name: Disable Weather Notifications
+    icon: mdi:weather-cloudy   

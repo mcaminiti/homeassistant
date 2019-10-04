@@ -13,3 +13,6 @@
   - platform: ping
     host: REDACTED.1
     name: Gateway
+  - platform: ping
+    host: REDACTED.1
+    name: REDACTED VPN

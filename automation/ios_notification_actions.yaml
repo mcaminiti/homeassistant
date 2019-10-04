@@ -33,3 +33,19 @@
   action:
     - service: switch.turn_on
       entity_id: switch.air_cleaner
+
+        #################################################################
+        ## Hall Closet Light Off
+        #################################################################
+
+- alias: iOS Action - Hall Closet Light Off
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: HALLCLOSET_TURN_OFF_LIGHT
+
+  action:
+    - service: switch.turn_off
+      entity_id: light.hall_closet_lights

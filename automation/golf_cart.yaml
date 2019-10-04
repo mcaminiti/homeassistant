@@ -1,0 +1,31 @@
+#################################################################
+## Golf Cart Automations
+#################################################################
+
+        ##########################################################
+        ## Golf Cart Unplugged - Notification
+        ##########################################################
+
+- alias: Notification - Golf Cart Unplugged
+
+  trigger:
+    - platform: state
+      entity_id: sensor.golf_cart_status
+      to: 'unplugged'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 60
+        #seconds: "{{ states.input_number.golf_cart_unplugged.state | int }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Golf Cart - Unplugged - {{states.sensor.golf_cart_current_power.state}}w"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage

@@ -11,8 +11,8 @@
   trigger:
     - platform: state
       entity_id: group.household
-      from: 'Away'
-      to: 'Home'
+      from: 'not_home'
+      to: 'home'
 
   condition:
     - condition: state
@@ -81,7 +81,7 @@
         ## Hall Closet Lights Off When Door Open
         ##########################################################
 
-- alias: Hall Closet Light Off
+- alias: Hall Closet Lights Off
 
   trigger:
     - platform: state
@@ -97,7 +97,7 @@
         ## Hall Closet Lights Off When On for 10 Minutes
         ##########################################################
 
-- alias: Hall Closet Lights Off
+- alias: Hall Closet Lights Off - Left Open
 
   trigger:
     - platform: state
@@ -110,12 +110,16 @@
         seconds: 0
 
   action:
-    - service: light.turn_off
-      entity_id: light.hall_closet_lights
     - service: notify.ios_USER1_iphone
       data:
-        message: "Hall Closet Left Open - Turning off Lights"
-        
+        message: Hall Closet Lights Left On!
+        data:
+          apns_headers:
+           'apns-collapse-id': 'hallcloset-lights'
+          push:
+            badge: 0
+            category: "hallclosetlights"
+
         ##########################################################
         ## Basement Light Off When No Motion 60 Minutes
         ##########################################################

@@ -40,7 +40,7 @@
 
   trigger:
     - platform: numeric_state
-      entity_id: sensor.nanopoolhashrate
+      entity_id: sensor.nanopool_hashrate
       below: 20
       for:
         hours: 0
@@ -50,7 +50,7 @@
   action:
     - service: notify.ios_USER1_iphone
       data:
-       message: "Eth hasrate low -- {{states.sensor.nanopoolhashrate.state}}"
+       message: "Eth hasrate low -- {{states.sensor.nanopool_hashrate.state}}"
 
 
 

@@ -85,45 +85,39 @@ history:
 
 
 # InfluxDB / Grafana Long Term Data Retention Test
-influxdb:
-  host: REDACTED.196
-  include:
-    entities:
-      - sensor.home_temperature
-      - sensor.master_bedroom_temperature
-      - sensor.basement_temperature
-      - sensor.USER3_bedroom_temperature
-      - sensor.USER4_bedroom_temperature
-      - sensor.home_humidity
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_temperature
-      - sensor.thermostat_current_status
-      - sensor.thermostat_aux_heat
-      - sensor.ups_load
-      - sensor.nas_cpu_usage
-      - sensor.nas_memory_usage
-      - sensor.nas_volume_used_storage
-      - sensor.nas_volume_used_backup
-      - sensor.nas_system_temperature
-      - sensor.ring_front_door_battery
-      - sensor.basement_door_battery
-      - sensor.basement_motion_battery
-      - sensor.pantry_door_battery
-      - sensor.basement_water_sensor_battery
-      - sensor.washing_machine_current_power
-      - sensor.air_cleaner_current_power
-      - sensor.nanopool_hashrate
-      - sensor.nanopool_balance
-      - binary_sensor.wan
-      - binary_sensor.gateway
-
-# Unifi Presence Detection
-#unifi:
-#  controllers:
-#    - host: REDACTED.3
-#      site: Home
-#      ssid_filter:
-#        - 'REDACTED Home 2'
+#influxdb:
+#  host: REDACTED.196
+#  include:
+#    entities:
+#      - sensor.home_temperature
+#      - sensor.master_bedroom_temperature
+#      - sensor.basement_temperature
+#      - sensor.USER3_bedroom_temperature
+#      - sensor.USER4_bedroom_temperature
+#      - sensor.home_humidity
+#      - sensor.dark_sky_humidity
+#      - sensor.dark_sky_temperature
+#      - sensor.thermostat_current_status
+#      - sensor.thermostat_aux_heat
+#      - sensor.ups_load
+#      - sensor.nas_cpu_usage
+#      - sensor.nas_memory_usage
+#      - sensor.nas_volume_used_storage
+#      - sensor.nas_volume_used_backup
+#      - sensor.nas_system_temperature
+#      - sensor.ring_front_door_battery
+#      - sensor.basement_door_battery
+#      - sensor.basement_motion_battery
+#      - sensor.pantry_door_battery
+#      - sensor.basement_water_sensor_battery
+#      - sensor.washing_machine_current_power
+#      - sensor.air_cleaner_current_power
+#      - sensor.golf_cart_current_power
+#      - sensor.nanopool_hashrate
+#      - sensor.nanopool_balance
+#      - binary_sensor.wan
+#      - binary_sensor.gateway
+#      - binary_sensor.REDACTED_vpn
 
 # VeraPlus controller to replace wink
 vera:
@@ -138,6 +132,7 @@ wemo:
     - REDACTED.188
     - REDACTED.198
     - REDACTED.148
+    - REDACTED.74
 
 # Weather
 weather:
@@ -156,12 +151,12 @@ lutron_caseta:
     certfile: !secret secret_lutron_certfile
     ca_certs: !secret secret_lutron_cacerts
 
-vacuum:
-  - platform: roomba
-    host: REDACTED.150
-    username: !secret secret_roomba_username
-    password: !secret secret_roomba_password
-    name: Roomba
+#vacuum:
+#  - platform: roomba
+#    host: REDACTED.150
+#    username: !secret secret_roomba_username
+#    password: !secret secret_roomba_password
+#    name: Roomba
 
 ecobee:
   api_key: !secret secret_ecobee_apikey
@@ -177,28 +172,16 @@ nest:
   client_id: !secret secret_nest_clientid
   client_secret: !secret secret_nest_secret
 
+pi_hole:
+  host: REDACTED.4
+
 ################################################################
 ## Media Players
 ################################################################
 
-media_player:
-  - platform: plex
-    entity_namespace: 'plex'
-
-#apple_tv:
-#  - name: Master Bedroom Apple TV
-#    host: REDACTED.23
-#    login_id: !secret secret_apple_tv_login_id
-#    start_off: false
-#  - name: Basement Apple TV
-#    host: REDACTED.17
-#    login_id: !secret secret_apple_tv_login_id
-#    start_off: false
-#  - name: Family Room Apple TV
-#    host: REDACTED.65
-#    login_id: !secret secret_apple_tv_login_id
-#    credentials: !secret secret_apple_tv_family_room_credentials
-#    start_off: false
+#plex:
+#  host: REDACTED.100
+#  token: !secret secret_plex_token
 
 #################################################################
 ## Zones
@@ -275,14 +258,6 @@ envisalink:
     1:
       name: 'Home Alarm'
 
-input_number:
-  goalfeed:
-    name: Goalfeed Delay
-    initial: 1
-    min: 0
-    max: 180
-    step: 1
-
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml
@@ -293,6 +268,7 @@ binary_sensor: !include binary_sensors.yaml
 camera: !include camera.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
+input_number: !include input_number.yaml
 light: !include light_group.yaml
 script: !include scripts.yaml
 scene: !include_dir_merge_list scene

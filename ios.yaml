@@ -22,3 +22,12 @@
             authenticationRequired: yes
             destructive: yes
             behavior: 'default'
+      - name: Hall Closet
+        identifier: 'hallclosetlights'
+        actions:
+          - identifier: 'HALLCLOSET_TURN_OFF_LIGHT'
+            title: 'Turn Hall Closet Lights Off'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+            behavior: 'default'
