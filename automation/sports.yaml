@@ -9,18 +9,20 @@
 - alias: Blackhawks Goal - On
 
   trigger:
-    - platform: event
-      event_type: goal
-      event_data:
-        team: "CHI"
+    platform: state
+    entity_id: input_boolean.blackhawks_goal
+    from: 'off'
+    to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.blackhawks_mode
       state: 'on'
   action:
-    - delay: "00:00:{{ states.input_number.goalfeed.state | int }}"
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.goaling
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.office
+        media_content_id: https://REDACTED/local/audio/blackhawks_goal.mp3
+        media_content_type: music
     - service: light.turn_on
       entity_id: light.family_room
       data:
@@ -30,11 +32,6 @@
       entity_id: light.family_room
       data:
         flash: long
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.office
-        media_content_id: https://REDACTED/local/audio/blackhawks_goal.mp3
-        media_content_type: audio/mp3
     - delay: "00:00:10"
     - service: light.turn_on
       entity_id: light.family_room
@@ -47,25 +44,20 @@
         flash: long
 
         ##########################################################
-        ## Sports Goal - Off
+        ## Blackhawks Goal - Off
         ##########################################################
 
-- alias: Goal - Off
+- alias: Blackhawks Goal - Off
 
   trigger:
     platform: state
-    entity_id: input_boolean.goaling
+    entity_id: input_boolean.blackhawks_goal
     to: 'on'
     for:
       seconds: 50
   action:
-#  - service: media_player.stop_media
-#    data:
-#      entity_id: media_player.everywhere
-#  - service: script.turn_on
-#    entity_id: script.goal_stop
   - service: homeassistant.turn_off
-    entity_id: input_boolean.goaling
+    entity_id: input_boolean.blackhawks_goal
   - service: light.turn_on
     entity_id: light.family_room
     data:
@@ -94,3 +86,88 @@
   action:
   - service: homeassistant.turn_off
     entity_id: input_boolean.blackhawks_mode
+
+        ##########################################################
+        ## Cardinals Score - On
+        ##########################################################
+
+- alias: Cardinals Score - On
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.cardinals_score
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.cardinals_mode
+      state: 'on'
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.office
+        media_content_id: https://REDACTED/local/audio/cardinals_score.mp3
+        media_content_type: music
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        color_name: red
+        brightness_pct: 100
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+    - delay: "00:00:10"
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+    - delay: "00:00:10"
+    - service: light.turn_on
+      entity_id: light.family_room
+      data:
+        flash: long
+
+        ##########################################################
+        ## Sports Goal - Off
+        ##########################################################
+
+- alias: Cardinals Score - Off
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.cardinals_score
+    to: 'on'
+    for:
+      seconds: 50
+  action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.cardinals_score
+  - service: light.turn_on
+    entity_id: light.family_room
+    data:
+      color_name: white
+      brightness_pct: 100
+  - service: light.turn_on
+    entity_id:
+      - light.family_room
+    data:
+      transition: 10
+      brightness_pct: 100
+      kelvin: 2700
+
+        ##########################################################
+        ## Cardinals Mode - Off
+        ##########################################################
+
+- alias: Cardinals Mode - Off
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.cardinals_mode
+    to: 'on'
+    for:
+      hours: 4
+  action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.cardinals_mode

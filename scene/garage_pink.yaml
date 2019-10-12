@@ -1,0 +1,17 @@
+##########################################################
+## Pink Lighting - Garage
+##########################################################
+- name: Garage - Pink
+  entities:
+    light.garage_1:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink
+    light.garage_2:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink
+    light.garage_3:
+      state: on
+      brightness_pct: 100
+      color_name: deeppink

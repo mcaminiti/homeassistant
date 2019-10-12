@@ -83,6 +83,8 @@ map:
 # Enables support for tracking state changes over time.
 history:
 
+tts:
+  - platform: google_translate
 
 # InfluxDB / Grafana Long Term Data Retention Test
 #influxdb:
@@ -151,16 +153,16 @@ lutron_caseta:
     certfile: !secret secret_lutron_certfile
     ca_certs: !secret secret_lutron_cacerts
 
-#vacuum:
-#  - platform: roomba
-#    host: REDACTED.150
-#    username: !secret secret_roomba_username
-#    password: !secret secret_roomba_password
-#    name: Roomba
+vacuum:
+  - platform: roomba
+    host: REDACTED.150
+    username: !secret secret_roomba_username
+    password: !secret secret_roomba_password
+    name: Roomba
 
 ecobee:
   api_key: !secret secret_ecobee_apikey
-  hold_temp: true
+#  hold_temp: true
 
 # Ring
 ring:
@@ -257,6 +259,13 @@ envisalink:
   partitions:
     1:
       name: 'Home Alarm'
+
+
+######## Timer ########
+
+timer:
+  alarm_kitchen_sink_water_sensor:
+    duration: '00:00:15'
 
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation

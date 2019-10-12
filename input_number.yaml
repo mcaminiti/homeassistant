@@ -2,13 +2,6 @@
 ## Input Number  ##
 ##############################################################
 
-  goalfeed:
-    name: Goalfeed Delay
-    initial: 1
-    min: 0
-    max: 180
-    step: 1
-
   golf_cart_unplugged:
     name: Golf Cart Unplugged Delay
     initial: 60

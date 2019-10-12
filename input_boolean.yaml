@@ -37,10 +37,20 @@
     initial: off
     icon: mdi:hockey-sticks
 
-  goaling:
-    name: Sports Goaling Mode
+  blackhawks_goal:
+    name: Blackhawks Goal
     initial: off
-    icon: mdi:soccer-field
+    icon: mdi:hockey-sticks
+
+  cardinals_mode:
+    name: Cardinals Mode
+    initial: off
+    icon: mdi:baseball-bat
+
+  cardinals_score:
+    name: Cardinals Score
+    initial: off
+    icon: mdi:baseball-bat
 
   USER1_away:
     name: USER1 Away
@@ -74,4 +84,12 @@
 
   disable_weather_notifications:
     name: Disable Weather Notifications
-    icon: mdi:weather-cloudy   
+    icon: mdi:weather-cloudy
+
+##############################################################
+## Alarms - Input Booleans  ##
+##############################################################
+
+  alarm_basement_water_sensor:
+    name: Alarm Basement Water Sensor
+    icon: mdi:bell-ring

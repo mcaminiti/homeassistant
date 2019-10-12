@@ -26,7 +26,6 @@
       data:
         message: "Water Detected in Basement!"
 
-
         ##########################################################
         ## Send Notification for Water Detected Washing Machine
         ##########################################################
@@ -76,7 +75,8 @@
     - service: notify.ios_USER2_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
-
+    - service: timer.start
+      entity_id: timer.alarm_kitchen_sink_water_sensor
         ##########################################################
         ## Send Notification for Water Detected Refrigerator
         ##########################################################
