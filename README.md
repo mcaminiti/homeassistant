@@ -3,7 +3,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.98.2
+Home Assistant Version: 0.100.2
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -29,6 +29,7 @@ Typical Automations in use include
 - Enhance security system through extra sensors and motion reading
 - Send alert if auxiliary / emergency heat is activated
 - Send long term data to InfluxDB for Grafana configuration
+- Use Lutron Pico Remotes to enable Hue Lights and other automations
 
 
 # Devices
@@ -39,12 +40,12 @@ Typical Automations in use include
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Phillips Hue Hub v2](https://amzn.to/2HnWMDV) | 1 | Ethernet | [Philips Hue](https://www.home-assistant.io/components/hue/) | Used to control Phillips Hue Color, Lux, and White bulbs |
 | [VeraPlus](https://amzn.to/2Y0ZiFl) | 1 | Ethernet | [Vera](https://www.home-assistant.io/components/vera/) | Vera smart hub for controlling z-wave devices.|
-| [Lutron Caseta](https://amzn.to/2GRyL7p) | 1 | Ethernet | [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Lutron Smart bridge for controlling local access to Lutron dimmers and devices|
+| [Lutron Caseta Pro](https://www.amazon.com/Lutron-Caseta-L-BDGPRO2-WH-SmartBridge-Programmed/dp/B00Z8AXQCQ/) | 1 | Ethernet | [CUSTOM - Lutron Caseta Pro](https://github.com/jhanssen/home-assistant/tree/caseta-0.40) | Lutron Smart bridge Pro 2for controlling local access to Lutron dimmers and devices|
 | [Wink Hub v1](https://amzn.to/2VJHixP) | 1 | Wi-Fi | [Wink](https://www.home-assistant.io/components/wink/) | Decommissioned as a device for smart controls.  Replaced with Vera for zwave and Lutron Caseta for Lutron Switches|
 
 Relevant hub configurations can be found within [configuration.yaml](https://github.com/mcaminiti/homeassistant/blob/master/configuration.yaml)
 Phillips Hue hub connected via home-assistant integrations.
-Wink hub connected with developer API account.
+Lutron connected via local controls on Custom Componant
 
 ## Lighting
 
@@ -53,7 +54,8 @@ Wink hub connected with developer API account.
 | [Philips Hue White and Color Ambiance v1/v2](https://amzn.to/2ToXUyo) | 9 | Ethernet | [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Color changing smart bulbs|
 | [Philips Hue White / Lux White](https://amzn.to/2UrOE9d) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
 | [Philips Hue White & Color Ambiance Outdoor](https://amzn.to/2tZyEPU) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
-| [Lutron Caseta Wireless Dimmer](https://amzn.to/2EXtsCH) | 3 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Smart dimmer switches that do not require a neutral wire|
+| [Lutron Caseta Wireless Dimmer](https://amzn.to/2EXtsCH) | 4 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Smart dimmer switches that do not require a neutral wire|
+| [Lutron Caseta Fan Control](https://www.amazon.com/Lutron-Wireless-Single-Pole-PD-FSQN-WH-Assistant/dp/B07N1GXM38/) | 1 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Fan control via Custom Componant|
 | [Leviton Decora Smart Switch](https://amzn.to/2UtKGN0) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
 
 Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassistant/blob/master/light_group.yaml)
@@ -87,8 +89,8 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | [Aeon Labs Water Sensor](https://amzn.to/2NTptcR) | 1 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensors used to detect water in basement as a preventive measure |
-| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 3 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
-| [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
+| [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 4 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
+| [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 3 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 
