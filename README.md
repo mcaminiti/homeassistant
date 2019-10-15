@@ -142,4 +142,5 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 ![UI](images/ha-3.png?raw=true "Temp and Weather Sensors")
 ![UI](images/ha-4.png?raw=true "System Monitor")
 ![UI](images/ha-5.png?raw=true "Ethereum Miner")
+![UI](images/ha-7.png?raw=true "Garage / Golf Cart")
 ![UI](images/ha-6.png?raw=true "Automation Disable / Enable")
