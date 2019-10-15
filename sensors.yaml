@@ -337,6 +337,15 @@
         value_template: '{{ states.sensor.nws_warnings.attributes.winter_storm_warning }}'
         friendly_name: 'Winter Storm Warning'
 
+        ##########################################################
+        ## Pico Remote Light Brightness Sensor
+        ##########################################################
+  - platform: template
+    sensors:
+      master_bedroom_brightness:
+        value_template: '{{ states.light.master_bedroom.brightness_pct }}'
+        friendly_name: 'Master Bedroom Brightness Percentage'
+
 #  - platform: command_line
 #    name: NWS_Tornado_Watch
 #    json_attributes:

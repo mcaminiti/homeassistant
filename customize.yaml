@@ -158,6 +158,12 @@
     friendly_name: Golf Cart Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
+  #Pico Sensors
+  sensor.master_bedroom_pico:
+      friendly_name: Master Bedroom Pico
+      icon: mdi:remote
+
+
         ##########################################################
         ## Christmas
         ##########################################################
@@ -433,7 +439,7 @@
     emulated_hue_name: "Cardinals Mode"
   input_boolean.cardinals_score:
     emulated_hue_hidden: false
-    emulated_hue_name: "Cardinals Score"  
+    emulated_hue_name: "Cardinals Score"
   input_boolean.bedtime:
     emulated_hue_hidden: false
     emulated_hue_name: "Bedtime"

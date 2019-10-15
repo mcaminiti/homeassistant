@@ -1,0 +1,97 @@
+#################################################################
+## Pico Remotes
+#################################################################
+
+  #################################################################
+  ## Master Bedroom Pico Remote
+  #################################################################
+    ##########################################################
+    ## Master Bedroom - Pico On
+    ##########################################################
+
+    - alias: Master Bedroom Pico - On
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '1'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.master_bedroom
+          data:
+            brightness_pct: 100
+
+    ##########################################################
+    ## Master Bedroom - Pico Off
+    ##########################################################
+
+    - alias: Master Bedroom Pico - Off
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '4'
+
+      action:
+        - service: light.turn_off
+          entity_id: light.master_bedroom
+
+    ##########################################################
+    ## Master Bedroom - Pico Raise
+    ##########################################################
+
+    - alias: Master Bedroom Pico - Raise
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '8'
+
+      condition:
+        - condition: state
+          entity_id: light.master_bedroom
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.master_bedroom
+          data:
+            brightness_pct: 75
+
+    ##########################################################
+    ## Master Bedroom - Pico Lower
+    ##########################################################
+
+    - alias: Master Bedroom Pico - Lower
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '16'
+
+      condition:
+        - condition: state
+          entity_id: light.master_bedroom
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.master_bedroom
+          data:
+            brightness_pct: 40
+
+    ##########################################################
+    ## Master Bedroom - Pico Favorite
+    ##########################################################
+
+#    - alias: Master Bedroom Pico - Favorite
+#
+#      trigger:
+#        - platform: state
+#          entity_id: sensor.master_bedroom_pico
+#          to: '2'
+#
+#      action:
+#        - service: light.turn_on
+#          entity_id: light.master_bedroom

@@ -77,8 +77,8 @@
   - platform: group
     name: Basement
     entities:
-      - light.basement_lights_1
-      - light.basement_lights_2
+      - light.basement_1
+      - light.basement_2
 
   - platform: group
     name: Garage
