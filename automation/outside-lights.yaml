@@ -92,10 +92,10 @@
       entity_id: input_boolean.party_outside
 
         ##########################################################
-        ## Turn Off Front Door After Hours From Motion
+        ## Turn Off Front Door After Hours From Motion - No Landscape
         ##########################################################
 
-- alias: Front Door Lights Off
+- alias: Front Door Lights Off After Motion
 
   trigger:
     - platform: state
@@ -110,6 +110,33 @@
       state: 'below_horizon'
     - condition: time
       after: '23:35'
+      before: '4:00'
+
+  action:
+    - service: light.turn_off
+      entity_id: light.front_door
+      data:
+        transition: 15
+
+        ##########################################################
+        ## Turn Off Front Door After Hours From Motion
+        ##########################################################
+
+- alias: Front Lights Off After Motion
+
+  trigger:
+    - platform: state
+      entity_id: light.front_door
+      to: 'on'
+      for:
+        minutes: 15
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '4:01'
       before: '6:00'
 
   action:
@@ -117,3 +144,7 @@
       entity_id: light.front_door
       data:
         transition: 15
+    - service: light.turn_off
+      entity_id: light.landscape
+      data:
+        transition: 60

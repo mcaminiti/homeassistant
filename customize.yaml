@@ -21,27 +21,19 @@
         ## Device Trackers - Family
         ##########################################################
 
-  device_tracker.USER1_iphone:
+  person.USER1:
     icon: mdi:human-male
     friendly_name: USER1
-  device_tracker.USER2_iphone:
+  person.USER2:
     icon: mdi:human-female
     friendly_name: USER2
-  device_tracker.USER3_iphone:
+  person.USER3:
     icon: mdi:human-female
     friendly_name: USER3
-  device_tracker.USER4_iphone:
+  person.USER4:
     icon: mdi:human-female
     friendly_name: USER4
 
-  group.USER1:
-    icon: mdi:human-male
-  group.USER2:
-    icon: mdi:human-female
-  group.USER3:
-    icon: mdi:human-female
-  group.USER4:
-    icon: mdi:human-female
   group.guests:
     icon: mdi:human-male-female
 
@@ -49,10 +41,7 @@
         ## Device Trackers - Guests
         ##########################################################
 
-  device_tracker.REDACTED_iphone:
-    icon: mdi:cellphone-iphone
-    friendly_name: REDACTED
-  device_tracker.REDACTED_iphone:
+  person.REDACTED:
     icon: mdi:cellphone-iphone
     friendly_name: REDACTED
 

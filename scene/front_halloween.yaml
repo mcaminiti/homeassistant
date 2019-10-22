@@ -14,7 +14,7 @@
     light.hue_outdoor_spot_2:
       state: on
       brightness_pct: 100
-      color_name: purple
+      color_name: blueviolet
     light.hue_outdoor_spot_3:
       state: on
       brightness_pct: 100
@@ -22,7 +22,7 @@
     light.hue_outdoor_spot_4:
       state: on
       brightness_pct: 100
-      color_name: purple
+      color_name: blueviolet
     light.hue_outdoor_spot_5:
       state: on
       brightness_pct: 100
@@ -30,7 +30,7 @@
     light.hue_outdoor_spot_6:
       state: on
       brightness_pct: 100
-      color_name: purple
+      color_name: blueviolet
     light.hue_outdoor_spot_7:
       state: on
       brightness_pct: 100

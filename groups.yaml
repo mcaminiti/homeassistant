@@ -2,32 +2,19 @@
 ## Groups
 #################################################################
 
-USER1:
-  - device_tracker.USER1_iphone
-
-USER2:
-  - device_tracker.USER2_iphone
-
-USER3:
-  - device_tracker.USER3_iphone
-
-USER4:
-  - device_tracker.USER4_iphone
-
 Family:
-  - group.USER1
-  - group.USER2
-  - group.USER3
-  - group.USER4
+  - person.USER1
+  - person.USER2
+  - person.USER3
+  - person.USER4
 
 Guests:
-  - device_tracker.REDACTED_iphone
-  - device_tracker.REDACTED_iphone
+  - person.REDACTED
 
 Household:
-  - group.USER1
-  - group.USER2
-  - group.USER3
+  - person.USER1
+  - person.USER2
+  - person.USER3
   - group.guests
 
 Inside lights:

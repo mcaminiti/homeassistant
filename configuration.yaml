@@ -162,8 +162,9 @@ vacuum:
     password: !secret secret_roomba_password
     name: Roomba
 
-ecobee:
-  api_key: !secret secret_ecobee_apikey
+### Ecobee Key Not needed after first restart and setup 
+#ecobee:
+#  api_key: !secret secret_ecobee_apikey
 #  hold_temp: true
 
 # Ring
