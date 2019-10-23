@@ -1,0 +1,31 @@
+#################################################################
+## Emulated Hue Config
+#################################################################
+  host_ip: REDACTED.100
+  listen_port: 8300
+  off_maps_to_on_domains:
+    - script
+    - scene
+  expose_by_default: false
+  entities:
+    input_boolean.party_family_room:
+      hidden: false
+      name: "Family Room Party"
+    input_boolean.party_USER4_bedroom:
+      hidden: false
+      name: "USER4 Bedroom Party"
+    input_boolean.blackhawks_mode:
+      hidden: false
+      name: "Blackhawks Mode"
+    input_boolean.blackhawks_goal:
+      hidden: false
+      name: "Blackhawks Goal"
+    input_boolean.cardinals_mode:
+      hidden: false
+      name: "Cardinals Mode"
+    input_boolean.cardinals_score:
+      hidden: false
+      name: "Cardinals Score"
+    input_boolean.bedtime:
+      hidden: false
+      name: "Bedtime"

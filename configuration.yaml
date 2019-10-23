@@ -65,14 +65,6 @@ hue:
     allow_unreachable: true
     allow_hue_groups: false
 
-emulated_hue:
-  host_ip: REDACTED.100
-  listen_port: 8300
-  off_maps_to_on_domains:
-    - script
-    - scene
-  expose_by_default: false
-
 remote:
   - platform: harmony
     name: Media Center
@@ -162,7 +154,7 @@ vacuum:
     password: !secret secret_roomba_password
     name: Roomba
 
-### Ecobee Key Not needed after first restart and setup 
+### Ecobee Key Not needed after first restart and setup
 #ecobee:
 #  api_key: !secret secret_ecobee_apikey
 #  hold_temp: true
@@ -286,3 +278,4 @@ script: !include scripts.yaml
 scene: !include_dir_merge_list scene
 ios: !include ios.yaml
 switch: !include switch.yaml
+emulated_hue: !include emulated_hue.yaml

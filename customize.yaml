@@ -408,32 +408,6 @@
     icon: mdi:ethereum
 
         ##########################################################
-        ## Amazon Echo Integration
-        ##########################################################
-
-  input_boolean.party_family_room:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Family Room Party"
-  input_boolean.party_USER4_bedroom:
-    emulated_hue_hidden: false
-    emulated_hue_name: "USER4 Bedroom Party"
-  input_boolean.blackhawks_mode:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Blackhawks Mode"
-  input_boolean.blackhawks_goal:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Blackhawks Goal"
-  input_boolean.cardinals_mode:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Cardinals Mode"
-  input_boolean.cardinals_score:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Cardinals Score"
-  input_boolean.bedtime:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Bedtime"
-
-        ##########################################################
         ## Input
         ##########################################################
 
