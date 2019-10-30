@@ -262,6 +262,19 @@ timer:
   alarm_kitchen_sink_water_sensor:
     duration: '00:00:15'
 
+
+######## Input DateTime ########
+
+input_datetime:
+  USER2_wakeup_time:
+    name: USER2 Wakeup Time
+    has_date: false
+    has_time: true
+  USER3_wakeup_time:
+    name: USER3 Wakeup Time
+    has_date: false
+    has_time: true    
+
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml

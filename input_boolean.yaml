@@ -27,6 +27,14 @@
     initial: off
     icon: mdi:lightbulb-on
 
+  USER2_wakeup:
+    name: USER2 Wakeup
+    icon: mdi:weather-sunset-up
+
+  USER3_wakeup:
+    name: USER3 Wakeup
+    icon: mdi:weather-sunset-up   
+
   bedtime:
     name: Bedtime
     initial: off

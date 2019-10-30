@@ -6,6 +6,7 @@
       - updater
     entities:
       - sensor.date_time
+      - sensor.time
       - sensor.cpu
       - sensor.cpu_use
       - sensor.ram_use

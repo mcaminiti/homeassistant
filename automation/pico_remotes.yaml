@@ -85,13 +85,15 @@
     ## Master Bedroom - Pico Favorite
     ##########################################################
 
-#    - alias: Master Bedroom Pico - Favorite
-#
-#      trigger:
-#        - platform: state
-#          entity_id: sensor.master_bedroom_pico
-#          to: '2'
-#
-#      action:
-#        - service: light.turn_on
-#          entity_id: light.master_bedroom
+    - alias: Master Bedroom Pico - Favorite
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '2'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.master_bedroom
+          data:
+            kelvin: 2700

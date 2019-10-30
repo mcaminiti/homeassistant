@@ -9,6 +9,7 @@
   - platform: time_date
     display_options:
       - 'date_time'
+      - 'time'     
   - platform: cpuspeed
     name: CPU
   - platform: systemmonitor

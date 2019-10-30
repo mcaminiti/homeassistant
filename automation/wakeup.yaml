@@ -1,0 +1,87 @@
+#################################################################
+## Wakeup - Light Automations
+#################################################################
+
+        ##########################################################
+        ## USER2 Wakeup Alarm
+        ##########################################################
+- alias: Alarm - USER2 Wakeup Light
+
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.USER2_wakeup_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.USER2_wakeup
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.family_room
+    - service: light.turn_on
+      entity_id: light.USER2_bedroom_1
+      data:
+        color_name: red
+        brightness_pct: 10
+        transition: 60
+    - delay: "00:01:00"        
+    - service: light.turn_on
+      entity_id: light.USER2_bedroom_1
+      data:
+        color_name: orange
+        brightness_pct: 70
+        transition: 120
+    - delay: "00:02:00"           
+    - service: light.turn_on
+      entity_id: light.USER2_bedroom_1
+      data:
+        color_name: gold
+        brightness_pct: 80
+        transition: 120
+    - delay: "00:03:00"        
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.USER2_wakeup
+
+
+        ##########################################################
+        ## USER3 Wakeup Alarm
+        ##########################################################
+- alias: Alarm - USER3 Wakeup Light
+
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.USER3_wakeup_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.USER3_wakeup
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.USER3_bedroom_1
+      data:
+        color_name: red
+        brightness_pct: 10
+        transition: 60
+    - delay: "00:01:00"     
+    - service: light.turn_on
+      entity_id: light.USER3_bedroom_1
+      data:
+        color_name: orange
+        brightness_pct: 70
+        transition: 120
+    - delay: "00:02:00"          
+    - service: light.turn_on
+      entity_id: light.USER3_bedroom_1
+      data:
+        color_name: gold
+        brightness_pct: 80
+        transition: 120
+    - delay: "00:02:00"          
+    - service: light.turn_on
+      entity_id: light.USER3_bedroom_1
+      data:
+        brightness_pct: 100
+        kelvin: 2700
+        transition: 60
+    - delay: "00:03:00"
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.USER3_wakeup
