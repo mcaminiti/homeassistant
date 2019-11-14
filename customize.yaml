@@ -129,6 +129,8 @@
     friendly_name: Washing Machine Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
+  sensor.lift_station_status:
+    icon: mdi:water-pump
   switch.sound_machine:
     icon: mdi:fan
   switch.air_cleaner:

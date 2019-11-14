@@ -171,6 +171,32 @@
         friendly_name: 'Golf Cart Status'
 
         ##########################################################
+        ## Lift Station Sensor
+        ##########################################################
+
+  - platform: template
+    sensors:
+      lift_station_status:
+        value_template: >-
+          {%- if states('sensor.e6_1_ct1_lift_station_watts') | int >= 10 %}
+            running
+          {% else %}
+            not running
+          {% endif %}
+        friendly_name: 'Lift Station Status'
+
+        ##########################################################
+        ## Lift Station - Counter Sensors
+        ##########################################################       
+
+  - platform: template
+    sensors:
+      lift_station_activations_daily:
+        value_template: '{{ states.counter.lift_station_activations_counter_last_day.state | int }}'
+        friendly_name: 'Lift Station Activations Daily Sensor'
+        unit_of_measurement: 'Count'
+
+        ##########################################################
         ## HVAC Honeywell Air Cleaner
         ##########################################################
 

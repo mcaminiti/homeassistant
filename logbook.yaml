@@ -4,6 +4,7 @@
   exclude:
     domains:
       - updater
+      - counter
     entities:
       - sensor.date_time
       - sensor.time
@@ -39,3 +40,4 @@
       - sensor.pihole_2_ads_blocked_today
       - sensor.pihole_2_dns_queries_today
       - sensor.pihole_2_ads_percentage_blocked_today
+      - sensor.lift_station_activations_daily

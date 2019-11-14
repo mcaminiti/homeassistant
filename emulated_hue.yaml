@@ -34,4 +34,7 @@
       name: "USER2 Wakeup"
     input_boolean.USER3_wakeup:
       hidden: false
-      name: "USER3 Wakeup"   
+      name: "USER3 Wakeup"
+    input_boolean.USER4_wakeup:
+      hidden: false
+      name: "USER4 Wakeup"         

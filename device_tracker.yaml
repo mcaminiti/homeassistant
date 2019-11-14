@@ -1,0 +1,15 @@
+#################################################################
+## Device Trackers - Because someone broke the Unifi's
+#################################################################
+
+  - platform: nmap_tracker
+    hosts:
+      # USER2 iPhone
+      - REDACTED.187
+      # USER4 iPhone
+      - REDACTED.139
+      # USER1 iPhone
+      - REDACTED.141
+      # USER3 iPhone
+      - REDACTED.138
+    home_interval: 10

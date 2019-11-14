@@ -9,7 +9,6 @@
 
   vacation_mode:
     name: Vacation Mode
-    initial: off
     icon: mdi:airplane
 
   party_family_room:
@@ -27,6 +26,11 @@
     initial: off
     icon: mdi:lightbulb-on
 
+  animate_outside:
+    name: Animate - Outside
+    initial: off
+    icon: mdi:lightbulb-on
+
   USER2_wakeup:
     name: USER2 Wakeup
     icon: mdi:weather-sunset-up
@@ -34,6 +38,10 @@
   USER3_wakeup:
     name: USER3 Wakeup
     icon: mdi:weather-sunset-up   
+
+  USER4_wakeup:
+    name: USER4 Wakeup
+    icon: mdi:weather-sunset-up 
 
   bedtime:
     name: Bedtime

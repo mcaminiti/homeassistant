@@ -1,3 +1,20 @@
 #################################################################
 ## Weather Alerts and Automations
 #################################################################
+
+        ##########################################################
+        ## Winter Weather Warning
+        ##########################################################
+
+- alias: Weather - Winter Weather Warning
+
+  trigger:
+    - platform: state
+      entity_id: sensor.nws_winter_storm_warning
+      from: "0"
+      to: "1"
+
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+       message: "NWS -- {{ states.sensor.nws_warnings.attributes.winter_storm_warning_headline }}"

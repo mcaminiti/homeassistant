@@ -5,6 +5,7 @@
   #################################################################
   ## Master Bedroom Pico Remote
   #################################################################
+
     ##########################################################
     ## Master Bedroom - Pico On
     ##########################################################
@@ -97,3 +98,24 @@
           entity_id: light.master_bedroom
           data:
             kelvin: 2700
+
+    ##########################################################
+    ## Master Bedroom - Pico Favorite - LONG PRESS
+    ##########################################################
+
+    - alias: Master Bedroom Pico - Favorite Long Press
+
+      trigger:
+        - platform: state
+          entity_id: sensor.master_bedroom_pico
+          to: '2'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+
+      action:
+        - service: light.turn_on
+          entity_id: light.master_bedroom
+          data:
+            kelvin: 3400

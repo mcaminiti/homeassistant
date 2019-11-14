@@ -261,6 +261,27 @@ envisalink:
 timer:
   alarm_kitchen_sink_water_sensor:
     duration: '00:00:15'
+  animate_outside_timer:
+    duration: '00:00:20'
+
+# Counters
+counter:
+  lift_station_activations_counter:
+    name: 'Lift Station Activations'
+    initial: 0
+    step: 1
+    icon: mdi:counter
+  lift_station_activations_counter_current_day:
+    name: 'Lift Station Activations Current Day'
+    initial: 0
+    step: 1
+    icon: mdi:counter
+  lift_station_activations_counter_last_day:
+    name: 'Lift Station Activations Last Day'
+    initial: 0
+    step: 1
+    icon: mdi:counter
+
 
 
 ######## Input DateTime ########
@@ -274,6 +295,10 @@ input_datetime:
     name: USER3 Wakeup Time
     has_date: false
     has_time: true    
+  USER4_wakeup_time:
+    name: USER4 Wakeup Time
+    has_date: false
+    has_time: true
 
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
@@ -292,3 +317,4 @@ scene: !include_dir_merge_list scene
 ios: !include ios.yaml
 switch: !include switch.yaml
 emulated_hue: !include emulated_hue.yaml
+device_tracker: !include device_tracker.yaml
