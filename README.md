@@ -94,6 +94,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 3 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
 | [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
+| [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
 
 ## Vacuum
 
