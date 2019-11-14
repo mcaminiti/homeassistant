@@ -30,6 +30,7 @@ Typical Automations in use include
 - Send alert if auxiliary / emergency heat is activated
 - Send long term data to InfluxDB for Grafana configuration
 - Use Lutron Pico Remotes to enable Hue Lights and other automations
+- Use ESPHome device to energy monitor circuits in the house
 
 
 # Devices
