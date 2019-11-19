@@ -114,6 +114,13 @@
     device_class: battery
     friendly_name: Basement Drain Water Sensor
     icon: mdi:battery
+  binary_sensor.filtration_water_sensor:
+    device_class: moisture
+    friendly_name: Filtration Water Sensor
+  sensor.filtration_water_sensor_battery:
+    device_class: battery
+    friendly_name: Filtration Water Sensor
+    icon: mdi:battery
   binary_sensor.washing_machine_water_sensor:
     device_class: moisture
     friendly_name: Washing Machine Water Sensor

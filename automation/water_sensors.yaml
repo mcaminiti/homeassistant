@@ -124,6 +124,29 @@
       entity_id:
         - switch.washing_machine
 
+        ##########################################################
+        ## Send Notification for Water Detected Filtration System
+        ##########################################################
+
+- alias: Notification - Filtration Water Sensor
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.filtration_drain_water_sensor
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+  action:
+    - service: notify.ios_USER1_iphone
+      data:
+        message: "Water Detected by Water Filtration!"
+ #   - service: notify.ios_USER2_iphone
+ #     data:
+ #       message: "Water Detected by Water Filtration!"
 
         ##########################################################
         ## Flash Lights when Water Detected
@@ -148,6 +171,10 @@
       entity_id: binary_sensor.refridgerator_water_sensor
       from: 'off'
       to: 'on'
+#    - platform: state
+#      entity_id: binary_sensor.filtration_water_sensor
+#      from: 'off'
+#      to: 'on'     
   condition:
     - condition: state
       entity_id: group.household
