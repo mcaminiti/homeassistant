@@ -46,10 +46,10 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Warning in House!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Smoke - Warning in House!"
 
@@ -97,10 +97,10 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Emergency in House!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Smoke - Emergency in House!"
         ##########################################################
@@ -147,10 +147,10 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Warning in House!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "CO - Warning in House!"
 
@@ -199,9 +199,9 @@
       entity_id: light.hue_lights
       data:
         flash: long
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Emergency in House!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "CO - Emergency in House!"

@@ -15,6 +15,6 @@
       to: "1"
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.winter_storm_warning_headline }}"

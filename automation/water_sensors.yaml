@@ -19,10 +19,10 @@
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Water Detected in Basement!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected in Basement!"
 
@@ -44,10 +44,10 @@
       state: 'off'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Water Detected by Washing Machine!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Washing Machine!"
 
@@ -69,10 +69,10 @@
       state: 'off'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
     - service: timer.start
@@ -95,10 +95,10 @@
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Water Detected by Refrigerator!"
-    - service: notify.ios_USER2_iphone
+    - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Refrigerator!"
 
@@ -141,10 +141,10 @@
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Water Detected by Water Filtration!"
- #   - service: notify.ios_USER2_iphone
+ #   - service: notify.mobile_app_USER2s_iphone
  #     data:
  #       message: "Water Detected by Water Filtration!"
 

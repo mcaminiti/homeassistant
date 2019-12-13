@@ -127,6 +127,13 @@ wemo:
     - REDACTED.198
     - REDACTED.148
     - REDACTED.74
+    - REDACTED.85
+    - REDACTED.86
+
+tuya:
+  username: !secret secret_tuya_username
+  password: !secret secret_tuya_password
+  country_code: 1
 
 # Weather
 weather:
@@ -169,8 +176,8 @@ nest:
   client_id: !secret secret_nest_clientid
   client_secret: !secret secret_nest_secret
 
-pi_hole:
-  host: REDACTED.4
+#pi_hole:
+#  host: REDACTED.4
 
 ################################################################
 ## Media Players

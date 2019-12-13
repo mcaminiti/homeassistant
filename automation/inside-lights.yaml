@@ -110,7 +110,7 @@
         seconds: 0
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: Hall Closet Lights Left On!
         data:

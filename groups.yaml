@@ -24,7 +24,6 @@ Inside lights:
   - light.USER4_bedroom
   - light.pantry_lights
   - light.basement
-  #- group.christmas
 
 Outside lights:
   - input_select.outdoor_theme
@@ -65,6 +64,16 @@ Doors:
   - binary_sensor.pantry_door
   - binary_sensor.basement_door
 
-
 Weather Alerts:
   -  sensor.nws_alerts
+
+Christmas Outside Lights:
+  - switch.christmas_nativity
+  - switch.christmas_outdoor_1
+  - switch.christmas_outdoor_2
+  - switch.christmas_outdoor_3  
+
+Christmas Inside Lights:
+  - switch.christmas_tree
+  - switch.christmas_village
+  - switch.tuya_USER4_christmas_tree

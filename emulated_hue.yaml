@@ -1,8 +1,8 @@
 #################################################################
 ## Emulated Hue Config
 #################################################################
-  host_ip: REDACTED.100
-  listen_port: 8300
+  host_ip: REDACTED.6
+  listen_port: 80
   off_maps_to_on_domains:
     - script
     - scene
@@ -37,4 +37,7 @@
       name: "USER3 Wakeup"
     input_boolean.USER4_wakeup:
       hidden: false
-      name: "USER4 Wakeup"         
+      name: "USER4 Wakeup"
+    switch.tuya_USER4_christmas_tree:
+      hidden: false
+      name: "USER4 Christmas Tree"   

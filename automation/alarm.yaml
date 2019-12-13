@@ -15,6 +15,6 @@
       to: "true"
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Alarm System Trouble Light On"

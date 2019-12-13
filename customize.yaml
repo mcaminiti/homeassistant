@@ -57,6 +57,8 @@
     icon: mdi:hotel
   light.USER4_bedroom:
     icon: mdi:hotel
+  light.guest_bedroom:
+    icon: mdi:hotel
   light.basement:
     icon: mdi:stairs
   group.outside_lights:
@@ -128,8 +130,6 @@
     device_class: battery
     friendly_name: Washing Machine Water Sensor
     icon: mdi:battery
-  switch.washing_machine:
-    icon: mdi:washing-machine
   sensor.washing_machine_status:
     icon: mdi:washing-machine
   sensor.washing_machine_current_power:
@@ -138,24 +138,18 @@
     icon: mdi:power-plug
   sensor.lift_station_status:
     icon: mdi:water-pump
-  switch.sound_machine:
-    icon: mdi:fan
-  switch.air_cleaner:
-    icon: mdi:fan
-  sensor.air_cleaner_status:
-    icon: mdi:fan
   sensor.air_cleaner_current_power:
     friendly_name: Air Cleaner Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
-  switch.golf_cart:
-    icon: mdi:car
   sensor.golf_cart_status:
     icon: mdi:car-battery
   sensor.golf_cart_current_power:
     friendly_name: Golf Cart Current Power
     unit_of_measurement: 'w'
     icon: mdi:power-plug
+  sensor.air_cleaner_status:
+    icon: mdi:fan    
   #Pico Sensors
   sensor.master_bedroom_pico:
       friendly_name: Master Bedroom Pico
@@ -199,8 +193,29 @@
         ##########################################################
         ## Switches
         ##########################################################
-
-
+  switch.christmas_tree:
+    icon: mdi:pine-tree
+  switch.christmas_village:
+    icon: mdi:home-city-outline
+  switch.tuya_USER4_christmas_tree:
+    icon: mdi:pine-tree
+  switch.sound_machine:
+    icon: mdi:fan
+  switch.air_cleaner:
+    icon: mdi:fan
+  switch.golf_cart:
+    icon: mdi:golf-cart
+  switch.washing_machine:
+    icon: mdi:washing-machine
+  switch.christmas_nativity:
+    icon: mdi:christianity
+  switch.christmas_outdoor_1:
+    icon: mdi:string-lights
+  switch.christmas_outdoor_2:
+    icon: mdi:string-lights
+  switch.christmas_outdoor_3:
+    icon: mdi:string-lights
+    
         ##########################################################
         ## Lights
         ##########################################################

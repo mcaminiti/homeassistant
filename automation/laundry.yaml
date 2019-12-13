@@ -24,7 +24,7 @@
       state: 'home'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Washing Machine - Done"
 
@@ -46,7 +46,7 @@
       state: 'off'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: Washing Machine Switch Turned Off!
         data:

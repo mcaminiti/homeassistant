@@ -13,7 +13,7 @@
       event: start
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Home Assistant Started"
 
@@ -48,7 +48,7 @@
         seconds: 0
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
        message: "Eth hasrate low -- {{states.sensor.nanopool_hashrate.state}}"
 
@@ -67,7 +67,7 @@
       to: 'warning'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "NAS RAID Failing"
 
@@ -89,7 +89,7 @@
       to: "On Battery Battery Discharging"
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "Power Outage - UPS Runtime - {{states.sensor.ups_battery_runtime_mins.state}}"
 
@@ -105,6 +105,6 @@
       below: 15
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: "15 mins of UPS Battery Remaining!"

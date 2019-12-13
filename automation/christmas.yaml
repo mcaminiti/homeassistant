@@ -1,0 +1,87 @@
+#################################################################
+## Christmas Automation
+#################################################################
+
+        ##########################################################
+        ## Turn on Outside Christmas Lights
+        ##########################################################
+
+- alias: Outside Christmas Lights On
+
+  trigger:
+    - platform: state
+      entity_id: light.landscape
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Christmas'   
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.christmas_outside_lights
+
+        ##########################################################
+        ## Turn off Outside Christmas Lights
+        ##########################################################
+
+- alias: Outside Christmas Lights Off
+
+  trigger:
+    - platform: state
+      entity_id: light.landscape
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Christmas'      
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.christmas_outside_lights
+
+
+        ##########################################################
+        ## Turn on Inside Christmas Lights - Household Home
+        ##########################################################
+
+- alias: Inside Christmas Lights On - Household Home
+
+  trigger:
+    - platform: state
+      entity_id: group.household
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Christmas'       
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.christmas_inside_lights
+
+        ##########################################################
+        ## Turn on Inside Christmas Lights
+        ##########################################################
+
+- alias: Inside Christmas Lights On
+
+  trigger:
+    - platform: sun
+      event: 'sunset'
+      offset: '-00:10:00'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Christmas'       
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.christmas_inside_lights

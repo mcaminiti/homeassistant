@@ -15,7 +15,7 @@
       to: 'on'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
        message: "Aux Heat turned on"
 
@@ -37,7 +37,7 @@
       state: 'off'
 
   action:
-    - service: notify.ios_USER1_iphone
+    - service: notify.mobile_app_USER1_iphone
       data:
         message: Air Cleaner Switch Turned Off!
         data:
