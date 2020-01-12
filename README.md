@@ -3,7 +3,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.101.3
+Home Assistant Version: 0.103.0
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -79,7 +79,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [Apple TV 4](https://amzn.to/2UrM3fp) | 1 | Wi-Fi | [Apple TV](https://www.home-assistant.io/components/apple_tv/) | Used for media playback on TVs |
+| [Apple TV 4](https://amzn.to/2UrM3fp) | 2 | Wi-Fi | [Apple TV](https://www.home-assistant.io/components/apple_tv/) | Used for media playback on TVs |
 | [Apple TV 3](https://amzn.to/2UrM3fp) | 1 | Wi-Fi | [Apple TV](https://www.home-assistant.io/components/apple_tv/) | Used for media playback on TVs |
 | [Sonos Play:1](https://amzn.to/2STD1pE) | 1 | Wi-Fi | [Sonos](https://www.home-assistant.io/components/media_player.sonos/) | Audio playback |
 | [Logitech Harmony Hub](https://amzn.to/2UtKNrU) | 2 | Wi-Fi | [Harmony Hub Remote](https://www.home-assistant.io/components/remote.harmony/) | Controls various AV equipment and other devices that utilize infrared remotes |
@@ -92,7 +92,9 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Aeon Labs Water Sensor](https://amzn.to/2NTptcR) | 1 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensors used to detect water in basement as a preventive measure |
 | [Dome Leak Sensor](https://amzn.to/2VGlq6C) | 4 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Water sensor used to detect water in near washing machine and kitchen sink as a preventive measure |
 | [WeMo Insight Smart Plug with Energy Monitoring](https://amzn.to/2VHBrJi) | 3 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet with Energy Monitoring |
-| [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 2 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
+| [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 4 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
+| [TP-Link Kasa Outdoor Outlet - KP400](https://www.amazon.com/Kasa-Smart-Outlet-Outdoor-TP-Link/dp/B07M6RS2LC) | 2 | TP-Link | [TP-Link Componant](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/tplink/) | TPLink Smart Outlet |
+| [Tuya Compatible Plug](https://www.amazon.com/Gosund-Extender-Independently-Together-Required/dp/B07F58N32V/ref=sr_1_26?keywords=tuya+outlet&qid=1576247706&sr=8-26) | 1 | Tuya | [Tuya Componant](https://www.home-assistant.io/integrations/tuya/) | Tuya Smart Outlet |
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 | [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
 
@@ -131,7 +133,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
-| [iOS App](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8) | 2 | NA | [iOS](https://www.home-assistant.io/docs/ecosystem/ios/)| Used as Home Assistant interface on mobile devices, not actively using for presence detection |
+| [iOS App](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8) | 2 | NA | [iOS](https://www.home-assistant.io/docs/ecosystem/ios/)| Used as Home Assistant interface on mobile devices and for presence detection |
 | [Docker](https://hub.docker.com/r/homeassistant/home-assistant/) | 1 | Ethernet | [Installation on Docker](https://www.home-assistant.io/docs/installation/docker/) | Home Assistant install runs as a Docker Container utilizing MySQL docker database |
 | [Pi-hole](https://pi-hole.net) | 2 | Ethernet | [Pi-Hole Sensor](https://www.home-assistant.io/components/sensor.pi_hole/) | Ad blocking. Primary instance runs within a Docker container and the secondary runs on a [Raspberry-pi 3](https://amzn.to/2XLTosd) |
 | [InFluxDB](https://www.influxdata.com) | 1 | Ethernet | [InFluxDB Componant](https://www.home-assistant.io/components/influxdb/) | Long Term data retention for select metrics. Instance runs within a Docker container with Grafana. |
