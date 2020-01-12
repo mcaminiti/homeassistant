@@ -3,7 +3,7 @@
 #################################################################
 
   purge_interval: 1
-  purge_keep_days: 14
+  purge_keep_days: 7
   db_url: !secret secret_db_url
 
   exclude:
@@ -21,9 +21,12 @@
       - sensor.date_time
       - sensor.time
       - sensor.cpu
-      - sensor.cpu_use
-      - sensor.ram_use
-      - sensor.ram_free
+      - sensor.nas_cpu_temperature
+      - sensor.nas_cpu_usage
+      - sensor.nas_memory_usage
+      - sensor.processor_use      
+      - sensor.memory_free
+      - sensor.memory_use_percent
       - sensor.since_last_boot
       - sensor.dark_sky_apparent_temperature
       - sensor.dark_sky_cloud_coverage

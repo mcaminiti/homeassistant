@@ -155,13 +155,35 @@
       friendly_name: Master Bedroom Pico
       icon: mdi:remote
 
-
         ##########################################################
-        ## Christmas
+        ## Biocube
         ##########################################################
-#  switch.christmas_tree:
-#    icon: mdi:pine-tree
+  switch.biocube_pump:
+    icon: mdi:water-pump
+  sensor.biocube_pump_current_power:
+    friendly_name: Biocube Pump Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.biocube_pump_status:
+    icon: mdi:water-pump
 
+  switch.biocube_heater:
+    icon: mdi:radiator
+  sensor.biocube_heater_current_power:
+    friendly_name: Biocube Heater Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.biocube_heater_status:
+    icon: mdi:radiator
+
+  switch.biocube_lights:
+    icon: mdi:lightbulb-outline
+  sensor.biocube_lights_current_power:
+    friendly_name: Biocube Lights Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.biocube_lights_status:
+    icon: mdi:lightbulb-outline
         ##########################################################
         ## Doors
         ##########################################################

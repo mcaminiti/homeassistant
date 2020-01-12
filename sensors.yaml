@@ -151,6 +151,98 @@
         friendly_name: 'Washing Machine Status'
 
         ##########################################################
+        ## Biocube - Water Input Number Sensors
+        ##########################################################       
+
+  - platform: template
+    sensors:
+      biocube_ph:
+        value_template: '{{ states.input_number.biocube_ph.state | float }}'
+        friendly_name: 'Biocube pH Sensor'
+        unit_of_measurement: 'pH'
+
+  - platform: template
+    sensors:
+      biocube_ammonia:
+        value_template: '{{ states.input_number.biocube_ammonia.state | float }}'
+        friendly_name: 'Biocube Ammonia Sensor'
+        unit_of_measurement: 'ppm'
+
+  - platform: template
+    sensors:
+      biocube_nitrite:
+        value_template: '{{ states.input_number.biocube_nitrite.state | float }}'
+        friendly_name: 'Biocube Nitrite Sensor'
+        unit_of_measurement: 'ppm'
+
+  - platform: template
+    sensors:
+      biocube_nitrate:
+        value_template: '{{ states.input_number.biocube_nitrate.state | float }}'
+        friendly_name: 'Biocube Nitrate Sensor'
+        unit_of_measurement: 'ppm'
+
+        ##########################################################
+        ## Biocube Heater
+        ##########################################################
+
+  - platform: template
+    sensors:
+      biocube_heater_current_power:
+        value_template: '{{ states.switch.biocube_heater.attributes.current_power_w }}'
+
+  - platform: template
+    sensors:
+      biocube_heater_status:
+        value_template: >-
+          {%- if states('sensor.biocube_heater_current_power') | int >= 1 %}
+            running
+          {% else %}
+            not running
+          {% endif %}
+        friendly_name: 'Biocube Heater Status'
+
+        ##########################################################
+        ## Biocube Pump
+        ##########################################################
+
+  - platform: template
+    sensors:
+      biocube_pump_current_power:
+        value_template: '{{ states.switch.biocube_pump.attributes.current_power_w }}'
+
+  - platform: template
+    sensors:
+      biocube_pump_status:
+        value_template: >-
+          {%- if states('sensor.biocube_pump_current_power') | int >= 1 %}
+            running
+          {% else %}
+            not running
+          {% endif %}
+        friendly_name: 'Biocube Pump Status'
+
+        ##########################################################
+        ## Biocube Lights
+        ##########################################################
+
+  - platform: template
+    sensors:
+      biocube_lights_current_power:
+        value_template: '{{ states.switch.biocube_lights.attributes.current_power_w }}'
+
+  - platform: template
+    sensors:
+      biocube_lights_status:
+        value_template: >-
+          {%- if states('sensor.biocube_lights_current_power') | int >= 1 %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        friendly_name: 'Biocube Lights Status'
+
+        ##########################################################
         ## Golf Cart
         ##########################################################
 

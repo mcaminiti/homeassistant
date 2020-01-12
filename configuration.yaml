@@ -79,18 +79,32 @@ tts:
   - platform: google_translate
 
 # InfluxDB / Grafana Long Term Data Retention Test
-#influxdb:
-#  host: REDACTED.196
-#  include:
-#    entities:
-#      - sensor.home_temperature
-#      - sensor.master_bedroom_temperature
-#      - sensor.basement_temperature
-#      - sensor.USER3_bedroom_temperature
-#      - sensor.USER4_bedroom_temperature
-#      - sensor.home_humidity
-#      - sensor.dark_sky_humidity
-#      - sensor.dark_sky_temperature
+influxdb:
+  host: REDACTED.100
+  database: telegraf
+  include:
+    entities:
+      - sensor.home_temperature
+      - sensor.master_bedroom_temperature
+      - sensor.basement_temperature
+      - sensor.USER3_bedroom_temperature
+      - sensor.USER4_bedroom_temperature
+      - sensor.home_humidity
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.washing_machine_current_power
+      - sensor.air_cleaner_current_power
+      - sensor.golf_cart_current_power
+      - sensor.biocube_heater_current_power
+      - sensor.biocube_pump_current_power
+      - sensor.biocube_lights_current_power
+      - sensor.lift_station_activations_daily
+      - sensor.e6_1_ct1_lift_station_watts
+      - sensor.e6_1_ct2_aerator_watts
+      - sensor.biocube_ph
+      - sensor.biocube_ammonia
+      - sensor.biocube_nitrite
+      - sensor.biocube_nitrate 
 #      - sensor.thermostat_current_status
 #      - sensor.thermostat_aux_heat
 #      - sensor.ups_load
@@ -104,9 +118,7 @@ tts:
 #      - sensor.basement_motion_battery
 #      - sensor.pantry_door_battery
 #      - sensor.basement_water_sensor_battery
-#      - sensor.washing_machine_current_power
-#      - sensor.air_cleaner_current_power
-#      - sensor.golf_cart_current_power
+
 #      - sensor.nanopool_hashrate
 #      - sensor.nanopool_balance
 #      - binary_sensor.wan
@@ -115,7 +127,7 @@ tts:
 
 # VeraPlus controller to replace wink
 vera:
-  vera_controller_url: http://REDACTED.140:3480/
+  vera_controller_url: http://REDACTED.6:3480/
 
 # Stream Componant
 stream:
@@ -127,8 +139,8 @@ wemo:
     - REDACTED.198
     - REDACTED.148
     - REDACTED.74
-    - REDACTED.85
-    - REDACTED.86
+#    - REDACTED.85  # Christmas
+#    - REDACTED.86  # Christmas  
 
 tuya:
   username: !secret secret_tuya_username
