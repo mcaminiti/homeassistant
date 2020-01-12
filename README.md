@@ -3,7 +3,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.103.0
+Home Assistant Version: 0.103.5
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -31,6 +31,8 @@ Typical Automations in use include
 - Send long term data to InfluxDB for Grafana configuration
 - Use Lutron Pico Remotes to enable Hue Lights and other automations
 - Use ESPHome device to energy monitor circuits in the house
+- Monitor Fish Aquarium (Biocube) power usage
+- Alert for aquarium problems (heater running long / pump not running) 
 
 
 # Devices
@@ -56,8 +58,9 @@ Lutron connected via local controls on Custom Componant
 | [Philips Hue White / Lux White](https://amzn.to/2UrOE9d) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | Non color changing smart bulbs / Lux changes shades of white|
 | [Philips Hue White & Color Ambiance Outdoor](https://amzn.to/2tZyEPU) | 7 | Hue Hub (Zigbee)| [Philips Hue Light](https://www.home-assistant.io/components/light.hue/) | 2 Starter Sets of Lily Outdoor Spots|
 | [Lutron Caseta Wireless Dimmer](https://amzn.to/2EXtsCH) | 4 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Smart dimmer switches that do not require a neutral wire|
-| [Lutron Caseta Fan Control](https://www.amazon.com/Lutron-Wireless-Single-Pole-PD-FSQN-WH-Assistant/dp/B07N1GXM38/) | 1 | Lutron Caseta (Z-Wave)| [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Fan control via Custom Componant|
+| [Lutron Caseta Fan Control](https://www.amazon.com/Lutron-Wireless-Single-Pole-PD-FSQN-WH-Assistant/dp/B07N1GXM38/) | 1 | Lutron Caseta | [Lutron Caseta](https://www.home-assistant.io/components/lutron_caseta/) | Fan control via Custom Componant|
 | [Leviton Decora Smart Switch](https://amzn.to/2UtKGN0) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart switches that require a neutral wire. No dimming but classic rocker decora style.|
+| [Zooz Switch ZEN27 S2 Dimmer](https://www.amazon.com/dp/B07K37BNMC/ref=cm_sw_em_r_mt_dp_U_fXOgEbTQFG38M) | 3 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart switches as z-wave plus.  Allow for dimming. |
 
 Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassistant/blob/master/light_group.yaml)
 
@@ -95,6 +98,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [WeMo Mini Smart Plug](https://amzn.to/2VPV8yV) | 4 | WeMo | [WeMo Componant](https://www.home-assistant.io/components/wemo/) | WeMo Smart Outlet |
 | [TP-Link Kasa Outdoor Outlet - KP400](https://www.amazon.com/Kasa-Smart-Outlet-Outdoor-TP-Link/dp/B07M6RS2LC) | 2 | TP-Link | [TP-Link Componant](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/tplink/) | TPLink Smart Outlet |
 | [Tuya Compatible Plug](https://www.amazon.com/Gosund-Extender-Independently-Together-Required/dp/B07F58N32V/ref=sr_1_26?keywords=tuya+outlet&qid=1576247706&sr=8-26) | 1 | Tuya | [Tuya Componant](https://www.home-assistant.io/integrations/tuya/) | Tuya Smart Outlet |
+| [Zooz Power Strip ZEN20 v2 ](https://www.amazon.com/Z-Wave-Power-Energy-Monitoring-SmartThings/dp/B01HAQHQ5I/ref=asc_df_B01HAQHQ5I) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart power strip allowing for power controls and energy monitoring. | 
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 | [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
 
