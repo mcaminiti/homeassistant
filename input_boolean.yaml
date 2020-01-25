@@ -68,15 +68,17 @@
     initial: off
     icon: mdi:baseball-bat
 
-  USER1_away:
-    name: USER1 Away
-    initial: off
-    icon: mdi:walk
+  fish_fed_today:
+    name: Fish Fed Today
+    icon: mdi:fishbowl
 
-  USER2_away:
-    name: USER2 Away
-    initial: off
-    icon: mdi:walk
+  biocube_feed_mode:
+    name: Biocube Feed Mode
+    icon: mdi:fishbowl  
+
+  biocube_maintenance_mode:
+    name: Biocube Maintenance Mode
+    icon: mdi:fishbowl
 
 ##############################################################
 ## Disable - Input Booleans  ##

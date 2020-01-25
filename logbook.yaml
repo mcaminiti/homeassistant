@@ -35,3 +35,27 @@
       - binary_sensor.hub
       - binary_sensor.updater
       - sensor.lift_station_activations_daily
+      - sensor.USER1_iphone_activity
+      - sensor.USER1_iphone_average_active_pace
+      - sensor.USER1_iphone_battery_level
+      - sensor.USER1_iphone_battery_state
+      - sensor.USER1_iphone_bssid
+      - sensor.USER1_iphone_distance
+      - sensor.USER1_iphone_floors_ascended
+      - sensor.USER1_iphone_floors_descended
+      - sensor.USER1_iphone_geocoded_location
+      - sensor.USER1_iphone_last_update_trigger
+      - sensor.USER1_iphone_ssid
+      - sensor.USER1_iphone_steps      
+      - sensor.USER2_iphone_activity
+      - sensor.USER2_iphone_average_active_pace
+      - sensor.USER2_iphone_battery_level
+      - sensor.USER2_iphone_battery_state
+      - sensor.USER2_iphone_bssid
+      - sensor.USER2_iphone_distance
+      - sensor.USER2_iphone_floors_ascended
+      - sensor.USER2_iphone_floors_descended
+      - sensor.USER2_iphone_geocoded_location
+      - sensor.USER2_iphone_last_update_trigger
+      - sensor.USER2_iphone_ssid
+      - sensor.USER2_iphone_steps

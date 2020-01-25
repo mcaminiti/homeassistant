@@ -56,4 +56,4 @@
       - switch.pihole_2_switch
       - sensor.pihole_2_ads_blocked_today
       - sensor.pihole_2_dns_queries_today
-      - sensor.pihole_2_ads_percentage_blocked_today
+      - sensor.pihole_2_ads_percentage_blocked_today      

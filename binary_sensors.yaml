@@ -2,10 +2,10 @@
 ## Binary Sensors
 #################################################################
 
-  - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
+#  - platform: ring
+#    monitored_conditions:
+#      - ding
+#      - motion
   - platform: ping
     host: 8.8.8.8
     name: WAN

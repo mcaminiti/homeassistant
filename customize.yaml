@@ -184,6 +184,16 @@
     icon: mdi:power-plug
   sensor.biocube_lights_status:
     icon: mdi:lightbulb-outline
+
+  switch.biocube_ato:
+    icon: mdi:water-pump
+  sensor.biocube_ato_current_power:
+    friendly_name: Biocube ATO Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.biocube_ato_status:
+    icon: mdi:water-pump
+ 
         ##########################################################
         ## Doors
         ##########################################################
@@ -248,8 +258,12 @@
     icon: mdi:lamp
   light.USER3_bedroom_1:
     icon: mdi:lamp
+  light.USER3_ceiling_light:
+    icon: mdi:ceiling-light
   light.USER4_bedroom_1:
     icon: mdi:lamp
+  light.USER4_ceiling_light:
+    icon: mdi:ceiling-light    
   light.guest_bedroom_1:
     icon: mdi:lamp
   light.family_room_1:
@@ -390,12 +404,12 @@
         ## Door Bell
         ##########################################################
 
-  binary_sensor.ring_front_door_ding:
+  binary_sensor.front_door_ding:
     icon: mdi:bell-ring
     friendly_name: Front Door Ring
-  binary_sensor.ring_front_door_motion:
+  binary_sensor.front_door_motion:
     friendly_name: Front Door Motion
-  sensor.ring_front_door_battery:
+  sensor.front_door_battery:
     friendly_name: Door Bell
     icon: mdi:battery
 

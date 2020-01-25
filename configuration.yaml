@@ -59,11 +59,11 @@ http:
 #    homeassistant.components.device_tracker.unifi: debug
 #    homeassistant.components.switch.unifi: debug
 
-hue:
-  bridges:
-  - host: REDACTED.32
-    allow_unreachable: true
-    allow_hue_groups: false
+#hue:
+#  bridges:
+#  - host: REDACTED.32
+#    allow_unreachable: true
+#    allow_hue_groups: false
 
 remote:
   - platform: harmony
@@ -113,7 +113,7 @@ influxdb:
 #      - sensor.nas_volume_used_storage
 #      - sensor.nas_volume_used_backup
 #      - sensor.nas_system_temperature
-#      - sensor.ring_front_door_battery
+#      - sensor.front_door_battery
 #      - sensor.basement_door_battery
 #      - sensor.basement_motion_battery
 #      - sensor.pantry_door_battery
@@ -177,11 +177,6 @@ vacuum:
 #ecobee:
 #  api_key: !secret secret_ecobee_apikey
 #  hold_temp: true
-
-# Ring
-ring:
-    username: !secret secret_ring_username
-    password: !secret secret_ring_password
 
 # Nest
 nest:

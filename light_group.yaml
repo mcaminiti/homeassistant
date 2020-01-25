@@ -50,11 +50,13 @@
     name: USER3 Bedroom
     entities:
       - light.USER3_bedroom_1
+      - light.USER3_ceiling_light
 
   - platform: group
     name: USER4 Bedroom
     entities:
       - light.USER4_bedroom_1
+      - light.USER4_ceiling_light
 
   - platform: group
     name: Guest Bedroom
@@ -72,7 +74,6 @@
     entities:
       - light.hall_closet_1
       - light.hall_closet_2
-
 
   - platform: group
     name: Basement
@@ -96,13 +97,13 @@
   - platform: group
     name: Landscape
     entities:
-      - light.hue_outdoor_spot_1
-      - light.hue_outdoor_spot_2
-      - light.hue_outdoor_spot_3
-      - light.hue_outdoor_spot_4
-      - light.hue_outdoor_spot_5
-      - light.hue_outdoor_spot_6
-      - light.hue_outdoor_spot_7
+      - light.outdoor_spot_1
+      - light.outdoor_spot_2
+      - light.outdoor_spot_3
+      - light.outdoor_spot_4
+      - light.outdoor_spot_5
+      - light.outdoor_spot_6
+      - light.outdoor_spot_7
 
   - platform: group
     name: Emergency Lights

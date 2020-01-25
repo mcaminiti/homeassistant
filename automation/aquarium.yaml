@@ -1,0 +1,208 @@
+#################################################################
+## Aquarium - Notifications and Automations
+#################################################################
+
+        ##########################################################
+        ## Biocube32 Feed Mode On
+        ##########################################################
+
+        - alias: Biocube32 Feed Mode On
+
+          trigger:
+            - platform: state
+              entity_id: input_boolean.biocube_feed_mode
+              to: 'on'
+              for:
+                hours: 0
+                minutes: 0
+                seconds: 3
+
+          action:
+            - service: switch.turn_off
+              entity_id:
+                - switch.biocube_pump
+            - service: homeassistant.turn_on
+              entity_id: input_boolean.fish_fed_today             
+
+        ##########################################################
+        ## Biocube32 Feed Mode Off
+        ##########################################################
+
+        - alias: Biocube32 Feed Mode Off
+
+          trigger:
+            - platform: state
+              entity_id: input_boolean.biocube_feed_mode
+              to: 'off'
+              for:
+                hours: 0
+                minutes: 0
+                seconds: 3
+
+          action:
+            - service: switch.turn_on
+              entity_id:
+                - switch.biocube_pump
+
+        ##########################################################
+        ## Biocube32 High Temperature Alert
+        ##########################################################
+
+        - alias: Biocube32 High Temperature
+
+          trigger:
+            - platform: numeric_state
+              entity_id: sensor.biocube_temp
+              above: 80
+              for:
+                hours: 0
+                minutes: 5
+                seconds: 0
+
+          action:
+            - service: switch.turn_off
+              entity_id:
+                - switch.biocube_heater
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube Temp High - Heater turned Off!"
+            - service: notify.mobile_app_USER2s_iphone
+              data:
+                message: "Biocube Temp High - Heater turned Off!"
+
+
+        ##########################################################
+        ## Biocube32 Low Temperature Alert
+        ##########################################################
+
+        - alias: Biocube32 Low Temperature
+
+          trigger:
+            - platform: numeric_state
+              entity_id: sensor.biocube_temp
+              below: 76
+              for:
+                hours: 0
+                minutes: 5
+                seconds: 0
+          condition:
+            - condition: state
+              entity_id: input_boolean.biocube_maintenance_mode
+              state: 'off'
+          action:
+            - service: switch.turn_on
+              entity_id:
+                - switch.biocube_heater
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube Temp Low - Check Tank Temp"
+            - service: notify.mobile_app_USER2s_iphone
+              data:
+                message: "Biocube Temp Low - Check Tank Temp"
+
+
+        ##########################################################
+        ## Biocube32 Pump Left Off After Feeding
+        ##########################################################
+
+        - alias: Biocube32 Pump Left Off After Feeding
+
+          trigger:
+            - platform: state
+              entity_id: switch.biocube_pump
+              to: 'off'
+              for:
+                hours: 0
+                minutes: 20
+                seconds: 0
+          condition:
+            - condition: state
+              entity_id: input_boolean.fish_fed_today
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.biocube_maintenance_mode
+              state: 'off'
+          action:
+            - service: switch.turn_on
+              entity_id:
+                - switch.biocube_pump
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube Pump Off 20m - Turning On!"
+            - service: notify.mobile_app_USER2s_iphone
+              data:
+                message: "Biocube Pump Off 20m - Turning On!"
+
+        ##########################################################
+        ## Biocube32 Pump Failure
+        ##########################################################
+
+
+
+
+
+
+
+        ##########################################################
+        ## Biocube32 Heater Failure
+        ##########################################################        
+
+
+
+
+
+        ##########################################################
+        ## Biocube32 ATO Running
+        ##########################################################
+
+        - alias: Biocube32 ATO Running
+            
+          trigger:
+            - platform: state
+              entity_id: sensor.biocube_ato_status
+              from: 'not running'
+              to: 'running'
+
+          action:
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube ATO Running"
+
+        ##########################################################
+        ## Biocube32 ATO Long Runtime
+        ##########################################################  
+
+        - alias: Biocube32 ATO Running LONG
+            
+          trigger:
+            - platform: state
+              entity_id: sensor.biocube_ato_status
+              from: 'not running'
+              to: 'running'
+              for:
+                hours: 0
+                minutes: 5
+                seconds: 0              
+
+          action:
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube ATO Running LONG 5m"
+          ## Future kill power once duration known
+          ## Future offer IOS Actionable notification      
+
+
+
+        ##########################################################
+        ## Reset Fed Today Boolean
+        ##########################################################
+
+        - alias: Fish Fed Today - Reset Switch
+
+          trigger:
+            - platform: time
+              at: '00:30'
+
+          action:
+            - service: homeassistant.turn_off
+              entity_id: input_boolean.fish_fed_today

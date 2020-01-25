@@ -37,13 +37,13 @@
         ## Ring
         ##########################################################
 
-  - platform: ring
-    monitored_conditions:
-      - battery
-      - last_activity
-      - last_ding
-      - last_motion
-      - volume
+#  - platform: ring
+#    monitored_conditions:
+#      - battery
+#      - last_activity
+#      - last_ding
+#      - last_motion
+#      - volume
 
         ##########################################################
         ## QNAP NAS
@@ -222,6 +222,25 @@
           {% endif %}
         friendly_name: 'Biocube Pump Status'
 
+        ##########################################################
+        ## Biocube ATO
+        ##########################################################
+
+  - platform: template
+    sensors:
+      biocube_ato_current_power:
+        value_template: '{{ states.switch.biocube_ato.attributes.current_power_w }}'
+
+  - platform: template
+    sensors:
+      biocube_ato_status:
+        value_template: >-
+          {%- if states('sensor.biocube_ato_current_power') | int >= 1 %}
+            running
+          {% else %}
+            not running
+          {% endif %}
+        friendly_name: 'Biocube ATO Status'
         ##########################################################
         ## Biocube Lights
         ##########################################################
