@@ -1,0 +1,48 @@
+#################################################################
+## Fireplace
+#################################################################
+
+        #################################################################
+        ## Adjust Thermostat if Fireplace On
+        #################################################################
+
+- alias: Climate - Adjust Thermostat if Fireplace On
+
+  trigger:
+    - platform: state
+      entity_id: sensor.fireplace_status
+      from: 'not running'
+      to: 'running'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.home
+        #Fireplace ='smart4'
+        preset_mode: 'smart4'
+
+        #################################################################
+        ## Reset Thermostat when Fireplace off
+        #################################################################
+
+- alias: Climate - Reset Thermostat when Fireplace off
+
+  trigger:
+    - platform: state
+      entity_id: sensor.fireplace_status
+      from: 'running'
+      to: 'not running'
+      for:
+        hours: 0
+        minutes: 30
+        seconds: 0
+
+  action:
+    - service: ecobee.resume_program
+      data:
+        entity_id: climate.home
+        resume_all: true

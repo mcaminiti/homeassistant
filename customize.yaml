@@ -149,7 +149,17 @@
     unit_of_measurement: 'w'
     icon: mdi:power-plug
   sensor.air_cleaner_status:
-    icon: mdi:fan    
+    icon: mdi:fan
+
+  switch.fireplace:
+    icon: mdi:fireplace
+  sensor.fireplace_current_power:
+    friendly_name: Fireplace Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.fireplace_status:
+    icon: mdi:fireplace
+
   #Pico Sensors
   sensor.master_bedroom_pico:
       friendly_name: Master Bedroom Pico

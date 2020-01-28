@@ -53,7 +53,7 @@
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_temp
-              above: 80
+              above: 79
               for:
                 hours: 0
                 minutes: 5
@@ -80,7 +80,7 @@
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_temp
-              below: 76
+              below: 75
               for:
                 hours: 0
                 minutes: 5
