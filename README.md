@@ -3,12 +3,14 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.103.5
+Home Assistant Version: 0.104.3
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
 
 My configuration started from an early version of geekofweek's configuration and much of the automation and config is pulled from examples in his configuration.  Home Assistant has many example configurations to leverage and I have published my configuration to share or reference for others.
+
+I have expanded my home automation practices to the ESPHome platform to allow power monitoring automations as well as added controls for my Biocube Salt Water Aquarium. 
 
 ## Automation Overview
 Typical Automations in use include
@@ -24,7 +26,6 @@ Typical Automations in use include
 - Send notification and flash lights if water detected by washing machine / Kitchen Sink
 - Cut power to washing machine if water detected by washing machine
 - Send notification and flash lights if CO / Smoke detectors go off
-- Send alert if Eth miner hashrate drops
 - Send alert if power is lost at the house
 - Enhance security system through extra sensors and motion reading
 - Send alert if auxiliary / emergency heat is activated
