@@ -102,7 +102,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Zooz Power Strip ZEN20 v2 ](https://www.amazon.com/Z-Wave-Power-Energy-Monitoring-SmartThings/dp/B01HAQHQ5I/ref=asc_df_B01HAQHQ5I) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart power strip allowing for power controls and energy monitoring. | 
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 | [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
-
+| [ESPHome - ESP32](https://github.com/mcaminiti/) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | Temperature Sensor for Aquarium |
 ## Vacuum
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
