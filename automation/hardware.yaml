@@ -2,9 +2,9 @@
 ## Hardware Automation and Notifications
 #################################################################
 
-#################################################################
-## Home Assistant Startup Success
-#################################################################
+        #################################################################
+        ## Home Assistant Startup Success
+        #################################################################
 
 - alias: Notification Text - Home Assistant Start
 
@@ -30,30 +30,6 @@
     service: system_log.write
     data:
       message: "Home Assistant started."
-
-
-#################################################################
-## ETH Miner HashRate Low
-#################################################################
-
-- alias: Notification Text - ETH Warning
-
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.nanopool_hashrate
-      below: 20
-      for:
-        hours: 0
-        minutes: 20
-        seconds: 0
-
-  action:
-    - service: notify.mobile_app_USER1_iphone
-      data:
-       message: "Eth hasrate low -- {{states.sensor.nanopool_hashrate.state}}"
-
-
-
 
 #################################################################
 ## NAS Warning

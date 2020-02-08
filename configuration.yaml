@@ -28,9 +28,6 @@ sun:
 
 # Discovery of devices automatically if supported
 discovery:
-  ignore:
-    - samsung_tv
-    - apple_tv
 
 # Config options for system and discovery devices
 config:

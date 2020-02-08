@@ -119,3 +119,43 @@
           entity_id: light.master_bedroom
           data:
             kelvin: 3400
+
+  #################################################################
+  ## USER4 Bedroom Pico Remote
+  #################################################################
+
+    ##########################################################
+    ## USER4 Bedroom - Pico On - Feed Off
+    ##########################################################
+
+    - alias: USER4 Bedroom Pico On - Feed Off
+
+      trigger:
+        - platform: state
+          entity_id: sensor.USER4_bedroom_pico
+          to: '1'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+      action:
+        - service: homeassistant.turn_off
+          entity_id: input_boolean.biocube_feed_mode
+
+    ##########################################################
+    ## USER4 Bedroom - Pico Off - Feed On
+    ##########################################################
+
+    - alias: USER4 Bedroom Pico Off - Feed On
+
+      trigger:
+        - platform: state
+          entity_id: sensor.USER4_bedroom_pico
+          to: '4'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+      action:
+        - service: homeassistant.turn_on
+          entity_id: input_boolean.biocube_feed_mode

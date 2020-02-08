@@ -521,13 +521,13 @@
         ## ETH Sensor - Nanopool
         ##########################################################
 
-  - platform: rest
-    resource: !secret secret_nanopool_hashrate_url
-    name: Nanopool-HashRate
-    value_template: '{{ value_json.data}}'
-    unit_of_measurement: "Mh/s"
-  - platform: rest
-    resource: !secret secret_nanopool_balance_url
-    name: Nanopool-Balance
-    value_template: '{{ value_json.data}}'
-    unit_of_measurement: "ETH"
+#  - platform: rest
+#    resource: !secret secret_nanopool_hashrate_url
+#    name: Nanopool-HashRate
+#    value_template: '{{ value_json.data}}'
+#    unit_of_measurement: "Mh/s"
+#  - platform: rest
+#    resource: !secret secret_nanopool_balance_url
+#    name: Nanopool-Balance
+#    value_template: '{{ value_json.data}}'
+#    unit_of_measurement: "ETH"

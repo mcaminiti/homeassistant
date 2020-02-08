@@ -49,3 +49,19 @@
   action:
     - service: switch.turn_off
       entity_id: light.hall_closet_lights
+
+        #################################################################
+        ## Biocube Pump Switch On
+        #################################################################
+
+- alias: iOS Action - Biocube Pump Switch On
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: BIOCUBEPUMP_TURN_ON_SWITCH
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.biocube_pump

@@ -34,6 +34,8 @@
       - sensor.dark_sky_wind_speed
       - binary_sensor.hub
       - binary_sensor.updater
+      - sensor.biocube_heater_status
+      - sensor.biocube_heater_current_power
       - sensor.lift_station_activations_daily
       - sensor.USER1_iphone_activity
       - sensor.USER1_iphone_average_active_pace

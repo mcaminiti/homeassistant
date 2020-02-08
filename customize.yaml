@@ -468,14 +468,6 @@
   sensor.REDACTED:
     friendly_name: REDACTED DNS IP Address
     icon: mdi:dns
-        ##########################################################
-        ## NanoPool
-        ##########################################################
-
-  sensor.nanopool_hashrate:
-    icon: mdi:speedometer
-  sensor.nanopool_balance:
-    icon: mdi:ethereum
 
         ##########################################################
         ## Input

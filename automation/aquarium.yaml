@@ -113,7 +113,7 @@
               to: 'off'
               for:
                 hours: 0
-                minutes: 20
+                minutes: 15
                 seconds: 0
           condition:
             - condition: state
@@ -123,15 +123,52 @@
               entity_id: input_boolean.biocube_maintenance_mode
               state: 'off'
           action:
-            - service: switch.turn_on
-              entity_id:
-                - switch.biocube_pump
+            - service: homeassistant.turn_off
+              entity_id: input_boolean.biocube_feed_mode                
             - service: notify.mobile_app_USER1_iphone
               data:
-                message: "Biocube Pump Off 20m - Turning On!"
+                message: "Biocube Pump Off 15m After Feeding - Turning On!"
             - service: notify.mobile_app_USER2s_iphone
               data:
-                message: "Biocube Pump Off 20m - Turning On!"
+                message: "Biocube Pump Off 15m After Feeding - Turning On!"
+
+        ##########################################################
+        ## Biocube32 Pump Off 20m
+        ##########################################################
+
+        - alias: Biocube32 Pump Off 20m
+
+          trigger:
+            - platform: state
+              entity_id: switch.biocube_pump
+              to: 'off'
+              for:
+                hours: 0
+                minutes: 20
+                seconds: 0
+          condition:
+            - condition: state
+              entity_id: input_boolean.biocube_maintenance_mode
+              state: 'off'
+          action:             
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube Pump Off 20m - CHECK PUMP!"
+                data:
+                  apns_headers:
+                  'apns-collapse-id': 'biocubepump-switch'
+                  push:
+                    badge: 0
+                    category: "biocubepumpswitch"                
+            - service: notify.mobile_app_USER2s_iphone
+              data:
+                message: "Biocube Pump Off 20m - CHECK PUMP!"
+                data:
+                    apns_headers:
+                    'apns-collapse-id': 'biocubepump-switch'
+                    push:
+                      badge: 0
+                      category: "biocubepumpswitch"                       
 
         ##########################################################
         ## Biocube32 Pump Failure
