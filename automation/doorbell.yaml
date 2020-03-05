@@ -109,3 +109,39 @@
     - service: scene.turn_on
       data_template:
         entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
+
+
+        ##########################################################
+        ## Door Bell Rings - Audio Notification
+        ##########################################################
+
+- alias: Doorbell - Play Sound When Someone Rings Doorbell
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_ding
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_doorbell
+      state: 'off'
+
+  action:
+#    - service: sonos.join
+#      data:
+#        master: media_player.office  
+#      entity_id:
+#        - media_player.office2
+#    - delay: '00:00:02'
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.office
+      data:
+        volume_level: '0.6'
+    - delay: '00:00:01'
+    - service: tts.google_translate_say
+      entity_id: media_player.office
+      data:
+        message: 'Someone is at the Front Door.'  

@@ -1,0 +1,72 @@
+#################################################################
+## IOS - Notifications and Automations
+#################################################################
+
+        ##########################################################
+        ## USER4 - Battery Low while at Home
+        ##########################################################
+
+- alias: IOS USER4 Charge Phone - Notification
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.USER4_iphone_battery_level
+      below: 30
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: sensor.USER4_iphone_battery_state
+      state: 'Not Charging'
+    - condition: state
+      entity_id: sensor.USER4_iphone_connection_type
+      state: 'Wi-Fi'
+    - condition: state
+      entity_id: sensor.USER4_iphone_ssid
+      state: 'Restricted Section'
+
+  action:
+    - service: notify.mobile_app_USER4s_iphone
+      data:
+        message: "Battery Low - Plug In Phone Now"
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       message: "USER4 Battery Low"        
+
+
+        ##########################################################
+        ## USER3 - Battery Low while at Home
+        ##########################################################
+
+- alias: IOS USER3 Charge Phone - Notification
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.USER3_iphone_battery_level
+      below: 30
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: sensor.USER3_iphone_battery_state
+      state: 'Not Charging'
+    - condition: state
+      entity_id: sensor.USER3_iphone_connection_type
+      state: 'Wi-Fi'
+    - condition: state
+      entity_id: sensor.USER3_iphone_ssid
+      state: 'Restricted Section'
+
+  action:
+    - service: notify.mobile_app_USER3_iphone
+      data:
+        message: "Battery Low - Plug In Phone Now"
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       message: "USER3 Battery Low"       

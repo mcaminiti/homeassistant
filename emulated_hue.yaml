@@ -38,12 +38,9 @@
     input_boolean.USER4_wakeup:
       hidden: false
       name: "USER4 Wakeup"
-    switch.tuya_USER4_christmas_tree:
-      hidden: false
-      name: "USER4 Christmas Tree"
     light.USER3_ceiling_light:
       hidden: false
       name: "USER3 Ceiling Light"
     light.USER4_ceiling_light:
       hidden: false
-      name: "USER4 Ceiling Light"        
+      name: "USER4 Ceiling Light"

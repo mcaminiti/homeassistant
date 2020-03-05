@@ -12,11 +12,7 @@
             - platform: state
               entity_id: input_boolean.biocube_feed_mode
               to: 'on'
-              for:
-                hours: 0
-                minutes: 0
-                seconds: 3
-
+              
           action:
             - service: switch.turn_off
               entity_id:
@@ -34,10 +30,6 @@
             - platform: state
               entity_id: input_boolean.biocube_feed_mode
               to: 'off'
-              for:
-                hours: 0
-                minutes: 0
-                seconds: 3
 
           action:
             - service: switch.turn_on
@@ -113,7 +105,7 @@
               to: 'off'
               for:
                 hours: 0
-                minutes: 15
+                minutes: 10
                 seconds: 0
           condition:
             - condition: state
@@ -127,16 +119,16 @@
               entity_id: input_boolean.biocube_feed_mode                
             - service: notify.mobile_app_USER1_iphone
               data:
-                message: "Biocube Pump Off 15m After Feeding - Turning On!"
+                message: "Biocube Pump Off 10m After Feeding - Turning On!"
             - service: notify.mobile_app_USER2s_iphone
               data:
-                message: "Biocube Pump Off 15m After Feeding - Turning On!"
+                message: "Biocube Pump Off 10m After Feeding - Turning On!"
 
         ##########################################################
-        ## Biocube32 Pump Off 20m
+        ## Biocube32 Pump Off 15m
         ##########################################################
 
-        - alias: Biocube32 Pump Off 20m
+        - alias: Biocube32 Pump Off 15m
 
           trigger:
             - platform: state
@@ -144,7 +136,7 @@
               to: 'off'
               for:
                 hours: 0
-                minutes: 20
+                minutes: 15
                 seconds: 0
           condition:
             - condition: state
@@ -153,7 +145,7 @@
           action:             
             - service: notify.mobile_app_USER1_iphone
               data:
-                message: "Biocube Pump Off 20m - CHECK PUMP!"
+                message: "Biocube Pump Off 15m - CHECK PUMP!"
                 data:
                   apns_headers:
                   'apns-collapse-id': 'biocubepump-switch'
@@ -162,7 +154,7 @@
                     category: "biocubepumpswitch"                
             - service: notify.mobile_app_USER2s_iphone
               data:
-                message: "Biocube Pump Off 20m - CHECK PUMP!"
+                message: "Biocube Pump Off 15m - CHECK PUMP!"
                 data:
                     apns_headers:
                     'apns-collapse-id': 'biocubepump-switch'

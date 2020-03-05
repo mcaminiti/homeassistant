@@ -12,9 +12,7 @@ Guests:
   - person.REDACTED
 
 Household:
-  - person.USER1
-  - person.USER2
-  - person.USER3
+  - group.family
   - group.guests
 
 Inside lights:

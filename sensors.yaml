@@ -182,6 +182,13 @@
         friendly_name: 'Biocube Nitrate Sensor'
         unit_of_measurement: 'ppm'
 
+  - platform: template
+    sensors:
+      biocube_calcium:
+        value_template: '{{ states.input_number.biocube_calcium.state | float }}'
+        friendly_name: 'Biocube Calcium Sensor'
+        unit_of_measurement: 'ppm'
+
         ##########################################################
         ## Biocube Heater
         ##########################################################
@@ -500,6 +507,30 @@
         friendly_name: 'Winter Storm Warning'
 
         ##########################################################
+        ## IOS Location Sensors
+        ##########################################################
+
+  - platform: template
+    sensors:
+      USER1_iphone_location:
+        value_template: '{{ states.sensor.USER1_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER1_iphone_geocoded_location.attributes["Administrative Area"]}}'
+
+  - platform: template
+    sensors:
+      USER2_iphone_location:
+        value_template: '{{ states.sensor.USER2_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER2_iphone_geocoded_location.attributes["Administrative Area"]}}'
+
+  - platform: template
+    sensors:
+      USER4_iphone_location:
+        value_template: '{{ states.sensor.USER4_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER4_iphone_geocoded_location.attributes["Administrative Area"]}}'
+
+  - platform: template
+    sensors:
+      USER3_iphone_location:
+        value_template: '{{ states.sensor.USER3_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER3_iphone_geocoded_location.attributes["Administrative Area"]}}'
+
+        ##########################################################
         ## Pico Remote Light Brightness Sensor
         ##########################################################
   - platform: template
@@ -531,3 +562,89 @@
 #    name: Nanopool-Balance
 #    value_template: '{{ value_json.data}}'
 #    unit_of_measurement: "ETH"
+
+
+        ##########################################################
+        ## Avanza Stock Lookup
+        ##########################################################
+
+  - platform: avanza_stock
+    name: Stock DT
+    stock: 981875
+    monitored_conditions:
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name    
+  - platform: avanza_stock
+    name: Stock DXCM
+    stock: 376540
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name
+  - platform: avanza_stock
+    name: Stock DOCU
+    stock: 844613
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name            
+  - platform: avanza_stock
+    name: Stock PRGO
+    stock: 420337
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name
+  - platform: avanza_stock
+    name: Stock SE
+    stock: 794798
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name
+  - platform: avanza_stock
+    name: Stock SSO
+    stock: 154871
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name
+  - platform: avanza_stock
+    name: Stock TDOC
+    stock: 576298
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name
+  - platform: avanza_stock
+    name: Stock VRTX
+    stock: 3579
+    monitored_conditions:    
+      - tickerSymbol
+      - lowestPrice
+      - highestPrice
+      - change
+      - changePercent
+      - name

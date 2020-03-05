@@ -23,7 +23,7 @@
       data:
         entity_id: climate.home
         #Fireplace ='smart4'
-        preset_mode: 'smart4'
+        preset_mode: 'Fireplace'
 
         #################################################################
         ## Reset Thermostat when Fireplace off

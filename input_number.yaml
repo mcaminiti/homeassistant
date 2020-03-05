@@ -33,6 +33,13 @@
   biocube_nitrate:
     name: Biocube Nitrate
     min: 0
-    max: 160
-    step: 5
+    max: 60
+    step: 1
+    unit_of_measurement: ppm
+
+  biocube_calcium:
+    name: Biocube Calcium
+    min: 100
+    max: 500
+    step: 1
     unit_of_measurement: ppm

@@ -6,6 +6,10 @@
       - updater
       - counter
     entities:
+      - group.doors
+      - group.indoor_motion
+      - group.inside_lights
+      - group.outside_lights
       - sensor.date_time
       - sensor.time
       - sensor.cpu
@@ -61,3 +65,27 @@
       - sensor.USER2_iphone_last_update_trigger
       - sensor.USER2_iphone_ssid
       - sensor.USER2_iphone_steps
+      - sensor.USER3_iphone_activity
+      - sensor.USER3_iphone_average_active_pace
+      - sensor.USER3_iphone_battery_level
+      - sensor.USER3_iphone_battery_state
+      - sensor.USER3_iphone_bssid
+      - sensor.USER3_iphone_distance
+      - sensor.USER3_iphone_floors_ascended
+      - sensor.USER3_iphone_floors_descended
+      - sensor.USER3_iphone_geocoded_location
+      - sensor.USER3_iphone_last_update_trigger
+      - sensor.USER3_iphone_ssid
+      - sensor.USER3_iphone_steps
+      - sensor.USER4_iphone_activity
+      - sensor.USER4_iphone_average_active_pace
+      - sensor.USER4_iphone_battery_level
+      - sensor.USER4_iphone_battery_state
+      - sensor.USER4_iphone_bssid
+      - sensor.USER4_iphone_distance
+      - sensor.USER4_iphone_floors_ascended
+      - sensor.USER4_iphone_floors_descended
+      - sensor.USER4_iphone_geocoded_location
+      - sensor.USER4_iphone_last_update_trigger
+      - sensor.USER4_iphone_ssid
+      - sensor.USER4_iphone_steps
