@@ -220,7 +220,60 @@
           ## Future kill power once duration known
           ## Future offer IOS Actionable notification      
 
+        ##########################################################
+        ## Feed Fish Reminder - USER4
+        ##########################################################
 
+        - alias: Feed Fish Reminder - USER4
+
+          trigger:
+            - platform: time
+              at: '16:15'
+          condition:
+            condition: and
+            conditions:
+              - condition: state
+                entity_id: input_boolean.fish_fed_today
+                state: 'off'
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity_id: device_tracker.USER4s_iphone
+                    state: 'home'
+                  - condition: state
+                    entity_id: device_tracker.USER4_iphone_unifi
+                    state: 'home'         
+          action:              
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "USER4 sent reminder to feed fish"
+            - service: notify.mobile_app_USER4s_iphone
+              data:
+                message: "Fish still need fed today"
+
+        ##########################################################
+        ## Feed Fish Reminder - All
+        ##########################################################
+
+        - alias: Feed Fish Reminder - All
+
+          trigger:
+            - platform: time
+              at: '16:40'
+          condition:
+            - condition: state
+              entity_id: input_boolean.fish_fed_today
+              state: 'off'    
+          action:              
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Reminder fish need fed today"
+            - service: notify.mobile_app_USER4s_iphone
+              data:
+                message: "Reminder fish need fed today"
+            - service: notify.mobile_app_USER2s_iphone
+              data:
+                message: "Reminder fish need fed today"
 
         ##########################################################
         ## Reset Fed Today Boolean
