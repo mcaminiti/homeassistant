@@ -65,3 +65,35 @@
   action:
     - service: switch.turn_on
       entity_id: switch.biocube_pump
+
+        #################################################################
+        ## Biocube Wavemaker Switch On
+        #################################################################
+
+- alias: iOS Action - Biocube Wavemaker Switch On
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: BIOCUBEWAVEMAKER_TURN_ON_SWITCH
+
+  action:
+    - service: switch.turn_on
+      entity_id: switch.biocube_wavemaker
+
+        #################################################################
+        ## Biocube Maintenance Mode Off
+        #################################################################
+
+- alias: iOS Action - Biocube Maintenance Mode Off
+
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: BIOCUBEMAINTENANCE_TURN_OFF_SWITCH
+
+  action:
+    - service: switch.turn_off
+      entity_id: input_boolean.biocube_maintenance_mode

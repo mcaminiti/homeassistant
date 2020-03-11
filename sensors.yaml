@@ -269,6 +269,27 @@
         friendly_name: 'Biocube Lights Status'
 
         ##########################################################
+        ## Biocube Wavemaker
+        ##########################################################
+
+  - platform: template
+    sensors:
+      biocube_wavemaker_current_power:
+        value_template: '{{ states.switch.biocube_wavemaker.attributes.current_power_w }}'
+
+  - platform: template
+    sensors:
+      biocube_wavemaker_status:
+        value_template: >-
+          {%- if states('sensor.biocube_wavemaker_current_power') | int >= 1 %}
+            running
+          {% else %}
+            not running
+          {% endif %}
+        friendly_name: 'Biocube Wavemaker Status'
+
+
+        ##########################################################
         ## Fireplace
         ##########################################################
 

@@ -203,7 +203,19 @@
     icon: mdi:power-plug
   sensor.biocube_ato_status:
     icon: mdi:water-pump
+
+  switch.biocube_wavemaker:
+    icon: mdi:waves
+  sensor.biocube_wavemaker_current_power:
+    friendly_name: Biocube Wavemaker Current Power
+    unit_of_measurement: 'w'
+    icon: mdi:power-plug
+  sensor.biocube_wavemaker_status:
+    icon: mdi:waves    
  
+  switch.biocube_ato_relay_disable:
+    icon: mdi:water-pump
+
         ##########################################################
         ## Doors
         ##########################################################
@@ -235,12 +247,12 @@
         ##########################################################
         ## Switches
         ##########################################################
-  switch.christmas_tree:
-    icon: mdi:pine-tree
-  switch.christmas_village:
-    icon: mdi:home-city-outline
-  switch.tuya_USER4_christmas_tree:
-    icon: mdi:pine-tree
+#  switch.christmas_tree:
+#    icon: mdi:pine-tree
+#  switch.christmas_village:
+#    icon: mdi:home-city-outline
+#  switch.tuya_USER4_christmas_tree:
+#   icon: mdi:pine-tree
   switch.sound_machine:
     icon: mdi:fan
   switch.air_cleaner:
@@ -249,14 +261,14 @@
     icon: mdi:golf-cart
   switch.washing_machine:
     icon: mdi:washing-machine
-  switch.christmas_nativity:
-    icon: mdi:christianity
-  switch.christmas_outdoor_1:
-    icon: mdi:string-lights
-  switch.christmas_outdoor_2:
-    icon: mdi:string-lights
-  switch.christmas_outdoor_3:
-    icon: mdi:string-lights
+#  switch.christmas_nativity:
+#    icon: mdi:christianity
+#  switch.christmas_outdoor_1:
+#    icon: mdi:string-lights
+#  switch.christmas_outdoor_2:
+#    icon: mdi:string-lights
+#  switch.christmas_outdoor_3:
+#    icon: mdi:string-lights
     
         ##########################################################
         ## Lights
