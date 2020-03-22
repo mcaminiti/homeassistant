@@ -3,7 +3,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 0.104.3
+Home Assistant Version: 0.106.6
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a MySQL docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 3 and hass.io image to get started very simply.  
@@ -32,6 +32,7 @@ Typical Automations in use include
 - Send long term data to InfluxDB for Grafana configuration
 - Use Lutron Pico Remotes to enable Hue Lights and other automations
 - Use ESPHome device to energy monitor circuits in the house
+- Use EPSHome device for Garage Door Open/Close and state sensors
 - Monitor Fish Aquarium (Biocube) power usage
 - Alert for aquarium problems (heater running long / pump not running) 
 
@@ -103,6 +104,12 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 | [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
 | [ESPHome - ESP32](https://github.com/mcaminiti/) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | Temperature Sensor for Aquarium |
+
+## Cover
+| Device  | Quantity | Connection | Home Assistant | Notes |
+| ------------- | :---: | ------------- | ------------- | ------------- |
+| [ESPHome - ESP32](https://github.com/mcaminiti/esphome-garage-door) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 4 Relay / 4 Inputs for control of 2 Garage Doors |
+
 ## Vacuum
 
 | Device  | Quantity | Connection | Home Assistant | Notes |
