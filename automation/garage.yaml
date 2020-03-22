@@ -1,0 +1,123 @@
+#################################################################
+## Garage Automations
+#################################################################
+
+        ##########################################################
+        ## Double Garage Door Left Open At Night - Notification
+        ##########################################################
+
+- alias: Notification - Double Garage Door Left Open At Night
+
+  trigger:
+    - platform: time
+      at: '21:00'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+    - condition: state
+      entity_id: cover.double_garage
+      state: 'open'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Double Garage Door Still Open"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage
+
+        ##########################################################
+        ## Single Garage Door Left Open At Night - Notification
+        ##########################################################
+
+- alias: Notification - Single Garage Door Left Open At Night
+
+  trigger:
+    - platform: time
+      at: '21:00'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+    - condition: state
+      entity_id: cover.single_garage
+      state: 'open'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Single Garage Door Still Open"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage
+
+
+
+        ##########################################################
+        ## Double Garage Door Left Open For 20 Minutes Cold Weather - Notification
+        ##########################################################
+
+- alias: Notification - Double Garage Door Left Open 20m When Cold
+
+  trigger:
+    - platform: state
+      entity_id: cover.double_garage
+      to: 'open'
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.dark_sky_temperature
+      below: 45
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Double Garage Door Open 20m in Cold Weather"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage
+
+        ##########################################################
+        ## Single Garage Door Left Open For 20 Minutes Cold Weather - Notification
+        ##########################################################
+
+- alias: Notification - Single Garage Door Left Open 20m When Cold
+
+  trigger:
+    - platform: state
+      entity_id: cover.single_garage
+      to: 'open'
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.dark_sky_temperature
+      below: 45
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Single Garage Door Open 20m in Cold Weather"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage

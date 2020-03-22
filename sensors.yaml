@@ -355,7 +355,7 @@
   - platform: template
     sensors:
       lift_station_activations_daily:
-        value_template: '{{ states.counter.lift_station_activations_counter_last_day.state | int }}'
+        value_template: '{{ states.counter.lift_station_activations_counter_current_day.state | int }}'
         friendly_name: 'Lift Station Activations Daily Sensor'
         unit_of_measurement: 'Count'
 
@@ -560,112 +560,6 @@
         value_template: '{{ states.light.master_bedroom.brightness_pct }}'
         friendly_name: 'Master Bedroom Brightness Percentage'
 
-#  - platform: command_line
-#    name: NWS_Tornado_Watch
-#    json_attributes:
-#      - nws_tornado_watch
-#      - nws_tornado_watch_headline
-#      - nws_tornado_watch_description
-#    value_template: '{{ value_json.nws_tornado_watch }}'
-#    command: python /config/scripts/nws_tornado_watch.py
-
-        ##########################################################
-        ## ETH Sensor - Nanopool
-        ##########################################################
-
-#  - platform: rest
-#    resource: !secret secret_nanopool_hashrate_url
-#    name: Nanopool-HashRate
-#    value_template: '{{ value_json.data}}'
-#    unit_of_measurement: "Mh/s"
-#  - platform: rest
-#    resource: !secret secret_nanopool_balance_url
-#    name: Nanopool-Balance
-#    value_template: '{{ value_json.data}}'
-#    unit_of_measurement: "ETH"
 
 
-        ##########################################################
-        ## Avanza Stock Lookup
-        ##########################################################
 
-  - platform: avanza_stock
-    name: Stock DT
-    stock: 981875
-    monitored_conditions:
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name    
-  - platform: avanza_stock
-    name: Stock DXCM
-    stock: 376540
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
-  - platform: avanza_stock
-    name: Stock DOCU
-    stock: 844613
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name            
-  - platform: avanza_stock
-    name: Stock PRGO
-    stock: 420337
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
-  - platform: avanza_stock
-    name: Stock SE
-    stock: 794798
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
-  - platform: avanza_stock
-    name: Stock SSO
-    stock: 154871
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
-  - platform: avanza_stock
-    name: Stock TDOC
-    stock: 576298
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
-  - platform: avanza_stock
-    name: Stock VRTX
-    stock: 3579
-    monitored_conditions:    
-      - tickerSymbol
-      - lowestPrice
-      - highestPrice
-      - change
-      - changePercent
-      - name
