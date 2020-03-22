@@ -35,6 +35,7 @@ Typical Automations in use include
 - Use EPSHome device for Garage Door Open/Close and state sensors
 - Monitor Fish Aquarium (Biocube) power usage
 - Alert for aquarium problems (heater running long / pump not running) 
+- Change Ecobee mode when fireplace running
 
 
 # Devices
@@ -101,6 +102,7 @@ Lights are grouped via [light_group.yaml](https://github.com/mcaminiti/homeassis
 | [TP-Link Kasa Outdoor Outlet - KP400](https://www.amazon.com/Kasa-Smart-Outlet-Outdoor-TP-Link/dp/B07M6RS2LC) | 2 | TP-Link | [TP-Link Componant](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/tplink/) | TPLink Smart Outlet |
 | [Tuya Compatible Plug](https://www.amazon.com/Gosund-Extender-Independently-Together-Required/dp/B07F58N32V/ref=sr_1_26?keywords=tuya+outlet&qid=1576247706&sr=8-26) | 1 | Tuya | [Tuya Componant](https://www.home-assistant.io/integrations/tuya/) | Tuya Smart Outlet |
 | [Zooz Power Strip ZEN20 v2 ](https://www.amazon.com/Z-Wave-Power-Energy-Monitoring-SmartThings/dp/B01HAQHQ5I/ref=asc_df_B01HAQHQ5I) | 1 | Vera (Z-Wave)| [Vera](https://www.home-assistant.io/components/vera/) | Smart power strip allowing for power controls and energy monitoring. | 
+| [Zooz Power Switch ZEN15](https://amzn.to/2WRPeiv) | 1 | Vera (Z-Wave) | [Vera](https://www.home-assistant.io/components/vera/) | Smart outlet utilized to monitor fireplace status|
 | [Nest Protect v2 Wired](https://amzn.to/2SSA0Gj) | 4 | Wi-Fi | [Nest](https://www.home-assistant.io/components/nest/) | Smoke Alarm and CO Alarm. |
 | [ESPHome - ESP32](https://github.com/mcaminiti/esphome-energy6channel) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | 6 Channel Energy Monitor |
 | [ESPHome - ESP32](https://github.com/mcaminiti/) | 1 | Wi-Fi | [ESPHome](https://www.home-assistant.io/integrations/esphome/) | Temperature Sensor for Aquarium |
