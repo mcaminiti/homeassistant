@@ -9,16 +9,22 @@
 - alias: Notification - Double Garage Door Left Open At Night
 
   trigger:
-    - platform: time
-      at: '21:00'
+    - platform: state
+      entity_id: cover.double_garage
+      to: 'open'
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
 
   condition:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
-    - condition: state
-      entity_id: cover.double_garage
-      state: 'open'
+    - condition: sun
+      after: sunset
+      after_offset: "-01:00:00"
+      before: sunrise
 
   action:
     - service: notify.mobile_app_USER1_iphone
@@ -36,16 +42,22 @@
 - alias: Notification - Single Garage Door Left Open At Night
 
   trigger:
-    - platform: time
-      at: '21:00'
+    - platform: state
+      entity_id: cover.single_garage
+      to: 'open'
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
 
   condition:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
-    - condition: state
-      entity_id: cover.single_garage
-      state: 'open'
+    - condition: sun
+      after: sunset
+      after_offset: "-01:00:00"
+      before: sunrise
 
   action:
     - service: notify.mobile_app_USER1_iphone

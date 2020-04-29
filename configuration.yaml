@@ -108,6 +108,7 @@ influxdb:
       - sensor.biocube_nitrite
       - sensor.biocube_nitrate
       - sensor.biocube_calcium
+      - sensor.biocube_temp
 #      - sensor.thermostat_current_status
 #      - sensor.thermostat_aux_heat
 #      - sensor.ups_load

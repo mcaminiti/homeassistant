@@ -18,3 +18,40 @@
     - service: notify.mobile_app_USER1_iphone
       data:
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.winter_storm_warning_headline }}"
+
+        ##########################################################
+        ## Tornado Warning
+        ##########################################################
+
+- alias: Weather - Tornado Warning
+
+  trigger:
+    - platform: state
+      entity_id: sensor.nws_tornado_warning
+      from: "0"
+      to: "1"
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_warning_headline }}"
+    - service: notify.mobile_app_USER2s_iphone
+      data:
+       message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_warning_headline }}"
+
+        ##########################################################
+        ## Tornado Watch
+        ##########################################################
+
+- alias: Weather - Tornado Watch
+
+  trigger:
+    - platform: state
+      entity_id: sensor.nws_tornado_watch
+      from: "0"
+      to: "1"
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_watch_headline }}"

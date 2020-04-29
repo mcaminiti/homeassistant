@@ -52,10 +52,10 @@
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_temp
-              above: 79
+              above: 80
               for:
                 hours: 0
-                minutes: 5
+                minutes: 20
                 seconds: 0
 
           action:
@@ -79,7 +79,7 @@
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_temp
-              below: 75
+              below: 76
               for:
                 hours: 0
                 minutes: 5
@@ -264,6 +264,30 @@
             - service: notify.mobile_app_USER1_iphone
               data:
                 message: "Biocube ATO Running LONG 3m - ATO Turned Off"            
+
+        ##########################################################
+        ## Biocube32 ATO Tank Low
+        ##########################################################
+
+        - alias: Biocube32 ATO Tank Low
+            
+          trigger:
+            - platform: numeric_state
+              entity_id: sensor.biocube_32_ato_reservoir_level
+              below: 50
+              for:
+                hours: 0
+                minutes: 5
+                seconds: 0
+          condition:
+            - condition: state
+              entity_id: input_boolean.biocube_maintenance_mode
+              state: 'off'
+          action:
+            - service: notify.mobile_app_USER1_iphone
+              data:
+                message: "Biocube ATO Tank Needs Filled - Currently at {{states.sensor.biocube_32_ato_reservoir_level.state}}"
+
 
         ##########################################################
         ## Biocube32 ATO Off - Disable Pump
