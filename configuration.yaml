@@ -130,8 +130,8 @@ influxdb:
 #      - binary_sensor.REDACTED_vpn
 
 # VeraPlus controller to replace wink
-vera:
-  vera_controller_url: http://REDACTED.6:3480/
+#vera:
+#  vera_controller_url: http://REDACTED.6:3480/
 
 # Stream Componant
 stream:
@@ -170,12 +170,10 @@ lutron_caseta_pro:
         # Note: Configure only switches, shades, and fans, all others will be dimmers
         fan: [ 4 ]
 
-vacuum:
-  - platform: roomba
-    host: REDACTED.150
-    username: !secret secret_roomba_username
-    password: !secret secret_roomba_password
-    name: Roomba
+#roomba:
+#  - host: REDACTED.150
+#    blid: !secret secret_roomba_username
+#    password: !secret secret_roomba_password
 
 ### Ecobee Key Not needed after first restart and setup
 #ecobee:
