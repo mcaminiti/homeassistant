@@ -3,21 +3,6 @@
 #################################################################
 
         ##########################################################
-        ## Turn on Outside Lights at Sunset
-        ##########################################################
-
-- alias: Outside Lights On
-
-  trigger:
-    - platform: sun
-      event: 'sunset'
-      offset: '-00:10:00'
-
-  action:
-    - service: homeassistant.turn_on
-      entity_id: group.outside_lights
-
-        ##########################################################
         ## Turn off Front and Walkout Lights at 11:30pm
         ##########################################################
 
@@ -70,8 +55,6 @@
       entity_id: light.garage
     - service: homeassistant.turn_off
       entity_id: light.landscape
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.party_outside
 
         ##########################################################
         ## Turn off Outside Lights - Outside at 4:10am
@@ -88,8 +71,6 @@
       entity_id: light.garage
     - service: homeassistant.turn_off
       entity_id: light.landscape
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.party_outside
 
         ##########################################################
         ## Turn Off Front Door After Hours From Motion - No Landscape

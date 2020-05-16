@@ -61,6 +61,13 @@ http:
 #    homeassistant.components.device_tracker.unifi: debug
 #    homeassistant.components.switch.unifi: debug
 
+## VERA DEBUG
+#logger:
+#  default: info
+#  logs:
+#    pyvera: 'debug'
+#    homeassistant.components.vera: 'debug'
+
 hue:
   bridges:
   - host: REDACTED.32

@@ -22,13 +22,10 @@
     options:
       - Default
       - Bug Mode
-      - Valentine's Day
-      - St Patrick's Day
       - Easter
       - American
       - Halloween
       - Christmas
       - Party
       - Blue
-      - Pink
     icon: mdi:gift

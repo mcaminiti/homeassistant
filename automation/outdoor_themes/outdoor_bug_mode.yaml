@@ -1,0 +1,91 @@
+##################################################################
+## Outdoor Automations
+##################################################################
+
+        ##########################################################
+        ## Bug Mode Lighting
+        ##########################################################
+
+- alias: Outdoor Theme - Bug Mode On
+
+  trigger:
+    - platform: sun
+      event: 'sunset'
+      offset: '-00:15:00'
+
+  condition:
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Bug Mode'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.front_door
+      data:
+        transition: 5
+        brightness_pct: 30
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.garage_1
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.garage_2
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.garage_3
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_1
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_2
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_3
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_4
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_5
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_6
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.outdoor_spot_7
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: gold
+    - service: light.turn_on
+      entity_id: light.walkout
+      data:
+        brightness_pct: 100

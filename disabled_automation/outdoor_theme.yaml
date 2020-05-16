@@ -1,0 +1,90 @@
+##################################################################
+## Outdoor Theme Automations
+##################################################################
+
+        ##########################################################
+        ## Front Light - Set to Theme
+        ##########################################################
+
+#- alias: Outdoor Theme - Front
+#
+#  trigger:
+#    - platform: state
+#      entity_id: light.landscape
+#      to: 'on'
+#      for:
+#        hours: 0
+#        minutes: 0
+#        seconds: 25
+#  action:
+#    - service: scene.turn_on
+#      data_template:
+#        entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}
+
+        ##########################################################
+        ## Garage Lights - Set to Theme
+        ##########################################################
+
+#- alias: Outdoor Theme - Garage
+#
+#  trigger:
+#    - platform: state
+#      entity_id: light.garage
+#      to: 'on'
+#  action:
+#    - service: scene.turn_on
+#      data_template:
+#        entity_id: scene.garage_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}
+
+        ##########################################################
+        ## Outside Front Animate - Timer Start
+        ##########################################################
+
+#- alias: Outdoor Theme - Animate Timer Start
+#
+#  trigger:
+#    - platform: state
+#      entity_id: input_boolean.animate_outside
+#      from: 'off'
+#      to: 'on'
+#
+#  action:
+#    - service: timer.start
+#      entity_id: timer.animate_outside_timer
+
+
+       ##########################################################
+        ## Outside Front Animate - Timer Run
+        ##########################################################
+#- alias: Outdoor Theme - Animate Timer Run
+#
+#  trigger:
+#    - platform: event
+#      event_type: timer.started
+#      event_data:
+#        entity_id: timer.animate_outside_timer
+#  action:
+#    - service: scene.turn_on
+#      data_template:
+#        entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}
+#    - delay: "00:00:10"
+#    - service: scene.turn_on
+#      data_template:
+#        entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '_') }}_2
+
+        ##########################################################
+        ## Outside Front Animate - Timer Loop
+        ##########################################################
+- alias: Outdoor Theme - Animate Loop
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.animate_outside_timer
+  condition:
+    condition: state
+    entity_id: input_boolean.animate_outside
+    state: 'on'
+  action:
+  - service: timer.start
+    entity_id: timer.animate_outside_timer
