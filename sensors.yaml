@@ -461,6 +461,24 @@
         value_template: "{{ states('sensor.ups_battery_runtime')|float / 60 |round(1) }}"
 
         ##########################################################
+        ## IL COVID NUMBERS
+        ##########################################################
+
+#  - platform: scrape
+#    name: IL Positivity Percentage
+#    resource: https://www.dph.illinois.gov/restore
+#    select: "#positivityRegion4 > h2"
+#    attribute: "textContent"
+#    unit_of_measurement: percent
+
+
+#  - platform: scrape
+#    name: IL Positivity Change
+#    resource: https://www.dph.illinois.gov/restore
+#    select: "#Region4Container > div:nth-child(3) > h2"
+#    unit_of_measurement: percent
+
+        ##########################################################
         ## Alarm System
         ##########################################################
 

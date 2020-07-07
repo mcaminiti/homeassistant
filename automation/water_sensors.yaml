@@ -132,7 +132,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.filtration_drain_water_sensor
+      entity_id: binary_sensor.filtration_water_sensor
       from: 'off'
       to: 'on'
 
