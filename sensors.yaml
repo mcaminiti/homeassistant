@@ -23,15 +23,15 @@
         ## Pi Hole
         ##########################################################
 
-  - platform: command_line
-    name: PiHole 1 Status
-    command: curl -X GET 'http://REDACTED.4/REDACTED/api.php?status'
-    value_template: "{{ value_json.status == 'enabled' }}"
-
-  - platform: command_line
-    name: PiHole 2 Status
-    command: curl -X GET 'http://REDACTED.5/REDACTED/api.php?status'
-    value_template: "{{ value_json.status == 'enabled' }}"
+#  - platform: command_line
+#    name: PiHole 1 Status
+#    command: curl -X GET 'http://REDACTED.4/REDACTED/api.php?status'
+#    value_template: "{{ value_json.status == 'enabled' }}"
+#
+#  - platform: command_line
+#    name: PiHole 2 Status
+#    command: curl -X GET 'http://REDACTED.5/REDACTED/api.php?status'
+#    value_template: "{{ value_json.status == 'enabled' }}"
 
         ##########################################################
         ## Ring
@@ -395,9 +395,9 @@
 
   - platform: template
     sensors:
-      media_center:
-        value_template: '{{ states.remote.media_center.attributes.current_activity }}'
-        friendly_name: 'Media Center'
+      family_room_media_center:
+        value_template: '{{ states.remote.family_room.attributes.current_activity }}'
+        friendly_name: 'Family Room Media Center'
 
         ##########################################################
         ## Nest Protect Smoke and CO
@@ -465,9 +465,9 @@
         ##########################################################
 
 #  - platform: scrape
-#    name: IL Positivity Percentage
+#    name: IL Southern Positivity Percentage
 #    resource: https://www.dph.illinois.gov/restore
-#    select: "#positivityRegion4 > h2"
+#    select: 'div#positivityRegion4 + h2'
 #    attribute: "textContent"
 #    unit_of_measurement: percent
 

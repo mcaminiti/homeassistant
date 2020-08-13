@@ -2,7 +2,7 @@
 ## Input Select
 #################################################################
 
-  remote:
+  remote_family_room:
     name: Media Center Remote
     options:
       - PowerOff

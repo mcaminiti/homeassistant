@@ -6,27 +6,27 @@
         ## Harmony Remote
         ##########################################################
 
-input_select_harmony:
-  alias: "Start Remote activity from input select"
+input_select_remote_family_room:
+  alias: "Harmony Family Room - Start Remote activity from input select"
   sequence:
       service: remote.turn_on
       data_template:
-        entity_id: remote.media_center
+        entity_id: remote.family_room
         activity: >
-          {% if is_state("input_select.remote", "PowerOff") %}
+          {% if is_state("input_select.remote_family_room", "PowerOff") %}
               -1
-          {% elif is_state("input_select.remote", "Watch TV") %}
+          {% elif is_state("input_select.remote_family_room", "Watch TV") %}
               15015517
-          {% elif is_state("input_select.remote", "Watch Netflix") %}
+          {% elif is_state("input_select.remote_family_room", "Watch Netflix") %}
               13965065
-          {% elif is_state("input_select.remote", "Watch Apple TV") %}
+          {% elif is_state("input_select.remote_family_room", "Watch Apple TV") %}
               28611456
-          {% elif is_state("input_select.remote", "Play Xbox One") %}
+          {% elif is_state("input_select.remote_family_room", "Play Xbox One") %}
               17285686
-          {% elif is_state("input_select.remote", "Play Wii U") %}
+          {% elif is_state("input_select.remote_family_room", "Play Wii U") %}
               13965644
-          {% elif is_state("input_select.remote", "Listen to Radio") %}
+          {% elif is_state("input_select.remote_family_room", "Listen to Radio") %}
               13965311
-          {% elif is_state("input_select.remote", "Play Nintendo Switch") %}
+          {% elif is_state("input_select.remote_family_room", "Play Nintendo Switch") %}
               35830978
           {% endif %}

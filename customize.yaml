@@ -52,13 +52,13 @@
   light.family_room:
     icon: mdi:sofa
   light.master_bedroom:
-    icon: mdi:hotel
+    icon: mdi:bed
   light.USER3_bedroom:
-    icon: mdi:hotel
+    icon: mdi:bed
   light.USER4_bedroom:
-    icon: mdi:hotel
+    icon: mdi:bed
   light.guest_bedroom:
-    icon: mdi:hotel
+    icon: mdi:bed
   light.basement:
     icon: mdi:stairs
   group.outside_lights:
@@ -461,7 +461,7 @@
         ## Remote
         ##########################################################
 
-  sensor.media_center:
+  sensor.family_room_media_center:
     icon: mdi:television
 
         ##########################################################
@@ -502,7 +502,7 @@
     device_class: battery
     icon: mdi:battery
   sensor.ups_battery_runtime_mins:
-    icon: mdi:timer
+    icon: mdi:timer-outline
 
         ##########################################################
         ## All Groups / Troubleshooting

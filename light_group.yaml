@@ -51,12 +51,14 @@
     entities:
       - light.USER3_bedroom_1
       - light.USER3_ceiling_light
+      - light.USER3_wled
 
   - platform: group
     name: USER4 Bedroom
     entities:
       - light.USER4_bedroom_1
       - light.USER4_ceiling_light
+      - light.USER4_wled
 
   - platform: group
     name: Guest Bedroom

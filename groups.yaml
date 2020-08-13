@@ -62,6 +62,10 @@ Doors:
   - binary_sensor.pantry_door
   - binary_sensor.basement_door
 
+Garage Doors:
+  - binary_sensor.double_garage_door_sensor
+  - binary_sensor.single_garage_door_sensor
+
 Weather Alerts:
   -  sensor.nws_alerts
 

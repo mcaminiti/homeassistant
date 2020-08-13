@@ -21,11 +21,6 @@
     initial: off
     icon: mdi:lightbulb-on
 
-  party_outside:
-    name: Party Mode - Outside
-    initial: off
-    icon: mdi:lightbulb-on
-
   animate_outside:
     name: Animate - Outside
     initial: off
@@ -46,7 +41,7 @@
   bedtime:
     name: Bedtime
     initial: off
-    icon: mdi:hotel
+    icon: mdi:bed
 
   blackhawks_mode:
     name: Blackhawks Mode
@@ -103,6 +98,10 @@
   disable_weather_notifications:
     name: Disable Weather Notifications
     icon: mdi:weather-cloudy
+
+  disable_away_notifications:
+    name: Disable Away Notifications
+    icon: mdi:home-export-outline
 
 ##############################################################
 ## Alarms - Input Booleans  ##

@@ -4,20 +4,20 @@
 
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  #name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !secret secret_latitude
-  longitude: !secret secret_longitude
-  elevation: !secret secret_elevation
-  unit_system: imperial
+  #latitude: !secret secret_latitude
+  #longitude: !secret secret_longitude
+  #elevation: !secret secret_elevation
+  #unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: America/Chicago
+  #time_zone: America/Chicago
   customize: !include customize.yaml
 
 # Enables the frontend
 frontend:
-  extra_html_url:
-    - /local/hass-bha-icons.html
+#  extra_html_url:
+#    - /local/hass-bha-icons.html
 
 # Checks for available updates
 updater:
@@ -37,7 +37,7 @@ mobile_app:
 ssdp:
 zeroconf:
 http:
-  base_url: !secret secret_base_url
+  #base_url: !secret secret_base_url
   ssl_certificate: !secret secret_ssl_certificate
   ssl_key: !secret secret_ssl_key
 
@@ -68,16 +68,16 @@ http:
 #    pyvera: 'debug'
 #    homeassistant.components.vera: 'debug'
 
-hue:
-  bridges:
-  - host: REDACTED.32
-    allow_unreachable: true
-    allow_hue_groups: false
+#hue:
+#  bridges:
+#  - host: REDACTED.32
+#    allow_unreachable: true
+#    allow_hue_groups: false
 
-remote:
-  - platform: harmony
-    name: Media Center
-    host: REDACTED.12
+#remote:
+#  - platform: harmony
+#    name: Media Center
+#    host: REDACTED.12
 
 map:
 
@@ -85,7 +85,14 @@ map:
 history:
 
 tts:
-  - platform: google_translate
+  - platform: amazon_polly
+    aws_access_key_id: !secret secret_aws_access_key_id
+    aws_secret_access_key: !secret secret_aws_secret_access_key
+#    base_url: https://REDACTED
+#tts:
+#  - platform: google_translate
+#    base_url: https://REDACTED
+
 
 # InfluxDB / Grafana Long Term Data Retention Test
 influxdb:
@@ -306,5 +313,5 @@ light: !include light_group.yaml
 script: !include scripts.yaml
 scene: !include_dir_merge_list scene
 ios: !include ios.yaml
-switch: !include switch.yaml
+#switch: !include switch.yaml
 emulated_hue: !include emulated_hue.yaml

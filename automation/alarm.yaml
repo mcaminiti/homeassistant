@@ -18,3 +18,161 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "Alarm System Trouble Light On"
+
+
+        ##########################################################
+        ## Away Notification - Garage Opened
+        ##########################################################
+
+- alias: Away Notification - Garage Door Opened
+
+  trigger:
+    - platform: state
+      entity_id: group.garage_doors
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_away_notifications
+      state: 'off'
+
+  action:
+    - delay: '00:00:10'
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Garage Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage
+
+        ##########################################################
+        ## Away Notification - Back Door Opened
+        ##########################################################
+
+- alias: Away Notification - Back Door Opened
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.back_door
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_away_notifications
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Back Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.south_back_door
+
+        ##########################################################
+        ## Away Notification - Front Door Opened
+        ##########################################################
+
+- alias: Away Notification - Front Door Opened
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_away_notifications
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Front Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.north_front_door
+
+
+        ##########################################################
+        ## Away Notification - Basement Door Opened
+        ##########################################################
+
+- alias: Away Notification - Basement Door Opened
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.basement_door
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_away_notifications
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Basement Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.west_walkout
+
+        ##########################################################
+        ## Away Notification - Garage Back Door Opened
+        ##########################################################
+
+- alias: Away Notification - Garage Back Door Opened
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_back_door
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_away_notifications
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Garage Back Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage

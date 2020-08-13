@@ -6,25 +6,25 @@
       ## Remote
       #################################################################
 
-- alias: Media - Remote external update Media Center
+- alias: Media - Remote external update Family Room Media Center
 
   trigger:
     platform: state
-    entity_id: remote.media_center
+    entity_id: remote.family_room
 
   action:
     - service: input_select.select_option
       data_template:
-        entity_id: input_select.remote
+        entity_id: input_select.remote_family_room
         option: >
-          {{ states.remote.media_center.attributes.current_activity }}
+          {{ states.remote.family_room.attributes.current_activity }}
 
-- alias: Media - Remote start activity from input select media center
+- alias: Media - Remote start activity from input select Family Room media center
 
   trigger:
     platform: state
-    entity_id: input_select.remote
+    entity_id: input_select.remote_family_room
 
   action:
     - service: script.turn_on
-      entity_id: script.input_select_harmony
+      entity_id: script.input_select_remote_family_room
