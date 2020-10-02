@@ -38,9 +38,15 @@
     input_boolean.USER4_wakeup:
       hidden: false
       name: "USER4 Wakeup"
+    input_boolean.all_wakeup:
+      hidden: false
+      name: "All Wakeup"  
     light.USER3_ceiling_light:
       hidden: false
       name: "USER3 Ceiling Light"
     light.USER4_ceiling_light:
       hidden: false
       name: "USER4 Ceiling Light"
+    light.kitchen_cabinets:
+      hidden: false
+      name: "Kitchen Cabinets"      

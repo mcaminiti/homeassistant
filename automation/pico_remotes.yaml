@@ -121,6 +121,245 @@
             kelvin: 3400
 
   #################################################################
+  ## Basement Entry Pico Remote
+  #################################################################
+
+    ##########################################################
+    ## Basement Entry - Pico On
+    ##########################################################
+
+    - alias: Basement Entry Pico - On
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '1'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_entry
+          data:
+            brightness_pct: 100
+            kelvin: 2700
+
+    ##########################################################
+    ## Basement Entry - Pico Off
+    ##########################################################
+
+    - alias: Basement Entry Pico - Off
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '4'
+
+      action:
+        - service: light.turn_off
+          entity_id: light.basement_entry
+
+    ##########################################################
+    ## Basement Entry - Pico Raise
+    ##########################################################
+
+    - alias: Basement Entry Pico - Raise
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '8'
+
+      condition:
+        - condition: state
+          entity_id: light.basement_entry
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_entry
+          data:
+            brightness_pct: 60
+
+    ##########################################################
+    ## Basement Entry - Pico Lower
+    ##########################################################
+
+    - alias: Basement Entry Pico - Lower
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '16'
+
+      condition:
+        - condition: state
+          entity_id: light.basement_entry
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_entry
+          data:
+            brightness_pct: 30
+
+    ##########################################################
+    ## Basement Entry - Pico Favorite
+    ##########################################################
+
+    - alias: Basement Entry Pico - Favorite
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '2'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_entry
+          data:
+            kelvin: 2700
+
+    ##########################################################
+    ## Basement Entry - Pico Favorite - LONG PRESS
+    ##########################################################
+
+    - alias: Basement Entry Pico - Favorite Long Press
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_entry_pico
+          to: '2'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_entry
+          data:
+            effect: Party
+
+
+  #################################################################
+  ## Basement Sitting Area Pico Remote
+  #################################################################
+
+    ##########################################################
+    ## Basement Sitting Area - Pico On
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - On
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '1'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_sitting_area
+          data:
+            brightness_pct: 100
+            kelvin: 2700
+
+    ##########################################################
+    ## Basement Sitting Area - Pico Off
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - Off
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '4'
+
+      action:
+        - service: light.turn_off
+          entity_id: light.basement_sitting_area
+
+    ##########################################################
+    ## Basement Sitting Area - Pico Raise
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - Raise
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '8'
+
+      condition:
+        - condition: state
+          entity_id: light.basement_sitting_area
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_sitting_area
+          data:
+            brightness_pct: 50
+
+    ##########################################################
+    ## Basement Sitting Area - Pico Lower
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - Lower
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '16'
+
+      condition:
+        - condition: state
+          entity_id: light.basement_sitting_area
+          state: 'on'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_sitting_area
+          data:
+            brightness_pct: 30
+
+    ##########################################################
+    ## Basement Sitting Area - Pico Favorite
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - Favorite
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '2'
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_sitting_area
+          data:
+            kelvin: 2700
+
+    ##########################################################
+    ## Basement Sitting Area - Pico Favorite - LONG PRESS
+    ##########################################################
+
+    - alias: Basement Sitting Area Pico - Favorite Long Press
+
+      trigger:
+        - platform: state
+          entity_id: sensor.basement_sitting_area_pico
+          to: '2'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+
+      action:
+        - service: light.turn_on
+          entity_id: light.basement_sitting_area
+          data:
+            effect: Party
+
+  #################################################################
   ## USER4 Bedroom Pico Remote
   #################################################################
 

@@ -3,6 +3,28 @@
 #################################################################
 
         ##########################################################
+        ## Wakeup All Activation
+        ##########################################################
+
+- alias: Wakeup All Activation
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.all_wakeup
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.USER2_wakeup
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.USER3_wakeup  
+  - service: homeassistant.turn_on
+    entity_id: input_boolean.USER4_wakeup
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.all_wakeup
+
+
+
+        ##########################################################
         ## USER2 Wakeup Alarm
         ##########################################################
 - alias: Alarm - USER2 Wakeup Light

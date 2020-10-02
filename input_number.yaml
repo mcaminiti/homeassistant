@@ -17,7 +17,7 @@
     unit_of_measurement: pH
 
   biocube_ammonia:
-    name: Biocube Ammounia
+    name: Biocube Ammonia
     min: 0
     max: 8
     step: .25
@@ -43,3 +43,17 @@
     max: 500
     step: 1
     unit_of_measurement: ppm
+
+  biocube_magnesium:
+    name: Biocube Magnesium
+    min: 600
+    max: 1500
+    step: 10
+    unit_of_measurement: ppm    
+
+  biocube_alkalinity:
+    name: Biocube Alkalinity
+    min: 5
+    max: 15
+    step: .1
+    unit_of_measurement: ppm     

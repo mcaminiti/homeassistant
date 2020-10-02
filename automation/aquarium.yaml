@@ -369,10 +369,10 @@
               - condition: or
                 conditions:
                   - condition: state
-                    entity_id: device_tracker.USER4s_iphone
+                    entity_id: device_tracker.USER4_iphone
                     state: 'home'
                   - condition: state
-                    entity_id: device_tracker.USER4_iphone_unifi
+                    entity_id: device_tracker.USER4_iphone_xs_unifi
                     state: 'home'         
           action:              
             - service: notify.mobile_app_USER1_iphone

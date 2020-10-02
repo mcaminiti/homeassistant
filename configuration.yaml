@@ -182,7 +182,7 @@ lutron_caseta_pro:
         mac: REDACTED
         default_transition_seconds: 1.0
         # Note: Configure only switches, shades, and fans, all others will be dimmers
-        fan: [ 4 ]
+        fan: [ 4, 9, 11 ]
 
 #roomba:
 #  - host: REDACTED.150
@@ -297,7 +297,10 @@ input_datetime:
     name: Biocube Media Install Date
     has_date: true
     has_time: false
-
+  biocube_floss_date:
+    name: Biocube Filter Floss Install Date
+    has_date: true
+    has_time: false
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml

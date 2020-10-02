@@ -10,7 +10,7 @@
 
   trigger:
     - platform: time
-      at: '23:30'
+      at: '23:30:00'
 
   action:
     - service: homeassistant.turn_off
@@ -26,7 +26,7 @@
 
   trigger:
     - platform: time
-      at: '23:35'
+      at: '23:35:00'
 
   action:
     - service: light.turn_on
@@ -48,7 +48,7 @@
 
   trigger:
     - platform: time
-      at: '04:00'
+      at: '04:00:00'
 
   action:
     - service: homeassistant.turn_off
@@ -64,7 +64,7 @@
 
   trigger:
     - platform: time
-      at: '04:10'
+      at: '04:10:00'
 
   action:
     - service: homeassistant.turn_off
@@ -90,8 +90,8 @@
       entity_id: sun.sun
       state: 'below_horizon'
     - condition: time
-      after: '23:35'
-      before: '4:00'
+      after: '23:35:00'
+      before: '04:00:00'
 
   action:
     - service: light.turn_off
@@ -117,8 +117,8 @@
       entity_id: sun.sun
       state: 'below_horizon'
     - condition: time
-      after: '4:01'
-      before: '6:00'
+      after: '04:01:00'
+      before: '06:00:00'
 
   action:
     - service: light.turn_off
@@ -129,3 +129,77 @@
       entity_id: light.landscape
       data:
         transition: 60
+
+
+        ##########################################################
+        ## Landscape Hue Light Not On - Night
+        ##########################################################
+
+- alias: Landscape Hue Light Fix - Night On
+
+  trigger:
+    - platform: state
+      entity_id: light.landscape
+      to: 'on'
+      for:
+        minutes: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '17:01:00'
+        before: '03:00:00'       
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: light.outdoor_spot_1
+          state: 'off'
+        - condition: state
+          entity_id: light.outdoor_spot_2
+          state: 'off'        
+        - condition: state
+          entity_id: light.outdoor_spot_3
+          state: 'off'
+        - condition: state
+          entity_id: light.outdoor_spot_4
+          state: 'off'
+        - condition: state
+          entity_id: light.outdoor_spot_5
+          state: 'off'
+        - condition: state
+          entity_id: light.outdoor_spot_6
+          state: 'off'        
+        - condition: state
+          entity_id: light.outdoor_spot_7
+          state: 'off'     
+  action:
+    - service: light.turn_on
+      entity_id: light.landscape    
+
+        ##########################################################
+        ## Garage Hue Light Not On
+        ##########################################################
+
+- alias: Garage Hue Light Fix
+
+  trigger:
+    - platform: state
+      entity_id: light.garage
+      to: 'on'
+      for:
+        minutes: 2
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: light.garage_1
+        state: "off"
+      - condition: state
+        entity_id: light.garage_2
+        state: "off"
+      - condition: state
+        entity_id: light.garage_3
+        state: "off"
+  action:
+    - service: light.turn_on
+      entity_id: light.garage      

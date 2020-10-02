@@ -292,6 +292,49 @@
     icon: mdi:floor-lamp
   light.family_room_2:
     icon: mdi:floor-lamp
+  light.basement_recessed_1:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_2:
+    icon: mdi:wall-sconce-flat  
+  light.basement_recessed_3:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_4:
+    icon: mdi:wall-sconce-flat   
+  light.basement_recessed_5:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_6:
+    icon: mdi:wall-sconce-flat  
+  light.basement_recessed_7:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_8:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_9:
+    icon: mdi:wall-sconce-flat   
+  light.basement_recessed_10:
+    icon: mdi:wall-sconce-flat
+  light.basement_recessed_11:
+    icon: mdi:wall-sconce-flat  
+  light.basement_recessed_12:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_1:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_2:
+    icon: mdi:wall-sconce-flat  
+  light.basement_entry_recessed_3:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_4:
+    icon: mdi:wall-sconce-flat   
+  light.basement_entry_recessed_5:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_6:
+    icon: mdi:wall-sconce-flat  
+  light.basement_entry_recessed_7:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_8:
+    icon: mdi:wall-sconce-flat
+  light.basement_entry_recessed_9:
+    icon: mdi:wall-sconce-flat 
+    
         ##########################################################
         ## Vacuums
         ##########################################################

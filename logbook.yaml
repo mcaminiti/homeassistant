@@ -41,6 +41,8 @@
       - sensor.biocube_heater_status
       - sensor.biocube_heater_current_power
       - sensor.lift_station_activations_daily
+      - sensor.spacex_starman_distance
+      - sensor.spacex_starman_speed
       - sensor.USER1_iphone_activity
       - sensor.USER1_iphone_average_active_pace
       - sensor.USER1_iphone_battery_level

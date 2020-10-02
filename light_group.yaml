@@ -2,6 +2,79 @@
 ## Light Group
 #################################################################
 
+#################################################################
+## Wiz Lights
+#################################################################
+
+  - platform: wiz_light
+    name: Basement Recessed 1
+    host: REDACTED.25
+  - platform: wiz_light
+    name: Basement Recessed 2
+    host: REDACTED.26
+  - platform: wiz_light
+    name: Basement Recessed 3
+    host: REDACTED.27
+  - platform: wiz_light
+    name: Basement Recessed 4
+    host: REDACTED.28
+  - platform: wiz_light
+    name: Basement Recessed 5
+    host: REDACTED.29
+  - platform: wiz_light
+    name: Basement Recessed 6
+    host: REDACTED.30
+  - platform: wiz_light
+    name: Basement Recessed 7
+    host: REDACTED.20
+  - platform: wiz_light
+    name: Basement Recessed 8
+    host: REDACTED.21
+  - platform: wiz_light
+    name: Basement Recessed 9
+    host: REDACTED.22
+  - platform: wiz_light
+    name: Basement Recessed 10
+    host: REDACTED.19
+  - platform: wiz_light
+    name: Basement Recessed 11
+    host: REDACTED.24
+  - platform: wiz_light
+    name: Basement Recessed 12
+    host: REDACTED.23
+
+  - platform: wiz_light
+    name: Basement Entry Recessed 1
+    host: REDACTED.31
+  - platform: wiz_light
+    name: Basement Entry Recessed 2
+    host: REDACTED.32
+  - platform: wiz_light
+    name: Basement Entry Recessed 3
+    host: REDACTED.33
+  - platform: wiz_light
+    name: Basement Entry Recessed 4
+    host: REDACTED.34
+  - platform: wiz_light
+    name: Basement Entry Recessed 5
+    host: REDACTED.35
+  - platform: wiz_light
+    name: Basement Entry Recessed 6
+    host: REDACTED.36
+  - platform: wiz_light
+    name: Basement Entry Recessed 7
+    host: REDACTED.37
+  - platform: wiz_light
+    name: Basement Entry Recessed 8
+    host: REDACTED.38
+  - platform: wiz_light
+    name: Basement Entry Recessed 9
+    host: REDACTED.39
+
+#####################
+## Light groups
+#####################
+
   - platform: group
     name: Hue Lights
     entities:
@@ -32,6 +105,29 @@
       #- light.USER4_bedroom_1
       - light.family_room_1
       - light.family_room_2
+
+  - platform: group
+    name: Emergency Lights
+    entities:
+      - light.USER2_bedroom_1
+      - light.USER1_bedroom_1
+      - light.USER3_bedroom_1
+      - light.USER4_bedroom_1
+      - light.family_room_1
+      - light.family_room_2
+
+  - platform: group
+    name: Kitchen
+    entities:
+      - light.kitchen_ceiling
+      - light.kitchen_under_cabinet
+      - light.kitchen_above_cabinet
+
+  - platform: group
+    name: Kitchen Cabinets
+    entities:
+      - light.kitchen_under_cabinet
+      - light.kitchen_above_cabinet
 
 
   - platform: group
@@ -80,9 +176,38 @@
   - platform: group
     name: Basement
     entities:
-      - light.basement_1
-      - light.basement_2
+      - light.basement_entry
+      - light.basement_sitting_area
 
+  - platform: group
+    name: Basement Entry
+    entities:
+      - light.basement_entry_recessed_1
+      - light.basement_entry_recessed_2
+      - light.basement_entry_recessed_3
+      - light.basement_entry_recessed_4
+      - light.basement_entry_recessed_5
+      - light.basement_entry_recessed_6
+      - light.basement_entry_recessed_7
+      - light.basement_entry_recessed_8
+      - light.basement_entry_recessed_9
+
+  - platform: group
+    name: Basement Sitting Area
+    entities:
+      - light.basement_recessed_1
+      - light.basement_recessed_2
+      - light.basement_recessed_3
+      - light.basement_recessed_4
+      - light.basement_recessed_5
+      - light.basement_recessed_6
+      - light.basement_recessed_7
+      - light.basement_recessed_8
+      - light.basement_recessed_9 
+      - light.basement_recessed_10
+      - light.basement_recessed_11
+      - light.basement_recessed_12    
+      
   - platform: group
     name: Garage
     entities:
@@ -106,11 +231,3 @@
       - light.outdoor_spot_5
       - light.outdoor_spot_6
       - light.outdoor_spot_7
-
-  - platform: group
-    name: Emergency Lights
-    entities:
-      - light.USER2_bedroom_1
-      - light.USER1_bedroom_1
-      - light.family_room_1
-      - light.family_room_2

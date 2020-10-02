@@ -141,17 +141,84 @@
     entity_id: light.basement
 
         ##########################################################
-        ## Turn off Kids Bedroom Night Lights at 11:00pm
+        ## Turn off USER4 Bedroom Night Lights at 11:00pm
         ##########################################################
 
-- alias: Kids Lights Off
+- alias: USER4 Bedroom Lights Off
 
   trigger:
     - platform: time
-      at: '23:00'
+      at: '23:00:00'
+
+  condition:
+    - condition: state
+      entity_id: person.USER4
+      state: 'home'
 
   action:
     - service: light.turn_off
       entity_id: light.USER4_bedroom
+
+
+        ##########################################################
+        ## Turn off USER3 Bedroom Night Lights at 11:00pm
+        ##########################################################
+
+- alias: USER3 Bedroom Lights Off
+
+  trigger:
+    - platform: time
+      at: '23:00:00'
+
+  condition:
+    - condition: state
+      entity_id: person.USER3
+      state: 'home'
+
+  action:
+    - service: light.turn_off
+      entity_id: light.USER3_bedroom
+
+
+        ##########################################################
+        ## Turn off USER4 Bedroom When Away
+        ##########################################################
+
+- alias: USER4 Bedroom Lights Off - Away
+
+  trigger:
+    - platform: state
+      entity_id: person.USER4
+      from: 'home'
+      to: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: light.USER4_bedroom
+      state: 'on'
+
+  action:
+    - service: light.turn_off
+      entity_id: light.USER4_bedroom
+
+
+        ##########################################################
+        ## Turn off USER3 Bedroom When Away
+        ##########################################################
+
+- alias: USER3 Bedroom Lights Off - Away
+
+  trigger:
+    - platform: state
+      entity_id: person.USER3
+      from: 'home'
+      to: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: light.USER3_bedroom
+      state: 'on'
+
+  action:
     - service: light.turn_off
       entity_id: light.USER3_bedroom

@@ -38,12 +38,12 @@
         seconds: 3
   action:
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "red"
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         flash: long
     - service: notify.mobile_app_USER1_iphone
@@ -89,12 +89,12 @@
         seconds: 3
   action:
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "red"
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         flash: long
     - service: notify.mobile_app_USER1_iphone
@@ -103,6 +103,7 @@
     - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Smoke - Emergency in House!"
+
         ##########################################################
         ## Flash Lights for CO - Warning
         ##########################################################
@@ -139,12 +140,12 @@
         seconds: 3
   action:
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "orange"
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         flash: long
     - service: notify.mobile_app_USER1_iphone
@@ -191,12 +192,12 @@
         seconds: 3
   action:
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "orange"
     - service: light.turn_on
-      entity_id: light.hue_lights
+      entity_id: light.emergency_lights
       data:
         flash: long
     - service: notify.mobile_app_USER1_iphone

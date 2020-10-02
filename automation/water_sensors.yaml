@@ -86,7 +86,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.Refrigerator_water_sensor
+      entity_id: binary_sensor.refrigerator_water_sensor
       from: 'off'
       to: 'on'
 
@@ -204,3 +204,45 @@
       data:
         brightness_pct: 100
         kelvin: 2700
+
+
+##########################################################
+## TEST REPEAR - Flash Lights when Water Detected
+##########################################################
+
+- alias: Repeat Test Water Sensor - Flash Lights when Water Detected
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pantry_door
+      from: 'off'
+      to: 'on'     
+  condition:
+    - condition: state
+      entity_id: group.household
+      state: 'home'
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+  mode: single
+  action:
+    - alias: repeat flash until water not detected
+      repeat:
+        sequence:
+          # Run command that for some reason doesn't always work
+          - service: light.turn_on
+            entity_id: light.family_room_1
+            data:
+              brightness_pct: 100
+              color_name: "blue"
+          - service: light.turn_on
+            entity_id: light.family_room_1
+            data:
+              flash: long
+          - delay: '00:00:10'    
+        until:
+          - condition: state
+            entity_id: binary_sensor.pantry_door
+            state: 'off'
+
+

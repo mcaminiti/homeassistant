@@ -38,6 +38,11 @@
     name: USER4 Wakeup
     icon: mdi:weather-sunset-up 
 
+  all_wakeup:
+    name: All Wakeup
+    icon: mdi:weather-sunset-up 
+
+
   bedtime:
     name: Bedtime
     initial: off
