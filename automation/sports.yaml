@@ -171,3 +171,22 @@
   action:
   - service: homeassistant.turn_off
     entity_id: input_boolean.cardinals_mode
+
+
+        ##########################################################
+        ## Blackhawks Goal TEST
+        ##########################################################
+
+- alias: Blackhawks Goal TEST
+
+  trigger:
+    platform: state
+    entity_id: input_boolean.blackhawks_goal
+    from: 'off'
+    to: 'on'
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.basement
+        media_content_id: https://REDACTED/local/audio/blackhawks_goal.mp3
+        media_content_type: music

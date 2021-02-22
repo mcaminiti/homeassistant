@@ -147,14 +147,12 @@
     entities:
       - light.USER3_bedroom_1
       - light.USER3_ceiling_light
-      - light.USER3_wled
 
   - platform: group
     name: USER4 Bedroom
     entities:
       - light.USER4_bedroom_1
       - light.USER4_ceiling_light
-      - light.USER4_wled
 
   - platform: group
     name: Guest Bedroom
@@ -172,12 +170,6 @@
     entities:
       - light.hall_closet_1
       - light.hall_closet_2
-
-  - platform: group
-    name: Basement
-    entities:
-      - light.basement_entry
-      - light.basement_sitting_area
 
   - platform: group
     name: Basement Entry
@@ -207,7 +199,14 @@
       - light.basement_recessed_10
       - light.basement_recessed_11
       - light.basement_recessed_12    
+
       
+  - platform: group
+    name: Basement
+    entities:
+      - light.basement_entry
+      - light.basement_sitting_area
+        
   - platform: group
     name: Garage
     entities:

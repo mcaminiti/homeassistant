@@ -92,6 +92,8 @@
     icon: mdi:battery
   binary_sensor.basement_motion_sensor:
     device_class: motion
+  binary_sensor.basement_multisensor:
+    device_class: motion
   binary_sensor.hub:
     friendly_name: Wink Hub
     icon: mdi:ethernet
@@ -129,6 +131,20 @@
   sensor.washing_machine_water_sensor_battery:
     device_class: battery
     friendly_name: Washing Machine Water Sensor
+    icon: mdi:battery
+  binary_sensor.red_sea_floor_water_sensor:
+    device_class: moisture
+    friendly_name: Red Sea Floor Water Sensor
+  sensor.red_sea_floor_water_sensor_battery:
+    device_class: battery
+    friendly_name: Red Sea Floor Water Sensor
+    icon: mdi:battery
+  binary_sensor.red_sea_sump_water_sensor:
+    device_class: moisture
+    friendly_name: Red Sea Sump Water Sensor
+  sensor.red_sea_sump_water_sensor_battery:
+    device_class: battery
+    friendly_name: Red Sea Sump Water Sensor
     icon: mdi:battery
   sensor.washing_machine_status:
     icon: mdi:washing-machine
@@ -217,6 +233,28 @@
     icon: mdi:water-pump
 
         ##########################################################
+        ## iPhone Life360 Devices
+        ##########################################################
+  sensor.life360_USER3_iphone_battery:
+    friendly_name: USER3 iPhone Battery
+    unit_of_measurement: '%'
+    icon: mdi:battery
+
+  sensor.life360_USER4_iphone_battery:
+    friendly_name: USER4 iPhone Battery
+    unit_of_measurement: '%'
+    icon: mdi:battery
+
+  sensor.life360_USER1_iphone_battery:
+    friendly_name: USER1 iPhone Battery
+    unit_of_measurement: '%'
+    icon: mdi:battery
+
+  sensor.life360_USER2_iphone_battery:
+    friendly_name: USER2 iPhone Battery
+    unit_of_measurement: '%'
+    icon: mdi:battery
+        ##########################################################
         ## Doors
         ##########################################################
 
@@ -247,12 +285,6 @@
         ##########################################################
         ## Switches
         ##########################################################
-#  switch.christmas_tree:
-#    icon: mdi:pine-tree
-#  switch.christmas_village:
-#    icon: mdi:home-city-outline
-#  switch.tuya_USER4_christmas_tree:
-#   icon: mdi:pine-tree
   switch.sound_machine:
     icon: mdi:fan
   switch.air_cleaner:
@@ -261,14 +293,15 @@
     icon: mdi:golf-cart
   switch.washing_machine:
     icon: mdi:washing-machine
-#  switch.christmas_nativity:
-#    icon: mdi:christianity
-#  switch.christmas_outdoor_1:
-#    icon: mdi:string-lights
-#  switch.christmas_outdoor_2:
-#    icon: mdi:string-lights
-#  switch.christmas_outdoor_3:
-#    icon: mdi:string-lights
+  
+  #switch.christmas_nativity:
+  #  icon: mdi:christianity
+  #switch.christmas_outdoor_1:
+  #  icon: mdi:string-lights
+  #switch.christmas_outdoor_2:
+  #  icon: mdi:string-lights
+  #switch.christmas_outdoor_3:
+  #  icon: mdi:string-lights
     
         ##########################################################
         ## Lights
@@ -339,12 +372,9 @@
         ## Vacuums
         ##########################################################
 
-  vacuum.roomba:
+  vacuum.rosie:
     icon: mdi:robot-vacuum
-  sensor.roomba_bin:
-    icon: mdi:delete
-  sensor.roomba_status:
-    icon: mdi:robot-vacuum
+
         ##########################################################
         ## Weather
         ##########################################################

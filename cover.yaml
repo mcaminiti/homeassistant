@@ -1,0 +1,33 @@
+#################################################################
+## Cover
+################################################################
+
+- platform: group
+  name: Master Bedroom
+  entities:
+  - cover.master_bedroom_shade_1
+  - cover.master_bedroom_shade_2
+
+- platform: group
+  name: USER3 Bedroom
+  entities:
+  - cover.USER3_bedroom_shade_1
+  - cover.USER3_bedroom_shade_2
+
+- platform: group
+  name: USER4 Bedroom
+  entities:
+  - cover.USER4_bedroom_shade_1
+  - cover.USER4_bedroom_shade_2
+
+- platform: group
+  name: Basement Windows
+  entities:
+  - cover.basement_shade_1
+  - cover.basement_shade_2
+
+- platform: group
+  name: Basement Door
+  entities:
+  - cover.basement_door_shade_1
+  - cover.basement_door_shade_2

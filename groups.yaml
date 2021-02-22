@@ -76,6 +76,6 @@ Weather Alerts:
 #  - switch.christmas_outdoor_3  
 
 #Christmas Inside Lights:
-#  - switch.christmas_tree
-#  - switch.christmas_village
-#  - switch.tuya_USER4_christmas_tree
+#  - switch.family_room_christmas_tree
+#  - switch.basement_christmas_tree
+#  - switch.basement_christmas_nativity

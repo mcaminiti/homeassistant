@@ -120,25 +120,6 @@
             badge: 0
             category: "hallclosetlights"
 
-        ##########################################################
-        ## Basement Light Off When No Motion 60 Minutes
-        ##########################################################
-
-- alias: Basement Lights Off
-
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.basement_motion_sensor
-      from: 'on'
-      to: 'off'
-      for:
-        hours: 1
-        minutes: 0
-        seconds: 0
-
-  action:
-    service: light.turn_off
-    entity_id: light.basement
 
         ##########################################################
         ## Turn off USER4 Bedroom Night Lights at 11:00pm

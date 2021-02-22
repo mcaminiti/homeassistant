@@ -74,11 +74,14 @@ http:
 #    allow_unreachable: true
 #    allow_hue_groups: false
 
-#remote:
-#  - platform: harmony
-#    name: Media Center
-#    host: REDACTED.12
-
+remote:
+  - platform: harmony
+    name: Family Room
+    host: REDACTED.12
+  - platform: harmony
+    name: Basement
+    host: REDACTED.10
+    
 map:
 
 # Enables support for tracking state changes over time.
@@ -157,8 +160,15 @@ wemo:
     - REDACTED.198
     - REDACTED.148
     - REDACTED.74
-#    - REDACTED.85  # Christmas
-#    - REDACTED.86  # Christmas  
+    - REDACTED.46
+    - REDACTED.47
+    - REDACTED.48
+
+tplink:
+  discovery: false
+  strip:
+    - host: REDACTED.49
+    - host: REDACTED.50
 
 #tuya:
 #  username: !secret secret_tuya_username
@@ -171,10 +181,6 @@ weather:
     api_key: !secret secret_darksky_api_key
     mode: daily
 
-#goalfeed:
-#  username: !secret secret_goalfeed_username
-#  password: !secret secret_goalfeed_password
-
 ## Lutron Caseta Pro - Custom Componant
 lutron_caseta_pro:
     bridges:
@@ -184,10 +190,6 @@ lutron_caseta_pro:
         # Note: Configure only switches, shades, and fans, all others will be dimmers
         fan: [ 4, 9, 11 ]
 
-#roomba:
-#  - host: REDACTED.150
-#    blid: !secret secret_roomba_username
-#    password: !secret secret_roomba_password
 
 ### Ecobee Key Not needed after first restart and setup
 #ecobee:
@@ -277,7 +279,6 @@ counter:
     icon: mdi:counter
 
 
-
 ######## Input DateTime ########
 
 input_datetime:
@@ -313,8 +314,9 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 light: !include light_group.yaml
+cover: !include cover.yaml
 script: !include scripts.yaml
-scene: !include_dir_merge_list scene
+#scene: !include_dir_merge_list scene
 ios: !include ios.yaml
-#switch: !include switch.yaml
+switch: !include switch.yaml
 emulated_hue: !include emulated_hue.yaml

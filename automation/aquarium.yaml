@@ -79,7 +79,7 @@
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_temp
-              below: 76
+              below: 75
               for:
                 hours: 0
                 minutes: 5
@@ -301,8 +301,8 @@
               to: 'off'            
 
           action:
-            - service: switch.turn_on
-              entity_id: switch.biocube_ato_relay_disable
+            - service: switch.turn_off
+              entity_id: switch.biocube_ato_pump
 
 
         ##########################################################
@@ -322,8 +322,8 @@
                 seconds: 0
 
           action:
-            - service: switch.turn_off
-              entity_id: switch.biocube_ato_relay_disable
+            - service: switch.turn_on
+              entity_id: switch.biocube_ato_pump
 
         ##########################################################
         ## Biocube32 Maintenance Mode - 60m
@@ -359,7 +359,7 @@
 
           trigger:
             - platform: time
-              at: '16:15'
+              at: '16:15:00'
           condition:
             condition: and
             conditions:
@@ -390,7 +390,7 @@
 
           trigger:
             - platform: time
-              at: '16:40'
+              at: '16:40:00'
           condition:
             - condition: state
               entity_id: input_boolean.fish_fed_today
@@ -414,7 +414,7 @@
 
           trigger:
             - platform: time
-              at: '00:30'
+              at: '00:30:00'
 
           action:
             - service: homeassistant.turn_off

@@ -398,3 +398,91 @@
       action:
         - service: homeassistant.turn_on
           entity_id: input_boolean.biocube_feed_mode
+
+
+
+
+  #################################################################
+  ## TEST Pico Remote
+  #################################################################
+
+    ##########################################################
+    ## TEST - Pico Test 2 seconds
+    ##########################################################
+
+    - alias: Test Pico Test - 2 seconds
+
+      trigger:
+        - platform: state
+          entity_id: sensor.test_pico
+          to: '8'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 2
+      action:
+        - service: light.turn_on
+          entity_id: light.family_room
+          data:
+            brightness_pct: 20
+
+
+    ##########################################################
+    ## TEST - Pico Test 4 seconds
+    ##########################################################
+
+    - alias: Test Pico On Test - 4 seconds
+
+      trigger:
+        - platform: state
+          entity_id: sensor.test_pico
+          to: '8'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 4
+      action:
+        - service: light.turn_on
+          entity_id: light.family_room
+          data:
+            brightness_pct: 40
+
+    ##########################################################
+    ## TEST - Pico Test 6 seconds
+    ##########################################################
+
+    - alias: Test Pico On Test - 6 seconds
+
+      trigger:
+        - platform: state
+          entity_id: sensor.test_pico
+          to: '8'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 6
+      action:
+        - service: light.turn_on
+          entity_id: light.family_room
+          data:
+            brightness_pct: 60
+
+    ##########################################################
+    ## TEST - Pico Test 8 seconds
+    ##########################################################
+
+    - alias: Test Pico On Test - 8 seconds
+
+      trigger:
+        - platform: state
+          entity_id: sensor.test_pico
+          to: '8'
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 8
+      action:
+        - service: light.turn_on
+          entity_id: light.family_room
+          data:
+            brightness_pct: 100

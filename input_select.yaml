@@ -8,11 +8,9 @@
       - PowerOff
       - Watch TV
       - Watch Apple TV
-      - Watch Netflix
       - Play Xbox One
       - Play Nintendo Switch
       - Play Wii U
-      - Listen to Radio
     initial: PowerOff
     icon: mdi:remote
 
@@ -21,11 +19,21 @@
     name: Outdoor Lighting Theme
     options:
       - Default
-      - Bug Mode
-      - Easter
       - American
-      - Halloween
+      - Blue      
+      - Bug Mode
       - Christmas
+      - Easter
+      - Halloween
       - Party
-      - Blue
+      - Pink
     icon: mdi:gift
+
+  basement_theme:
+    name: Basement Theme
+    options:
+      - None
+      - Default
+      - Party
+      - TV Mode
+    icon: mdi:theater

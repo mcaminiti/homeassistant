@@ -128,7 +128,14 @@
         value_template: '{{ states.binary_sensor.washing_machine_water_sensor.attributes.battery_level }}'
         friendly_name: 'Washing Machine Water Sensor'
         unit_of_measurement: '%'
-
+      red_sea_floor_water_sensor_battery:
+        value_template: '{{ states.binary_sensor.red_sea_floor_water_sensor.attributes.battery_level }}'
+        friendly_name: 'Red Sea Floor Water Sensor'
+        unit_of_measurement: '%'
+      red_sea_sump_water_sensor_battery:
+        value_template: '{{ states.binary_sensor.red_sea_sump_water_sensor.attributes.battery_level }}'
+        friendly_name: 'Red Sea Sump Water Sensor'
+        unit_of_measurement: '%'
 
         ##########################################################
         ## Washing Machine
@@ -195,11 +202,6 @@
 
   - platform: template
     sensors:
-      biocube_heater_current_power:
-        value_template: '{{ states.switch.biocube_heater.attributes.current_power_w }}'
-
-  - platform: template
-    sensors:
       biocube_heater_status:
         value_template: >-
           {%- if states('sensor.biocube_heater_current_power') | int >= 1 %}
@@ -212,11 +214,6 @@
         ##########################################################
         ## Biocube Pump
         ##########################################################
-
-  - platform: template
-    sensors:
-      biocube_pump_current_power:
-        value_template: '{{ states.switch.biocube_pump.attributes.current_power_w }}'
 
   - platform: template
     sensors:
@@ -235,11 +232,6 @@
 
   - platform: template
     sensors:
-      biocube_ato_current_power:
-        value_template: '{{ states.switch.biocube_ato.attributes.current_power_w }}'
-
-  - platform: template
-    sensors:
       biocube_ato_status:
         value_template: >-
           {%- if states('sensor.biocube_ato_current_power') | int >= 1 %}
@@ -251,11 +243,6 @@
         ##########################################################
         ## Biocube Lights
         ##########################################################
-
-  - platform: template
-    sensors:
-      biocube_lights_current_power:
-        value_template: '{{ states.switch.biocube_lights.attributes.current_power_w }}'
 
   - platform: template
     sensors:
@@ -271,11 +258,6 @@
         ##########################################################
         ## Biocube Wavemaker
         ##########################################################
-
-  - platform: template
-    sensors:
-      biocube_wavemaker_current_power:
-        value_template: '{{ states.switch.biocube_wavemaker.attributes.current_power_w }}'
 
   - platform: template
     sensors:
@@ -461,6 +443,43 @@
         value_template: "{{ states('sensor.ups_battery_runtime')|float / 60 |round(1) }}"
 
         ##########################################################
+        ## Life360 Device Sensors 
+        ##########################################################
+
+  - platform: template
+    sensors:
+      life360_USER4_iphone_battery:
+        value_template: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery }}'     
+  - platform: template
+    sensors:
+      life360_USER3_iphone_battery:
+        value_template: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery }}'   
+  - platform: template
+    sensors:
+      life360_USER1_iphone_battery:
+        value_template: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery }}'     
+  - platform: template
+    sensors:
+      life360_USER2_iphone_battery:
+        value_template: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery }}'  
+  - platform: template
+    sensors:
+      life360_USER1_iphone_battery_charging:
+        value_template: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery_charging }}'     
+  - platform: template
+    sensors:
+      life360_USER2_iphone_battery_charging:
+        value_template: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery_charging }}' 
+  - platform: template
+    sensors:
+      life360_USER4_iphone_battery_charging:
+        value_template: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery_charging }}'     
+  - platform: template
+    sensors:
+      life360_USER3_iphone_battery_charging:
+        value_template: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery_charging }}'          
+
+        ##########################################################
         ## IL COVID NUMBERS
         ##########################################################
 
@@ -551,5 +570,31 @@
         friendly_name: 'Master Bedroom Brightness Percentage'
 
 
+       ##########################################################
+        ## Task - Dishwasher
+       ##########################################################
 
+ # - platform: template
+ #   sensors:
+ #     task_dishwasher:
+ #       value_template: >-
+ #         {% if now().strftime("%-d") == 31 %}
+ #           USER1
+ #         {% elif (now().strftime("%-d") | int % 2) == 0 %}
+ #           USER4
+ #         {% else %}
+ #           USER3
+ #         {% endif %}
+ #       friendly_name: 'Dishwasher Unload'
 
+       ##########################################################
+        ## Red Sea - Aqua UV Sterilizer Check
+       ##########################################################
+
+  - platform: history_stats
+    name: Red Sea Aqua UV Runtime Today
+    entity_id: switch.redsea_uv_sterlizer
+    state: "on"
+    type: time
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"

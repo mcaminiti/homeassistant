@@ -1,0 +1,20 @@
+##################################################################
+## Basement None Mode
+##################################################################
+
+        ##########################################################
+        ## None Mode
+        ##########################################################
+
+- alias: Basement Theme - None Reset
+
+  trigger:
+    - platform: state
+      entity_id: light.basement
+      to:  'off'
+
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.basement_theme
+        option: None

@@ -8,6 +8,18 @@
 #################################################################
 
         ##########################################################
+        ## MagicMirror Display Switch
+        ##########################################################
+
+  - platform: command_line
+    switches:
+      magicmirror_display:
+        command_on: "curl -X GET 'http://REDACTED.62:8080/api/monitor/on'"
+        command_off: "curl -X GET 'http://REDACTED.62:8080/api/monitor/off'"
+        command_state: "curl -X GET http://REDACTED.62:8080/api/monitor/"
+        value_template: "{{ value_json.monitor == 'on' }}"
+
+        ##########################################################
         ## Pihole #1 Disable Switch
         ##########################################################
 
