@@ -16,17 +16,30 @@ input_select_remote_family_room:
           {% if is_state("input_select.remote_family_room", "PowerOff") %}
               -1
           {% elif is_state("input_select.remote_family_room", "Watch TV") %}
-              15015517
-          {% elif is_state("input_select.remote_family_room", "Watch Netflix") %}
-              13965065
+              46704437
           {% elif is_state("input_select.remote_family_room", "Watch Apple TV") %}
-              28611456
+              46704549
           {% elif is_state("input_select.remote_family_room", "Play Xbox One") %}
-              17285686
+              46704537
           {% elif is_state("input_select.remote_family_room", "Play Wii U") %}
-              13965644
-          {% elif is_state("input_select.remote_family_room", "Listen to Radio") %}
-              13965311
+              46704574
           {% elif is_state("input_select.remote_family_room", "Play Nintendo Switch") %}
-              35830978
+              46704587
+          {% endif %}
+
+input_select_remote_basement:
+  alias: "Harmony Basement - Start Remote activity from input select"
+  sequence:
+      service: remote.turn_on
+      data_template:
+        entity_id: remote.basement
+        activity: >
+          {% if is_state("input_select.remote_basement", "PowerOff") %}
+              -1
+          {% elif is_state("input_select.remote_basement", "Watch TV") %}
+              46364855
+          {% elif is_state("input_select.remote_basement", "Watch Basement Apple TV") %}
+              46272490
+          {% elif is_state("input_select.remote_basement", "Play Xbox Series X") %}
+              46854638
           {% endif %}

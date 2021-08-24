@@ -31,3 +31,41 @@
   entities:
   - cover.basement_door_shade_1
   - cover.basement_door_shade_2
+
+- platform: group
+  name: Kitchen East
+  entities:
+  - cover.kitchen_east_shade_1
+  - cover.kitchen_east_shade_2
+
+- platform: group
+  name: Kitchen South
+  entities:
+  - cover.kitchen_south_shade_1
+  - cover.kitchen_south_shade_2
+
+- platform: group
+  name: Kitchen
+  entities:
+  - cover.kitchen_south_shade_1
+  - cover.kitchen_south_shade_2
+  - cover.kitchen_east_shade_1
+  - cover.kitchen_east_shade_2
+
+- platform: group
+  name: Family Room
+  entities:
+  - cover.family_room_shade_1
+  - cover.family_room_shade_2
+
+- platform: group
+  name: Guest Bedroom
+  entities:
+  - cover.guest_bedroom_1
+  - cover.guest_bedroom_2
+
+- platform: group
+  name: Office
+  entities:
+  - cover.office_1
+  - cover.office_2

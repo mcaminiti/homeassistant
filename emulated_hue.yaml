@@ -1,7 +1,7 @@
 #################################################################
 ## Emulated Hue Config
 #################################################################
-  host_ip: REDACTED.6
+  host_ip: REDACTED.2
   listen_port: 80
   off_maps_to_on_domains:
     - script
@@ -41,12 +41,15 @@
     input_boolean.all_wakeup:
       hidden: false
       name: "All Wakeup"  
-    light.USER3_ceiling_light:
+    light.USER3_bedroom_ceiling_light:
       hidden: false
       name: "USER3 Ceiling Light"
-    light.USER4_ceiling_light:
+    light.USER4_bedroom_ceiling_light:
       hidden: false
       name: "USER4 Ceiling Light"
     light.kitchen_cabinets:
       hidden: false
-      name: "Kitchen Cabinets"      
+      name: "Kitchen Cabinets"
+    light.basement:
+      hidden: false
+      name: "Basement"   

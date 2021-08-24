@@ -1,0 +1,50 @@
+#################################################################
+## Magic Mirror Automations
+#################################################################
+
+        ##########################################################
+        ## Magic Mirror Off when Away
+        ##########################################################
+
+- alias: Magic Mirror Off when Away
+
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'home'
+      to: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: switch.magicmirror_display
+      state: 'on'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.magicmirror_display
+
+
+        ##########################################################
+        ## Magic Mirror On when Home
+        ##########################################################
+
+- alias: Magic Mirror On when Home
+
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: switch.magicmirror_display
+      state: 'off'
+    - condition: time
+      after: '05:00:00'
+      before: '23:00:00'
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.magicmirror_display
+

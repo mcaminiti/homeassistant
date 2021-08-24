@@ -64,6 +64,31 @@
       data:
        message: "USER4 Battery Critical"    
 
+       ##########################################################
+        ## USER4 - Turned Off Wifi At Home
+        ##########################################################
+
+- alias: IOS USER4 Turned Off Wifi At Home - Notification
+
+  trigger:
+    - platform: state
+      entity_id: sensor.USER4_iphone_connection_type
+      from: 'Wi-Fi'
+      to: 'Cellular'
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: person.USER4
+      state: 'home'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       message: "USER4 Turned Off Wifi - At Home" 
 
         ##########################################################
         ## USER3 - Battery Low while at Home

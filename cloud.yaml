@@ -1,0 +1,109 @@
+#################################################################
+## Home Assistant Clouds
+#################################################################
+
+#################################################################
+## Amazon Echo
+#################################################################
+
+  alexa:
+    filter:
+      include_entities:
+        - light.basement
+        - cover.family_room
+        - cover.guest_bedroom
+        - cover.kitchen
+        - cover.master_bedroom
+        - cover.office
+        - cover.USER3_bedroom
+        - cover.USER4_bedroom
+        - cover.basement_door
+
+
+    entity_config:
+        ##########################################################
+        ## Shades
+        ##########################################################
+      cover.family_room:
+        name: Family Room Shades
+        description: Family Room Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.guest_bedroom:
+        name: Guest Bedroom Shades
+        description: Guest Bedroom Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.kitchen:
+        name: Kitchen Shades
+        description: Kitchen Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.master_bedroom:
+        name: Master Bedroom Shades
+        description: Master Bedroom Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.office:
+        name: Office Shades
+        description: Office Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.USER3_bedroom:
+        name: USER3 Bedroom Shades
+        description: USER3 Bedroom Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.USER4_bedroom:
+        name: USER4 Bedroom Shades
+        description: USER4 Bedroom Shades
+        display_categories: INTERIOR_BLIND
+
+      cover.basement_door:
+        name: Basement Door Shades
+        description: Basement Door Shades
+        display_categories: INTERIOR_BLIND
+
+
+        ##########################################################
+        ## Cameras
+        ##########################################################
+
+
+
+        ##########################################################
+        ## Input Boolean
+        ##########################################################
+
+
+        ##########################################################
+        ## Scripts
+        ##########################################################
+
+
+
+        ##########################################################
+        ## Climate
+        ##########################################################
+
+
+
+        ##########################################################
+        ## Fans
+        ##########################################################        
+
+
+
+
+
+        ##########################################################
+        ## Switches
+        ##########################################################
+
+
+        ##########################################################
+        ## Lights
+        ##########################################################
+      light.basement:
+        name: Basement Lights
+        description: Basement Lights

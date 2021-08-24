@@ -3,7 +3,7 @@
 #################################################################
 
   remote_family_room:
-    name: Media Center Remote
+    name: Family Room Remote
     options:
       - PowerOff
       - Watch TV
@@ -14,6 +14,15 @@
     initial: PowerOff
     icon: mdi:remote
 
+  remote_basement:
+    name: Basement Remote
+    options:
+      - PowerOff
+      - Watch TV
+      - Watch Basement Apple TV
+      - Play Xbox Series X
+    initial: PowerOff
+    icon: mdi:remote
 
   outdoor_theme:
     name: Outdoor Lighting Theme

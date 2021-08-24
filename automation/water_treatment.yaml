@@ -3,7 +3,7 @@
 #################################################################
 
         ##########################################################
-        ## Lift Station Activations Counter
+        ## Lift Station Activations Counter and Notification
         ##########################################################
 
 - alias: Lift Station Activations Counter
@@ -11,7 +11,6 @@
   trigger:
     - platform: state
       entity_id: sensor.lift_station_status
-      from: 'not running'
       to: 'running'
       
   action:  
@@ -19,6 +18,9 @@
       entity_id: counter.lift_station_activations_counter
     - service: counter.increment
       entity_id: counter.lift_station_activations_counter_current_day
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Lift Station Running - {{states.counter.lift_station_activations_counter_current_day.state}}"
       
         ##########################################################
         ## Lift Station Activations Counter - Daily
@@ -36,3 +38,23 @@
         value: "{{ states.counter.lift_station_activations_counter_current_day.state | int }}" 
     - service: counter.reset
       entity_id: counter.lift_station_activations_counter_current_day
+
+        ##########################################################
+        ## Lift Station Check System Notification
+        ##########################################################
+
+- alias: Lift Station Check System
+
+  trigger:
+    - platform: state
+      entity_id: sensor.lift_station_status
+      to: 'check system'
+      for:
+        hours: 0
+        minutes: 3
+        seconds: 0
+      
+  action:  
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Lift Station Error - Check Status - {{states.sensor.e6_1_ct1_lift_station_watts.state}}"

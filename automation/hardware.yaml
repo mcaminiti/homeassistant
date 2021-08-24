@@ -84,3 +84,28 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "15 mins of UPS Battery Remaining!"
+
+
+        #################################################################
+        ## Reload Vera Sensors on Home Assistant Start
+        #################################################################
+
+- alias: System - Reload Vera Sensors on Home Assistant Start
+
+  trigger:
+    - platform: homeassistant
+      event: start
+
+  action:
+    - service: homeassistant.update_entity
+      data:
+        entity_id:
+          - sensor.basement_humidity_sensor
+          - sensor.basement_light_sensor
+          - binary_sensor.basement_motion_sensor
+          - binary_sensor.family_room_motion
+          - sensor.family_room_humidity_sensor
+          - sensor.family_room_light_sensor
+          - sensor.basement_temperature_sensor
+          - sensor.basement_temperature
+          - sensor.family_room_temperature_sensor

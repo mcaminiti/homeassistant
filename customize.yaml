@@ -92,11 +92,10 @@
     icon: mdi:battery
   binary_sensor.basement_motion_sensor:
     device_class: motion
-  binary_sensor.basement_multisensor:
+  binary_sensor.basement_storage_motion:
     device_class: motion
-  binary_sensor.hub:
-    friendly_name: Wink Hub
-    icon: mdi:ethernet
+  binary_sensor.family_room_motion:
+    device_class: motion    
   binary_sensor.kitchen_sink_water_sensor:
     device_class: moisture
     friendly_name: Kitchen Sink Water Sensor
@@ -313,11 +312,11 @@
     icon: mdi:lamp
   light.USER3_bedroom_1:
     icon: mdi:lamp
-  light.USER3_ceiling_light:
+  light.USER3_bedroom_ceiling_light:
     icon: mdi:ceiling-light
   light.USER4_bedroom_1:
     icon: mdi:lamp
-  light.USER4_ceiling_light:
+  light.USER4_bedroom_ceiling_light:
     icon: mdi:ceiling-light    
   light.guest_bedroom_1:
     icon: mdi:lamp

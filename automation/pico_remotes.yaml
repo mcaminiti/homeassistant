@@ -213,10 +213,11 @@
           to: '2'
 
       action:
-        - service: light.turn_on
-          entity_id: light.basement_entry
+        - service: input_select.select_option
+          target:
+            entity_id: input_select.basement_theme
           data:
-            kelvin: 2700
+            option: "Default"
 
     ##########################################################
     ## Basement Entry - Pico Favorite - LONG PRESS
@@ -234,10 +235,11 @@
             seconds: 2
 
       action:
-        - service: light.turn_on
-          entity_id: light.basement_entry
+        - service: input_select.select_option
+          target:
+            entity_id: input_select.basement_theme
           data:
-            effect: Party
+            option: "Party"
 
 
   #################################################################
@@ -297,7 +299,7 @@
         - service: light.turn_on
           entity_id: light.basement_sitting_area
           data:
-            brightness_pct: 50
+            brightness_pct: 60
 
     ##########################################################
     ## Basement Sitting Area - Pico Lower
@@ -333,16 +335,17 @@
           to: '2'
 
       action:
-        - service: light.turn_on
-          entity_id: light.basement_sitting_area
+        - service: input_select.select_option
+          target:
+            entity_id: input_select.basement_theme
           data:
-            kelvin: 2700
+            option: "Default"
 
     ##########################################################
     ## Basement Sitting Area - Pico Favorite - LONG PRESS
     ##########################################################
-
-    - alias: Basement Sitting Area Pico - Favorite Long Press
+    - id: basement.pico.long_press
+      alias: Basement Sitting Area Pico - Favorite Long Press
 
       trigger:
         - platform: state
@@ -354,10 +357,11 @@
             seconds: 2
 
       action:
-        - service: light.turn_on
-          entity_id: light.basement_sitting_area
+        - service: input_select.select_option
+          target:
+            entity_id: input_select.basement_theme
           data:
-            effect: Party
+            option: "TV Mode"
 
   #################################################################
   ## USER4 Bedroom Pico Remote

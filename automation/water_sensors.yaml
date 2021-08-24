@@ -21,10 +21,19 @@
   action:
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Water Detected in Basement!"
+       title: "Water Alert"
+       message: "Water Detected at Basement Drain!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
+
+
     - service: notify.mobile_app_USER2s_iphone
       data:
-        message: "Water Detected in Basement!"
+        message: "Water Detected at Basement Drain!"
 
         ##########################################################
         ## Send Notification for Water Detected Washing Machine
@@ -46,7 +55,14 @@
   action:
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Water Detected by Washing Machine!"
+       title: "Water Alert"
+       message: "Water Detected at Washing Machine!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
     - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Washing Machine!"
@@ -71,12 +87,18 @@
   action:
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Water Detected by Kitchen Sink!"
+       title: "Water Alert"
+       message: "Water Detected by Kitchen Sink!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
     - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
-    - service: timer.start
-      entity_id: timer.alarm_kitchen_sink_water_sensor
+
 
         ##########################################################
         ## Send Notification for Water Detected Refrigerator
@@ -97,7 +119,14 @@
   action:
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Water Detected by Refrigerator!"
+       title: "Water Alert"
+       message: "Water Detected under Refrigerator!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
     - service: notify.mobile_app_USER2s_iphone
       data:
         message: "Water Detected by Refrigerator!"
@@ -143,10 +172,79 @@
   action:
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Water Detected by Water Filtration!"
+       title: "Water Alert"
+       message: "Water Detected by Water Filtration in Basement!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
  #   - service: notify.mobile_app_USER2s_iphone
  #     data:
  #       message: "Water Detected by Water Filtration!"
+
+        ##########################################################
+        ## Send Notification for Water Detected Red Sea Floor Sensor
+        ##########################################################
+
+- alias: Notification - Red Sea Floor Water Sensor
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.red_sea_floor_water_sensor
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       title: "Water Alert"
+       message: "Water Detected on floor by Red Sea Tank in Basement!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
+ #   - service: notify.mobile_app_USER2s_iphone
+ #     data:
+ #       message: "Water Detected on floor by Red Sea Tank in Basement!"
+
+        ##########################################################
+        ## Send Notification for Water Detected Red Sea Sump Sensor
+        ##########################################################
+
+- alias: Notification - Red Sea Sump Water Sensor
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.red_sea_sump_water_sensor
+      from: 'off'
+      to: 'on'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_water_sensors
+      state: 'off'
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+       title: "Water Alert"
+       message: "Water Detected in sump of Red Sea Tank in Basement!"
+       data:
+         push:
+           sound:
+             name: default
+             critical: 1
+             volume: 1.0
+ #   - service: notify.mobile_app_USER2s_iphone
+ #     data:
+ #       message: "Water Detected on floor by Red Sea Tank in Basement!"
 
         ##########################################################
         ## Flash Lights when Water Detected

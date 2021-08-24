@@ -74,13 +74,13 @@ http:
 #    allow_unreachable: true
 #    allow_hue_groups: false
 
-remote:
-  - platform: harmony
-    name: Family Room
-    host: REDACTED.12
-  - platform: harmony
-    name: Basement
-    host: REDACTED.10
+#remote:
+#  - platform: harmony
+#    name: Family Room
+#    host: REDACTED.12
+#  - platform: harmony
+#    name: Basement
+#    host: REDACTED.10
     
 map:
 
@@ -98,34 +98,34 @@ tts:
 
 
 # InfluxDB / Grafana Long Term Data Retention Test
-influxdb:
-  host: REDACTED.100
-  database: telegraf
-  include:
-    entities:
-      - sensor.home_temperature
-      - sensor.master_bedroom_temperature
-      - sensor.basement_temperature
-      - sensor.USER3_bedroom_temperature
-      - sensor.USER4_bedroom_temperature
-      - sensor.home_humidity
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_temperature
-      - sensor.washing_machine_current_power
-      - sensor.air_cleaner_current_power
-      - sensor.golf_cart_current_power
-      - sensor.biocube_heater_current_power
-      - sensor.biocube_pump_current_power
-      - sensor.biocube_lights_current_power
-      - sensor.lift_station_activations_daily
-      - sensor.e6_1_ct1_lift_station_watts
-      - sensor.e6_1_ct2_aerator_watts
-      - sensor.biocube_ph
-      - sensor.biocube_ammonia
-      - sensor.biocube_nitrite
-      - sensor.biocube_nitrate
-      - sensor.biocube_calcium
-      - sensor.biocube_temp
+#influxdb:
+#  host: REDACTED.100
+#  database: telegraf
+#  include:
+#    entities:
+#      - sensor.home_temperature
+#      - sensor.master_bedroom_temperature
+#      - sensor.basement_temperature
+#      - sensor.USER3_bedroom_temperature
+#      - sensor.USER4_bedroom_temperature
+#      - sensor.home_humidity
+#      - sensor.dark_sky_humidity
+#      - sensor.dark_sky_temperature
+#      - sensor.washing_machine_current_power
+#      - sensor.air_cleaner_current_power
+#      - sensor.golf_cart_current_power
+#      - sensor.biocube_heater_current_power
+#      - sensor.biocube_pump_current_power
+#      - sensor.biocube_lights_current_power
+#      - sensor.lift_station_activations_daily
+#      - sensor.e6_1_ct1_lift_station_watts
+#      - sensor.e6_1_ct2_aerator_watts
+#      - sensor.biocube_ph
+#      - sensor.biocube_ammonia
+#      - sensor.biocube_nitrite
+#      - sensor.biocube_nitrate
+#      - sensor.biocube_calcium
+#      - sensor.biocube_temp
 #      - sensor.thermostat_current_status
 #      - sensor.thermostat_aux_heat
 #      - sensor.ups_load
@@ -153,22 +153,32 @@ influxdb:
 # Stream Componant
 stream:
 
+# LG TV
+webostv:
+  - name: Family Room TV
+    host: 'REDACTED.80'
+  - name: Basement TV
+    host: 'REDACTED.42'
+
+
+
 # WeMo
 wemo:
   static:
-    - REDACTED.188
-    - REDACTED.198
-    - REDACTED.148
-    - REDACTED.74
     - REDACTED.46
     - REDACTED.47
     - REDACTED.48
+    - REDACTED.69
+    - REDACTED.70
+    - REDACTED.71
+    - REDACTED.72                
+    - REDACTED.73
 
-tplink:
-  discovery: false
-  strip:
-    - host: REDACTED.49
-    - host: REDACTED.50
+#tplink:
+#  discovery: false
+#  strip:
+#    - host: REDACTED.49
+#    - host: REDACTED.50
 
 #tuya:
 #  username: !secret secret_tuya_username
@@ -188,7 +198,7 @@ lutron_caseta_pro:
         mac: REDACTED
         default_transition_seconds: 1.0
         # Note: Configure only switches, shades, and fans, all others will be dimmers
-        fan: [ 4, 9, 11 ]
+        fan: [ 4, 9, 11, 14, 15 ]
 
 
 ### Ecobee Key Not needed after first restart and setup
@@ -197,9 +207,9 @@ lutron_caseta_pro:
 #  hold_temp: true
 
 # Nest
-nest:
-  client_id: !secret secret_nest_clientid
-  client_secret: !secret secret_nest_secret
+#nest:
+#  client_id: !secret secret_nest_clientid
+#  client_secret: !secret secret_nest_secret
 
 #pi_hole:
 #  host: REDACTED.4
@@ -302,6 +312,10 @@ input_datetime:
     name: Biocube Filter Floss Install Date
     has_date: true
     has_time: false
+  biocube_gel_date:
+    name: Dr. Tim Waste Away Gel Install Date
+    has_date: true
+    has_time: false
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml
@@ -316,7 +330,6 @@ input_number: !include input_number.yaml
 light: !include light_group.yaml
 cover: !include cover.yaml
 script: !include scripts.yaml
-#scene: !include_dir_merge_list scene
 ios: !include ios.yaml
 switch: !include switch.yaml
-emulated_hue: !include emulated_hue.yaml
+cloud: !include cloud.yaml

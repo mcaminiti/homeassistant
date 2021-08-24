@@ -56,4 +56,12 @@
     min: 5
     max: 15
     step: .1
-    unit_of_measurement: ppm     
+    unit_of_measurement: ppm
+    
+  redsea_uv_light_usage:
+      name: Red Sea Aqua UV Light Usage
+      min: 1
+      max: 600
+      step: .01
+      mode: box
+      unit_of_measurement: days 

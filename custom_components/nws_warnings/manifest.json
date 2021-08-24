@@ -1,0 +1,10 @@
+{
+    "domain": "nws_warnings",
+    "name": "NWS Warnings",
+    "documentation": "https://github.com/mcaminiti/nws_warnings",
+    "dependencies": [],
+    "codeowners": [],
+    "requirements": [],
+    "iot_class": "cloud_polling",
+    "version": "1.0.1"
+  }

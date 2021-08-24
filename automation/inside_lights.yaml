@@ -203,3 +203,23 @@
   action:
     - service: light.turn_off
       entity_id: light.USER3_bedroom
+
+
+        ##########################################################
+        ## Turn off Basement Theme
+        ##########################################################
+- id: basement.light.off.reset_theme
+  alias: Basement Lights Off - Reset Theme
+
+  trigger:
+    - platform: state
+      entity_id: light.basement
+      from: 'on'
+      to: 'off'
+
+  action:
+    - service: input_select.select_option
+      target:
+        entity_id: input_select.basement_theme
+      data:
+        option: "None"      
