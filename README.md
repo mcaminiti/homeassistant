@@ -46,7 +46,7 @@ Typical Automations in use include
 - Change Ecobee mode when fireplace running
 
 # Menu
-| [Hubs](#hubs) | [Lighting and Switches](#lighting) | [Climate](#climate)| [Outlets](#outlets) | [Security](#security) | [Voice Assistant](#voice) | [Media](#media) | [Sensors](#sensors) | [Cameras](#cameras) | [Garage](#garage) | [Vacuum](#vacuum) | [Blinds](#blinds) | [Network](#network) | [Other Hardware](#other)| [Software](#software) | [Retired Devices](#retired)  | [Screenshots](#screenshots) |
+| [Hubs](#hubs) | [Lighting and Switches](#lighting) | [Climate](#climate)| [Outlets](#outlets) | [Security](#security) | [Voice Assistant](#voice) | [Media](#media) | [Sensors](#sensors) | [Cameras](#cameras) | [Garage](#garage) | [Vacuum](#vacuum) | [Shades](#shades) | [Network](#network) | [Other Hardware](#other)| [Software](#software) | [Retired Devices](#retired)  | [Screenshots](#screenshots) |
 
 # Devices
 
@@ -163,6 +163,13 @@ Fans are defined in HACS custom componant and defined in [configuration.yaml](ht
 | [iRobot Roomba i7](https://amzn.to/2VGKZEu) | 1 | Wi-Fi | [iRobot Roomba](https://www.home-assistant.io/components/vacuum.roomba/)| Working to automate schedule based on presence detection | All Roomba related automations can be found in [roomba.yaml]( https://github.com/mcaminiti/homeassistant/blob/master/automation/roomba.yaml)
 | [iRobot Roomba i6+](https://amzn.to/2VGKZEu) | 1 | Wi-Fi | [iRobot Roomba](https://www.home-assistant.io/components/vacuum.roomba/)| Working to automate schedule based on presence detection | All Roomba related automations can be found in [roomba.yaml]( https://github.com/mcaminiti/homeassistant/blob/master/automation/roomba.yaml)
 
+## Shades
+| [Go to Menu](#menu) |
+
+| Device  | Quantity | Connection | Home Assistant | Notes |
+| ------------- | :---: | ------------- | ------------- | ------------- |
+| [Ikea Fyrtur Blackout Roller Blind ](https://www.ikea.com/us/en/p/fyrtur-blackout-roller-blind-wireless-battery-operated-gray-90417462/) | 20 | Zigbee - Ikea| [Ikea Tradfri](https://www.home-assistant.io/integrations/tradfri/)| Automated shades for every room
+All grouped via [cover.yaml](https://github.com/mcaminiti/homeassistant/blob/master/cover.yaml)
 
 ## Network
 | [Go to Menu](#menu) |
