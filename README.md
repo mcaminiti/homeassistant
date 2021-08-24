@@ -46,7 +46,7 @@ Typical Automations in use include
 - Change Ecobee mode when fireplace running
 
 # Menu
-| [Hubs](#hubs) | [Lighting and Switches](#lighting) | [Climate](#climate)| [Outlets](#outlets) | [Security](#security) | [Voice Assistant](#voice) | [Media](#media) | [Sensors](#sensors) | [Cameras](#cameras) | [Garage](#garage) | [Vacuum](#vacuum) | [Shades](#shades) | [Network](#network) | [Other Hardware](#other)| [Software](#software) | [Retired Devices](#retired)  | [Screenshots](#screenshots) |
+| [Hubs](#hubs) | [Lighting and Switches](#lighting-and-switches) | [Climate](#climate)| [Outlets](#outlets) | [Security](#security) | [Voice Assistant](#voice-assistant) | [Media](#media) | [Sensors](#sensors) | [Cameras](#cameras) | [Garage](#garage) | [Vacuum](#vacuum) | [Shades](#shades) | [Network](#network) | [Other Hardware](#other)| [Software](#software) | [Retired Devices](#retired)  | [Screenshots](#screenshots) |
 
 # Devices
 
@@ -58,7 +58,7 @@ Typical Automations in use include
 | [Phillips Hue Hub v2](https://amzn.to/2HnWMDV) | 1 | Ethernet | [Philips Hue](https://www.home-assistant.io/components/hue/) | Used to control Phillips Hue Color, Lux, and White bulbs |
 | [Aeotec Z‐Stick Gen5 USB Controller](https://www.amazon.com/dp/B089GSFKYW/ref=cm_sw_em_r_mt_dp_CM97863J5NH71ZEXV8SG) | 1 | USB | [ZWaveJS2MQTT](https://www.home-assistant.io/integrations/zwave_js/) | ZWave Controller USB Connected to NUC Server running ZwaveJS2MQTT.|
 | [Lutron Caseta Pro](https://www.amazon.com/Lutron-Caseta-L-BDGPRO2-WH-SmartBridge-Programmed/dp/B00Z8AXQCQ/) | 1 | Ethernet | [CUSTOM - Lutron Caseta Pro](https://github.com/jhanssen/home-assistant/tree/caseta-0.40) | Lutron Smart bridge Pro 2 for controlling local access to Lutron dimmers and devices|
-
+| [Ikea Tradfri Zigbee Hub ](https://www.ikea.com/us/en/p/tradfri-gateway-white-00337813/) | 1 | Ethernet | [Ikea Tradfri](https://www.home-assistant.io/integrations/tradfri/)| Hub to control automated shades for every room and shade remotes
 
 Relevant hub configurations can be found within [configuration.yaml](https://github.com/mcaminiti/homeassistant/blob/master/configuration.yaml)
 Phillips Hue hub connected via home-assistant integrations.
