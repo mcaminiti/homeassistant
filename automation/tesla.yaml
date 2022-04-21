@@ -1,0 +1,25 @@
+#################################################################
+## Tesla Automations
+#################################################################
+
+        ##########################################################
+        ## Teslamate Update - GPS
+        ##########################################################
+
+- alias: Teslamate - Update Tesla location as MQTT location updates
+  id: teslamate_update_location
+  initial_state: on
+  trigger:
+    - platform: mqtt
+      topic: teslamate/cars/1/latitude
+    - platform: mqtt
+      topic: teslamate/cars/1/longitude
+  action:
+    - service: device_tracker.see
+      data_template:
+        dev_id: tesla_location
+        gps:
+          [
+            "{{ states.sensor.tesla_latitude.state }}",
+            "{{ states.sensor.tesla_longitude.state }}"
+          ]

@@ -7,6 +7,7 @@
         ##########################################################
 
 - alias: Outside Christmas Lights On
+  id: 'outside_christmas_lights_on'
 
   trigger:
     - platform: state
@@ -25,6 +26,7 @@
         ##########################################################
 
 - alias: Outside Christmas Lights Off
+  id: 'outside_christmas_lights_off'
 
   trigger:
     - platform: state
@@ -44,6 +46,7 @@
         ##########################################################
 
 - alias: Inside Christmas Lights On - Household Home
+  id: 'inside_christmas_lights_on_household_home'
 
   trigger:
     - platform: state
@@ -68,6 +71,7 @@
         ##########################################################
 
 - alias: Inside Christmas Lights On
+  id: 'inside_christmas_lights_on'
 
   trigger:
     - platform: sun
@@ -75,9 +79,6 @@
       offset: '-00:10:00'
 
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
     - condition: state
       entity_id: input_select.outdoor_theme
       state: 'Christmas'       

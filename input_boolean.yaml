@@ -80,6 +80,10 @@
     name: Biocube Maintenance Mode
     icon: mdi:fishbowl
 
+  garage_double_door_motor:
+    name: Double Door Garage Motor
+    icon: mdi:garage
+
 ##############################################################
 ## Disable - Input Booleans  ##
 ##############################################################
@@ -108,6 +112,11 @@
     name: Disable Away Notifications
     icon: mdi:home-export-outline
 
+  disable_auto_garage:
+    name: Disable Auto Garage
+    icon: mdi:garage
+
+
 ##############################################################
 ## Alarms - Input Booleans  ##
 ##############################################################
@@ -115,3 +124,11 @@
   alarm_basement_water_sensor:
     name: Alarm Basement Water Sensor
     icon: mdi:bell-ring
+
+
+##############################################################
+## Tesla - Input Booleans  ##
+##############################################################
+
+  teslagreydrawer:
+    name: Tesla Gray Drawer

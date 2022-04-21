@@ -39,7 +39,7 @@
 
   action:
     service: light.turn_on
-    entity_id: light.pantry_lights
+    entity_id: light.pantry
     data:
      brightness: 255
 
@@ -57,7 +57,7 @@
 
   action:
     service: light.turn_off
-    entity_id: light.pantry_lights
+    entity_id: light.pantry
 
         ##########################################################
         ## Hall Closet Lights On When Door Open
@@ -73,7 +73,7 @@
 
   action:
     service: light.turn_on
-    entity_id: light.hall_closet_lights
+    entity_id: light.hall_closet
     data:
      brightness: 255
 
@@ -91,7 +91,7 @@
 
   action:
     service: light.turn_off
-    entity_id: light.hall_closet_lights
+    entity_id: light.hall_closet
 
         ##########################################################
         ## Hall Closet Lights Off When On for 10 Minutes
@@ -101,7 +101,7 @@
 
   trigger:
     - platform: state
-      entity_id: light.hall_closet_lights
+      entity_id: light.hall_closet
       from: 'off'
       to: 'on'
       for:

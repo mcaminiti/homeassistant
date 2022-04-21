@@ -10,8 +10,6 @@
     display_options:
       - 'date_time'
       - 'time'     
-  - platform: cpuspeed
-    name: CPU
   - platform: systemmonitor
     resources:
       - type: memory_free
@@ -69,30 +67,15 @@
       - volume_size_used
       - volume_percentage_used
 
-        ##########################################################
-        ## DNS Lookup
-        ##########################################################
-
-  - platform: dnsip
-  - platform: dnsip
-    hostname: !secret secret_dns_home_hostname
-    name: REDACTED
-  - platform: dnsip
-    hostname: !secret secret_dns_REDACTED_hostname
-    name: REDACTED
-  - platform: dnsip
-    hostname: !secret secret_dns_parents_hostname
-    name: REDACTED
-
 
         ##########################################################
         ## Washing Machine
         ##########################################################
-
-  - platform: template
-    sensors:
-      washing_machine_current_power:
-        value_template: '{{ states.switch.washing_machine.attributes.current_power_w }}'
+## Removed in 2022.4
+#  - platform: template
+#    sensors:
+#      washing_machine_current_power:
+#        value_template: '{{ states.switch.washing_machine.attributes.current_power_w }}'
 
   - platform: template
     sensors:
@@ -226,14 +209,9 @@
 
   - platform: template
     sensors:
-      fireplace_current_power:
-        value_template: '{{ states.switch.fireplace.attributes.current_power_w }}'
-
-  - platform: template
-    sensors:
       fireplace_status:
         value_template: >-
-          {%- if states('sensor.fireplace_current_power') | int >= 1 %}
+          {%- if states('sensor.fireplace_electric_w') | int >= 1 %}
             running
           {% else %}
             not running
@@ -243,11 +221,11 @@
         ##########################################################
         ## Golf Cart
         ##########################################################
-
-  - platform: template
-    sensors:
-      golf_cart_current_power:
-        value_template: '{{ states.switch.golf_cart.attributes.current_power_w }}'
+## Removed in 2022.4
+#  - platform: template
+#    sensors:
+#      golf_cart_current_power:
+#        value_template: '{{ states.switch.golf_cart.attributes.current_power_w }}'
 
   - platform: template
     sensors:
@@ -272,9 +250,9 @@
     sensors:
       lift_station_status:
         value_template: >-
-          {%- if states('sensor.e6_1_ct1_lift_station_watts') | int >= 500 %}
+          {%- if states('sensor.esp_energy_ct1_lift_station_watts') | int >= 500 %}
             running
-          {% elif states('sensor.e6_1_ct1_lift_station_watts') | int >= 5 %}
+          {% elif states('sensor.esp_energy_ct1_lift_station_watts') | int >= 5 %}
             check system
           {% else %}
             not running
@@ -295,11 +273,12 @@
         ##########################################################
         ## HVAC Honeywell Air Cleaner
         ##########################################################
+## Removed in 2022.4
+#  - platform: template
+#    sensors:
+#      air_cleaner_current_power:
+#        value_template: '{{ states.switch.air_cleaner.attributes.current_power_w }}'
 
-  - platform: template
-    sensors:
-      air_cleaner_current_power:
-        value_template: '{{ states.switch.air_cleaner.attributes.current_power_w }}'
   - platform: template
     sensors:
       air_cleaner_status:
@@ -500,6 +479,25 @@
         value_template: '{{ states.sensor.USER3_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER3_iphone_geocoded_location.attributes["Administrative Area"]}}'
 
         ##########################################################
+        ## Driving Sensors
+        ##########################################################
+
+  - platform: template
+    sensors:
+      USER1_driving_status:
+        value_template: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.driving }}'
+
+  - platform: template
+    sensors:
+      USER2_driving_status:
+        value_template: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.driving }}'
+
+  - platform: template
+    sensors:
+      USER3_driving_status:
+        value_template: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.driving }}'
+
+        ##########################################################
         ## Pico Remote Light Brightness Sensor
         ##########################################################
   - platform: template
@@ -520,3 +518,102 @@
     type: time
     start: "{{ now().replace(hour=0, minute=0, second=0) }}"
     end: "{{ now() }}"
+
+       ##########################################################
+        ## Integration Energy Sensors
+       ##########################################################
+
+  - platform: integration
+    source: sensor.esp_energy_total_watts
+    name: energy_total
+    unit_prefix: k
+    round: 2
+
+
+
+        ##########################################################
+        ## Tesla Sensors
+        ##########################################################
+  - platform: mqtt
+    name: tesla_battery_level
+    state_topic: "teslamate/cars/1/battery_level"
+    unit_of_measurement: '%'
+    icon: mdi:battery-80
+
+  - platform: mqtt
+    name: tesla_charge_energy_added
+    state_topic: "teslamate/cars/1/charge_energy_added"
+    unit_of_measurement: 'kW'
+    icon: mdi:battery-80
+
+  - platform: mqtt
+    name: tesla_charge_limit
+    state_topic: "teslamate/cars/1/charge_limit_soc"
+    unit_of_measurement: '%'
+    icon: mdi:battery-80
+
+  - platform: mqtt
+    name: tesla_estimated_range
+    state_topic: "teslamate/cars/1/est_battery_range_km"
+    value_template: "{{ (value | float * 0.621371) |round(2) }}"
+    unit_of_measurement: 'mi' 
+    icon: mdi:map-marker-path
+
+  - platform: mqtt
+    name: tesla_inside_temp
+    state_topic: "teslamate/cars/1/inside_temp"
+    unit_of_measurement: °C
+    device_class: temperature
+    icon: mdi:thermometer-lines
+
+  - platform: mqtt
+    name: tesla_outside_temp
+    state_topic: "teslamate/cars/1/outside_temp"
+    unit_of_measurement: °C
+    device_class: temperature
+    icon: mdi:thermometer-lines
+
+  - platform: mqtt
+    name: tesla_rated_range
+    state_topic: "teslamate/cars/1/rated_battery_range_km"
+    value_template: "{{ (value | float * 0.621371) |round(2) }}"
+    unit_of_measurement: 'mi'    
+    icon: mdi:map-marker-path
+
+  - platform: mqtt
+    name: tesla_speed
+    state_topic: "teslamate/cars/1/speed"
+    icon: mdi:speedometer
+
+  - platform: mqtt
+    name: tesla_state
+    state_topic: "teslamate/cars/1/state"
+    icon: mdi:car-connected
+
+  - platform: mqtt
+    name: tesla_time_to_full_charge
+    state_topic: "teslamate/cars/1/time_to_full_charge"
+    icon: mdi:car-clock 
+
+  - platform: mqtt
+    name: tesla_odometer
+    state_topic: "teslamate/cars/1/odometer"
+    value_template: "{{ (value | float * 0.621371) |round(2) }}"
+    unit_of_measurement: 'mi'     
+    icon: mdi:counter
+
+  - platform: mqtt
+    name: tesla_usable_battery_level
+    state_topic: "teslamate/cars/1/usable_battery_level"
+    unit_of_measurement: '%'
+    icon: mdi:battery-80
+
+  - platform: mqtt
+    name: tesla_latitude
+    state_topic: "teslamate/cars/1/latitude"
+    icon: mdi:crosshairs-gps
+
+  - platform: mqtt
+    name: tesla_longitude
+    state_topic: "teslamate/cars/1/longitude"
+    icon: mdi:crosshairs-gps   

@@ -28,4 +28,4 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high

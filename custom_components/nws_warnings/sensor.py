@@ -3,7 +3,7 @@
 NWS Warnings
 ---------------------------------------------------------
 
-Version 0.1
+Version 0.2
 Written by Matt REDACTED
 https://github.com/mREDACTED/nws_warnings
 
@@ -83,7 +83,7 @@ class NWSAlertSensor(Entity):
         return self._state
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
         """Return the state message."""
         attributes = {"severe_thunderstorm_warning": self._severe_thunderstorm_warning,
                       "tornado_watch": self._tornado_watch,

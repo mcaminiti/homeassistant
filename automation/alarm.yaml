@@ -7,6 +7,7 @@
         ##########################################################
 
 - alias: Alarm - Trouble Notification
+  id: 'alarm_trouble_notification'  
 
   trigger:
     - platform: state
@@ -25,6 +26,7 @@
         ##########################################################
 
 - alias: Away Notification - Garage Door Opened
+  id: 'away_notification_garage_door_opened'
 
   trigger:
     - platform: state
@@ -50,13 +52,14 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
         ##########################################################
         ## Away Notification - Back Door Opened
         ##########################################################
 
 - alias: Away Notification - Back Door Opened
+  id: 'away_notification_back_door_opened'
 
   trigger:
     - platform: state
@@ -81,13 +84,15 @@
         data:
           push:
             category: camera
-          entity_id: camera.south_back_door
+          entity_id: camera.south_back_door_high
 
         ##########################################################
         ## Away Notification - Front Door Opened
         ##########################################################
 
 - alias: Away Notification - Front Door Opened
+  id: 'away_notification_front_door_opened'
+
 
   trigger:
     - platform: state
@@ -112,7 +117,7 @@
         data:
           push:
             category: camera
-          entity_id: camera.north_front_door
+          entity_id: camera.north_front_door_high
 
 
         ##########################################################
@@ -120,6 +125,7 @@
         ##########################################################
 
 - alias: Away Notification - Basement Door Opened
+  id: 'away_notification_basement_door_opened'
 
   trigger:
     - platform: state
@@ -144,13 +150,14 @@
         data:
           push:
             category: camera
-          entity_id: camera.west_walkout
+          entity_id: camera.west_walkout_high
 
         ##########################################################
         ## Away Notification - Garage Back Door Opened
         ##########################################################
 
 - alias: Away Notification - Garage Back Door Opened
+  id: 'away_notification_garage_back)door_opened'
 
   trigger:
     - platform: state
@@ -175,4 +182,4 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high

@@ -57,4 +57,4 @@
   action:  
     - service: notify.mobile_app_USER1_iphone
       data:
-        message: "Lift Station Error - Check Status - {{states.sensor.e6_1_ct1_lift_station_watts.state}}"
+        message: "Lift Station Error - Check Status - {{states.sensor.esp_energy_ct1_lift_station_watts.state}}"

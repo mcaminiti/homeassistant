@@ -10,6 +10,20 @@
     filter:
       include_entities:
         - light.basement
+        - light.family_room
+        - light.pantry
+        - light.hall_closet
+        - light.guest_bedroom
+        - light.USER3_bedroom
+        - light.USER4_bedroom
+        - light.USER1_bedroom_1
+        - light.USER2_bedroom_1
+        - light.USER4_bedroom_1
+        - light.USER3_bedroom_ceiling_light
+        - light.USER4_bedroom_ceiling_light
+        - light.kitchen_cabinets
+        - light.kitchen_ceiling
+        - light.USER3_bedroom_1
         - cover.family_room
         - cover.guest_bedroom
         - cover.kitchen
@@ -18,7 +32,14 @@
         - cover.USER3_bedroom
         - cover.USER4_bedroom
         - cover.basement_door
-
+        - fan.USER3_bedroom_ceiling_fan
+        - fan.USER4_bedroom_ceiling_fan
+        - fan.master_bedroom_ceiling_fan
+        - fan.office_ceiling_fan
+        - fan.family_room_ceiling_fan
+        - group.christmas_inside_lights
+        - switch.USER3_christmas_tree
+        - switch.USER4_christmas_tree
 
     entity_config:
         ##########################################################
@@ -93,6 +114,25 @@
         ##########################################################        
 
 
+      fan.USER3_bedroom_ceiling_fan:
+        name: USER3 Bedroom Ceiling Fan
+        description: USER3 Bedroom Ceiling Fan
+
+      fan.USER4_bedroom_ceiling_fan:
+        name: USER4 Bedroom Ceiling Fan
+        description: USER4 Bedroom Ceiling Fan
+
+      fan.master_bedroom_ceiling_fan:
+        name: Master Bedroom Ceiling Fan
+        description: Master Bedroom Ceiling Fan
+
+      fan.office_ceiling_fan:
+        name: Office Ceiling Fan
+        description: Office Ceiling Fan
+
+      fan.family_room_ceiling_fan:
+        name: Family Room Ceiling Fan
+        description: Family Room Ceiling Fan
 
 
 
@@ -107,3 +147,51 @@
       light.basement:
         name: Basement Lights
         description: Basement Lights
+
+      light.family_room:
+        name: Family Room Lights
+        description: Family Room Lights
+
+      light.pantry:
+        name: Pantry Lights
+        description: Pantry Lights
+
+      light.hall_closet:
+        name: Hall Closet Lights
+        description: Hall Closet Lights
+
+      light.guest_bedroom:
+        name: Guest Bedroom Lights
+        description: Guest Bedroom Lights
+ 
+      light.USER3_bedroom:
+        name: USER3 Bedroom Lights
+        description: USER3 Bedroom Lights
+
+      light.USER3_bedroom_1:
+        name: USER3 Bedroom Lamp
+        description: USER3 Bedroom Lamp   
+
+      light.USER4_bedroom:
+        name: USER4 Bedroom Lights
+        description: USER4 Bedroom Lights
+
+      light.USER4_bedroom_1:
+        name: USER4 Bedroom Lamp
+        description: USER4 Bedroom Lamp        
+
+      light.USER1_bedroom_1:
+        name: USER1 Bedroom Light
+        description: USER1 Bedroom Lights
+
+      light.USER2_bedroom_1:
+        name: USER2 Bedroom Light
+        description: USER2 Bedroom Lights
+
+      light.kitchen_cabinets:
+        name: Kitchen Cabinet
+        description: Kitchen Cabinet Lights
+
+      light.kitchen_ceiling:
+        name: Kitchen Ceiling
+        description: Kitchen Ceiling Lights

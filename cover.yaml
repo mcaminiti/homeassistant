@@ -61,11 +61,11 @@
 - platform: group
   name: Guest Bedroom
   entities:
-  - cover.guest_bedroom_1
-  - cover.guest_bedroom_2
+  - cover.guest_bedroom_shade_1
+  - cover.guest_bedroom_shade_2
 
 - platform: group
   name: Office
   entities:
-  - cover.office_1
-  - cover.office_2
+  - cover.office_shade_1
+  - cover.office_shade_2

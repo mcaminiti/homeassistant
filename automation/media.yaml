@@ -1,0 +1,60 @@
+##################################################################
+## Media Automations
+##################################################################
+
+        ##########################################################
+        ## Basement Media Left On - Turn off
+        ##########################################################
+- alias: Basement Harmony - Turn Off when TV Falls Asleep
+  id: basement_harmony_turn_off
+
+  trigger:
+    - platform: state
+      entity_id: media_player.basement_tv
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.basement_media_center
+        state: "PowerOff"
+
+  action:
+    - service: input_select.select_option
+      data:
+        option: "PowerOff"
+      target:
+        entity_id: input_select.remote_basement
+
+
+        ##########################################################
+        ## Family Room Media Left On - Turn off
+        ##########################################################
+- alias: Basement Harmony - Turn Off when TV Falls Asleep
+  id: family_room_harmony_turn_off
+
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.family_room_media_center
+        state: "PowerOff"
+
+  action:
+    - service: input_select.select_option
+      data:
+        option: "PowerOff"
+      target:
+        entity_id: input_select.remote_family_room

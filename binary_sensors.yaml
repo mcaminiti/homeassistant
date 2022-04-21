@@ -22,3 +22,105 @@
     host: REDACTED.1
     name: REDACTED VPN
     scan_interval: 120
+
+  #################################################################
+  ## Tesla Sensors
+  #################################################################
+
+  - platform: mqtt
+    name: tesla_healthy
+    state_topic: "teslamate/cars/1/healthy"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:heart-pulse
+
+  - platform: mqtt
+    name: tesla_update_available
+    state_topic: "teslamate/cars/1/update_available"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:alarm
+  
+  - platform: mqtt
+    name: tesla_locked
+    device_class: lock
+    state_topic: "teslamate/cars/1/locked"
+    payload_on: "false"
+    payload_off: "true"
+
+  - platform: mqtt
+    name: tesla_sentry_mode
+    state_topic: "teslamate/cars/1/sentry_mode"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:cctv
+
+  - platform: mqtt
+    name: tesla_windows_open
+    device_class: window
+    state_topic: "teslamate/cars/1/windows_open"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:car-door
+
+  - platform: mqtt
+    name: tesla_doors_open
+    device_class: door
+    state_topic: "teslamate/cars/1/doors_open"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:car-door
+
+  - platform: mqtt
+    name: tesla_trunk_open
+    device_class: opening
+    state_topic: "teslamate/cars/1/trunk_open"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:car-side
+
+  - platform: mqtt
+    name: tesla_frunk_open
+    device_class: opening
+    state_topic: "teslamate/cars/1/frunk_open"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:car-side
+
+  - platform: mqtt
+    name: tesla_is_user_present
+    device_class: presence
+    state_topic: "teslamate/cars/1/is_user_present"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:human-greeting
+
+  - platform: mqtt
+    name: tesla_is_climate_on
+    state_topic: "teslamate/cars/1/is_climate_on"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:fan
+
+  - platform: mqtt
+    name: tesla_is_preconditioning
+    state_topic: "teslamate/cars/1/is_preconditioning"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:fan
+
+  - platform: mqtt
+    name: tesla_plugged_in
+    device_class: plug
+    state_topic: "teslamate/cars/1/plugged_in"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:ev-station
+
+  - platform: mqtt
+    name: tesla_charge_port_door_open
+    device_class: opening
+    state_topic: "teslamate/cars/1/charge_port_door_open"
+    payload_on: "true"
+    payload_off: "false"
+    icon: mdi:ev-plug-tesla

@@ -7,35 +7,35 @@
   #  nvr: REDACTED.101
   #  key: !secret secret_uvc_key
   #  password: !secret secret_uvc_password
-  - platform: generic
-    name: North-Front-Door
-    still_image_url: https://REDACTED.220/snap.jpeg
-    stream_source: rtsp://REDACTED.3:7447/REDACTED
-    verify_ssl: false
+  #- platform: generic
+  #  name: North-Front-Door
+  #  still_image_url: https://REDACTED.220/snap.jpeg
+  #  stream_source: rtsp://REDACTED.3:7447/REDACTED
+  #  verify_ssl: false
 
-  - platform: generic
-    name: West-Walkout
-    still_image_url: https://REDACTED.247/snap.jpeg
-    stream_source: rtsp://REDACTED.3:7447/REDACTED
-    verify_ssl: false
+#  - platform: generic
+#    name: West-Walkout
+#    still_image_url: https://REDACTED.247/snap.jpeg
+#    stream_source: rtsp://REDACTED.3:7447/REDACTED
+#    verify_ssl: false
 
-  - platform: generic
-    name: East-Driveway
-    still_image_url: https://REDACTED.159/snap.jpeg
-    stream_source: rtsp://REDACTED.3:7447/REDACTED
-    verify_ssl: false
+#  - platform: generic
+#    name: East-Driveway
+#    still_image_url: https://REDACTED.159/snap.jpeg
+#    stream_source: rtsp://REDACTED.3:7447/REDACTED
+#    verify_ssl: false
 
-  - platform: generic
-    name: Garage
-    still_image_url: https://REDACTED.160/snap.jpeg
-    stream_source: rtsp://REDACTED.3:7447/REDACTED
-    verify_ssl: false
+#  - platform: generic
+#    name: Garage
+#    still_image_url: https://REDACTED.160/snap.jpeg
+#    stream_source: rtsp://REDACTED.3:7447/REDACTED
+#    verify_ssl: false
 
-  - platform: generic
-    name: South-Back-Door
-    still_image_url: https://REDACTED.143/snap.jpeg
-    stream_source: rtsp://REDACTED.3:7447/REDACTED
-    verify_ssl: false
+#  - platform: generic
+#    name: South-Back-Door
+#    still_image_url: https://REDACTED.143/snap.jpeg
+#    stream_source: rtsp://REDACTED.3:7447/REDACTED
+#    verify_ssl: false
 
 #  - platform: ffmpeg
 #    input: -rtsp_transport tcp -i rtsp://REDACTED.3:7447/REDACTED

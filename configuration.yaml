@@ -21,7 +21,6 @@ frontend:
 
 # Checks for available updates
 updater:
-  reporting: no
 
 # Track the sun
 sun:
@@ -41,6 +40,7 @@ http:
   ssl_certificate: !secret secret_ssl_certificate
   ssl_key: !secret secret_ssl_key
 
+energy:
 
 #################################################################
 ## Components
@@ -152,15 +152,22 @@ tts:
 
 # Stream Componant
 stream:
+  ll_hls: false
 
 # LG TV
-webostv:
-  - name: Family Room TV
-    host: 'REDACTED.80'
-  - name: Basement TV
-    host: 'REDACTED.42'
+#webostv:
+#  - name: Family Room TV
+#    host: 'REDACTED.80'
+#  - name: Basement TV
+#    host: 'REDACTED.42'
 
-
+proximity:
+  home_tesla:
+    zone: home
+    devices:
+      - device_tracker.tesla_location
+    tolerance: 10
+    unit_of_measurement: m
 
 # WeMo
 wemo:
@@ -168,11 +175,12 @@ wemo:
     - REDACTED.46
     - REDACTED.47
     - REDACTED.48
-    - REDACTED.69
     - REDACTED.70
     - REDACTED.71
     - REDACTED.72                
     - REDACTED.73
+#    - REDACTED.69
+
 
 #tplink:
 #  discovery: false
@@ -323,13 +331,11 @@ recorder: !include recorder.yaml
 group: !include groups.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
-camera: !include camera.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 light: !include light_group.yaml
 cover: !include cover.yaml
 script: !include scripts.yaml
-ios: !include ios.yaml
 switch: !include switch.yaml
 cloud: !include cloud.yaml

@@ -7,6 +7,7 @@
         ##########################################################
 
         - alias: Biocube32 Feed Mode On
+          id: 'biocube_feed_mode_on'
 
           trigger:
             - platform: state
@@ -28,6 +29,7 @@
         ##########################################################
 
         - alias: Biocube32 Feed Mode Off
+          id: 'biocube_feed_mode_off'
 
           trigger:
             - platform: state
@@ -48,6 +50,7 @@
         ##########################################################
 
         - alias: Biocube32 High Temperature
+          id: 'biocube_temperature_high'
 
           trigger:
             - platform: numeric_state
@@ -75,6 +78,7 @@
         ##########################################################
 
         - alias: Biocube32 Low Temperature
+          id: 'biocube_temperature_low'
 
           trigger:
             - platform: numeric_state
@@ -105,6 +109,7 @@
         ##########################################################
 
         - alias: Biocube32 Pump Left Off After Feeding
+          id: 'biocube_pump_left_off_after_feeding'
 
           trigger:
             - platform: state
@@ -136,6 +141,7 @@
         ##########################################################
 
         - alias: Biocube32 Pump Off 15m
+          id: 'biocube_pump_off_15m'
 
           trigger:
             - platform: state
@@ -174,6 +180,7 @@
         ##########################################################
 
         - alias: Biocube32 Wavemaker Off 20m
+          id: 'biocube_wavemaker_off_20m'
 
           trigger:
             - platform: state
@@ -230,6 +237,7 @@
         ##########################################################
 
         - alias: Biocube32 ATO Running
+          id: 'biocube_ato_running'
             
           trigger:
             - platform: state
@@ -247,7 +255,8 @@
         ##########################################################  
 
         - alias: Biocube32 ATO Running LONG
-            
+          id: 'biocube_ato_running_long'
+
           trigger:
             - platform: state
               entity_id: sensor.biocube_ato_status
@@ -270,11 +279,12 @@
         ##########################################################
 
         - alias: Biocube32 ATO Tank Low
-            
+          id: 'biocube_ato_tank_low'
+
           trigger:
             - platform: numeric_state
               entity_id: sensor.biocube_32_ato_reservoir_level
-              below: 50
+              below: 30
               for:
                 hours: 0
                 minutes: 5
@@ -294,6 +304,7 @@
         ##########################################################  
 
         - alias: Biocube32 ATO Off - Disable Pump
+          id: 'biocube_ato_off_disable_pump'
             
           trigger:
             - platform: state
@@ -310,6 +321,7 @@
         ##########################################################  
 
         - alias: Biocube32 ATO On - Enable Pump
+          id: 'biocube_ato_on_enable_pump'
             
           trigger:
             - platform: state
@@ -330,6 +342,7 @@
         ##########################################################
 
         - alias: Biocube32 Maintenance Mode - 60m
+          id: 'biocube_maintenance_mode_60m'
 
           trigger:
             - platform: state
@@ -356,10 +369,11 @@
         ##########################################################
 
         - alias: Feed Fish Reminder - USER4
+          id: 'biocube_feed_fish_reminder_USER4'
 
           trigger:
             - platform: time
-              at: '16:15:00'
+              at: '17:00:00'
           condition:
             condition: and
             conditions:
@@ -387,10 +401,11 @@
         ##########################################################
 
         - alias: Feed Fish Reminder - All
+          id: 'biocube_feed_fish_reminder_all'
 
           trigger:
             - platform: time
-              at: '16:40:00'
+              at: '17:30:00'
           condition:
             - condition: state
               entity_id: input_boolean.fish_fed_today
@@ -411,6 +426,7 @@
         ##########################################################
 
         - alias: Fish Fed Today - Reset Switch
+          id: 'biocube_feed_fish_reset'
 
           trigger:
             - platform: time

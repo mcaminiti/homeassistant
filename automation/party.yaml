@@ -28,19 +28,24 @@
         ##########################################################
 
 - alias: Party - Set Family Room to Random Color
+  id: party_family_room_color_on
 
   trigger:
-    - platform: state
+    - platform: time_pattern
+      seconds: '/6'
+
+  condition:
+    - condition: state
       entity_id: input_boolean.party_family_room
-      to: 'on'
+      state: 'on'
 
   action:
     - service: light.turn_on
       entity_id: light.family_room
       data:
-        effect: colorloop
         transition: 5
         brightness_pct: 100
+        color_name: "{{ ['lawngreen', 'blueviolet', 'magenta', 'yellow', 'red'] | random }}"
 
         ##########################################################
         ## Family Room Random Colors Off
@@ -100,3 +105,27 @@
         transition: 30
         brightness_pct: 100
         kelvin: 2700
+
+
+        ##########################################################
+        ## Test Party Mode
+        ##########################################################
+
+- alias: Party - Set Test Random Color
+
+  trigger:
+    - platform: time_pattern
+      seconds: '/6'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.party_family_room
+      state: 'on'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.family_room_2
+      data:
+        transition: 5
+        brightness_pct: 100
+        color_name: "{{ ['lawngreen', 'blueviolet', 'magenta', 'yellow', 'red'] | random }}"

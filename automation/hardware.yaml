@@ -87,25 +87,59 @@
 
 
         #################################################################
-        ## Reload Vera Sensors on Home Assistant Start
+        ## Monitor ZWave Unavailable
         #################################################################
 
-- alias: System - Reload Vera Sensors on Home Assistant Start
+- alias: Zwave - Unavailble Sensors in Home Assistant
+  id: 'hardware_zwave_unavailable_sesnors'
 
   trigger:
-    - platform: homeassistant
-      event: start
-
+    - platform: state
+      entity_id: binary_sensor.basement_drain_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Basement Drain Water Sensor Unavailable"
+    - platform: state
+      entity_id: binary_sensor.washing_machine_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Washing Machine Water Sensor Unavailable"
+    - platform: state
+      entity_id: binary_sensor.kitchen_sink_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Kitchen Sink Water Sensor Unavailable"     
+    - platform: state
+      entity_id: binary_sensor.refrigerator_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Refrigerator Water Sensor Unavailable" 
+    - platform: state
+      entity_id: binary_sensor.filtration_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Filtration Water Sensor Unavailable"     
+    - platform: state
+      entity_id: binary_sensor.red_sea_floor_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Red Sea Floor Water Sensor Unavailable"       
+    - platform: state
+      entity_id: binary_sensor.red_sea_sump_water_sensor
+      to: "unavailable"
+      variables:
+        trigger_message: "Red Sea Sump Water Sensor Unavailable"
+    - platform: state
+      entity_id:  switch.basement_bathroom 
+      to: "unavailable"
+      variables:
+        trigger_message: "Basement Bathroom Switch Unavailable"
+    - platform: state
+      entity_id:  switch.basement_room
+      to: "unavailable"
+      variables:
+        trigger_message: "Basement Room Switch Unavailable"
   action:
-    - service: homeassistant.update_entity
+    - service: notify.mobile_app_USER1_iphone
       data:
-        entity_id:
-          - sensor.basement_humidity_sensor
-          - sensor.basement_light_sensor
-          - binary_sensor.basement_motion_sensor
-          - binary_sensor.family_room_motion
-          - sensor.family_room_humidity_sensor
-          - sensor.family_room_light_sensor
-          - sensor.basement_temperature_sensor
-          - sensor.basement_temperature
-          - sensor.family_room_temperature_sensor
+        message: "{{ trigger_message }}"

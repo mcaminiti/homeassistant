@@ -2,75 +2,6 @@
 ## Light Group
 #################################################################
 
-#################################################################
-## Wiz Lights
-#################################################################
-
-  - platform: wiz_light
-    name: Basement Recessed 1
-    host: REDACTED.25
-  - platform: wiz_light
-    name: Basement Recessed 2
-    host: REDACTED.26
-  - platform: wiz_light
-    name: Basement Recessed 3
-    host: REDACTED.27
-  - platform: wiz_light
-    name: Basement Recessed 4
-    host: REDACTED.28
-  - platform: wiz_light
-    name: Basement Recessed 5
-    host: REDACTED.29
-  - platform: wiz_light
-    name: Basement Recessed 6
-    host: REDACTED.30
-  - platform: wiz_light
-    name: Basement Recessed 7
-    host: REDACTED.20
-  - platform: wiz_light
-    name: Basement Recessed 8
-    host: REDACTED.21
-  - platform: wiz_light
-    name: Basement Recessed 9
-    host: REDACTED.22
-  - platform: wiz_light
-    name: Basement Recessed 10
-    host: REDACTED.19
-  - platform: wiz_light
-    name: Basement Recessed 11
-    host: REDACTED.24
-  - platform: wiz_light
-    name: Basement Recessed 12
-    host: REDACTED.23
-
-  - platform: wiz_light
-    name: Basement Entry Recessed 1
-    host: REDACTED.31
-  - platform: wiz_light
-    name: Basement Entry Recessed 2
-    host: REDACTED.32
-  - platform: wiz_light
-    name: Basement Entry Recessed 3
-    host: REDACTED.33
-  - platform: wiz_light
-    name: Basement Entry Recessed 4
-    host: REDACTED.34
-  - platform: wiz_light
-    name: Basement Entry Recessed 5
-    host: REDACTED.35
-  - platform: wiz_light
-    name: Basement Entry Recessed 6
-    host: REDACTED.36
-  - platform: wiz_light
-    name: Basement Entry Recessed 7
-    host: REDACTED.37
-  - platform: wiz_light
-    name: Basement Entry Recessed 8
-    host: REDACTED.38
-  - platform: wiz_light
-    name: Basement Entry Recessed 9
-    host: REDACTED.39
-
 #####################
 ## Light groups
 #####################
@@ -160,13 +91,13 @@
       - light.guest_bedroom_1
 
   - platform: group
-    name: Pantry Lights
+    name: Pantry
     entities:
       - light.pantry_1
       - light.pantry_2
 
   - platform: group
-    name: Hall Closet Lights
+    name: Hall Closet
     entities:
       - light.hall_closet_1
       - light.hall_closet_2

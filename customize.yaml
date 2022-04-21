@@ -537,23 +537,6 @@
     icon: mdi:television
 
         ##########################################################
-        ## DNS
-        ##########################################################
-
-  sensor.myip:
-    friendly_name: Current IP Address
-    icon: mdi:dns
-  sensor.REDACTED:
-    friendly_name: Home DNS IP Address
-    icon: mdi:dns
-  sensor.REDACTED:
-    friendly_name: Parent DNS IP Address
-    icon: mdi:dns
-  sensor.REDACTED:
-    friendly_name: REDACTED DNS IP Address
-    icon: mdi:dns
-
-        ##########################################################
         ## Input
         ##########################################################
 

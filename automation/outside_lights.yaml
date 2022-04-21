@@ -7,6 +7,7 @@
         ##########################################################
 
 - alias: Front and Walkout Lights Off
+  id: 'front_and_walkout_lights_off' 
 
   trigger:
     - platform: time
@@ -136,7 +137,8 @@
         ##########################################################
 
 - alias: Landscape Hue Light Fix - Night On
-
+  id: 'landscape_hue_light_fix_night_on' 
+  
   trigger:
     - platform: state
       entity_id: light.landscape

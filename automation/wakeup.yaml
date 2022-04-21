@@ -7,6 +7,7 @@
         ##########################################################
 
 - alias: Wakeup All Activation
+  id: 'wakeup_all_activation'
 
   trigger:
     platform: state
@@ -28,6 +29,7 @@
         ## USER2 Wakeup Alarm
         ##########################################################
 - alias: Alarm - USER2 Wakeup Light
+  id: 'wakeup_USER2_wakeup_light'
 
   trigger:
     - platform: template
@@ -74,6 +76,7 @@
         ## USER3 Wakeup Alarm
         ##########################################################
 - alias: Alarm - USER3 Wakeup Light
+  id: 'wakeup_USER3_wakeup_light'
 
   trigger:
     - platform: template
@@ -118,6 +121,7 @@
         ## USER4 Wakeup Alarm
         ##########################################################
 - alias: Alarm - USER4 Wakeup Light
+  id: 'wakeup_USER4_wakeup_light'
 
   trigger:
     - platform: template

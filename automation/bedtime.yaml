@@ -6,7 +6,8 @@
         ## Bedtime - Master Bedroom
         ##########################################################
 
-- alias: Bedtime
+- alias: Bedtime Master Bedroom
+  id: 'bedtime_master_bedroom'
 
   trigger:
     - platform: state
@@ -30,6 +31,7 @@
         ##########################################################
 
 - alias: Bedtime - Reset Switch
+  id: 'bedtime_reset_switch'
 
   trigger:
     - platform: state

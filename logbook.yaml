@@ -91,3 +91,14 @@
       - sensor.USER4_iphone_last_update_trigger
       - sensor.USER4_iphone_ssid
       - sensor.USER4_iphone_steps
+      - binary_sensor.garage_motion
+      - binary_sensor.west_walkout_motion
+      - binary_sensor.red_sea_cam_motion
+      - binary_sensor.east_driveway_motion
+      - binary_sensor.quarantine_tank_motion
+      - binary_sensor.south_back_door_motion
+      - device_tracker.tesla_location
+      - sensor.tesla_latitude
+      - sensor.tesla_longitude
+      - sensor.tesla_speed
+      - automation.teslamate_update_tesla_location_as_mqtt_location_updates

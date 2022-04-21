@@ -7,6 +7,7 @@
         ##########################################################
 
 - alias: Notification - Double Garage Door Open 15 Minutes At Night
+  id: 'double_garage_open_15_minutes_at_night_notification'
 
   trigger:
     - platform: state
@@ -33,13 +34,14 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
         ##########################################################
         ## Single Garage Door Open 15 Minutes At Night - Notification
         ##########################################################
 
 - alias: Notification - Single Garage Door Open 15 Minutes At Night
+  id: 'single_garage_open_15_minutes_at_night_notification'
 
   trigger:
     - platform: state
@@ -66,7 +68,7 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
 
 
@@ -75,6 +77,7 @@
         ##########################################################
 
 - alias: Notification - Double Garage Door Left Open 20m When Cold
+  id: 'double_garage_open_20_minutes_when_cold_notification'
 
   trigger:
     - platform: state
@@ -100,13 +103,14 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
         ##########################################################
         ## Single Garage Door Left Open For 20 Minutes Cold Weather - Notification
         ##########################################################
 
 - alias: Notification - Single Garage Door Left Open 20m When Cold
+  id: 'single_garage_open_20_minutes_when_cold_notification'
 
   trigger:
     - platform: state
@@ -132,7 +136,7 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
 
         ##########################################################
@@ -140,6 +144,7 @@
         ##########################################################
 
 - alias: Notification - Double Garage Door Left Open At Night
+  id: 'double_garage_left_open_at_night_notification'
 
   trigger:
     - platform: state
@@ -172,13 +177,14 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
 
         ##########################################################
         ## Single Garage Door Left Open At Night - Notification
         ##########################################################
 
 - alias: Notification - Single Garage Door Left Open At Night
+  id: 'single_garage_left_open_at_night_notification'
 
   trigger:
     - platform: state
@@ -211,4 +217,163 @@
         data:
           push:
             category: camera
-          entity_id: camera.garage
+          entity_id: camera.garage_high
+
+        ##########################################################
+        ## Double Garage Opening
+        ##########################################################
+
+- alias: Double Garage Door Opening
+  id: 'double_garage_door_opening'
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.garage_double_door_motor
+      to: 'on'
+
+  action:
+    - delay: '00:00:45'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.garage_double_door_motor
+
+        ##########################################################
+        ## USER1 Home from Driving Open Garage Door
+        ##########################################################
+
+- alias: Garage - USER1 Home from Driving Open Garage Door
+  id: 'garage_USER1_home_from_driving_open_garage_door'
+
+  trigger:
+    - platform: state
+      entity_id: person.USER1
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_garage
+      state: 'off'
+    - condition: state
+      entity_id: sensor.USER1_iphone_activity
+      state: 'Automotive'
+    - condition: state
+      entity_id: cover.double_garage
+      state: 'closed'
+    - condition: state
+      entity_id: input_boolean.garage_double_door_motor
+      state: 'off'
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.garage_double_door_motor    
+    - service: cover.open_cover
+      entity_id: cover.double_garage
+
+        ##########################################################
+        ## USER1 Away from Driving Close Garage Door
+        ##########################################################
+
+- alias: Garage - USER1 Away from Driving Close Garage Door
+  id: 'garage_USER1_away_from_driving_close_garage_door'
+
+  trigger:
+    - platform: state
+      entity_id: person.USER1
+      from: 'home'
+      to: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_garage
+      state: 'off'
+    - condition: state
+      entity_id: sensor.USER1_iphone_activity
+      state: 'Automotive'
+    - condition: state
+      entity_id: cover.double_garage
+      state: 'open'
+    - condition: state
+      entity_id: input_boolean.garage_double_door_motor
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: Garage Left Open!
+        data:
+          apns_headers:
+           'apns-collapse-id': 'doublegarage-close'
+          push:
+            badge: 0
+            category: "doublegarageclose"
+
+        ##########################################################
+        ## USER2 Home from Driving Open Garage Door
+        ##########################################################
+
+- alias: Garage - USER2 Home from Driving Open Garage Door
+  id: 'garage_USER2_home_from_driving_open_garage_door'
+
+  trigger:
+    - platform: state
+      entity_id: person.USER2
+      from: 'not_home'
+      to: 'home'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_garage
+      state: 'off'
+    - condition: state
+      entity_id: sensor.USER2_iphone_activity
+      state: 'Automotive'
+    - condition: state
+      entity_id: cover.double_garage
+      state: 'closed'
+    - condition: state
+      entity_id: input_boolean.garage_double_door_motor
+      state: 'off'
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.garage_double_door_motor  
+    - service: cover.open_cover
+      entity_id: cover.double_garage
+
+        ##########################################################
+        ## USER2 Away from Driving Close Garage Door
+        ##########################################################
+
+- alias: Garage - USER2 Away from Driving Close Garage Door
+  id: 'garage_USER2_away_from_driving_close_garage_door'
+
+  trigger:
+    - platform: state
+      entity_id: person.USER2
+      from: 'home'
+      to: 'not_home'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_garage
+      state: 'off'
+    - condition: state
+      entity_id: sensor.USER2_iphone_activity
+      state: 'Automotive'
+    - condition: state
+      entity_id: cover.double_garage
+      state: 'open'
+    - condition: state
+      entity_id: input_boolean.garage_double_door_motor
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: Garage Left Open!
+        data:
+          apns_headers:
+           'apns-collapse-id': 'doublegarage-close'
+          push:
+            badge: 0
+            category: "doublegarageclose"            
