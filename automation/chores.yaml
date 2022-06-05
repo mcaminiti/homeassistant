@@ -1,0 +1,295 @@
+#################################################################
+## Chores - Automations
+#################################################################
+
+        ##########################################################
+        ## Chore - Dishwasher Reminder Morning
+        ##########################################################
+
+
+        ##########################################################
+        ## Chore - Dishwasher Reminder USER3 
+        ##########################################################
+- alias: Chore - Dishwasher Reminder USER3
+  id: 'chore_dishwasher_reminder_USER3'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/1"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_dishwasher_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_dishwasher_reminder
+      before: "21:30:00"    
+    - condition: state
+      entity_id: input_boolean.chore_dishwasher_unloaded
+      state: 'off'
+    - condition: state
+      entity_id: person.USER3
+      state: 'home'
+    - condition: state
+      entity_id: sensor.chore_dishwasher_status
+      state: 'USER3' 
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER3 - Dishwasher Not Emptied Reminder"
+    - service: notify.mobile_app_USER3_iphone
+      data:
+        message: "USER3 - Dishwasher Not Emptied Reminder"      
+
+        ##########################################################
+        ## Chore - Dishwasher Reminder USER4 
+        ##########################################################
+- alias: Chore - Dishwasher Reminder USER4
+  id: 'chore_dishwasher_reminder_USER4'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/1"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_dishwasher_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_dishwasher_reminder
+      before: "21:30:00"    
+    - condition: state
+      entity_id: input_boolean.chore_dishwasher_unloaded
+      state: 'off'
+    - condition: state
+      entity_id: person.USER4
+      state: 'home'
+    - condition: state
+      entity_id: sensor.chore_dishwasher_status
+      state: 'USER4' 
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER4 - Dishwasher Not Emptied Reminder"
+    - service: notify.mobile_app_USER4s_iphone
+      data:
+        message: "USER4 - Dishwasher Not Emptied Reminder"
+
+        ##########################################################
+        ## Chore - Dishwasher Reset if Done 
+        ##########################################################
+- alias: Chore - Dishwasher Reset if Done
+  id: 'chore_dishwasher_reset_if_done'
+
+  trigger:
+    - platform: time
+      at: '01:30:00' 
+  condition:
+    - condition: state
+      entity_id: input_boolean.chore_dishwasher_unloaded
+      state: 'on'
+  action:
+    - service: input_select.select_next
+      target:
+        entity_id: input_select.chore_dishwasher_assignment
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.chore_dishwasher_unloaded    
+
+        ##########################################################
+        ## Chore - USER3 Bedroom Reset if Done 
+        ##########################################################
+- alias: Chore - USER3 Bedroom Reset if Done
+  id: 'chore_USER3_bedroom_reset_if_done'
+
+  trigger:
+    - platform: time
+      at: '01:30:00' 
+  condition:
+    - condition: time
+      weekday:
+       - mon
+    - condition: state
+      entity_id: input_boolean.chore_USER3_bedroom_cleaned
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.chore_USER3_bedroom_cleaned   
+
+        ##########################################################
+        ## Chore - USER3 Bedroom Reminder
+        ##########################################################
+- alias: Chore - USER3 Bedroom Reminder
+  id: 'chore_USER3_bedroom_reminder'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/2"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_USER3_bedroom_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_USER3_bedroom_reminder
+      before: "21:00:00"    
+      weekday:
+       - sat
+       - sun
+    - condition: state
+      entity_id: input_boolean.chore_USER3_bedroom_cleaned
+      state: 'off'
+    - condition: state
+      entity_id: person.USER3
+      state: 'home'     
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER3 Bedroom Not Cleaned Reminder"
+
+        ##########################################################
+        ## Chore - USER4 Bedroom Reset if Done 
+        ##########################################################
+- alias: Chore - USER4 Bedroom Reset if Done
+  id: 'chore_USER4_bedroom_reset_if_done'
+
+  trigger:
+    - platform: time
+      at: '01:30:00' 
+  condition:
+    - condition: time
+      weekday:
+       - mon
+    - condition: state
+      entity_id: input_boolean.chore_USER4_bedroom_cleaned
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.chore_USER4_bedroom_cleaned   
+
+        ##########################################################
+        ## Chore - USER4 Bedroom Reminder
+        ##########################################################
+- alias: Chore - USER4 Bedroom Reminder
+  id: 'chore_USER4_bedroom_reminder'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/2"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_USER4_bedroom_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_USER4_bedroom_reminder
+      before: "21:00:00"          
+      weekday:
+       - sat
+       - sun
+    - condition: state
+      entity_id: input_boolean.chore_USER4_bedroom_cleaned
+      state: 'off'
+    - condition: state
+      entity_id: person.USER4
+      state: 'home'     
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER4 Bedroom Not Cleaned Reminder"
+
+
+
+        ##########################################################
+        ## Chore - USER3 Bathroom Reset if Done 
+        ##########################################################
+- alias: Chore - USER3 Bathroom Reset if Done
+  id: 'chore_USER3_bathroom_reset_if_done'
+
+  trigger:
+    - platform: time
+      at: '01:30:00' 
+  condition:
+    - condition: time
+      weekday:
+       - mon
+    - condition: state
+      entity_id: input_boolean.chore_USER3_bathroom_cleaned
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.chore_USER3_bathroom_cleaned   
+
+        ##########################################################
+        ## Chore - USER3 Bathroom Reminder
+        ##########################################################
+- alias: Chore - USER3 Bathroom Reminder
+  id: 'chore_USER3_bathroom_reminder'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/3"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_USER3_bathroom_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_USER3_bathroom_reminder
+      before: "21:00:00"    
+      weekday:
+       - sat
+       - sun
+    - condition: state
+      entity_id: input_boolean.chore_USER3_bathroom_cleaned
+      state: 'off'
+    - condition: state
+      entity_id: person.USER3
+      state: 'home'     
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER3 Bathroom Not Cleaned Reminder"
+
+        ##########################################################
+        ## Chore - USER4 Bathroom Reset if Done 
+        ##########################################################
+- alias: Chore - USER4 Bathroom Reset if Done
+  id: 'chore_USER4_bathroom_reset_if_done'
+
+  trigger:
+    - platform: time
+      at: '01:30:00' 
+  condition:
+    - condition: time
+      weekday:
+       - mon
+    - condition: state
+      entity_id: input_boolean.chore_USER4_bathroom_cleaned
+      state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.chore_USER4_bathroom_cleaned   
+
+        ##########################################################
+        ## Chore - USER4 Bathroom Reminder
+        ##########################################################
+- alias: Chore - USER4 Bathroom Reminder
+  id: 'chore_USER4_bathroom_reminder'
+
+  trigger:
+    - platform: time_pattern
+      hours: "/3"
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.chore_USER4_bathroom_reminder.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: time
+      after: input_datetime.chore_USER4_bathroom_reminder
+      before: "21:00:00"          
+      weekday:
+       - sat
+       - sun
+    - condition: state
+      entity_id: input_boolean.chore_USER4_bathroom_cleaned
+      state: 'off'
+    - condition: state
+      entity_id: person.USER4
+      state: 'home'     
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "USER4 Bathroom Not Cleaned Reminder"

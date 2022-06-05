@@ -40,6 +40,7 @@
         - group.christmas_inside_lights
         - switch.USER3_christmas_tree
         - switch.USER4_christmas_tree
+        - switch.sound_machine        
 
     entity_config:
         ##########################################################
@@ -140,6 +141,9 @@
         ## Switches
         ##########################################################
 
+      switch.sound_machine:
+        name: Sound Machine
+        description: Sound Machine
 
         ##########################################################
         ## Lights

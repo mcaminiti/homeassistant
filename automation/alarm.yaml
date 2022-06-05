@@ -183,3 +183,92 @@
           push:
             category: camera
           entity_id: camera.garage_high
+
+
+        #################################################################
+        ## Notification - Exterior Door Open Long
+        #################################################################
+
+- alias: Notification - Exterior Door Open Long
+  id: 'alarm_exterior_door_open_long'
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.back_door
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0        
+      variables:
+        trigger_message: "Alert - Back Door Opened 1 Minute"
+        trigger_camera: "camera.south_back_door_high"
+    - platform: state
+      entity_id: binary_sensor.basement_door
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0        
+      variables:
+        trigger_message: "Alert - Basement Door Opened 1 Minute"
+        trigger_camera: "camera.west_walkout_high"
+    - platform: state
+      entity_id: binary_sensor.front_door
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0        
+      variables:
+        trigger_message: "Alert - Front Door Opened 1 Minute"
+        trigger_camera: "camera.north_front_door_high"        
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "{{ trigger_message }}"
+        data:
+          push:
+            category: camera
+          entity_id: "{{ trigger_camera }}"
+
+
+        #################################################################
+        ## Notification - Garage Entry Door Open Long
+        #################################################################
+
+- alias: Notification - Garage Entry Door Open Long
+  id: 'alarm_garage_entry_door_open_long'
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_entry_door
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0        
+      variables:
+        trigger_message: "Alert - Garage Entry Door Opened 1 Minute"
+        trigger_camera: "camera.garage_high"
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: cover.double_garage
+        state: "open"
+      - condition: state
+        entity_id: cover.single_garage
+        state: "open" 
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "{{ trigger_message }}"
+        data:
+          push:
+            category: camera
+          entity_id: "{{ trigger_camera }}"

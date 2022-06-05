@@ -19,9 +19,6 @@ frontend:
 #  extra_html_url:
 #    - /local/hass-bha-icons.html
 
-# Checks for available updates
-updater:
-
 # Track the sun
 sun:
 
@@ -296,6 +293,142 @@ counter:
     step: 1
     icon: mdi:counter
 
+# MQTT SENSORS
+        ##########################################################
+        ## Tesla Sensors
+        ##########################################################
+
+mqtt:
+  sensor:
+    - name: tesla_battery_level
+      state_topic: "teslamate/cars/1/battery_level"
+      unit_of_measurement: '%'
+      icon: mdi:battery-80
+    - name: tesla_charge_energy_added
+      state_topic: "teslamate/cars/1/charge_energy_added"
+      unit_of_measurement: 'kW'
+      icon: mdi:battery-80
+    - name: tesla_charge_limit
+      state_topic: "teslamate/cars/1/charge_limit_soc"
+      unit_of_measurement: '%'
+      icon: mdi:battery-80
+    - name: tesla_estimated_range
+      state_topic: "teslamate/cars/1/est_battery_range_km"
+      value_template: "{{ (value | float * 0.621371) |round(2) }}"
+      unit_of_measurement: 'mi' 
+      icon: mdi:map-marker-path
+    - name: tesla_inside_temp
+      state_topic: "teslamate/cars/1/inside_temp"
+      unit_of_measurement: °C
+      device_class: temperature
+      icon: mdi:thermometer-lines
+    - name: tesla_outside_temp
+      state_topic: "teslamate/cars/1/outside_temp"
+      unit_of_measurement: °C
+      device_class: temperature
+      icon: mdi:thermometer-lines
+    - name: tesla_rated_range
+      state_topic: "teslamate/cars/1/rated_battery_range_km"
+      value_template: "{{ (value | float * 0.621371) |round(2) }}"
+      unit_of_measurement: 'mi'    
+      icon: mdi:map-marker-path
+    - name: tesla_speed
+      state_topic: "teslamate/cars/1/speed"
+      icon: mdi:speedometer
+    - name: tesla_state
+      state_topic: "teslamate/cars/1/state"
+      icon: mdi:car-connected
+    - name: tesla_time_to_full_charge
+      state_topic: "teslamate/cars/1/time_to_full_charge"
+      icon: mdi:car-clock 
+    - name: tesla_odometer
+      state_topic: "teslamate/cars/1/odometer"
+      value_template: "{{ (value | float * 0.621371) |round(2) }}"
+      unit_of_measurement: 'mi'     
+      icon: mdi:counter
+    - name: tesla_usable_battery_level
+      state_topic: "teslamate/cars/1/usable_battery_level"
+      unit_of_measurement: '%'
+      icon: mdi:battery-80
+    - name: tesla_latitude
+      state_topic: "teslamate/cars/1/latitude"
+      icon: mdi:crosshairs-gps
+    - name: tesla_longitude
+      state_topic: "teslamate/cars/1/longitude"
+      icon: mdi:crosshairs-gps   
+  binary_sensor:
+    - name: tesla_healthy
+      state_topic: "teslamate/cars/1/healthy"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:heart-pulse
+    - name: tesla_update_available
+      state_topic: "teslamate/cars/1/update_available"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:alarm
+    - name: tesla_locked
+      device_class: lock
+      state_topic: "teslamate/cars/1/locked"
+      payload_on: "false"
+      payload_off: "true"
+    - name: tesla_sentry_mode
+      state_topic: "teslamate/cars/1/sentry_mode"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:cctv
+    - name: tesla_windows_open
+      device_class: window
+      state_topic: "teslamate/cars/1/windows_open"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:car-door
+    - name: tesla_doors_open
+      device_class: door
+      state_topic: "teslamate/cars/1/doors_open"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:car-door
+    - name: tesla_trunk_open
+      device_class: opening
+      state_topic: "teslamate/cars/1/trunk_open"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:car-side
+    - name: tesla_frunk_open
+      device_class: opening
+      state_topic: "teslamate/cars/1/frunk_open"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:car-side
+    - name: tesla_is_user_present
+      device_class: presence
+      state_topic: "teslamate/cars/1/is_user_present"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:human-greeting
+    - name: tesla_is_climate_on
+      state_topic: "teslamate/cars/1/is_climate_on"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:fan
+    - name: tesla_is_preconditioning
+      state_topic: "teslamate/cars/1/is_preconditioning"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:fan
+    - name: tesla_plugged_in
+      device_class: plug
+      state_topic: "teslamate/cars/1/plugged_in"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:ev-station
+    - name: tesla_charge_port_door_open
+      device_class: opening
+      state_topic: "teslamate/cars/1/charge_port_door_open"
+      payload_on: "true"
+      payload_off: "false"
+      icon: mdi:ev-plug-tesla
 
 ######## Input DateTime ########
 
@@ -324,6 +457,27 @@ input_datetime:
     name: Dr. Tim Waste Away Gel Install Date
     has_date: true
     has_time: false
+  chore_dishwasher_reminder:
+    name: Dishwasher Reminder Time
+    has_date: false    
+    has_time: true
+  chore_USER4_bedroom_reminder:
+    name: USER4 Bedroom Reminder Time
+    has_date: false    
+    has_time: true  
+  chore_USER3_bedroom_reminder:
+    name: USER3 Bedroom Reminder Time
+    has_date: false    
+    has_time: true
+  chore_USER4_bathroom_reminder:
+    name: USER4 Bathroom Reminder Time
+    has_date: false    
+    has_time: true  
+  chore_USER3_bathroom_reminder:
+    name: USER3 Bathroom Reminder Time
+    has_date: false    
+    has_time: true 
+
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml

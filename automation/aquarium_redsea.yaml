@@ -18,3 +18,39 @@
       data_template:
         entity_id: input_number.redsea_uv_light_usage
         value: "{{ states.sensor.red_sea_aqua_uv_runtime_today.state | float / 24 + states.input_number.redsea_uv_light_usage.state | float }}" 
+
+        ##########################################################
+        ## Red Sea Dosing - Enabled
+        ##########################################################
+
+- alias: Red Sea Dosing - Enabled
+  id: 'red_sea_dosing_enabled'
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.red_sea_dosing
+      to: 'on'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.redsea_uv_sterlizer
+
+        ##########################################################
+        ## Red Sea Dosing - Disabled
+        ##########################################################
+
+- alias: Red Sea Dosing - Disabled
+  id: 'red_sea_dosing_disabled'
+
+  trigger:
+    - platform: state
+      entity_id: input_boolean.red_sea_dosing
+      to: 'on'
+      for:
+        hours: "{{ states.input_number.red_sea_dosing_delay.state | int }}"
+        minutes: 0
+        seconds: 0      
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.redsea_uv_sterlizer

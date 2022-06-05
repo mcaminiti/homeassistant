@@ -211,7 +211,7 @@
     sensors:
       fireplace_status:
         value_template: >-
-          {%- if states('sensor.fireplace_electric_w') | int >= 1 %}
+          {%- if states('sensor.fireplace_electric_consumed_w') | int >= 1 %}
             running
           {% else %}
             not running
@@ -416,6 +416,79 @@
         value_template: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery_charging }}'          
 
         ##########################################################
+        ## Chores Sensors
+        ##########################################################
+  - platform: template
+    sensors:
+      chore_dishwasher_status:
+        value_template: >-
+          {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+            Complete
+          {% else %}
+            {{ states('input_select.chore_dishwasher_assignment') }}
+          {% endif %}
+        friendly_name: 'Dishwasher'
+        icon_template: >-
+          {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+            mdi:dishwasher-off
+          {% else %}
+            mdi:dishwasher
+          {% endif %}
+
+  - platform: template
+    sensors:
+      chore_USER3_bedroom_status:
+        value_template: >-
+          {% if is_state('input_boolean.chore_USER3_bedroom_cleaned', 'on') %}
+            Cleaned
+          {% else %}
+            Not Cleaned
+          {% endif %}
+        friendly_name: 'USER3 Bedroom'
+        icon_template: >-
+            mdi:bed
+
+  - platform: template
+    sensors:
+      chore_USER4_bedroom_status:
+        value_template: >-
+          {% if is_state('input_boolean.chore_USER4_bedroom_cleaned', 'on') %}
+            Cleaned
+          {% else %}
+            Not Cleaned
+          {% endif %}
+        friendly_name: 'USER4 Bedroom'
+        icon_template: >-
+            mdi:bed
+
+  - platform: template
+    sensors:
+      chore_USER3_bathroom_status:
+        value_template: >-
+          {% if is_state('input_boolean.chore_USER3_bathroom_cleaned', 'on') %}
+            Cleaned
+          {% else %}
+            Not Cleaned
+          {% endif %}
+        friendly_name: 'USER3 Bathroom'
+        icon_template: >-
+            mdi:toilet
+
+  - platform: template
+    sensors:
+      chore_USER4_bathroom_status:
+        value_template: >-
+          {% if is_state('input_boolean.chore_USER4_bathroom_cleaned', 'on') %}
+            Cleaned
+          {% else %}
+            Not Cleaned
+          {% endif %}
+        friendly_name: 'USER4 Bathroom'
+        icon_template: >-
+            mdi:toilet
+
+
+        ##########################################################
         ## Alarm System
         ##########################################################
 
@@ -500,11 +573,11 @@
         ##########################################################
         ## Pico Remote Light Brightness Sensor
         ##########################################################
-  - platform: template
-    sensors:
-      master_bedroom_brightness:
-        value_template: '{{ states.light.master_bedroom.brightness_pct }}'
-        friendly_name: 'Master Bedroom Brightness Percentage'
+#  - platform: template
+#    sensors:
+#      master_bedroom_brightness:
+#        value_template: '{{ states.light.master_bedroom.brightness_pct }}'
+#        friendly_name: 'Master Bedroom Brightness Percentage'
 
 
        ##########################################################
@@ -529,91 +602,3 @@
     unit_prefix: k
     round: 2
 
-
-
-        ##########################################################
-        ## Tesla Sensors
-        ##########################################################
-  - platform: mqtt
-    name: tesla_battery_level
-    state_topic: "teslamate/cars/1/battery_level"
-    unit_of_measurement: '%'
-    icon: mdi:battery-80
-
-  - platform: mqtt
-    name: tesla_charge_energy_added
-    state_topic: "teslamate/cars/1/charge_energy_added"
-    unit_of_measurement: 'kW'
-    icon: mdi:battery-80
-
-  - platform: mqtt
-    name: tesla_charge_limit
-    state_topic: "teslamate/cars/1/charge_limit_soc"
-    unit_of_measurement: '%'
-    icon: mdi:battery-80
-
-  - platform: mqtt
-    name: tesla_estimated_range
-    state_topic: "teslamate/cars/1/est_battery_range_km"
-    value_template: "{{ (value | float * 0.621371) |round(2) }}"
-    unit_of_measurement: 'mi' 
-    icon: mdi:map-marker-path
-
-  - platform: mqtt
-    name: tesla_inside_temp
-    state_topic: "teslamate/cars/1/inside_temp"
-    unit_of_measurement: °C
-    device_class: temperature
-    icon: mdi:thermometer-lines
-
-  - platform: mqtt
-    name: tesla_outside_temp
-    state_topic: "teslamate/cars/1/outside_temp"
-    unit_of_measurement: °C
-    device_class: temperature
-    icon: mdi:thermometer-lines
-
-  - platform: mqtt
-    name: tesla_rated_range
-    state_topic: "teslamate/cars/1/rated_battery_range_km"
-    value_template: "{{ (value | float * 0.621371) |round(2) }}"
-    unit_of_measurement: 'mi'    
-    icon: mdi:map-marker-path
-
-  - platform: mqtt
-    name: tesla_speed
-    state_topic: "teslamate/cars/1/speed"
-    icon: mdi:speedometer
-
-  - platform: mqtt
-    name: tesla_state
-    state_topic: "teslamate/cars/1/state"
-    icon: mdi:car-connected
-
-  - platform: mqtt
-    name: tesla_time_to_full_charge
-    state_topic: "teslamate/cars/1/time_to_full_charge"
-    icon: mdi:car-clock 
-
-  - platform: mqtt
-    name: tesla_odometer
-    state_topic: "teslamate/cars/1/odometer"
-    value_template: "{{ (value | float * 0.621371) |round(2) }}"
-    unit_of_measurement: 'mi'     
-    icon: mdi:counter
-
-  - platform: mqtt
-    name: tesla_usable_battery_level
-    state_topic: "teslamate/cars/1/usable_battery_level"
-    unit_of_measurement: '%'
-    icon: mdi:battery-80
-
-  - platform: mqtt
-    name: tesla_latitude
-    state_topic: "teslamate/cars/1/latitude"
-    icon: mdi:crosshairs-gps
-
-  - platform: mqtt
-    name: tesla_longitude
-    state_topic: "teslamate/cars/1/longitude"
-    icon: mdi:crosshairs-gps   

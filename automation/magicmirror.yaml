@@ -50,3 +50,42 @@
     - service: homeassistant.turn_on
       entity_id: switch.magicmirror_display
 
+        ##########################################################
+        ## Magic Mirror Hide Weekend Chores
+        ##########################################################
+
+- alias: Magic Mirror Hide Weekend Chores
+  id: 'magicmirror_hide_weekend_chores'
+
+  trigger:
+    - platform: time
+      at: '06:00:00'
+
+  condition:
+    - condition: time
+      weekday:
+        - mon
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.magicmirror_weekend_chores_display
+
+        ##########################################################
+        ## Magic Mirror Show Weekend Chores
+        ##########################################################
+
+- alias: Magic Mirror Show Weekend Chores
+  id: 'magicmirror_show_weekend_chores'
+
+  trigger:
+    - platform: time
+      at: '06:00:00'
+
+  condition:
+    - condition: time
+      weekday:
+        - fri
+
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.magicmirror_weekend_chores_display

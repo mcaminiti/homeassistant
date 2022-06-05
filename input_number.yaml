@@ -65,3 +65,11 @@
       step: .01
       mode: box
       unit_of_measurement: days 
+
+  red_sea_dosing_delay:
+    name: Red Sea Dosing Delay
+    initial: 1
+    min: 1
+    max: 5
+    step: 1
+    unit_of_measurement: hours 

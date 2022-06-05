@@ -20,6 +20,24 @@
         value_template: "{{ value_json.monitor == 'on' }}"
 
         ##########################################################
+        ## MagicMirror Weekend Chore Switch
+        ##########################################################
+
+  - platform: command_line
+    switches:
+      magicmirror_weekend_chores_display:
+        command_on: "curl -X GET 'http://REDACTED.62:8080/api/module/module_5_MMM-HomeAssistantDisplay/show'"
+        command_off: "curl -X GET 'http://REDACTED.62:8080/api/module/module_5_MMM-HomeAssistantDisplay/hide'"
+        command_state: "curl -X GET http://REDACTED.62:8080/api/module/module_5_MMM-HomeAssistantDisplay/"
+        value_template: "{{ value_json.data[0].hidden == false }}"
+
+
+
+
+
+
+
+        ##########################################################
         ## Pihole #1 Disable Switch
         ##########################################################
 
