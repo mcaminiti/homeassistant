@@ -1,6 +1,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/mcaminiti/homeassistant.svg?style=plasticr)](https://github.com/mcaminiti/homeassistant/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mcaminiti/homeassistant.svg?style=plasticr)](https://github.com/mcaminiti/homeassistant/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2022.4.6%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2022.6.2%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![HA Version](https://img.shields.io/badge/Original%20Home%20Assistant-0.21%20-darkblue)](https://github.com/home-assistant/core/releases/0.21)
 [![HA Community](https://img.shields.io/badge/HA%20community-forum-orange)](https://community.home-assistant.io/u/mcaminiti/summary)
 
