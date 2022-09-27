@@ -58,26 +58,7 @@ energy:
 #    homeassistant.components.device_tracker.unifi: debug
 #    homeassistant.components.switch.unifi: debug
 
-## VERA DEBUG
-#logger:
-#  default: info
-#  logs:
-#    pyvera: 'debug'
-#    homeassistant.components.vera: 'debug'
 
-#hue:
-#  bridges:
-#  - host: REDACTED.32
-#    allow_unreachable: true
-#    allow_hue_groups: false
-
-#remote:
-#  - platform: harmony
-#    name: Family Room
-#    host: REDACTED.12
-#  - platform: harmony
-#    name: Basement
-#    host: REDACTED.10
     
 map:
 
@@ -88,64 +69,7 @@ tts:
   - platform: amazon_polly
     aws_access_key_id: !secret secret_aws_access_key_id
     aws_secret_access_key: !secret secret_aws_secret_access_key
-#    base_url: https://REDACTED
-#tts:
-#  - platform: google_translate
-#    base_url: https://REDACTED
 
-
-# InfluxDB / Grafana Long Term Data Retention Test
-#influxdb:
-#  host: REDACTED.100
-#  database: telegraf
-#  include:
-#    entities:
-#      - sensor.home_temperature
-#      - sensor.master_bedroom_temperature
-#      - sensor.basement_temperature
-#      - sensor.USER3_bedroom_temperature
-#      - sensor.USER4_bedroom_temperature
-#      - sensor.home_humidity
-#      - sensor.dark_sky_humidity
-#      - sensor.dark_sky_temperature
-#      - sensor.washing_machine_current_power
-#      - sensor.air_cleaner_current_power
-#      - sensor.golf_cart_current_power
-#      - sensor.biocube_heater_current_power
-#      - sensor.biocube_pump_current_power
-#      - sensor.biocube_lights_current_power
-#      - sensor.lift_station_activations_daily
-#      - sensor.e6_1_ct1_lift_station_watts
-#      - sensor.e6_1_ct2_aerator_watts
-#      - sensor.biocube_ph
-#      - sensor.biocube_ammonia
-#      - sensor.biocube_nitrite
-#      - sensor.biocube_nitrate
-#      - sensor.biocube_calcium
-#      - sensor.biocube_temp
-#      - sensor.thermostat_current_status
-#      - sensor.thermostat_aux_heat
-#      - sensor.ups_load
-#      - sensor.nas_cpu_usage
-#      - sensor.nas_memory_usage
-#      - sensor.nas_volume_used_storage
-#      - sensor.nas_volume_used_backup
-#      - sensor.nas_system_temperature
-#      - sensor.front_door_battery
-#      - sensor.basement_door_battery
-#      - sensor.basement_motion_battery
-#      - sensor.pantry_door_battery
-#      - sensor.basement_water_sensor_battery
-
-#      - sensor.nanopool_hashrate
-#      - sensor.nanopool_balance
-#      - binary_sensor.wan
-#      - binary_sensor.gateway
-#      - binary_sensor.REDACTED_vpn
-
-# VeraPlus controller to replace wink
-#vera:
-#  vera_controller_url: http://REDACTED.6:3480/
 
 # Stream Componant
 stream:
@@ -293,142 +217,7 @@ counter:
     step: 1
     icon: mdi:counter
 
-# MQTT SENSORS
-        ##########################################################
-        ## Tesla Sensors
-        ##########################################################
 
-mqtt:
-  sensor:
-    - name: tesla_battery_level
-      state_topic: "teslamate/cars/1/battery_level"
-      unit_of_measurement: '%'
-      icon: mdi:battery-80
-    - name: tesla_charge_energy_added
-      state_topic: "teslamate/cars/1/charge_energy_added"
-      unit_of_measurement: 'kW'
-      icon: mdi:battery-80
-    - name: tesla_charge_limit
-      state_topic: "teslamate/cars/1/charge_limit_soc"
-      unit_of_measurement: '%'
-      icon: mdi:battery-80
-    - name: tesla_estimated_range
-      state_topic: "teslamate/cars/1/est_battery_range_km"
-      value_template: "{{ (value | float * 0.621371) |round(2) }}"
-      unit_of_measurement: 'mi' 
-      icon: mdi:map-marker-path
-    - name: tesla_inside_temp
-      state_topic: "teslamate/cars/1/inside_temp"
-      unit_of_measurement: °C
-      device_class: temperature
-      icon: mdi:thermometer-lines
-    - name: tesla_outside_temp
-      state_topic: "teslamate/cars/1/outside_temp"
-      unit_of_measurement: °C
-      device_class: temperature
-      icon: mdi:thermometer-lines
-    - name: tesla_rated_range
-      state_topic: "teslamate/cars/1/rated_battery_range_km"
-      value_template: "{{ (value | float * 0.621371) |round(2) }}"
-      unit_of_measurement: 'mi'    
-      icon: mdi:map-marker-path
-    - name: tesla_speed
-      state_topic: "teslamate/cars/1/speed"
-      icon: mdi:speedometer
-    - name: tesla_state
-      state_topic: "teslamate/cars/1/state"
-      icon: mdi:car-connected
-    - name: tesla_time_to_full_charge
-      state_topic: "teslamate/cars/1/time_to_full_charge"
-      icon: mdi:car-clock 
-    - name: tesla_odometer
-      state_topic: "teslamate/cars/1/odometer"
-      value_template: "{{ (value | float * 0.621371) |round(2) }}"
-      unit_of_measurement: 'mi'     
-      icon: mdi:counter
-    - name: tesla_usable_battery_level
-      state_topic: "teslamate/cars/1/usable_battery_level"
-      unit_of_measurement: '%'
-      icon: mdi:battery-80
-    - name: tesla_latitude
-      state_topic: "teslamate/cars/1/latitude"
-      icon: mdi:crosshairs-gps
-    - name: tesla_longitude
-      state_topic: "teslamate/cars/1/longitude"
-      icon: mdi:crosshairs-gps   
-  binary_sensor:
-    - name: tesla_healthy
-      state_topic: "teslamate/cars/1/healthy"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:heart-pulse
-    - name: tesla_update_available
-      state_topic: "teslamate/cars/1/update_available"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:alarm
-    - name: tesla_locked
-      device_class: lock
-      state_topic: "teslamate/cars/1/locked"
-      payload_on: "false"
-      payload_off: "true"
-    - name: tesla_sentry_mode
-      state_topic: "teslamate/cars/1/sentry_mode"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:cctv
-    - name: tesla_windows_open
-      device_class: window
-      state_topic: "teslamate/cars/1/windows_open"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:car-door
-    - name: tesla_doors_open
-      device_class: door
-      state_topic: "teslamate/cars/1/doors_open"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:car-door
-    - name: tesla_trunk_open
-      device_class: opening
-      state_topic: "teslamate/cars/1/trunk_open"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:car-side
-    - name: tesla_frunk_open
-      device_class: opening
-      state_topic: "teslamate/cars/1/frunk_open"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:car-side
-    - name: tesla_is_user_present
-      device_class: presence
-      state_topic: "teslamate/cars/1/is_user_present"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:human-greeting
-    - name: tesla_is_climate_on
-      state_topic: "teslamate/cars/1/is_climate_on"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:fan
-    - name: tesla_is_preconditioning
-      state_topic: "teslamate/cars/1/is_preconditioning"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:fan
-    - name: tesla_plugged_in
-      device_class: plug
-      state_topic: "teslamate/cars/1/plugged_in"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:ev-station
-    - name: tesla_charge_port_door_open
-      device_class: opening
-      state_topic: "teslamate/cars/1/charge_port_door_open"
-      payload_on: "true"
-      payload_off: "false"
-      icon: mdi:ev-plug-tesla
 
 ######## Input DateTime ########
 
@@ -457,6 +246,14 @@ input_datetime:
     name: Dr. Tim Waste Away Gel Install Date
     has_date: true
     has_time: false
+  red_sea_algae_scrubber_light_on_time:
+    name: Red Sea Algae Scrubber On Time
+    has_date: false    
+    has_time: true  
+  red_sea_algae_scrubber_light_off_time:
+    name: Red Sea Algae Scrubber Off Time
+    has_date: false    
+    has_time: true
   chore_dishwasher_reminder:
     name: Dishwasher Reminder Time
     has_date: false    
@@ -493,3 +290,5 @@ cover: !include cover.yaml
 script: !include scripts.yaml
 switch: !include switch.yaml
 cloud: !include cloud.yaml
+mqtt: !include mqtt.yaml
+template: !include template.yaml

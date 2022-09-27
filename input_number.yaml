@@ -8,55 +8,6 @@
     min: 0
     max: 120
     step: 1
-
-  biocube_ph:
-    name: Biocube pH
-    min: 7.4
-    max: 8.8
-    step: .2
-    unit_of_measurement: pH
-
-  biocube_ammonia:
-    name: Biocube Ammonia
-    min: 0
-    max: 8
-    step: .25
-    unit_of_measurement: ppm
-
-  biocube_nitrite:
-    name: Biocube Nitrite
-    min: 0
-    max: 5
-    step: .25
-    unit_of_measurement: ppm
-
-  biocube_nitrate:
-    name: Biocube Nitrate
-    min: 0
-    max: 60
-    step: 1
-    unit_of_measurement: ppm
-
-  biocube_calcium:
-    name: Biocube Calcium
-    min: 100
-    max: 500
-    step: 1
-    unit_of_measurement: ppm
-
-  biocube_magnesium:
-    name: Biocube Magnesium
-    min: 600
-    max: 1500
-    step: 10
-    unit_of_measurement: ppm    
-
-  biocube_alkalinity:
-    name: Biocube Alkalinity
-    min: 5
-    max: 15
-    step: .1
-    unit_of_measurement: ppm
     
   redsea_uv_light_usage:
       name: Red Sea Aqua UV Light Usage

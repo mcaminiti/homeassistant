@@ -29,7 +29,7 @@
       state: 'Restricted Section'
 
   action:
-    - service: notify.mobile_app_USER4s_iphone
+    - service: notify.mobile_app_USER4_iphone
       data:
         message: "Battery Low - Plug In Phone Now"
     - service: notify.mobile_app_USER1_iphone
@@ -57,7 +57,7 @@
       state: 'Not Charging'
 
   action:
-    - service: notify.mobile_app_USER4s_iphone
+    - service: notify.mobile_app_USER4_iphone
       data:
         message: "Battery Critical - Plug In Phone Now"
     - service: notify.mobile_app_USER1_iphone

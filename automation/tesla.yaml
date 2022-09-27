@@ -23,3 +23,29 @@
             "{{ states.sensor.tesla_latitude.state }}",
             "{{ states.sensor.tesla_longitude.state }}"
           ]
+
+        ##########################################################
+        ## Tesla Not Plugged In After 8pm 
+        ##########################################################
+- alias: Tesla Not Plugged In After 9pm
+  id: tesla_not_plugged_in
+
+  trigger:
+    - platform: time
+      at: '21:00:00'
+
+  condition:
+    - condition: state
+      entity_id: person.USER1
+      state: 'home'
+    - condition: state
+      entity_id: device_tracker.tesla_location
+      state: 'home'
+    - condition: state
+      entity_id: binary_sensor.tesla_plugged_in
+      state: 'off'
+
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Tesla Not Plugged In"

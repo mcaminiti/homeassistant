@@ -69,15 +69,15 @@ Garage Doors:
 Weather Alerts:
   -  sensor.nws_alerts
 
-Christmas Outside Lights:
-  - switch.christmas_nativity
-  - switch.christmas_outdoor_1
-  - switch.christmas_outdoor_2
-  - switch.christmas_outdoor_3  
+#Christmas Outside Lights:
+#  - switch.christmas_nativity
+#  - switch.christmas_outdoor_1
+#  - switch.christmas_outdoor_2
+#  - switch.christmas_outdoor_3  
 
-Christmas Inside Lights:
-  - switch.christmas_family_room
-  - switch.christmas_basement
-  - switch.USER3_christmas_tree
-  - switch.USER4_christmas_tree
+#Christmas Inside Lights:
+#  - switch.christmas_family_room
+#  - switch.christmas_basement
+#  - switch.USER3_christmas_tree
+#  - switch.USER4_christmas_tree
 #  - switch.basement_christmas_nativity

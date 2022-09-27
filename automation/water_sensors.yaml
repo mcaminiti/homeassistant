@@ -31,7 +31,7 @@
              volume: 1.0
 
 
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected at Basement Drain!"
 
@@ -63,7 +63,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Washing Machine!"
 
@@ -95,7 +95,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
 
@@ -127,7 +127,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Refrigerator!"
 
@@ -180,7 +180,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2s_iphone
+ #   - service: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected by Water Filtration!"
 
@@ -211,7 +211,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2s_iphone
+ #   - service: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected on floor by Red Sea Tank in Basement!"
 
@@ -242,7 +242,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2s_iphone
+ #   - service: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected on floor by Red Sea Tank in Basement!"
 

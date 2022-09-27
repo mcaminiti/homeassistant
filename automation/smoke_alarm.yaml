@@ -49,7 +49,7 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Warning in House!"
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Smoke - Warning in House!"
 
@@ -100,7 +100,7 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Emergency in House!"
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "Smoke - Emergency in House!"
 
@@ -151,7 +151,7 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Warning in House!"
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "CO - Warning in House!"
 
@@ -203,6 +203,6 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Emergency in House!"
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: "CO - Emergency in House!"

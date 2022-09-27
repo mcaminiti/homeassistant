@@ -67,7 +67,7 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: "USER4 - Dishwasher Not Emptied Reminder"
-    - service: notify.mobile_app_USER4s_iphone
+    - service: notify.mobile_app_USER4_iphone
       data:
         message: "USER4 - Dishwasher Not Emptied Reminder"
 

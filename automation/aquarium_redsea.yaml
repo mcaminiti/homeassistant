@@ -54,3 +54,66 @@
   action:
     - service: homeassistant.turn_on
       entity_id: switch.redsea_uv_sterlizer
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.red_sea_dosing     
+
+
+        ##########################################################
+        ## Red Sea Algae Scrubber Light On
+        ##########################################################
+
+- alias: Red Sea Algae Scrubber Light On
+  id: 'red_sea_algae_scrubber_light_on'
+
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.red_sea_algae_scrubber_light_on_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.red_sea_algae_scrubber_light
+
+
+        ##########################################################
+        ## Red Sea Algae Scrubber Light Off
+        ##########################################################
+
+- alias: Red Sea Algae Scrubber Light Off
+  id: 'red_sea_algae_scrubber_light_off'
+
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == (states.input_datetime.red_sea_algae_scrubber_light_off_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+        
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.red_sea_algae_scrubber_light
+
+        ##########################################################
+        ## Red Sea Algae Scrubber Light Not Running
+        ##########################################################
+
+- alias: Red Sea Algae Scrubber Light Not Running
+  id: 'red_sea_algae_scrubber_light_not_running'
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.red_sea_algae_scrubber_light_current_consumption
+      below: 13
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+  condition:
+    - condition: state
+      entity_id: switch.red_sea_algae_scrubber_light
+      state: 'on'
+  
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Red Sea Algae Scrubber Light Not Running"
+
+        ##########################################################
+        ## Red Sea Algae Scrubber Pump Not Running
+        ##########################################################

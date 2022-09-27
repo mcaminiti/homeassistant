@@ -1,0 +1,329 @@
+#################################################################
+## Templates
+#################################################################
+
+
+  ##########################################################
+  ## Washing Machine
+  ##########################################################
+
+  - sensor:
+    - unique_id: washing_machine_status
+      name: Washing Machine Status
+      state: >
+        {%- if states('sensor.washing_machine_current_power') | int >= 3 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+  ##########################################################
+  ## Biocube Heater
+  ##########################################################
+  - sensor:
+    - unique_id: biocube_heater_status
+      name: Biocube Heater Status
+      state: >
+        {%- if states('sensor.biocube_heater_current_power') | int >= 1 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+  ##########################################################
+  ## Biocube Pump
+  ##########################################################
+  - sensor:
+    - unique_id: biocube_pump_status
+      name: Biocube Pump Status
+      state: >
+        {%- if states('sensor.biocube_pump_current_power') | int >= 1 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+  ##########################################################
+  ## Biocube ATO
+  ##########################################################
+  - sensor:
+    - unique_id: biocube_ato_status
+      name: Biocube ATO Status
+      state: >
+        {%- if states('sensor.biocube_ato_current_power') | int >= 4 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+  ##########################################################
+  ## Biocube Lights
+  ##########################################################
+  - sensor:
+    - unique_id: biocube_lights_status
+      name: Biocube Lights Status
+      state: >
+        {%- if states('sensor.biocube_lights_current_power') | int >= 1 %}
+          on
+        {% else %}
+          off
+        {% endif %}
+
+  ##########################################################
+  ## Biocube Wavemaker
+  ##########################################################
+  - sensor:
+    - unique_id: biocube_wavemaker_status
+      name: Biocube Wavemaker Status
+      state: >
+        {%- if states('sensor.biocube_wavemaker_current_power') | int >= 1 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+    ##########################################################
+    ## Fireplace
+    ##########################################################
+  - sensor:
+    - unique_id: fireplace_status
+      name: Fireplace Status
+      state: >
+        {%- if states('sensor.fireplace_electric_consumed_w') | int >= 1 %}
+          running
+        {% else %}
+          not running
+        {% endif %}
+
+    ##########################################################
+    ## Golf Cart
+    ##########################################################
+  - sensor:
+    - unique_id: golf_cart_status
+      name: Golf Cart Status
+      state: >
+        {% if states('sensor.golf_cart_current_power') | int >= 700 %}
+          charging high power
+        {% elif states('sensor.golf_cart_current_power') | int >= 200 %}
+          charging
+        {% elif states('sensor.golf_cart_current_power') | float >= 0.066 %}
+          charged
+        {% else %}
+          unplugged
+        {% endif %}
+
+    ##########################################################
+    ## Lift Station Sensor
+    ##########################################################
+  - sensor:
+    - unique_id: lift_station_status
+      name: Lift Station Status
+      state: >
+        {%- if states('sensor.esp_energy_ct1_lift_station_watts') | int >= 500 %}
+          running
+        {% elif states('sensor.esp_energy_ct1_lift_station_watts') | int >= 5 %}
+          check system
+        {% else %}
+          not running
+        {% endif %}
+
+    ##########################################################
+    ## Lift Station - Counter Sensors
+    ##########################################################       
+  - sensor:
+    - unique_id: lift_station_activations_daily
+      name: Lift Station Activations Daily Sensor
+      unit_of_measurement: "Count"
+      state: '{{ states.counter.lift_station_activations_counter_current_day.state | int }}'
+
+    ##########################################################
+    ## HVAC Honeywell Air Cleaner
+    ##########################################################
+  - sensor:
+    - unique_id: air_cleaner_status
+      name: Air Cleaner Status
+      state: >
+        {% if states('sensor.air_cleaner_current_power') | int <= 10 %}
+          not running
+        {% elif states('sensor.air_cleaner_current_power') | int >= 32 %}
+          running high power
+        {% else %}
+          running
+        {% endif %}
+
+    ##########################################################
+    ## HVAC Geothermal Sensors
+    ##########################################################
+  - sensor:
+    - unique_id: thermostat_aux_heat
+      name: Aux Heat
+      state: '{{ states.climate.home.attributes.aux_heat }}'
+
+    ##########################################################
+    ## Media Center
+    ##########################################################
+  - sensor:
+    - unique_id: family_room_media_center
+      name: Family Room Media Center
+      state: '{{ states.remote.family_room.attributes.current_activity }}'
+  - sensor:
+    - unique_id: basement_media_center
+      name: Basement Media Center
+      state: '{{ states.remote.basement.attributes.current_activity }}'
+
+    ##########################################################
+    ## UPS Monitoring - Power
+    ##########################################################
+  - sensor:
+    - unique_id: ups_battery_runtime_mins
+      name: UPS Battery Runtime
+      unit_of_measurement: "minutes"
+      state: "{{ states('sensor.ups_battery_runtime')|float / 60 |round(1) }}"
+
+    ##########################################################
+    ## Life360 Device Sensors 
+    ##########################################################
+  - sensor:
+    - unique_id: life360_USER4_iphone_battery
+      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery }}'
+  - sensor:
+    - unique_id: life360_USER3_iphone_battery
+      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery }}' 
+  - sensor:
+    - unique_id: life360_USER1_iphone_battery
+      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery }}'
+  - sensor:
+    - unique_id: life360_USER2_iphone_battery
+      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery }}'
+  - sensor:
+    - unique_id: life360_USER1_iphone_battery_charging
+      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery_charging }}' 
+  - sensor:
+    - unique_id: life360_USER2_iphone_battery_charging
+      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery_charging }}'
+  - sensor:
+    - unique_id: life360_USER4_iphone_battery_charging
+      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery_charging }}'
+  - sensor:
+    - unique_id: life360_USER3_iphone_battery_charging
+      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery_charging }}'  
+
+    ##########################################################
+    ## Alarm System
+    ##########################################################
+  - sensor:
+    - unique_id: alarm_system_trouble
+      name: Alarm System Trouble
+      state: '{{ states.sensor.home_alarm_keypad.attributes.trouble }}'
+
+        ##########################################################
+        ## National Weather Service Alerting - Custom Sensor
+        ##########################################################
+  - sensor:
+    - unique_id: nws_tornado_warning
+      name: NWS Tornado Warning
+      state: '{{ states.sensor.nws_warnings.attributes.tornado_warning }}'
+  - sensor:
+    - unique_id: nws_tornado_watch
+      name: NWS Tornado Watch
+      state: '{{ states.sensor.nws_warnings.attributes.tornado_watch }}'
+  - sensor:
+    - unique_id: nws_severe_thunderstorm_warning
+      name: NWS Severe Thunderstorm Warning
+      state: '{{ states.sensor.nws_warnings.attributes.severe_thunderstorm_warning }}'
+  - sensor:
+    - unique_id: nws_winter_storm_warning
+      name: NWS Winter Storm Warning
+      state: '{{ states.sensor.nws_warnings.attributes.winter_storm_warning }}'
+
+    ##########################################################
+    ## IOS Location Sensors
+    ##########################################################
+  - sensor:
+    - unique_id: USER1_iphone_location
+      state: '{{ states.sensor.USER1_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER1_iphone_geocoded_location.attributes["Administrative Area"]}}'
+  - sensor:
+    - unique_id: USER2_iphone_location
+      state: '{{ states.sensor.USER2_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER2_iphone_geocoded_location.attributes["Administrative Area"]}}'
+  - sensor:
+    - unique_id: USER4_iphone_location
+      state: '{{ states.sensor.USER4_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER4_iphone_geocoded_location.attributes["Administrative Area"]}}'
+  - sensor:
+    - unique_id: USER3_iphone_location
+      state: '{{ states.sensor.USER3_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER3_iphone_geocoded_location.attributes["Administrative Area"]}}'
+
+    ##########################################################
+    ## Driving Sensors
+    ##########################################################
+  - sensor:
+    - unique_id: USER1_driving_status
+      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.driving }}'
+  - sensor:
+    - unique_id: USER2_driving_status
+      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.driving }}'
+  - sensor:
+    - unique_id: USER3_driving_status
+      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.driving }}'
+
+    ##########################################################
+    ## Chores Sensors
+    ##########################################################
+  - sensor:
+    - unique_id: chore_dishwasher_status
+      name: Chore Dishwaster Status
+      state: >
+        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+          Complete
+        {% else %}
+          {{ states('input_select.chore_dishwasher_assignment') }}
+        {% endif %}
+      icon: >
+        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+          mdi:dishwasher-off
+        {% else %}
+          mdi:dishwasher
+        {% endif %}
+  - sensor:
+    - unique_id: chore_USER3_bedroom_status
+      name: Chore USER3 Bedroom Status
+      state: >
+        {% if is_state('input_boolean.chore_USER3_bedroom_cleaned', 'on') %}
+          Cleaned
+        {% else %}
+          Not Cleaned
+        {% endif %}
+      icon: >
+        mdi:bed
+  - sensor:
+    - unique_id: chore_USER4_bedroom_status
+      name: Chore USER4 Bedroom Status
+      state: >
+        {% if is_state('input_boolean.chore_USER4_bedroom_cleaned', 'on') %}
+          Cleaned
+        {% else %}
+          Not Cleaned
+        {% endif %}
+      icon: >
+        mdi:bed
+  - sensor:
+    - unique_id: chore_USER3_bathroom_status
+      name: Chore USER3 Bathroom Status
+      state: >
+        {% if is_state('input_boolean.chore_USER3_bathroom_cleaned', 'on') %}
+          Cleaned
+        {% else %}
+          Not Cleaned
+        {% endif %}
+      icon: >
+        mdi:toilet
+  - sensor:
+    - unique_id: chore_USER4_bathroom_status
+      name: Chore USER4 Bathroom Status
+      state: >
+        {% if is_state('input_boolean.chore_USER4_bathroom_cleaned', 'on') %}
+          Cleaned
+        {% else %}
+          Not Cleaned
+        {% endif %}
+      icon: >
+        mdi:toilet

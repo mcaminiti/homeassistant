@@ -16,7 +16,7 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: Rosie is Stuck, Please Help
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: Rosie is Stuck, Please Help
 
@@ -34,6 +34,6 @@
     - service: notify.mobile_app_USER1_iphone
       data:
         message: Rosie is Full, Empty It
-    - service: notify.mobile_app_USER2s_iphone
+    - service: notify.mobile_app_USER2_iphone
       data:
         message: Rosie is Full, Empty It
