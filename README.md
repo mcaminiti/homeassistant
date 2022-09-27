@@ -1,6 +1,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/mcaminiti/homeassistant.svg?style=plasticr)](https://github.com/mcaminiti/homeassistant/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mcaminiti/homeassistant.svg?style=plasticr)](https://github.com/mcaminiti/homeassistant/commits/master)
-[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2022.4.6%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running%20Home%20Assistant-2022.6.2%20-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![HA Version](https://img.shields.io/badge/Original%20Home%20Assistant-0.21%20-darkblue)](https://github.com/home-assistant/core/releases/0.21)
 [![HA Community](https://img.shields.io/badge/HA%20community-forum-orange)](https://community.home-assistant.io/u/mcaminiti/summary)
 
@@ -10,7 +10,7 @@
 
 Featured on Example page from https://www.home-assistant.io/cookbook/
 
-Home Assistant Version: 2022.4.6
+Home Assistant Version: 2022.6.2
 
 # Overview
 I utilize Home Assistant to bridge and automate all my home automation products.  It was quickly realized as I expanded beyond some smart bulbs and a Wink hub, that nothing integrated into a single system for control, automation, and communication.  Home Assistant originally was run on a Raspberry Pi 3 but I have since moved it to run as a docker container leveraging a Postgresql docker backend.  Those looking to start out with Home Assistant should leverage a Raspberry Pi 4 and hass.io image to get started very simply.
