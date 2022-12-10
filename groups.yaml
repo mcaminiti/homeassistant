@@ -2,6 +2,19 @@
 ## Groups
 #################################################################
 
+Christmas Outside Lights:
+  - switch.christmas_nativity
+  - switch.christmas_outdoor_1
+  - switch.christmas_outdoor_2
+  - switch.christmas_outdoor_3  
+
+Christmas Inside Lights:
+  - switch.christmas_family_room
+  - switch.christmas_basement
+  - switch.USER3_christmas_tree
+  - switch.USER4_christmas_tree
+  - switch.basement_christmas_nativity
+
 Family:
   - person.USER1
   - person.USER2
@@ -22,14 +35,16 @@ Inside lights:
   - light.USER4_bedroom
   - light.pantry_lights
   - light.basement
+  - group.christmas_inside_lights
+
 
 Outside lights:
-  - input_select.outdoor_theme
   - switch.outside
   - light.front_door
   - light.garage
   - light.landscape
   - light.walkout
+  - light.shed
 
 Alarm:
   - alarm_control_panel.home_alarm
@@ -69,15 +84,3 @@ Garage Doors:
 Weather Alerts:
   -  sensor.nws_alerts
 
-#Christmas Outside Lights:
-#  - switch.christmas_nativity
-#  - switch.christmas_outdoor_1
-#  - switch.christmas_outdoor_2
-#  - switch.christmas_outdoor_3  
-
-#Christmas Inside Lights:
-#  - switch.christmas_family_room
-#  - switch.christmas_basement
-#  - switch.USER3_christmas_tree
-#  - switch.USER4_christmas_tree
-#  - switch.basement_christmas_nativity

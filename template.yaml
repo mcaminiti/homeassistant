@@ -24,7 +24,7 @@
     - unique_id: biocube_heater_status
       name: Biocube Heater Status
       state: >
-        {%- if states('sensor.biocube_heater_current_power') | int >= 1 %}
+        {%- if states('sensor.biocube_heater_current_power') | int >= 7 %}
           running
         {% else %}
           not running
@@ -183,30 +183,30 @@
     ##########################################################
     ## Life360 Device Sensors 
     ##########################################################
-  - sensor:
-    - unique_id: life360_USER4_iphone_battery
-      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery }}'
-  - sensor:
-    - unique_id: life360_USER3_iphone_battery
-      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery }}' 
-  - sensor:
-    - unique_id: life360_USER1_iphone_battery
-      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery }}'
-  - sensor:
-    - unique_id: life360_USER2_iphone_battery
-      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery }}'
-  - sensor:
-    - unique_id: life360_USER1_iphone_battery_charging
-      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery_charging }}' 
-  - sensor:
-    - unique_id: life360_USER2_iphone_battery_charging
-      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery_charging }}'
-  - sensor:
-    - unique_id: life360_USER4_iphone_battery_charging
-      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery_charging }}'
-  - sensor:
-    - unique_id: life360_USER3_iphone_battery_charging
-      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery_charging }}'  
+#  - sensor:
+#    - unique_id: life360_USER4_iphone_battery
+#      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery }}'
+#  - sensor:
+#    - unique_id: life360_USER3_iphone_battery
+#      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery }}' 
+#  - sensor:
+#    - unique_id: life360_USER1_iphone_battery
+#      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery }}'
+#  - sensor:
+#    - unique_id: life360_USER2_iphone_battery
+#      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery }}'
+#  - sensor:
+#    - unique_id: life360_USER1_iphone_battery_charging
+#      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.battery_charging }}' 
+#  - sensor:
+#    - unique_id: life360_USER2_iphone_battery_charging
+#      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.battery_charging }}'
+#  - sensor:
+#    - unique_id: life360_USER4_iphone_battery_charging
+#      state: '{{ states.device_tracker.life360_USER4_REDACTED.attributes.battery_charging }}'
+#  - sensor:
+#    - unique_id: life360_USER3_iphone_battery_charging
+#      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.battery_charging }}'  
 
     ##########################################################
     ## Alarm System
@@ -268,62 +268,62 @@
     ##########################################################
     ## Chores Sensors
     ##########################################################
-  - sensor:
-    - unique_id: chore_dishwasher_status
-      name: Chore Dishwaster Status
-      state: >
-        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
-          Complete
-        {% else %}
-          {{ states('input_select.chore_dishwasher_assignment') }}
-        {% endif %}
-      icon: >
-        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
-          mdi:dishwasher-off
-        {% else %}
-          mdi:dishwasher
-        {% endif %}
-  - sensor:
-    - unique_id: chore_USER3_bedroom_status
-      name: Chore USER3 Bedroom Status
-      state: >
-        {% if is_state('input_boolean.chore_USER3_bedroom_cleaned', 'on') %}
-          Cleaned
-        {% else %}
-          Not Cleaned
-        {% endif %}
-      icon: >
-        mdi:bed
-  - sensor:
-    - unique_id: chore_USER4_bedroom_status
-      name: Chore USER4 Bedroom Status
-      state: >
-        {% if is_state('input_boolean.chore_USER4_bedroom_cleaned', 'on') %}
-          Cleaned
-        {% else %}
-          Not Cleaned
-        {% endif %}
-      icon: >
-        mdi:bed
-  - sensor:
-    - unique_id: chore_USER3_bathroom_status
-      name: Chore USER3 Bathroom Status
-      state: >
-        {% if is_state('input_boolean.chore_USER3_bathroom_cleaned', 'on') %}
-          Cleaned
-        {% else %}
-          Not Cleaned
-        {% endif %}
-      icon: >
-        mdi:toilet
-  - sensor:
-    - unique_id: chore_USER4_bathroom_status
-      name: Chore USER4 Bathroom Status
-      state: >
-        {% if is_state('input_boolean.chore_USER4_bathroom_cleaned', 'on') %}
-          Cleaned
-        {% else %}
-          Not Cleaned
-        {% endif %}
-      icon: >
-        mdi:toilet
+#  - sensor:
+#    - unique_id: chore_dishwasher_status
+#      name: Chore Dishwaster Status
+#      state: >
+#        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+#          Complete
+#        {% else %}
+#          {{ states('input_select.chore_dishwasher_assignment') }}
+#        {% endif %}
+#      icon: >
+#        {% if is_state('input_boolean.chore_dishwasher_unloaded', 'on') %}
+#          mdi:dishwasher-off
+#        {% else %}
+#          mdi:dishwasher
+#        {% endif %}
+#  - sensor:
+#    - unique_id: chore_USER3_bedroom_status
+#      name: Chore USER3 Bedroom Status
+#      state: >
+#        {% if is_state('input_boolean.chore_USER3_bedroom_cleaned', 'on') %}
+#          Cleaned
+#        {% else %}
+#          Not Cleaned
+#        {% endif %}
+#      icon: >
+#        mdi:bed
+#  - sensor:
+#    - unique_id: chore_USER4_bedroom_status
+#      name: Chore USER4 Bedroom Status
+#      state: >
+#        {% if is_state('input_boolean.chore_USER4_bedroom_cleaned', 'on') %}
+#          Cleaned
+#        {% else %}
+#          Not Cleaned
+#        {% endif %}
+#      icon: >
+#        mdi:bed
+#  - sensor:
+#    - unique_id: chore_USER3_bathroom_status
+#      name: Chore USER3 Bathroom Status
+#      state: >
+#        {% if is_state('input_boolean.chore_USER3_bathroom_cleaned', 'on') %}
+#          Cleaned
+#        {% else %}
+#          Not Cleaned
+#        {% endif %}
+#      icon: >
+#        mdi:toilet
+#  - sensor:
+#    - unique_id: chore_USER4_bathroom_status
+#      name: Chore USER4 Bathroom Status
+#      state: >
+#        {% if is_state('input_boolean.chore_USER4_bathroom_cleaned', 'on') %}
+#          Cleaned
+#        {% else %}
+#          Not Cleaned
+#        {% endif %}
+#      icon: >
+#        mdi:toilet

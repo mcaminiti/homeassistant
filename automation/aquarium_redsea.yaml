@@ -117,3 +117,92 @@
         ##########################################################
         ## Red Sea Algae Scrubber Pump Not Running
         ##########################################################
+
+        ##########################################################
+        ## Biocube32 High Temperature Alert
+        ##########################################################
+
+- alias: Red Sea High Temperature
+  id: 'redsea_temperature_high'
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_1
+      above: 79
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_2
+      above: 79
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_3
+      above: 79
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_4
+      above: 79
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Red Sea Temp High - Check Tank!!"
+    - service: notify.mobile_app_USER2_iphone
+      data:
+        message: "Red Sea Temp High - Check Tank!!"
+
+
+        ##########################################################
+        ## Red Sea Low Temperature Alert
+        ##########################################################
+
+- alias: Red Sea Low Temperature
+  id: 'redsea_temperature_low'
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_1
+      below: 76
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_2
+      below: 76
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_3
+      below: 76
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+    - platform: numeric_state
+      entity_id: sensor.red_sea_temperature_4
+      below: 76
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+  action:
+    - service: notify.mobile_app_USER1_iphone
+      data:
+        message: "Biocube Temp Low - Check Tank Temp!!"
+    - service: notify.mobile_app_USER2_iphone
+      data:
+        message: "Biocube Temp Low - Check Tank Temp!!"

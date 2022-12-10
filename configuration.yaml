@@ -95,7 +95,7 @@ wemo:
   static:
     - REDACTED.46
     - REDACTED.47
-    - REDACTED.48
+#    - REDACTED.48
     - REDACTED.70
     - REDACTED.71
     - REDACTED.72                

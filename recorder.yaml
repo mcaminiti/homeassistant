@@ -2,7 +2,7 @@
 ## Recorder
 #################################################################
 
-  purge_keep_days: 7
+  purge_keep_days: 60
   db_url: !secret secret_db_url
 
   exclude:

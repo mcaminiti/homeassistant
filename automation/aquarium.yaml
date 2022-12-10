@@ -54,7 +54,7 @@
 
           trigger:
             - platform: numeric_state
-              entity_id: sensor.biocube_temp
+              entity_id: sensor.biocube_temperature
               above: 82
               for:
                 hours: 0
@@ -82,7 +82,7 @@
 
           trigger:
             - platform: numeric_state
-              entity_id: sensor.biocube_temp
+              entity_id: sensor.biocube_temperature
               below: 76
               for:
                 hours: 0
@@ -158,22 +158,10 @@
           action:             
             - service: notify.mobile_app_USER1_iphone
               data:
-                message: "Biocube Pump Off 15m - CHECK PUMP!"
-                data:
-                  apns_headers:
-                  'apns-collapse-id': 'biocubepump-switch'
-                  push:
-                    badge: 0
-                    category: "biocubepumpswitch"                
+                message: "Biocube Pump Off 15m - CHECK PUMP!"             
             - service: notify.mobile_app_USER2_iphone
               data:
-                message: "Biocube Pump Off 15m - CHECK PUMP!"
-                data:
-                    apns_headers:
-                    'apns-collapse-id': 'biocubepump-switch'
-                    push:
-                      badge: 0
-                      category: "biocubepumpswitch"                       
+                message: "Biocube Pump Off 15m - CHECK PUMP!"                      
 
         ##########################################################
         ## Biocube32 Wavemaker Off 20m
@@ -197,22 +185,10 @@
           action:             
             - service: notify.mobile_app_USER1_iphone
               data:
-                message: "Biocube Wavemaker Off 20m - CHECK Wavemaker!"
-                data:
-                  apns_headers:
-                  'apns-collapse-id': 'biocubewavemaker-switch'
-                  push:
-                    badge: 0
-                    category: "biocubewavemakerswitch"                
+                message: "Biocube Wavemaker Off 20m - CHECK Wavemaker!"          
             - service: notify.mobile_app_USER2_iphone
               data:
                 message: "Biocube Pump Off 20m - CHECK Wavemaker!"
-                data:
-                    apns_headers:
-                    'apns-collapse-id': 'biocubewavemaker-switch'
-                    push:
-                      badge: 0
-                      category: "biocubewavemakerswitch"   
 
         ##########################################################
         ## Biocube32 Pump Failure
@@ -357,12 +333,6 @@
             - service: notify.mobile_app_USER1_iphone
               data:
                 message: "Biocube Maintenance Mode Off 60m!"
-                data:
-                  apns_headers:
-                  'apns-collapse-id': 'biocubemaintenance-switch'
-                  push:
-                    badge: 0
-                    category: "biocubemaintenanceswitch"
 
         ##########################################################
         ## Feed Fish Reminder - USER4
@@ -384,10 +354,7 @@
                 conditions:
                   - condition: state
                     entity_id: device_tracker.USER4_iphone
-                    state: 'home'
-                  - condition: state
-                    entity_id: device_tracker.USER4_iphone_xs_unifi
-                    state: 'home'         
+                    state: 'home'     
           action:              
             - service: notify.mobile_app_USER1_iphone
               data:

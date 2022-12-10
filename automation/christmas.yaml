@@ -81,7 +81,10 @@
   condition:
     - condition: state
       entity_id: input_select.outdoor_theme
-      state: 'Christmas'       
+      state: 'Christmas'  
+    - condition: state
+      entity_id: group.household
+      state: 'home'
 
   action:
     - service: homeassistant.turn_on

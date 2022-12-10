@@ -161,3 +161,20 @@
       - light.outdoor_spot_5
       - light.outdoor_spot_6
       - light.outdoor_spot_7
+
+  - platform: group
+    name: Screen Room
+    entities:
+      - light.shed_1
+      - light.shed_2
+      - light.shed_3
+      - light.shed_4      
+
+  - platform: group
+    name: Shed
+    entities:
+      - light.shed_1
+      - light.shed_2
+      - light.shed_3
+      - light.shed_4
+      - light.shed_outdoor_light

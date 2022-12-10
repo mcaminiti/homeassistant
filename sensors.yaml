@@ -104,3 +104,14 @@
     unit_prefix: k
     round: 2
 
+       ##########################################################
+        ## Filtered Energy Sensors
+       ##########################################################
+
+  - platform: filter
+    name: "Washing Machine Power"
+    entity_id: sensor.washing_machine_current_power
+    filters:
+      - filter: time_throttle
+        window_size: 00:01
+        precision: 0
