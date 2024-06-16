@@ -47,9 +47,3 @@
       - TV Mode
     icon: mdi:theater
 
-
-#  chore_dishwasher_assignment:
-#    name: Unload Dishwasher Assignment
-#    options:
-#      - USER3
-#      - USER4

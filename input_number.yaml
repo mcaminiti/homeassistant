@@ -24,3 +24,18 @@
     max: 5
     step: 1
     unit_of_measurement: hours 
+
+  red_sea_high_temp_alarm:
+    name: Red Sea High Temp Alarm
+    min: 76
+    max: 83
+    step: 1
+    unit_of_measurement: degrees 
+
+  red_sea_low_temp_alarm:
+    name: Red Sea Low Temp Alarm
+    min: 75
+    max: 80
+    step: 1
+    unit_of_measurement: degrees
+    

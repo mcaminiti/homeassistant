@@ -23,7 +23,7 @@ frontend:
 sun:
 
 # Discovery of devices automatically if supported
-discovery:
+#discovery:
 
 # Config options for system and discovery devices
 config:
@@ -58,10 +58,6 @@ energy:
 #    homeassistant.components.device_tracker.unifi: debug
 #    homeassistant.components.switch.unifi: debug
 
-
-    
-map:
-
 # Enables support for tracking state changes over time.
 history:
 
@@ -82,24 +78,24 @@ stream:
 #  - name: Basement TV
 #    host: 'REDACTED.42'
 
-proximity:
-  home_tesla:
-    zone: home
-    devices:
-      - device_tracker.tesla_location
-    tolerance: 10
-    unit_of_measurement: m
+#proximity:
+#  home_tesla:
+#    zone: home
+#    devices:
+#      - device_tracker.tesla_location
+#    tolerance: 10
+#    unit_of_measurement: m
 
 # WeMo
 wemo:
   static:
-    - REDACTED.46
-    - REDACTED.47
+#    - REDACTED.46 ## Red Sea UV Light
+    - REDACTED.47 ## Mixing Pump
 #    - REDACTED.48
-    - REDACTED.70
-    - REDACTED.71
-    - REDACTED.72                
-    - REDACTED.73
+    - REDACTED.70 ## Washing Machine
+    - REDACTED.71 ## Golf Cart
+    - REDACTED.72 ## Sound Machine            
+#    - REDACTED.73
 #    - REDACTED.69
 
 
@@ -115,19 +111,19 @@ wemo:
 #  country_code: 1
 
 # Weather
-weather:
-  - platform: darksky
-    api_key: !secret secret_darksky_api_key
-    mode: daily
+#weather:
+#  - platform: darksky
+#    api_key: !secret secret_darksky_api_key
+#    mode: daily
 
 ## Lutron Caseta Pro - Custom Componant
-lutron_caseta_pro:
-    bridges:
-      - host: REDACTED.82
-        mac: REDACTED
-        default_transition_seconds: 1.0
-        # Note: Configure only switches, shades, and fans, all others will be dimmers
-        fan: [ 4, 9, 11, 14, 15 ]
+#lutron_caseta_pro:
+#    bridges:
+#      - host: REDACTED.82
+#        mac: REDACTED
+#        default_transition_seconds: 1.0
+#        # Note: Configure only switches, shades, and fans, all others will be dimmers
+#        fan: [ 4, 9, 11, 14, 15 ]
 
 
 ### Ecobee Key Not needed after first restart and setup
@@ -216,8 +212,16 @@ counter:
     initial: 0
     step: 1
     icon: mdi:counter
-
-
+  double_garage_spring_counter:
+    name: 'Double Garage Door Spring Counter'
+    initial: 0
+    step: 1
+    icon: mdi:counter
+  single_garage_spring_counter:
+    name: 'Single Garage Door Spring Counter'
+    initial: 0
+    step: 1
+    icon: mdi:counter
 
 ######## Input DateTime ########
 
@@ -281,7 +285,7 @@ logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 group: !include groups.yaml
 sensor: !include sensors.yaml
-binary_sensor: !include binary_sensors.yaml
+homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml

@@ -10,68 +10,37 @@
     display_options:
       - 'date_time'
       - 'time'     
-  - platform: systemmonitor
-    resources:
-      - type: memory_free
-      - type: memory_use_percent
-      - type: processor_use
-      - type: last_boot
+#  - platform: systemmonitor
+#    resources:
+#      - type: memory_free
+#      - type: memory_use_percent
+#      - type: processor_use
+#      - type: last_boot
 
 
         ##########################################################
         ## QNAP NAS
         ##########################################################
 
-  - platform: qnap
-    host: REDACTED.100
-    port: 443
-    username: !secret secret_qnap_username
-    password: !secret secret_qnap_password
-    ssl: true
-    verify_ssl: false
-    monitored_conditions:
-      - status
-      - system_temp
-      - cpu_temp
-      - cpu_usage
-      - memory_percent_used
-      - network_link_status
-      - drive_smart_status
-      - drive_temp
-      - volume_size_free
-      - volume_size_used
-      - volume_percentage_used
-
-        ##########################################################
-        ## Dark Sky Sensor
-        ##########################################################
-
-  - platform: darksky
-    api_key: !secret secret_darksky_api_key
-    monitored_conditions:
-      - summary
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
-      - nearest_storm_distance
-      - nearest_storm_bearing
-      - precip_type
-      - precip_intensity
-      - precip_probability
-      - temperature
-      - apparent_temperature
-      - dew_point
-      - wind_speed
-      - wind_bearing
-      - cloud_cover
-      - humidity
-      - pressure
-      - visibility
-      - ozone
-        
-
-
-
+#  - platform: qnap
+#    host: REDACTED.100
+#    port: 443
+#    username: !secret secret_qnap_username
+#    password: !secret secret_qnap_password
+#    ssl: true
+#    verify_ssl: false
+#    monitored_conditions:
+#      - status
+#      - system_temp
+#      - cpu_temp
+#      - cpu_usage
+#      - memory_percent_used
+#      - network_link_status
+#      - drive_smart_status
+#      - drive_temp
+#      - volume_size_free
+#      - volume_size_used
+#      - volume_percentage_used
 
         ##########################################################
         ## National Weather Service Alerting - Custom Sensor
@@ -88,21 +57,11 @@
 
   - platform: history_stats
     name: Red Sea Aqua UV Runtime Today
-    entity_id: switch.redsea_uv_sterlizer
+    entity_id: switch.1_uv_light
     state: "on"
     type: time
     start: "{{ now().replace(hour=0, minute=0, second=0) }}"
     end: "{{ now() }}"
-
-       ##########################################################
-        ## Integration Energy Sensors
-       ##########################################################
-
-  - platform: integration
-    source: sensor.esp_energy_total_watts
-    name: energy_total
-    unit_prefix: k
-    round: 2
 
        ##########################################################
         ## Filtered Energy Sensors

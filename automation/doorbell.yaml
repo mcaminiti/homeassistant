@@ -3,10 +3,11 @@
         ##########################################################
 
 - alias: Doorbell - Turn On Front Door when Rung
+  id: 'doorbell_turn_on_front_door_when_rung'    
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_ding
+      entity_id: binary_sensor.front_door_doorbell
       from: 'off'
       to: 'on'
 
@@ -30,10 +31,11 @@
         ##########################################################
 
 - alias: Doorbell - Reset Front Door After Ring
+  id: 'doorbell_reset_front_after_ring' 
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_ding
+      entity_id: binary_sensor.front_door_doorbell
       from: 'on'
       to: 'off'
       for:
@@ -55,14 +57,15 @@
         entity_id: scene.front_{{ states.input_select.outdoor_theme.state | lower | replace(' ', '_') | replace('\'', '') }}
 
         ##########################################################
-        ## Turn On Front Door when Motion Detected
+        ## Turn On Front Door when Person Detected
         ##########################################################
 
-- alias: Doorbell - Turn On Front Door when Motion Detected
+- alias: Doorbell - Turn On Front Door when Person Detected
+  id: 'doorbell_turn_on_front_door_when_person_detected' 
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_motion
+      entity_id: binary_sensor.front_door_person_detected
       from: 'off'
       to: 'on'
 
@@ -82,14 +85,14 @@
         kelvin: 2700
 
         ##########################################################
-        ## Reset Front Door After Motion Detected - Before Off
+        ## Reset Front Door After Person Detected - Before Off
         ##########################################################
 
-- alias: Doorbell - Reset Front Door After Motion Detected before 11:30
-
+- alias: Doorbell - Reset Front Door After Person Detected before 11:30
+  id: 'doorbell_reset_front_door_after_person_detected_before_11' 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_motion
+      entity_id: binary_sensor.front_door_person_detected
       from: 'on'
       to: 'off'
       for:
@@ -99,13 +102,12 @@
 
   condition:
     - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: state
       entity_id: input_boolean.disable_doorbell
       state: 'off'
     - condition: time
       before: '23:30:00'       
+    - condition: time
+      after: '16:00:00'      
 
   action:
     - service: light.turn_on
@@ -114,14 +116,14 @@
         brightness_pct: 30
         kelvin: 2700
         ##########################################################
-        ## Reset Front Door After Motion Detected - After Off
+        ## Reset Front Door After Person Detected - After Off
         ##########################################################
 
-- alias: Doorbell - Reset Front Door After Motion Detected after 11:30
-
+- alias: Doorbell - Reset Front Door After Person Detected after 11:30
+  id: 'doorbell_reset_front_door_after_person_detected_after_11' 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_motion
+      entity_id: binary_sensor.front_door_person_detected
       from: 'on'
       to: 'off'
       for:
@@ -131,28 +133,27 @@
       
   condition:
     - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: state
       entity_id: input_boolean.disable_doorbell
       state: 'off'
-    - condition: time
-      before: '06:30:00'
-    - condition: time  
-      after: '23:30:00' 
+    - condition: or
+      conditions:      
+        - condition: time
+          before: '08:00:00'
+        - condition: time  
+          after: '23:30:00' 
   action:
     - service: light.turn_off
       entity_id: light.front_door
               
         ##########################################################
-        ## Door Bell Rings - Audio Notification
+        ## Door Bell Rings - Audio Notification 
         ##########################################################
 
 - alias: Doorbell - Play Sound When Someone Rings Doorbell
-
+  id: 'doorbell_play_sound_when_someone_rings_doorbell' 
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_ding
+      entity_id: binary_sensor.front_door_doorbell
       from: 'off'
       to: 'on'
 
@@ -162,12 +163,6 @@
       state: 'off'
 
   action:
-#    - service: sonos.join
-#      data:
-#        master: media_player.office  
-#      entity_id:
-#        - media_player.office2
-#    - delay: '00:00:02'
     - service: media_player.volume_set
       entity_id:
         - media_player.office

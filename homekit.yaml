@@ -1,0 +1,126 @@
+#################################################################
+## HomeKit
+#################################################################
+
+  - filter:
+      include_entities:
+        - cover.double_garage
+        - cover.single_garage
+        - cover.basement_door
+        - cover.kitchen
+        - cover.family_room
+        - cover.office
+        - cover.master_bedroom
+        - cover.guest_bedroom
+        - cover.USER3_bedroom
+        - cover.USER4_bedroom
+        - cover.basement_door
+        - cover.basement_windows
+        - light.kitchen_cabinets
+        - light.kitchen_ceiling
+        - light.USER2_bedroom_1
+        - light.USER1_bedroom_1
+        - light.USER4_bedroom
+        - light.USER4_bedroom_ceiling_light
+        - light.USER3_bedroom
+        - light.USER3_bedroom_ceiling_light
+        - light.guest_bedroom
+        - light.family_room
+        - light.hall_closet
+        - light.pantry
+        - light.landscape
+        - light.front_door
+        - light.walkout
+        - light.garage
+        - light.basement
+        - input_select.basement_theme
+        - fan.USER3_bedroom_ceiling_fan
+        - fan.family_room_ceiling_fan
+        - fan.USER4_bedroom_ceiling_fan
+        - fan.master_bedroom_ceiling_fan
+        - fan.office_ceiling_fan
+        - switch.sound_machine
+        - switch.cardinals_sign
+        - switch.wax_melt
+        - climate.home
+        - sensor.master_bedroom_temperature
+        - sensor.USER3_bedroom_temperature
+        - sensor.USER4_bedroom_temperature
+        - binary_sensor.front_door_doorbell
+        - binary_sensor.front_door_person_detected
+        - binary_sensor.back_door
+        - binary_sensor.front_door
+        - binary_sensor.garage_entry_door
+        - binary_sensor.garage_entry_door
+        - binary_sensor.basement_door
+        - binary_sensor.pantry_door
+
+#################################################################
+## HomeKit Accessory Mode
+#################################################################
+
+  - name: Front Door Camera
+    mode: accessory
+    port: 21064
+    filter:
+      include_entities:
+        - camera.north_front_door_high
+    entity_config:
+        camera.front_door:
+          video_codec: copy
+          linked_motion_sensor: binary_sensor.front_door_person_detected
+          linked_doorbell_sensor: binary_sensor.front_door_doorbell
+
+  - name: Driveway Camera
+    mode: accessory
+    port: 21065
+    filter:
+      include_entities:
+        - camera.east_driveway_high
+    entity_config:
+        camera.driveway:
+          video_codec: copy
+
+  - name: Front Door Doorbell
+    mode: accessory
+    port: 21068
+    filter:
+      include_entities:
+        - camera.front_door_high
+    entity_config:
+        camera.driveway:
+          video_codec: copy
+
+  - name: Back Door Camera
+    mode: accessory
+    port: 21069
+    filter:
+      include_entities:
+        - camera.south_back_door_high
+    entity_config:
+        camera.driveway:
+          video_codec: copy
+
+  - name: Walkout Camera
+    mode: accessory
+    port: 21070
+    filter:
+      include_entities:
+        - camera.west_walkout_high
+    entity_config:
+        camera.driveway:
+          video_codec: copy
+
+  - name: Family Room TV
+    mode: accessory
+    port: 21066
+    filter:
+      include_entities:
+        - remote.family_room
+
+  - name: Basement TV
+    mode: accessory
+    port: 21067
+    filter:
+      include_entities:
+        - remote.basement

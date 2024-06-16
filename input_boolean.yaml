@@ -136,26 +136,3 @@
 
   teslagreydrawer:
     name: Tesla Gray Drawer
-
-##############################################################
-## Chores - Input Booleans  ##
-##############################################################
-#  chore_dishwasher_unloaded:
-#    name: Dishwasher Unloaded
-#    icon: mdi:dishwasher
-
-#  chore_USER4_bedroom_cleaned:
-#    name: USER4 Bedroom Cleaned
-#    icon: mdi:bed
-
-#  chore_USER3_bedroom_cleaned:
-#    name: USER3 Bedroom Cleaned
-#    icon: mdi:bed
-
-#  chore_USER4_bathroom_cleaned:
-#    name: USER4 Bathroom Cleaned
-#    icon: mdi:toilet
-
-#  chore_USER3_bathroom_cleaned:
-#    name: USER3 Bathroom Cleaned
-#    icon: mdi:toilet

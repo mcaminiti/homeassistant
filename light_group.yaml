@@ -32,8 +32,6 @@
     entities:
       - light.USER2_bedroom_1
       - light.USER1_bedroom_1
-      #- light.USER3_bedroom_1
-      #- light.USER4_bedroom_1
       - light.family_room_1
       - light.family_room_2
 

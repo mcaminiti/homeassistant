@@ -113,6 +113,27 @@
         {% endif %}
 
     ##########################################################
+    ## Trash Pickup Sensor
+    ##########################################################
+  - sensor:
+    - unique_id: trash_pickup
+      name: Trash Pickup
+      state: >
+        {% set d = (state_attr('calendar.trash', 'start_time') | as_datetime | as_local - today_at()).days %}
+        {{ {0:'Today', 1:'Tomorrow'}.get(d, d~' days') }}
+
+    ##########################################################
+    ## Recycling Pickup Sensor
+    ##########################################################
+  - sensor:
+    - unique_id: recycling_pickup
+      name: Recycling Pickup
+      state: >
+        {% set d = (state_attr('calendar.recycling', 'start_time') | as_datetime | as_local - today_at()).days %}
+        {{ {0:'Today', 1:'Tomorrow'}.get(d, d~' days') }}
+
+
+    ##########################################################
     ## Lift Station Sensor
     ##########################################################
   - sensor:
@@ -137,27 +158,73 @@
       state: '{{ states.counter.lift_station_activations_counter_current_day.state | int }}'
 
     ##########################################################
-    ## HVAC Honeywell Air Cleaner
+    ## HVAC Honeywell Air Cleaner - REMOVED
     ##########################################################
-  - sensor:
-    - unique_id: air_cleaner_status
-      name: Air Cleaner Status
-      state: >
-        {% if states('sensor.air_cleaner_current_power') | int <= 10 %}
-          not running
-        {% elif states('sensor.air_cleaner_current_power') | int >= 32 %}
-          running high power
-        {% else %}
-          running
-        {% endif %}
+#  - sensor:
+#    - unique_id: air_cleaner_status
+#      name: Air Cleaner Status
+#      state: >
+#        {% if states('sensor.air_cleaner_current_power') | int <= 10 %}
+#          not running
+#        {% elif states('sensor.air_cleaner_current_power') | int >= 32 %}
+#          running high power
+#        {% else %}
+#          running
+#        {% endif %}
 
     ##########################################################
     ## HVAC Geothermal Sensors
     ##########################################################
+
+    # 2023.03 Broke AuxHeat Functio and Status.  Need to use equipment running
   - sensor:
     - unique_id: thermostat_aux_heat
       name: Aux Heat
-      state: '{{ states.climate.home.attributes.aux_heat }}'
+      state: >
+        {% if is_state_attr('climate.home', 'equipment_running', 'auxHeat1,fan,heatPump2') %}
+          on
+        {% else %}
+          off
+        {% endif %}        
+  - sensor:
+    - unique_id: hvac_status
+      name: HVAC Status
+      state: >
+        {% if is_state_attr('climate.home', 'equipment_running', 'fan,heatPump') %}
+          Heat (Stage 1) 
+        {% elif is_state_attr('climate.home', 'equipment_running', 'fan,heatPump2') %}
+          Heat (Stage 2)     
+        {% elif is_state_attr('climate.home', 'equipment_running', 'auxHeat1,fan,heatPump2') %}
+          Heat (Stage 2) + Aux Heat  
+        {% elif is_state_attr('climate.home', 'equipment_running', 'auxHeat1,fan') %}
+          Aux Heat            
+        {% elif is_state_attr('climate.home', 'equipment_running', 'compCool1,fan') %}
+          Cool (Stage 1)               
+        {% elif is_state_attr('climate.home', 'equipment_running', 'compCool2,fan') %}
+          Cool (Stage 2)   
+        {% elif is_state_attr('climate.home', 'equipment_running', 'fan') %}
+          Fan
+        {% else %}
+          Idle
+        {% endif %}
+      icon: >
+        {% if is_state_attr('climate.home', 'equipment_running', 'fan,heatPump') %}
+          mdi:fire 
+        {% elif is_state_attr('climate.home', 'equipment_running', 'fan,heatPump2') %}
+          mdi:fire     
+        {% elif is_state_attr('climate.home', 'equipment_running', 'auxHeat1,fan,heatPump2') %}
+          mdi:fire-alert  
+        {% elif is_state_attr('climate.home', 'equipment_running', 'auxHeat1,fan') %}
+          mdi:fire-alert            
+        {% elif is_state_attr('climate.home', 'equipment_running', 'compCool1,fan') %}
+          mdi:snowflake               
+        {% elif is_state_attr('climate.home', 'equipment_running', 'compCool2,fan') %}
+          mdi:snowflake   
+        {% elif is_state_attr('climate.home', 'equipment_running', 'fan') %}
+          mdi:fan
+        {% else %}
+          mdi:fan-off
+        {% endif %}
 
     ##########################################################
     ## Media Center
@@ -216,9 +283,9 @@
       name: Alarm System Trouble
       state: '{{ states.sensor.home_alarm_keypad.attributes.trouble }}'
 
-        ##########################################################
-        ## National Weather Service Alerting - Custom Sensor
-        ##########################################################
+    ##########################################################
+    ## National Weather Service Alerting - Custom Sensor
+    ##########################################################
   - sensor:
     - unique_id: nws_tornado_warning
       name: NWS Tornado Warning
@@ -236,6 +303,24 @@
       name: NWS Winter Storm Warning
       state: '{{ states.sensor.nws_warnings.attributes.winter_storm_warning }}'
 
+
+    ##########################################################
+    ## Tomorrow.io Attributes - Custom Sensor
+    ##########################################################
+
+  - sensor:
+    - unique_id: outside_temperature
+      name: Outside Temperature
+      state: '{{ states.weather.tomorrow_io_home_daily.attributes.temperature }}'
+      unit_of_measurement: "°F"
+
+  - sensor:
+    - unique_id: outside_humidity
+      name: Outside Humidity
+      state: '{{ states.weather.tomorrow_io_home_daily.attributes.humidity }}'
+      unit_of_measurement: "%"
+
+
     ##########################################################
     ## IOS Location Sensors
     ##########################################################
@@ -251,19 +336,6 @@
   - sensor:
     - unique_id: USER3_iphone_location
       state: '{{ states.sensor.USER3_iphone_geocoded_location.attributes.Locality }}, {{ states.sensor.USER3_iphone_geocoded_location.attributes["Administrative Area"]}}'
-
-    ##########################################################
-    ## Driving Sensors
-    ##########################################################
-  - sensor:
-    - unique_id: USER1_driving_status
-      state: '{{ states.device_tracker.life360_USER1_REDACTED.attributes.driving }}'
-  - sensor:
-    - unique_id: USER2_driving_status
-      state: '{{ states.device_tracker.life360_USER2_REDACTED.attributes.driving }}'
-  - sensor:
-    - unique_id: USER3_driving_status
-      state: '{{ states.device_tracker.life360_USER3_REDACTED.attributes.driving }}'
 
     ##########################################################
     ## Chores Sensors
