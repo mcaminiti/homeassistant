@@ -7,22 +7,22 @@
         ##########################################################
 - alias: Audio Notification - Kitchen Sink Water Sensor
 
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: timer.started
       event_data:
         entity_id: timer.alarm_kitchen_sink_water_sensor
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: media_player.volume_set
+  actions:
+    - action: media_player.volume_set
       entity_id:
         - media_player.office
       data:
         volume_level: '0.6'
-    - service: tts.google_translate_say
+    - action: tts.google_translate_say
       entity_id: media_player.office
       data:
         message: 'Warning, Warning. Water detected by the Kitchen Sink.'
@@ -31,15 +31,15 @@
         ## Audio Notification Loop for Water Detected Kitchen Sink
         ##########################################################
 - alias: Audio Notification Loop - Kitchen Sink Water Sensor
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: timer.finished
     event_data:
       entity_id: timer.alarm_kitchen_sink_water_sensor
-  condition:
+  conditions:
     condition: state
     entity_id: binary_sensor.kitchen_sink_water_sensor
     state: 'on'
-  action:
-  - service: timer.start
+  actions:
+  - action: timer.start
     entity_id: timer.alarm_kitchen_sink_water_sensor

@@ -54,6 +54,7 @@
         - binary_sensor.garage_entry_door
         - binary_sensor.basement_door
         - binary_sensor.pantry_door
+        - switch.family_room_christmas_tree
 
 #################################################################
 ## HomeKit Accessory Mode

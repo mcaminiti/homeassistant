@@ -9,18 +9,18 @@
 - alias: 3D-Printer - Prusa MK4 Print Finished
   id: '3d_printer_prusa_mk4_print_finished'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.prusa_mk4
       to: 'finished'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: 3D Print Complete
         data:
@@ -35,8 +35,8 @@
 - alias: 3D-Printer - Prusa MK4 Print Error
   id: '3d_printer_prusa_mk4_print_error'
 
-  trigger:
-    - platform: numeric_state
+  triggers:
+    - trigger: numeric_state
       entity_id: sensor.prusa_mk4_nozzle_temperature
       below: 165
       for:
@@ -44,7 +44,7 @@
         minutes: 1
         seconds: 0
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
@@ -52,8 +52,8 @@
       entity_id: sensor.prusa_mk4
       state: 'printing'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: 3D Print Error
         data:
@@ -68,21 +68,21 @@
 - alias: 3D-Printer - Prusa MK4 Print Error Status
   id: '3d_printer_prusa_mk4_print_error_status'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.prusa_mk4
       to: 'error'
-    - platform: state
+    - trigger: state
       entity_id: sensor.prusa_mk4
       to: 'attention'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: 3D Print Error
         data:

@@ -282,7 +282,7 @@ input_datetime:
 ######## INCLUDES ########
 automation: !include_dir_merge_list automation
 logbook: !include logbook.yaml
-recorder: !include recorder.yaml
+#recorder: !include recorder.yaml
 group: !include groups.yaml
 sensor: !include sensors.yaml
 homekit: !include homekit.yaml
@@ -292,7 +292,7 @@ input_number: !include input_number.yaml
 light: !include light_group.yaml
 cover: !include cover.yaml
 script: !include scripts.yaml
-switch: !include switch.yaml
+command_line: !include command_line.yaml
 cloud: !include cloud.yaml
 mqtt: !include mqtt.yaml
 template: !include template.yaml

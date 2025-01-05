@@ -8,130 +8,130 @@
 
 - alias: Basement Theme - Red Alert
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_select.basement_theme
       to:  'Red Alert'
 
-  action:
+  actions:
     - delay: "00:00:10"     
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:02"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red   
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red   
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red  
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red   
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100
         color_name: red   
 #    - delay: "00:00:05"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_sitting_area
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_entry
 #    - delay: "00:00:05"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         brightness_pct: 100
         color_name: red
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         brightness_pct: 100

@@ -8,23 +8,23 @@
 - alias: Basement Harmony - Turn Off when TV Falls Asleep
   id: basement_harmony_turn_off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.basement_tv
       to: 'off'
       for:
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     condition: not
     conditions:
       - condition: state
         entity_id: sensor.basement_media_center
         state: "PowerOff"
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       data:
         option: "PowerOff"
       target:
@@ -37,23 +37,23 @@
 - alias: Basement Harmony - Turn Off when TV Falls Asleep
   id: family_room_harmony_turn_off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.family_room_tv
       to: 'off'
       for:
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     condition: not
     conditions:
       - condition: state
         entity_id: sensor.family_room_media_center
         state: "PowerOff"
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       data:
         option: "PowerOff"
       target:

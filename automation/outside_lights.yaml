@@ -6,36 +6,36 @@
         ## Turn off Front and Walkout Lights at 11:30pm
         ##########################################################
 
-- alias: Front and Walkout Lights Off
-  id: 'front_and_walkout_lights_off' 
+- alias: Outside Lights - Front and Walkout Lights Off
+  id: 'outside_lights_front_and_walkout_lights_off' 
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:30:00'
 
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: light.walkout
-    - service: homeassistant.turn_off
+    - action: homeassistant.turn_off
       entity_id: light.front_door
 
         ##########################################################
         ## Dim Landscape and Garage Lights at 11:35pm
         ##########################################################
 
-- alias: Landscape Lights Dim
-
-  trigger:
-    - platform: time
+- alias: Outside Lights - Landscape Lights Dim
+  id: 'outside_lights_landscape_lights_dim' 
+  triggers:
+    - trigger: time
       at: '23:35:00'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.landscape
       data:
         transition: 5
-        brightness_pct: 50
-    - service: light.turn_on
+        brightness_pct: 30
+    - action: light.turn_on
       entity_id: light.garage
       data:
         transition: 5
@@ -45,107 +45,109 @@
         ## Turn off Outside Lights - Outside at 4:00am
         ##########################################################
 
-- alias: Outside Lights Off
-
-  trigger:
-    - platform: time
+- alias: Outside Lights - Off
+  id: 'outside_lights_off' 
+  triggers:
+    - trigger: time
       at: '04:00:00'
 
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: light.garage
-    - service: homeassistant.turn_off
+    - action: homeassistant.turn_off
       entity_id: light.landscape
+    - action: homeassistant.turn_off
+      entity_id: input_boolean.animate_outside
 
         ##########################################################
         ## Turn off Outside Lights - Outside at 4:10am
         ##########################################################
 
-- alias: Outside Lights Off 2
-
-  trigger:
-    - platform: time
+- alias: Outside Lights - Off 2
+  id: 'outside_lights_off_2' 
+  triggers:
+    - trigger: time
       at: '04:10:00'
 
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: light.garage
-    - service: homeassistant.turn_off
-      entity_id: light.landscape
+    - action: homeassistant.turn_off
+      entity_id: light.landscape  
 
         ##########################################################
         ## Turn Off Front Door After Hours From Motion - No Landscape
         ##########################################################
 
-- alias: Front Door Lights Off After Motion
+#- alias: Front Door Lights Off After Motion
 
-  trigger:
-    - platform: state
-      entity_id: light.front_door
-      to: 'on'
-      for:
-        minutes: 15
+#  triggers:
+#    - trigger: state
+#      entity_id: light.front_door
+#      to: 'on'
+#      for:
+#        minutes: 15
 
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: time
-      after: '23:35:00'
-      before: '04:00:00'
+#  conditions:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'below_horizon'
+#    - condition: time
+#      after: '23:35:00'
+#      before: '04:00:00'
 
-  action:
-    - service: light.turn_off
-      entity_id: light.front_door
-      data:
-        transition: 15
+#  actions:
+#    - action: light.turn_off
+#      entity_id: light.front_door
+#      data:
+#        transition: 15
 
         ##########################################################
         ## Turn Off Front Door After Hours From Motion
         ##########################################################
 
-- alias: Front Lights Off After Motion
+#- alias: Front Lights Off After Motion
 
-  trigger:
-    - platform: state
-      entity_id: light.front_door
-      to: 'on'
-      for:
-        minutes: 15
+#  triggers:
+#    - trigger: state
+#      entity_id: light.front_door
+#      to: 'on'
+#      for:
+#        minutes: 15
 
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: time
-      after: '04:01:00'
-      before: '06:00:00'
+#  conditions:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'below_horizon'
+#    - condition: time
+#      after: '04:01:00'
+#      before: '08:00:00'
 
-  action:
-    - service: light.turn_off
-      entity_id: light.front_door
-      data:
-        transition: 15
-    - service: light.turn_off
-      entity_id: light.landscape
-      data:
-        transition: 60
+#  actions:
+#    - action: light.turn_off
+#      entity_id: light.front_door
+#      data:
+#        transition: 15
+#    - action: light.turn_off
+#      entity_id: light.landscape
+#      data:
+#        transition: 60
 
 
         ##########################################################
-        ## Landscape Hue Light Not On - Night
+        ## Outside Lights - Landscape Hue Light Not On - Night
         ##########################################################
 
-- alias: Landscape Hue Light Fix - Night On
-  id: 'landscape_hue_light_fix_night_on' 
+- alias: Outside Lights - Landscape Hue Light Fix - Night On
+  id: 'outside_lights_landscape_hue_light_fix_night_on' 
   
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.landscape
       to: 'on'
       for:
         minutes: 2
-  condition:
+  conditions:
     condition: and
     conditions:
       - condition: time
@@ -174,23 +176,23 @@
         - condition: state
           entity_id: light.outdoor_spot_7
           state: 'off'     
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.landscape    
 
         ##########################################################
-        ## Garage Hue Light Not On
+        ## Outside Lights - Garage Hue Light Not On
         ##########################################################
 
-- alias: Garage Hue Light Fix
-
-  trigger:
-    - platform: state
+- alias: Outside Lights - Garage Hue Light Fix
+  id: 'outside_lights_garage_hue_light_fix' 
+  triggers:
+    - trigger: state
       entity_id: light.garage
       to: 'on'
       for:
         minutes: 2
-  condition:
+  conditions:
     condition: or
     conditions:
       - condition: state
@@ -202,6 +204,30 @@
       - condition: state
         entity_id: light.garage_3
         state: "off"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.garage      
+
+
+        ##########################################################
+        ## Garage Back Door Light On
+        ##########################################################
+
+- alias: Outside Lights - Garage Back Door Light On
+  id: 'outside_lights_garage_back_door_light_on'
+
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garage_back_door
+      from: 'off'
+      to: 'on'
+  conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  actions:
+  - action: light.turn_on
+    entity_id: light.garage_back_door
+  - delay: "00:15:00"                  
+  - action: light.turn_off
+    entity_id: light.garage_back_door

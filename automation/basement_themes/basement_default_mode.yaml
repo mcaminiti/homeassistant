@@ -8,19 +8,19 @@
 
 - alias: Basement Theme - Default On
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_select.basement_theme
       to:  'Default'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         transition: 5
         brightness_pct: 100
         effect: "Warm White"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         transition: 5

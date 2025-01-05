@@ -9,7 +9,7 @@ Christmas Outside Lights:
   - switch.christmas_outdoor_3  
 
 Christmas Inside Lights:
-  - switch.christmas_family_room
+  - switch.family_room_christmas_tree
   - switch.christmas_basement
   - switch.USER3_christmas_tree
   - switch.USER4_christmas_tree

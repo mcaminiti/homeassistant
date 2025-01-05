@@ -9,16 +9,16 @@
 - alias: Outside Christmas Lights On
   id: 'outside_christmas_lights_on'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.landscape
       to: 'on'
-  condition:
+  conditions:
     - condition: state
       entity_id: input_select.outdoor_theme
       state: 'Christmas'   
-  action:
-    - service: homeassistant.turn_on
+  actions:
+    - action: homeassistant.turn_on
       entity_id: group.christmas_outside_lights
 
         ##########################################################
@@ -28,16 +28,16 @@
 - alias: Outside Christmas Lights Off
   id: 'outside_christmas_lights_off'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.landscape
       to: 'off'
-  condition:
+  conditions:
     - condition: state
       entity_id: input_select.outdoor_theme
       state: 'Christmas'      
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: group.christmas_outside_lights
 
 
@@ -48,13 +48,13 @@
 - alias: Inside Christmas Lights On - Household Home
   id: 'inside_christmas_lights_on_household_home'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: group.household
       from: 'not_home'
       to: 'home'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
@@ -62,8 +62,8 @@
       entity_id: input_select.outdoor_theme
       state: 'Christmas'       
 
-  action:
-    - service: homeassistant.turn_on
+  actions:
+    - action: homeassistant.turn_on
       entity_id: group.christmas_inside_lights
 
         ##########################################################
@@ -73,12 +73,12 @@
 - alias: Inside Christmas Lights On
   id: 'inside_christmas_lights_on'
 
-  trigger:
-    - platform: sun
+  triggers:
+    - trigger: sun
       event: 'sunset'
       offset: '-00:10:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_select.outdoor_theme
       state: 'Christmas'  
@@ -86,6 +86,6 @@
       entity_id: group.household
       state: 'home'
 
-  action:
-    - service: homeassistant.turn_on
+  actions:
+    - action: homeassistant.turn_on
       entity_id: group.christmas_inside_lights

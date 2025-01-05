@@ -7,49 +7,49 @@
         ##########################################################
 - alias: Smoke Sensor - Flash Lights when Smoke Warning
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.hallway_nest_protect_smoke_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.kitchen_nest_protect_smoke_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.master_bedroom_nest_protect_smoke_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.basement_nest_protect_smoke_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "red"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         flash: long
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Warning in House!"
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Smoke - Warning in House!"
 
@@ -58,49 +58,49 @@
         ##########################################################
 - alias: Smoke Sensor - Flash Lights when Smoke Emergency
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.hallway_nest_protect_smoke_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.kitchen_nest_protect_smoke_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.master_bedroom_nest_protect_smoke_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.basement_nest_protect_smoke_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "red"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         flash: long
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Smoke - Emergency in House!"
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Smoke - Emergency in House!"
 
@@ -109,49 +109,49 @@
         ##########################################################
 - alias: Smoke Sensor - Flash Lights when CO Warning
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.hallway_nest_protect_co_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.kitchen_nest_protect_co_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.master_bedroom_nest_protect_co_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.basement_nest_protect_co_status
       to: 'Warning'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "orange"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         flash: long
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Warning in House!"
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "CO - Warning in House!"
 
@@ -161,48 +161,48 @@
 
 - alias: Smoke Sensor - Flash Lights when CO Emergency
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.hallway_nest_protect_co_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.kitchen_nest_protect_co_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.master_bedroom_nest_protect_co_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-    - platform: state
+    - trigger: state
       entity_id: sensor.basement_nest_protect_co_status
       to: 'Emergency'
       for:
         hours: 0
         minutes: 0
         seconds: 3
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         brightness_pct: 100
         color_name: "orange"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.emergency_lights
       data:
         flash: long
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "CO - Emergency in House!"
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "CO - Emergency in House!"

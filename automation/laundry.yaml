@@ -8,8 +8,8 @@
 
 - alias: Notification - Washing Machine Done
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.washing_machine_status
       from: 'running'
       to: 'not running'
@@ -18,13 +18,13 @@
         minutes: 2
         seconds: 0
 
-  condition:
+  conditions:
     - condition: state
       entity_id: group.household
       state: 'home'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Washing Machine - Done"
 
@@ -34,19 +34,19 @@
 
 - alias: Laundry - Washing Machine Switch Off Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: switch.washing_machine
       from: 'on'
       to: 'off'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: Washing Machine Switch Turned Off!
         data:

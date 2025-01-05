@@ -11,31 +11,42 @@
     ##########################################################
 
     - alias: Master Bedroom Pico - On
+      id: 'pico_master_bedroom_pico_on'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '1'
-
-      action:
-        - service: light.turn_on
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 1
+            button_type: "on"
+            action: press
+            
+      actions:
+        - action: light.turn_on
           entity_id: light.master_bedroom
           data:
             brightness_pct: 100
+            kelvin: 2700
 
     ##########################################################
     ## Master Bedroom - Pico Off
     ##########################################################
 
     - alias: Master Bedroom Pico - Off
+      id: 'pico_master_bedroom_pico_off'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '4'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 4
+            button_type: "off"
+            action: press
 
-      action:
-        - service: light.turn_off
+      actions:
+        - action: light.turn_off
           entity_id: light.master_bedroom
 
     ##########################################################
@@ -43,19 +54,25 @@
     ##########################################################
 
     - alias: Master Bedroom Pico - Raise
+      id: 'pico_master_bedroom_pico_raise'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '8'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 8
+            button_type: "raise"
+            action: press
 
-      condition:
+
+      conditions:
         - condition: state
           entity_id: light.master_bedroom
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.master_bedroom
           data:
             brightness_pct: 75
@@ -65,19 +82,24 @@
     ##########################################################
 
     - alias: Master Bedroom Pico - Lower
+      id: 'pico_master_bedroom_pico_lower'
+      
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 16
+            button_type: "lower"
+            action: press
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '16'
-
-      condition:
+      conditions:
         - condition: state
           entity_id: light.master_bedroom
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.master_bedroom
           data:
             brightness_pct: 40
@@ -87,14 +109,19 @@
     ##########################################################
 
     - alias: Master Bedroom Pico - Favorite
+      id: 'pico_master_bedroom_pico_stop'
+      
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 2
+            button_type: "stop"
+            action: press
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '2'
-
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.master_bedroom
           data:
             kelvin: 2700
@@ -103,19 +130,36 @@
     ## Master Bedroom - Pico Favorite - LONG PRESS
     ##########################################################
 
-    - alias: Master Bedroom Pico - Favorite Long Press
+    ### NEED TO FIX, NOT WORKING WITH LONG PRESS RIGHT
 
-      trigger:
-        - platform: state
-          entity_id: sensor.master_bedroom_pico
-          to: '2'
-          for:
+    - alias: Master Bedroom Pico - Favorite Long Press
+      id: 'pico_master_bedroom_pico_stop_long_press'
+      
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43997118
+            ##button_number: 2
+            button_type: "stop"
+            action: press
+
+      actions:
+        - wait_for_trigger:
+              - trigger: event
+                event_type: lutron_caseta_button_event
+                event_data:
+                  serial: 43997118
+                  ##button_number: 2
+                  button_type: "stop"
+                  action: release
+          timeout:
             hours: 0
             minutes: 0
             seconds: 2
-
-      action:
-        - service: light.turn_on
+            milliseconds: 0
+          continue_on_timeout: false
+        - action: light.turn_on
           entity_id: light.master_bedroom
           data:
             kelvin: 3400
@@ -129,32 +173,42 @@
     ##########################################################
 
     - alias: Basement Entry Pico - On
+      id: 'pico_basement_entry_pico_on'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '1'
-
-      action:
-        - service: light.turn_on
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43514236
+            ##button_number: 1
+            button_type: "on"
+            action: press
+            
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_entry
           data:
             brightness_pct: 100
-            kelvin: 2700
+            kelvin: 2700      
 
     ##########################################################
     ## Basement Entry - Pico Off
     ##########################################################
 
     - alias: Basement Entry Pico - Off
+      id: 'pico_basement_entry_pico_off'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '4'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43514236
+            ##button_number: 4
+            button_type: "off"
+            action: press
 
-      action:
-        - service: light.turn_off
+      actions:
+        - action: light.turn_off
           entity_id: light.basement_entry
 
     ##########################################################
@@ -162,19 +216,24 @@
     ##########################################################
 
     - alias: Basement Entry Pico - Raise
+      id: 'pico_basement_entry_pico_raise'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '8'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43514236
+            ##button_number: 8
+            button_type: "raise"
+            action: press
 
-      condition:
+      conditions:
         - condition: state
           entity_id: light.basement_entry
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_entry
           data:
             brightness_pct: 60
@@ -184,19 +243,24 @@
     ##########################################################
 
     - alias: Basement Entry Pico - Lower
+      id: 'pico_basement_entry_pico_lower'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '16'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 43514236
+            ##button_number: 16
+            button_type: "lower"
+            action: press
 
-      condition:
+      conditions:
         - condition: state
           entity_id: light.basement_entry
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_entry
           data:
             brightness_pct: 30
@@ -205,41 +269,41 @@
     ## Basement Entry - Pico Favorite
     ##########################################################
 
-    - alias: Basement Entry Pico - Favorite
+    #- alias: Basement Entry Pico - Favorite
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '2'
+    #  triggers:
+    #    - trigger: state
+    #      entity_id: sensor.basement_entry_pico
+    #      to: '2'
 
-      action:
-        - service: input_select.select_option
-          target:
-            entity_id: input_select.basement_theme
-          data:
-            option: "Default"
+    #  actions:
+    #    - action: input_select.select_option
+    #      target:
+    #        entity_id: input_select.basement_theme
+    #      data:
+    #        option: "Default"
 
     ##########################################################
     ## Basement Entry - Pico Favorite - LONG PRESS
     ##########################################################
 
-    - alias: Basement Entry Pico - Favorite Long Press
+    #- alias: Basement Entry Pico - Favorite Long Press
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_entry_pico
-          to: '2'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 2
+    #  triggers:
+    #    - trigger: state
+    #      entity_id: sensor.basement_entry_pico
+    #      to: '2'
+    #      for:
+    #        hours: 0
+    #        minutes: 0
+    #        seconds: 2
 
-      action:
-        - service: input_select.select_option
-          target:
-            entity_id: input_select.basement_theme
-          data:
-            option: "Party"
+    #  actions:
+    #    - action: input_select.select_option
+    #      target:
+    #        entity_id: input_select.basement_theme
+    #      data:
+    #        option: "Party"
 
 
   #################################################################
@@ -251,32 +315,42 @@
     ##########################################################
 
     - alias: Basement Sitting Area Pico - On
+      id: 'pico_basement_sitting_area_pico_on'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '1'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 48067597
+            ##button_number: 1
+            button_type: "on"
+            action: press
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_sitting_area
           data:
             brightness_pct: 100
-            kelvin: 2700
+            kelvin: 2700       
 
     ##########################################################
     ## Basement Sitting Area - Pico Off
     ##########################################################
 
     - alias: Basement Sitting Area Pico - Off
+      id: 'pico_basement_sitting_area_pico_off'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '4'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 48067597
+            ##button_number: 4
+            button_type: "off"
+            action: press
 
-      action:
-        - service: light.turn_off
+      actions:
+        - action: light.turn_off
           entity_id: light.basement_sitting_area
 
     ##########################################################
@@ -284,19 +358,23 @@
     ##########################################################
 
     - alias: Basement Sitting Area Pico - Raise
+      id: 'pico_basement_sitting_area_pico_raise'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '8'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 48067597
+            button_type: "raise"
+            action: press
 
-      condition:
+      conditions:
         - condition: state
           entity_id: light.basement_sitting_area
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_sitting_area
           data:
             brightness_pct: 60
@@ -306,19 +384,23 @@
     ##########################################################
 
     - alias: Basement Sitting Area Pico - Lower
+      id: 'pico_basement_sitting_area_pico_lower'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '16'
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 48067597
+            button_type: "lower"
+            action: press
 
-      condition:
+      conditions:
         - condition: state
           entity_id: light.basement_sitting_area
           state: 'on'
 
-      action:
-        - service: light.turn_on
+      actions:
+        - action: light.turn_on
           entity_id: light.basement_sitting_area
           data:
             brightness_pct: 30
@@ -327,84 +409,85 @@
     ## Basement Sitting Area - Pico Favorite
     ##########################################################
 
-    - alias: Basement Sitting Area Pico - Favorite
+    #- alias: Basement Sitting Area Pico - Favorite
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '2'
+    #  triggers:
+    #    - trigger: state
+    #      entity_id: sensor.basement_sitting_area_pico
+    #      to: '2'
 
-      action:
-        - service: input_select.select_option
-          target:
-            entity_id: input_select.basement_theme
-          data:
-            option: "Default"
+    #  actions:
+    #    - action: input_select.select_option
+    #      target:
+    #        entity_id: input_select.basement_theme
+    #      data:
+    #        option: "Default"
 
     ##########################################################
     ## Basement Sitting Area - Pico Favorite - LONG PRESS
     ##########################################################
-    - id: basement.pico.long_press
-      alias: Basement Sitting Area Pico - Favorite Long Press
+    #- id: basement.pico.long_press
+    #  alias: Basement Sitting Area Pico - Favorite Long Press
 
-      trigger:
-        - platform: state
-          entity_id: sensor.basement_sitting_area_pico
-          to: '2'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 2
+    #  triggers:
+    #    - trigger: state
+    #      entity_id: sensor.basement_sitting_area_pico
+    #      to: '2'
+    #      for:
+    #        hours: 0
+    #        minutes: 0
+    #        seconds: 2
 
-      action:
-        - service: input_select.select_option
-          target:
-            entity_id: input_select.basement_theme
-          data:
-            option: "TV Mode"
+    #  actions:
+    #    - action: input_select.select_option
+    #      target:
+    #        entity_id: input_select.basement_theme
+    #      data:
+    #        option: "TV Mode"
 
   #################################################################
-  ## USER4 Bedroom Pico Remote
+  ## Biocube Pico Remote
   #################################################################
 
     ##########################################################
-    ## USER4 Bedroom - Pico On - Feed Off
+    ## Biocube - Pico On - Feed Off
     ##########################################################
 
-    - alias: USER4 Bedroom Pico On - Feed Off
+    - alias: Biocube Pico On - Feed Mode Off
+      id: 'biocube_pico_pico_on_feed_mode_off'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.USER4_bedroom_pico
-          to: '1'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 2
-      action:
-        - service: homeassistant.turn_off
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 46769819
+            ##button_number: 1
+            button_type: "on"
+            action: press
+
+      actions:
+        - action: homeassistant.turn_off
           entity_id: input_boolean.biocube_feed_mode
 
     ##########################################################
-    ## USER4 Bedroom - Pico Off - Feed On
+    ## Biocube - Pico Off - Feed On
     ##########################################################
 
-    - alias: USER4 Bedroom Pico Off - Feed On
+    - alias: Biocube Pico Off - Feed Mode On
+      id: 'biocube_pico_pico_off_feed_mode_on'
 
-      trigger:
-        - platform: state
-          entity_id: sensor.USER4_bedroom_pico
-          to: '4'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 2
-      action:
-        - service: homeassistant.turn_on
+      triggers:
+        - trigger: event
+          event_type: lutron_caseta_button_event
+          event_data:
+            serial: 46769819
+            ##button_number: 1
+            button_type: "off"
+            action: press
+
+      actions:
+        - action: homeassistant.turn_on
           entity_id: input_boolean.biocube_feed_mode
-
-
-
 
   #################################################################
   ## TEST Pico Remote
@@ -414,79 +497,3 @@
     ## TEST - Pico Test 2 seconds
     ##########################################################
 
-    - alias: Test Pico Test - 2 seconds
-
-      trigger:
-        - platform: state
-          entity_id: sensor.test_pico
-          to: '8'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 2
-      action:
-        - service: light.turn_on
-          entity_id: light.family_room
-          data:
-            brightness_pct: 20
-
-
-    ##########################################################
-    ## TEST - Pico Test 4 seconds
-    ##########################################################
-
-    - alias: Test Pico On Test - 4 seconds
-
-      trigger:
-        - platform: state
-          entity_id: sensor.test_pico
-          to: '8'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 4
-      action:
-        - service: light.turn_on
-          entity_id: light.family_room
-          data:
-            brightness_pct: 40
-
-    ##########################################################
-    ## TEST - Pico Test 6 seconds
-    ##########################################################
-
-    - alias: Test Pico On Test - 6 seconds
-
-      trigger:
-        - platform: state
-          entity_id: sensor.test_pico
-          to: '8'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 6
-      action:
-        - service: light.turn_on
-          entity_id: light.family_room
-          data:
-            brightness_pct: 60
-
-    ##########################################################
-    ## TEST - Pico Test 8 seconds
-    ##########################################################
-
-    - alias: Test Pico On Test - 8 seconds
-
-      trigger:
-        - platform: state
-          entity_id: sensor.test_pico
-          to: '8'
-          for:
-            hours: 0
-            minutes: 0
-            seconds: 8
-      action:
-        - service: light.turn_on
-          entity_id: light.family_room
-          data:
-            brightness_pct: 100

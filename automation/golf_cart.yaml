@@ -8,8 +8,8 @@
 
 - alias: Notification - Golf Cart Unplugged
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.golf_cart_status
       to: 'unplugged'
       for:
@@ -17,12 +17,12 @@
         minutes: 0
         seconds: 60
         #seconds: "{{ states.input_number.golf_cart_unplugged.state | int }}"
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Golf Cart - Unplugged - {{states.sensor.golf_cart_current_power.state}}w"
         data:

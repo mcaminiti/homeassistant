@@ -9,19 +9,14 @@
 - alias: Magic Mirror Off when Away
   id: 'magicmirror_off_away'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: group.family
       from: 'home'
       to: 'not_home'
 
-  condition:
-    - condition: state
-      entity_id: switch.magicmirror_display
-      state: 'on'
-
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: switch.magicmirror_display
 
 
@@ -32,60 +27,51 @@
 - alias: Magic Mirror On when Home
   id: 'magicmirror_on_away'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: group.family
       from: 'not_home'
       to: 'home'
 
-  condition:
-    - condition: state
-      entity_id: switch.magicmirror_display
-      state: 'off'
+  conditions:
     - condition: time
       after: '05:00:00'
       before: '23:00:00'
 
-  action:
-    - service: homeassistant.turn_on
+  actions:
+    - action: homeassistant.turn_on
+      entity_id: switch.magicmirror_display
+    - action: homeassistant.turn_on
+      entity_id: switch.magicmirror_restart         
+
+        ##########################################################
+        ## Magic Mirror Turn off at Night
+        ##########################################################
+
+- alias: Magic Mirror Turn Off At Night
+  id: 'magicmirror_turn_off_at_night'
+
+  triggers:
+    - trigger: time
+      at: '23:00:00'
+
+  actions:
+    - action: homeassistant.turn_off
       entity_id: switch.magicmirror_display
 
         ##########################################################
-        ## Magic Mirror Hide Weekend Chores
+        ## Magic Mirror Turn on at Morning
         ##########################################################
 
-- alias: Magic Mirror Hide Weekend Chores
-  id: 'magicmirror_hide_weekend_chores'
+- alias: Magic Mirror Turn On At Morning
+  id: 'magicmirror_turn_on_at_morning'
 
-  trigger:
-    - platform: time
-      at: '06:00:00'
+  triggers:
+    - trigger: time
+      at: '06:30:00'
 
-  condition:
-    - condition: time
-      weekday:
-        - mon
-
-  action:
-    - service: homeassistant.turn_off
-      entity_id: switch.magicmirror_weekend_chores_display
-
-        ##########################################################
-        ## Magic Mirror Show Weekend Chores
-        ##########################################################
-
-- alias: Magic Mirror Show Weekend Chores
-  id: 'magicmirror_show_weekend_chores'
-
-  trigger:
-    - platform: time
-      at: '06:00:00'
-
-  condition:
-    - condition: time
-      weekday:
-        - fri
-
-  action:
-    - service: homeassistant.turn_on
-      entity_id: switch.magicmirror_weekend_chores_display
+  actions:
+    - action: homeassistant.turn_on
+      entity_id: switch.magicmirror_display
+    - action: homeassistant.turn_on
+      entity_id: switch.magicmirror_restart      

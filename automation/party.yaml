@@ -8,14 +8,14 @@
 
 - alias: Party - Outside to Colorloop
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.party_outside
       to: 'on'
 
-  action:
+  actions:
     - delay: "00:00:25"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.garage
       data:
         effect: colorloop
@@ -30,17 +30,17 @@
 - alias: Party - Set Family Room to Random Color
   id: party_family_room_color_on
 
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       seconds: '/6'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.party_family_room
       state: 'on'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.family_room
       data:
         transition: 5
@@ -53,13 +53,13 @@
 
 - alias: Party - Set Family Room to Random Color Off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.party_family_room
       to: 'off'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id:
         - light.family_room
       data:
@@ -73,13 +73,13 @@
 
 - alias: Party - Set USER4 Bedroom to Random Color
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.party_USER4_bedroom
       to: 'on'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.USER4_bedroom
       data:
         effect: colorloop
@@ -92,13 +92,13 @@
 
 - alias: Party - Set USER4 Bedroom to Random Color Off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.party_USER4_bedroom
       to: 'off'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id:
         - light.USER4_bedroom
       data:
@@ -113,17 +113,17 @@
 
 - alias: Party - Set Test Random Color
 
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       seconds: '/6'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.party_family_room
       state: 'on'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.family_room_2
       data:
         transition: 5

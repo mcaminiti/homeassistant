@@ -8,13 +8,13 @@
 
 - alias: Basement Theme - None Reset
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.basement
       to:  'off'
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       data:
         entity_id: input_select.basement_theme
         option: None

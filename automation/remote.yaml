@@ -8,12 +8,12 @@
 
 - alias: Media - Remote external update Family Room Media Center
 
-  trigger:
-    platform: state
+  triggers:
+    trigger: state
     entity_id: remote.family_room
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       data_template:
         entity_id: input_select.remote_family_room
         option: >
@@ -21,12 +21,12 @@
 
 - alias: Media - Remote start activity from input select Family Room media center
 
-  trigger:
-    platform: state
+  triggers:
+    trigger: state
     entity_id: input_select.remote_family_room
 
-  action:
-    - service: script.turn_on
+  actions:
+    - action: script.turn_on
       entity_id: script.input_select_remote_family_room
 
 
@@ -36,12 +36,12 @@
 
 - alias: Media - Remote external update Basement Media Center
 
-  trigger:
-    platform: state
+  triggers:
+    trigger: state
     entity_id: remote.basement
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       data_template:
         entity_id: input_select.remote_basement
         option: >
@@ -49,10 +49,10 @@
 
 - alias: Media - Remote start activity from input select Basement media center
 
-  trigger:
-    platform: state
+  triggers:
+    trigger: state
     entity_id: input_select.remote_basement
 
-  action:
-    - service: script.turn_on
+  actions:
+    - action: script.turn_on
       entity_id: script.input_select_remote_basement

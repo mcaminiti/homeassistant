@@ -8,15 +8,15 @@
 
 - alias: Roomba - Stuck Notification
 
-  trigger:
-    - platform: template
+  triggers:
+    - trigger: template
       value_template: "{%if is_state_attr('vacuum.rosie', 'status', 'Stuck') %}true{%endif%}"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: Rosie is Stuck, Please Help
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: Rosie is Stuck, Please Help
 
@@ -26,14 +26,14 @@
 
 - alias: Roomba - Full Notification
 
-  trigger:
-    - platform: template
+  triggers:
+    - trigger: template
       value_template: "{%if is_state_attr('vacuum.rosie', 'bin_full', true) %}true{%endif%}"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: Rosie is Full, Empty It
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: Rosie is Full, Empty It

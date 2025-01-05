@@ -8,12 +8,12 @@
 
 - alias: Notification Text - Home Assistant Start
 
-  trigger:
-    - platform: homeassistant
+  triggers:
+    - trigger: homeassistant
       event: start
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Home Assistant Started"
 
@@ -23,11 +23,11 @@
 
 - alias: Notification Log - Home Assistant Start
 
-  trigger:
-    - platform: homeassistant
+  triggers:
+    - trigger: homeassistant
       event: start
-  action:
-    service: system_log.write
+  actions:
+    action: system_log.write
     data:
       message: "Home Assistant started."
 
@@ -37,13 +37,13 @@
 
 - alias: Notification Text - NAS Warning
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.nas_status
       to: 'warning'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "NAS RAID Failing"
 
@@ -58,14 +58,14 @@
 
 - alias: Notification Text - UPS Power Loss Alert
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.ups_status
       from: "Online"
       to: "On Battery Battery Discharging"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Power Outage - UPS Runtime - {{states.sensor.ups_battery_runtime_mins.state}}"
 
@@ -75,13 +75,13 @@
 
 - alias: Notification Text - UPS Low Runtime Alert
 
-  trigger:
-    - platform: numeric_state
+  triggers:
+    - trigger: numeric_state
       entity_id: sensor.ups_battery_runtime_mins
       below: 15
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "15 mins of UPS Battery Remaining!"
 
@@ -93,53 +93,53 @@
 - alias: Zwave - Unavailble Sensors in Home Assistant
   id: 'hardware_zwave_unavailable_sesnors'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.basement_drain_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Basement Drain Water Sensor Unavailable"
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.washing_machine_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Washing Machine Water Sensor Unavailable"
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.kitchen_sink_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Kitchen Sink Water Sensor Unavailable"     
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.refrigerator_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Refrigerator Water Sensor Unavailable" 
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.filtration_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Filtration Water Sensor Unavailable"     
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.red_sea_floor_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Red Sea Floor Water Sensor Unavailable"       
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.red_sea_sump_water_sensor
       to: "unavailable"
       variables:
         trigger_message: "Red Sea Sump Water Sensor Unavailable"
-    - platform: state
+    - trigger: state
       entity_id:  switch.basement_bathroom 
       to: "unavailable"
       variables:
         trigger_message: "Basement Bathroom Switch Unavailable"
-    - platform: state
+    - trigger: state
       entity_id:  switch.basement_room
       to: "unavailable"
       variables:
         trigger_message: "Basement Room Switch Unavailable"
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "{{ trigger_message }}"

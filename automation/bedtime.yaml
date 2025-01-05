@@ -9,8 +9,8 @@
 - alias: Bedtime Master Bedroom
   id: 'bedtime_master_bedroom'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.bedtime
       to: 'on'
       for:
@@ -18,11 +18,11 @@
         minutes: 0
         seconds: 5
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id:
         - light.master_bedroom
-    - service: switch.turn_on
+    - action: switch.turn_on
       entity_id:
         - switch.sound_machine
 
@@ -33,8 +33,8 @@
 - alias: Bedtime - Reset Switch
   id: 'bedtime_reset_switch'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.bedtime
       from: 'off'
       to: 'on'
@@ -43,6 +43,6 @@
         minutes: 1
         seconds: 0
 
-  action:
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_off
       entity_id: input_boolean.bedtime

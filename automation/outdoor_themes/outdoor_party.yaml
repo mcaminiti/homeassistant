@@ -3,89 +3,137 @@
 ##################################################################
 
         ##########################################################
-        ## Party Lighting
+        ## Party Lighting - On
         ##########################################################
 
 - alias: Outdoor Theme - Party On
+  id: 'outdoor_theme_party_on'  
 
-  trigger:
-    - platform: sun
+  triggers:
+    - trigger: sun
       event: 'sunset'
       offset: '-00:15:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_select.outdoor_theme
       state: 'Party'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.front_door
       data:
         transition: 5
         brightness_pct: 50
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.garage_1
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.garage_2
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.garage_3
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_1
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_2
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_3
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_4
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_5
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_6
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.outdoor_spot_7
       data:
         transition: 5
         brightness_pct: 100
-        effect: colorloop
-    - service: light.turn_on
+        hs_color:
+          - '{{ (range(0, 360)|random) }}'
+          - '100'
+    - action: light.turn_on
       entity_id: light.walkout
       data:
         brightness_pct: 100
+    - action: homeassistant.turn_on
+      entity_id: input_boolean.animate_outside
+
+
+        ##########################################################
+        ## Outside Lights Random Color Change
+        ##########################################################
+
+- alias: Outdoor Theme Random Color Change
+  id: 'outdoor_theme_random_color_change'  
+
+  triggers:
+    - trigger: time_pattern
+      seconds: '/10'
+
+  conditions:
+    - condition: state
+      entity_id: input_boolean.animate_outside
+      state: 'on'
+    - condition: state
+      entity_id: input_select.outdoor_theme
+      state: 'Party'
+  actions:
+    - action: automation.trigger
+      entity_id: automation.outdoor_theme_party_on

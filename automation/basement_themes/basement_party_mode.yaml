@@ -8,18 +8,18 @@
 
 - alias: Basement Theme - Party Mode On
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_select.basement_theme
       to: 'Party'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         transition: 10
         effect: "Party"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         transition: 10

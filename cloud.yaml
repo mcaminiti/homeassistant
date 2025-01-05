@@ -40,7 +40,9 @@
         - group.christmas_inside_lights
         - switch.USER3_christmas_tree
         - switch.USER4_christmas_tree
-        - switch.sound_machine        
+        - switch.sound_machine   
+        - switch.family_room_christmas_tree
+        - input_boolean.blackhawks_goal    
 
     entity_config:
         ##########################################################

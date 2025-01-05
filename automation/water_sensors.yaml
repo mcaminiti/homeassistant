@@ -8,18 +8,18 @@
 
 - alias: Notification - Basement Water Sensor
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.basement_drain_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected at Basement Drain!"
@@ -31,7 +31,7 @@
              volume: 1.0
 
 
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected at Basement Drain!"
 
@@ -41,19 +41,19 @@
 
 - alias: Notification - Washing Machine Water Sensor Text Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected at Washing Machine!"
@@ -63,7 +63,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Washing Machine!"
 
@@ -73,19 +73,19 @@
 
 - alias: Notification - Kitchen Sink Water Sensor Text Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.kitchen_sink_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected by Kitchen Sink!"
@@ -95,7 +95,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Kitchen Sink!"
 
@@ -106,18 +106,18 @@
 
 - alias: Notification - Refrigerator Water Sensor
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.refrigerator_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected under Refrigerator!"
@@ -127,7 +127,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Water Detected by Refrigerator!"
 
@@ -137,19 +137,19 @@
 
 - alias: Water Sensor - Washing Machine Shut Off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
 
-  action:
-    - service: switch.turn_off
+  actions:
+    - action: switch.turn_off
       entity_id:
         - switch.washing_machine
 
@@ -159,18 +159,18 @@
 
 - alias: Notification - Filtration Water Sensor
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.filtration_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected by Water Filtration in Basement!"
@@ -180,7 +180,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2_iphone
+ #   - action: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected by Water Filtration!"
 
@@ -190,18 +190,18 @@
 
 - alias: Notification - Red Sea Floor Water Sensor
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.red_sea_floor_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected on floor by Red Sea Tank in Basement!"
@@ -211,7 +211,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2_iphone
+ #   - action: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected on floor by Red Sea Tank in Basement!"
 
@@ -221,18 +221,18 @@
 
 - alias: Notification - Red Sea Sump Water Sensor
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.red_sea_sump_water_sensor
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Water Alert"
        message: "Water Detected in sump of Red Sea Tank in Basement!"
@@ -242,7 +242,7 @@
              name: default
              critical: 1
              volume: 1.0
- #   - service: notify.mobile_app_USER2_iphone
+ #   - action: notify.mobile_app_USER2_iphone
  #     data:
  #       message: "Water Detected on floor by Red Sea Tank in Basement!"
 
@@ -252,28 +252,28 @@
 
 - alias: Water Sensor - Flash Lights when Water Detected
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.basement_drain_water_sensor
       from: 'off'
       to: 'on'
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.washing_machine_water_sensor
       from: 'off'
       to: 'on'
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.kitchen_sink_water_sensor
       from: 'off'
       to: 'on'
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.refridgerator_water_sensor
       from: 'off'
       to: 'on'
-#    - platform: state
+#    - trigger: state
 #      entity_id: binary_sensor.filtration_water_sensor
 #      from: 'off'
 #      to: 'on'     
-  condition:
+  conditions:
     - condition: state
       entity_id: group.household
       state: 'home'
@@ -281,23 +281,23 @@
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.water_lights
       data:
         brightness_pct: 100
         color_name: "blue"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.water_lights
       data:
         flash: long
     - delay: "00:00:10"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.water_lights
       data:
         flash: long
     - delay: "00:00:10"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.water_lights
       data:
         brightness_pct: 100
@@ -310,12 +310,12 @@
 
 - alias: Repeat Test Water Sensor - Flash Lights when Water Detected
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.pantry_door
       from: 'off'
       to: 'on'     
-  condition:
+  conditions:
     - condition: state
       entity_id: group.household
       state: 'home'
@@ -323,17 +323,17 @@
       entity_id: input_boolean.disable_water_sensors
       state: 'off'
   mode: single
-  action:
+  actions:
     - alias: repeat flash until water not detected
       repeat:
         sequence:
           # Run command that for some reason doesn't always work
-          - service: light.turn_on
+          - action: light.turn_on
             entity_id: light.family_room_1
             data:
               brightness_pct: 100
               color_name: "blue"
-          - service: light.turn_on
+          - action: light.turn_on
             entity_id: light.family_room_1
             data:
               flash: long

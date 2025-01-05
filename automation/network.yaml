@@ -8,21 +8,21 @@
 
 - alias: Network - WAN Down Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.wan
       to: 'off'
       for:
         hours: 0
         minutes: 1
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
 
-  action:
-    - service: persistent_notification.create
+  actions:
+    - action: persistent_notification.create
       data:
         message: "Internet Down"
         title: "WAN"
@@ -34,8 +34,8 @@
 
 - alias: Network - WAN Up Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.wan
       from: 'off'
       to: 'on'
@@ -43,13 +43,13 @@
         hours: 0
         minutes: 1
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
 
-  action:
-    - service: persistent_notification.create
+  actions:
+    - action: persistent_notification.create
       data:
         message: "Internet Up"
         title: "WAN"
@@ -62,23 +62,23 @@
 
 - alias: Network - REDACTED VPN Down Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.REDACTED_vpn
       to: 'off'
       for:
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
     - condition: state
       entity_id: binary_sensor.wan
       state: 'on'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "REDACTED VPN Down"
 
@@ -88,8 +88,8 @@
 
 - alias: Network - REDACTED VPN Up Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.REDACTED_vpn
       from: 'off'
       to: 'on'
@@ -97,12 +97,12 @@
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "REDACTED VPN Up"
 
@@ -112,23 +112,23 @@
 
 - alias: Network - REDACTED VPN Down Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.REDACTED_vpn
       to: 'off'
       for:
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
     - condition: state
       entity_id: binary_sensor.wan
       state: 'on'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "REDACTED VPN Down"
 
@@ -138,8 +138,8 @@
 
 - alias: Network - REDACTED VPN Up Notification
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.REDACTED_vpn
       from: 'off'
       to: 'on'
@@ -147,11 +147,97 @@
         hours: 0
         minutes: 5
         seconds: 0
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.disable_notifications
       state: 'off'
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "REDACTED VPN Up"
+
+
+    #################################################################
+    ## REDACTED IP Change Notification
+    #################################################################
+
+- alias: Network - REDACTED IP Change Notification
+  id: 'network_REDACTED_ip_change_notification'
+
+  triggers:
+    - trigger: state
+      entity_id: sensor.REDACTED
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "ALERT - REDACTED IP Changed"
+
+    #################################################################
+    ## REDACTED IP Change Notification
+    #################################################################
+
+- alias: Network - REDACTED IP Change Notification
+  id: 'network_REDACTED_ip_change_notification'
+
+  triggers:
+    - trigger: state
+      entity_id: sensor.REDACTED
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "ALERT - REDACTED IP Changed"
+
+    #################################################################
+    ## HCS WAN Gateway Down Notification
+    #################################################################
+
+- alias: Network - HCS WAN Gateway Down Notification
+
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.hcs_wan_gateway
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 30
+  conditions:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: "HCS WAN Gateway Down"
+        title: "HCS"
+        notification_id: "1"
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "ALERT - HCS WAN Gateway Down"        
+
+    #################################################################
+    ## HCS WAN Gateway Up Notification
+    #################################################################
+
+- alias: Network - HCS WAN Gateway Up Notification
+
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.hcs_wan_gateway
+      from: 'off'
+      to: 'on'
+  conditions:
+    - condition: state
+      entity_id: input_boolean.disable_notifications
+      state: 'off'
+
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: "HCS WAN Gateway Down"
+        title: "HCS"
+        notification_id: "1"
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "ALERT - HCS WAN Gateway Up"   

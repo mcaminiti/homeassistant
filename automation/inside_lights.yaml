@@ -8,19 +8,19 @@
 
 - alias: Household Home
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: group.household
       from: 'not_home'
       to: 'home'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
 
-  action:
-    service: light.turn_on
+  actions:
+    action: light.turn_on
     entity_id: light.family_room
     data:
      brightness: 255
@@ -31,14 +31,14 @@
 
 - alias: Pantry Light On
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.pantry_door
       from: 'off'
       to: 'on'
 
-  action:
-    service: light.turn_on
+  actions:
+    action: light.turn_on
     entity_id: light.pantry
     data:
      brightness: 255
@@ -49,14 +49,14 @@
 
 - alias: Pantry Light Off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.pantry_door
       from: 'on'
       to: 'off'
 
-  action:
-    service: light.turn_off
+  actions:
+    action: light.turn_off
     entity_id: light.pantry
 
         ##########################################################
@@ -65,14 +65,14 @@
 
 - alias: Hall Closet Light On
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.hall_closet_door
       from: 'off'
       to: 'on'
 
-  action:
-    service: light.turn_on
+  actions:
+    action: light.turn_on
     entity_id: light.hall_closet
     data:
      brightness: 255
@@ -83,14 +83,14 @@
 
 - alias: Hall Closet Lights Off
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.hall_closet_door
       from: 'on'
       to: 'off'
 
-  action:
-    service: light.turn_off
+  actions:
+    action: light.turn_off
     entity_id: light.hall_closet
 
         ##########################################################
@@ -99,8 +99,8 @@
 
 - alias: Hall Closet Lights Off - Left Open
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.hall_closet
       from: 'off'
       to: 'on'
@@ -109,8 +109,8 @@
         minutes: 10
         seconds: 0
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: Hall Closet Lights Left On!
         data:
@@ -127,17 +127,17 @@
 
 - alias: USER4 Bedroom Lights Off
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:00:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: person.USER4
       state: 'home'
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id: light.USER4_bedroom
 
 
@@ -147,17 +147,17 @@
 
 - alias: USER3 Bedroom Lights Off
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:00:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: person.USER3
       state: 'home'
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id: light.USER3_bedroom
 
 
@@ -167,19 +167,19 @@
 
 - alias: USER4 Bedroom Lights Off - Away
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: person.USER4
       from: 'home'
       to: 'not_home'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: light.USER4_bedroom
       state: 'on'
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id: light.USER4_bedroom
 
 
@@ -189,19 +189,19 @@
 
 - alias: USER3 Bedroom Lights Off - Away
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: person.USER3
       from: 'home'
       to: 'not_home'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: light.USER3_bedroom
       state: 'on'
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id: light.USER3_bedroom
 
 
@@ -211,15 +211,53 @@
 - id: basement.light.off.reset_theme
   alias: Basement Lights Off - Reset Theme
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: light.basement
       from: 'on'
       to: 'off'
 
-  action:
-    - service: input_select.select_option
+  actions:
+    - action: input_select.select_option
       target:
         entity_id: input_select.basement_theme
       data:
         option: "None"      
+
+
+        ##########################################################
+        ## Wax Melt - Off after 5 Hours
+        ##########################################################
+
+- alias: Wax Melt - Off after Time
+  id: 'wax_melt_off_after_time'
+
+  triggers:
+    - trigger: state
+      entity_id: switch.wax_melt
+      to: 'on'
+      for:
+        hours: 5
+        minutes: 0
+        seconds: 0
+
+  actions:
+    - action: homeassistant.turn_off
+      entity_id: switch.wax_melt
+
+        ##########################################################
+        ## Wax Melt - Off after Away
+        ##########################################################
+
+- alias: Wax Melt - Off after Away
+  id: 'wax_melt_off_after_away'
+
+  triggers:
+    - trigger: state
+      entity_id: group.household
+      from: 'home'
+      to: 'not_home'
+
+  actions:
+    - action: homeassistant.turn_off
+      entity_id: switch.wax_melt

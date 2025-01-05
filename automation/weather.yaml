@@ -8,14 +8,14 @@
 
 - alias: Weather - Winter Weather Warning
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.nws_winter_storm_warning
       from: "0"
       to: "1"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.winter_storm_warning_headline }}"
 
@@ -25,14 +25,14 @@
 
 - alias: Weather - Tornado Warning
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.nws_tornado_warning
       from: "0"
       to: "1"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        title: "Tornado Warning"
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_warning_headline }}"
@@ -42,7 +42,7 @@
              name: default
              critical: 1
              volume: 1.0
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
        title: "Tornado Warning"
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_warning_headline }}"
@@ -59,13 +59,13 @@
 
 - alias: Weather - Tornado Watch
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.nws_tornado_watch
       from: "0"
       to: "1"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
        message: "NWS -- {{ states.sensor.nws_warnings.attributes.tornado_watch_headline }}"

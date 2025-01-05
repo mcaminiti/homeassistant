@@ -9,14 +9,15 @@
 - alias: Red Sea UV Light Usage - Total Counter
   id: 'red_sea_uv_usage_total_counter'
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:59:00'
 
-  action:
-    - service: input_number.set_value
+  actions:
+    - action: input_number.set_value
       data_template:
         entity_id: input_number.redsea_uv_light_usage
+        ## NEED TO FIX
         value: "{{ states.sensor.red_sea_aqua_uv_runtime_today.state | float / 24 + states.input_number.redsea_uv_light_usage.state | float }}" 
 
         ##########################################################
@@ -26,14 +27,14 @@
 - alias: Red Sea Dosing - Enabled
   id: 'red_sea_dosing_enabled'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.red_sea_dosing
       to: 'on'
 
-  action:
-    - service: homeassistant.turn_off
-      entity_id: switch.redsea_uv_sterlizer
+  actions:
+    - action: homeassistant.turn_off
+      entity_id: switch.1_uv_light
 
         ##########################################################
         ## Red Sea Dosing - Disabled
@@ -42,8 +43,8 @@
 - alias: Red Sea Dosing - Disabled
   id: 'red_sea_dosing_disabled'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_boolean.red_sea_dosing
       to: 'on'
       for:
@@ -51,114 +52,100 @@
         minutes: 0
         seconds: 0      
 
-  action:
-    - service: homeassistant.turn_on
-      entity_id: switch.redsea_uv_sterlizer
-    - service: homeassistant.turn_off
+  actions:
+    - action: homeassistant.turn_on
+      entity_id: switch.1_uv_light
+    - action: homeassistant.turn_off
       entity_id: input_boolean.red_sea_dosing     
 
 
         ##########################################################
-        ## Red Sea Algae Scrubber Light On
+        ## Red Sea Algae Scrubber Pump Failure
         ##########################################################
 
-- alias: Red Sea Algae Scrubber Light On
-  id: 'red_sea_algae_scrubber_light_on'
+#- alias: Red Sea Algae Scrubber Pump Failure
+#  id: 'red_sea_algae_scrubber_pump_failure'
 
-  trigger:
-    - platform: template
-      value_template: "{{ states('sensor.time') == (states.input_datetime.red_sea_algae_scrubber_light_on_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
-        
-  action:
-    - service: homeassistant.turn_on
-      entity_id: switch.red_sea_algae_scrubber_light
-
-
-        ##########################################################
-        ## Red Sea Algae Scrubber Light Off
-        ##########################################################
-
-- alias: Red Sea Algae Scrubber Light Off
-  id: 'red_sea_algae_scrubber_light_off'
-
-  trigger:
-    - platform: template
-      value_template: "{{ states('sensor.time') == (states.input_datetime.red_sea_algae_scrubber_light_off_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
-        
-  action:
-    - service: homeassistant.turn_off
-      entity_id: switch.red_sea_algae_scrubber_light
-
-        ##########################################################
-        ## Red Sea Algae Scrubber Light Not Running
-        ##########################################################
-
-- alias: Red Sea Algae Scrubber Light Not Running
-  id: 'red_sea_algae_scrubber_light_not_running'
-
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.red_sea_algae_scrubber_light_current_consumption
-      below: 13
-      for:
-        hours: 0
-        minutes: 5
-        seconds: 0
-  condition:
-    - condition: state
-      entity_id: switch.red_sea_algae_scrubber_light
-      state: 'on'
+#  triggers:
+#    - trigger: numeric_state
+#      entity_id: sensor.1_algae_scrubber_pump_current_consumption
+#      below: 15
+#      for:
+#        hours: 0
+#        minutes: 5
+#        seconds: 0
+#  conditions:
+#    - condition: state
+#      entity_id: switch.1_algae_scrubber_pump
+#      state: 'on'
   
-  action:
-    - service: notify.mobile_app_USER1_iphone
-      data:
-        message: "Red Sea Algae Scrubber Light Not Running"
+#  actions:
+#    - action: notify.mobile_app_USER1_iphone
+#      data:
+#        message: "Red Sea Algae Scrubber Pump Possible Failure. Low Power Usage"
 
         ##########################################################
         ## Red Sea Algae Scrubber Pump Not Running
         ##########################################################
 
+#- alias: Red Sea Algae Scrubber Pump Not Running
+#  id: 'red_sea_algae_scrubber_pump_not_running'
+
+#  triggers:
+#    - trigger: state
+#      entity_id: switch.1_algae_scrubber_pump
+#      to: 'off'  
+#      for:
+#        hours: 0
+#        minutes: 20
+#        seconds: 0
+#  actions:
+#    - action: notify.mobile_app_USER1_iphone
+#      data:
+#        message: "Red Sea Algae Scrubber Pump Not Running. Check Pump"
+
+
         ##########################################################
-        ## Biocube32 High Temperature Alert
+        ## Red Sea High Temperature Alert
         ##########################################################
 
 - alias: Red Sea High Temperature
   id: 'redsea_temperature_high'
 
-  trigger:
-    - platform: numeric_state
+  triggers:
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_1
-      above: 79
+      above: input_number.red_sea_high_temp_alarm
       for:
         hours: 0
         minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_2
-      above: 79
+      above: input_number.red_sea_high_temp_alarm
       for:
         hours: 0
         minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_3
-      above: 79
+      above: input_number.red_sea_high_temp_alarm
       for:
         hours: 0
         minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_4
-      above: 79
+      above: input_number.red_sea_high_temp_alarm
       for:
         hours: 0
         minutes: 20
         seconds: 0
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Red Sea Temp High - Check Tank!!"
-    - service: notify.mobile_app_USER2_iphone
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Red Sea Temp High - Check Tank!!"
 
@@ -170,39 +157,93 @@
 - alias: Red Sea Low Temperature
   id: 'redsea_temperature_low'
 
-  trigger:
-    - platform: numeric_state
+  triggers:
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_1
-      below: 76
+      below: input_number.red_sea_low_temp_alarm
       for:
         hours: 0
-        minutes: 10
+        minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_2
-      below: 76
+      below: input_number.red_sea_low_temp_alarm
       for:
         hours: 0
-        minutes: 10
+        minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_3
-      below: 76
+      below: input_number.red_sea_low_temp_alarm
       for:
         hours: 0
-        minutes: 10
+        minutes: 20
         seconds: 0
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.red_sea_temperature_4
-      below: 76
+      below: input_number.red_sea_low_temp_alarm
       for:
         hours: 0
-        minutes: 10
+        minutes: 20
         seconds: 0
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
-        message: "Biocube Temp Low - Check Tank Temp!!"
-    - service: notify.mobile_app_USER2_iphone
+        message: "Red Sea Temp Low - Check Tank Temp!!"
+    - action: notify.mobile_app_USER2_iphone
       data:
-        message: "Biocube Temp Low - Check Tank Temp!!"
+        message: "Red Sea Temp Low - Check Tank Temp!!"
+
+        ##########################################################
+        ## Red Sea Protein Skimmer Off with Return Pump
+        ##########################################################
+
+- alias: Red Sea Protein Skimmer Pump Off with Return Pump
+  id: 'red_sea_protein_skimmer_pump_off_with_return_pump'
+
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.1_return_pump_current_consumption
+      below: 30
+#      for:
+#        hours: 0
+#        minutes: 0
+#        seconds: 2
+  conditions:
+    - condition: state
+      entity_id: switch.1_protein_skimmer_pump
+      state: 'on'
+  
+  actions:
+    - action: homeassistant.turn_off
+      entity_id: switch.1_protein_skimmer_pump     
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "Red Sea Protein Skimmer Pump Turned Off with Return Pump"
+
+
+        ##########################################################
+        ## Red Sea Protein Skimmer Full
+        ##########################################################
+
+- alias: Red Sea Protein Skimmer Full
+  id: 'red_sea_protein_skimmer_full'
+
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.1_protein_skimmer_current_consumption
+      below: 10
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+  conditions:
+    - condition: state
+      entity_id: switch.1_protein_skimmer_pump
+      state: 'on'
+  
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "Red Sea Protein Skimmer possibly FULL! Low Power Usage."
+        

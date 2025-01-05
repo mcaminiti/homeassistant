@@ -8,20 +8,20 @@
 
 - alias: Vacation - Lights On Sunset
 
-  trigger:
-    - platform: sun
+  triggers:
+    - trigger: sun
       event: 'sunset'
       offset: '-00:10:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'on'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.family_room
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.master_bedroom
 
         ##########################################################
@@ -30,17 +30,17 @@
 
 - alias: Vacation - Lights Off 11p
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:34'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.vacation_mode
       state: 'on'
 
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       entity_id: light.family_room
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.master_bedroom

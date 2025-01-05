@@ -9,13 +9,13 @@
 - alias: Teslamate - Update Tesla location as MQTT location updates
   id: teslamate_update_location
   initial_state: on
-  trigger:
-    - platform: mqtt
+  triggers:
+    - trigger: mqtt
       topic: teslamate/cars/1/latitude
-    - platform: mqtt
+    - trigger: mqtt
       topic: teslamate/cars/1/longitude
-  action:
-    - service: device_tracker.see
+  actions:
+    - action: device_tracker.see
       data_template:
         dev_id: tesla_location
         gps:
@@ -30,11 +30,11 @@
 - alias: Tesla Not Plugged In After 9pm
   id: tesla_not_plugged_in
 
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '21:00:00'
 
-  condition:
+  conditions:
     - condition: state
       entity_id: person.USER1
       state: 'home'
@@ -45,7 +45,7 @@
       entity_id: binary_sensor.tesla_plugged_in
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Tesla Not Plugged In"

@@ -9,14 +9,14 @@
 - alias: Alarm - Trouble Notification
   id: 'alarm_trouble_notification'  
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.alarm_system_trouble
       from: "false"
       to: "true"
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Alarm System Trouble Light On"
 
@@ -28,13 +28,13 @@
 - alias: Away Notification - Garage Door Opened
   id: 'away_notification_garage_door_opened'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: group.garage_doors
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: not
       conditions:
       - condition: state
@@ -44,9 +44,16 @@
       entity_id: input_boolean.disable_away_notifications
       state: 'off'
 
-  action:
+  actions:
     - delay: '00:00:10'
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Garage Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage_high
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Away Alert - Garage Door Opened"
         data:
@@ -61,13 +68,13 @@
 - alias: Away Notification - Back Door Opened
   id: 'away_notification_back_door_opened'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.back_door
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: not
       conditions:
       - condition: state
@@ -77,8 +84,15 @@
       entity_id: input_boolean.disable_away_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Back Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.south_back_door_high
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Away Alert - Back Door Opened"
         data:
@@ -94,13 +108,13 @@
   id: 'away_notification_front_door_opened'
 
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.front_door
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: not
       conditions:
       - condition: state
@@ -110,15 +124,21 @@
       entity_id: input_boolean.disable_away_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Away Alert - Front Door Opened"
         data:
           push:
             category: camera
           entity_id: camera.north_front_door_high
-
+    - action: notify.mobile_app_USER2_iphone
+      data:
+        message: "Away Alert - Front Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.north_front_door_high
 
         ##########################################################
         ## Away Notification - Basement Door Opened
@@ -127,13 +147,13 @@
 - alias: Away Notification - Basement Door Opened
   id: 'away_notification_basement_door_opened'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.basement_door
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: not
       conditions:
       - condition: state
@@ -143,8 +163,15 @@
       entity_id: input_boolean.disable_away_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "Away Alert - Basement Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.west_walkout_high
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "Away Alert - Basement Door Opened"
         data:
@@ -159,13 +186,13 @@
 - alias: Away Notification - Garage Back Door Opened
   id: 'away_notification_garage_back)door_opened'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.garage_back_door
       from: 'off'
       to: 'on'
 
-  condition:
+  conditions:
     - condition: not
       conditions:
       - condition: state
@@ -175,15 +202,21 @@
       entity_id: input_boolean.disable_away_notifications
       state: 'off'
 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Away Alert - Garage Back Door Opened"
         data:
           push:
             category: camera
           entity_id: camera.garage_high
-
+    - action: notify.mobile_app_USER2_iphone
+      data:
+        message: "Away Alert - Garage Back Door Opened"
+        data:
+          push:
+            category: camera
+          entity_id: camera.garage_high
 
         #################################################################
         ## Notification - Exterior Door Open Long
@@ -192,8 +225,8 @@
 - alias: Notification - Exterior Door Open Long
   id: 'alarm_exterior_door_open_long'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.back_door
       from: "off"
       to: "on"
@@ -204,7 +237,7 @@
       variables:
         trigger_message: "Alert - Back Door Opened 1 Minute"
         trigger_camera: "camera.south_back_door_high"
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.basement_door
       from: "off"
       to: "on"
@@ -215,7 +248,7 @@
       variables:
         trigger_message: "Alert - Basement Door Opened 1 Minute"
         trigger_camera: "camera.west_walkout_high"
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.front_door
       from: "off"
       to: "on"
@@ -226,15 +259,21 @@
       variables:
         trigger_message: "Alert - Front Door Opened 1 Minute"
         trigger_camera: "camera.north_front_door_high"        
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "{{ trigger_message }}"
         data:
           push:
             category: camera
           entity_id: "{{ trigger_camera }}"
-
+    - action: notify.mobile_app_USER2_iphone
+      data:
+        message: "{{ trigger_message }}"
+        data:
+          push:
+            category: camera
+          entity_id: "{{ trigger_camera }}"
 
         #################################################################
         ## Notification - Garage Entry Door Open Long
@@ -243,8 +282,8 @@
 - alias: Notification - Garage Entry Door Open Long
   id: 'alarm_garage_entry_door_open_long'
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.garage_entry_door
       from: "off"
       to: "on"
@@ -255,7 +294,7 @@
       variables:
         trigger_message: "Alert - Garage Entry Door Opened 1 Minute"
         trigger_camera: "camera.garage_high"
-  condition:
+  conditions:
     condition: or
     conditions:
       - condition: state
@@ -264,8 +303,15 @@
       - condition: state
         entity_id: cover.single_garage
         state: "open" 
-  action:
-    - service: notify.mobile_app_USER1_iphone
+  actions:
+    - action: notify.mobile_app_USER1_iphone
+      data:
+        message: "{{ trigger_message }}"
+        data:
+          push:
+            category: camera
+          entity_id: "{{ trigger_camera }}"
+    - action: notify.mobile_app_USER2_iphone
       data:
         message: "{{ trigger_message }}"
         data:

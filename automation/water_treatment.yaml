@@ -8,17 +8,17 @@
 
 - alias: Lift Station Activations Counter
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.lift_station_status
       to: 'running'
       
   action:  
-    - service: counter.increment
+    - action: counter.increment
       entity_id: counter.lift_station_activations_counter
-    - service: counter.increment
+    - action: counter.increment
       entity_id: counter.lift_station_activations_counter_current_day
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Lift Station Running - {{states.counter.lift_station_activations_counter_current_day.state}}"
       
@@ -27,16 +27,16 @@
         ##########################################################
 
 - alias: Lift Station Activations Counter - Daily
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: '23:59:00'
 
-  action:
-    - service: counter.configure
+  actions:
+    - action: counter.set_value
       data_template:
         entity_id: counter.lift_station_activations_counter_last_day
         value: "{{ states.counter.lift_station_activations_counter_current_day.state | int }}" 
-    - service: counter.reset
+    - action: counter.reset
       entity_id: counter.lift_station_activations_counter_current_day
 
         ##########################################################
@@ -45,8 +45,8 @@
 
 - alias: Lift Station Check System
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.lift_station_status
       to: 'check system'
       for:
@@ -55,6 +55,6 @@
         seconds: 0
       
   action:  
-    - service: notify.mobile_app_USER1_iphone
+    - action: notify.mobile_app_USER1_iphone
       data:
         message: "Lift Station Error - Check Status - {{states.sensor.esp_energy_ct1_lift_station_watts.state}}"

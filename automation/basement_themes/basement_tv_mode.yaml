@@ -8,27 +8,27 @@
 
 - alias: Basement Theme - TV Mode On
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: input_select.basement_theme
       to: 'TV Mode'
 
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       entity_id: light.basement_sitting_area
       data:
         transition: 10
         effect: "TV time"
-    - service: light.turn_on
+    - action: light.turn_on
       entity_id: light.basement_entry
       data:
         transition: 10
         effect: "TV time"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_recessed_2
       data:
         transition: 10
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.basement_recessed_5
       data:
         transition: 10
